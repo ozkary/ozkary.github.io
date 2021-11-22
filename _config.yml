@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Ozkary Dev"
+title                    : "Ozkary Technologies"
 title_separator          : "-"
-subtitle                 : "Technology Topics"# site tagline that appears below site title in masthead
+subtitle                 : "Technology Topics" # site tagline that appears below site title in masthead
 name                     : "Oscar D. Garcia"
 description              : "A site with technology topics"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -102,10 +102,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  name             : "Oscar D. Garcia - Ozkary"
+  avatar           : "/assets/oscar-d-garcia.png"
+  bio              : "Oscar Garcia is a Principal Software Architect and VP of product development. He is a Microsoft MVP and certified solutions' developer with many years of experience building software solutions. He specializes in building cloud solutions using technologies like GCP, AWS, Azure, ASP.NET, NodeJS, Angular, React, SharePoint, Microsoft 365, Firebase as well as BI projects for data visualization using tools like Tableau and PowerBI, Spark. You can follow Oscar on Twitter @ozkary or his blog at ozkary.com VP of Product Development 5 consecutive Microsoft Most Valuable Professional (MVP)."
+  location         : "the cloud"
   email            :
   links:
     - label: "Email"
