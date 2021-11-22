@@ -1,0 +1,17 @@
+# Authors
+
+Oscar Garcia:
+  name        : "Oscar Garcia"
+  bio         : "What do you want, jewels? I am a very extravagant man."
+  avatar      : "/assets/images/oscar-d-garcia.jpg"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:support@ozkary.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.ozkary.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/ozkary"
+
