@@ -816,7 +816,7 @@ facebook:
 For pages that don't have a `header.image` assigned in their YAML Front Matter, `site.og_image` will be used as a fallback. Use your logo, icon, avatar or something else that is meaningful. Just make sure it is place in the `/assets/images/` folder, a minimum size of 120px by 120px, and less than 1MB in file size.
 
 ```yaml
-og_image: /assets/images/site-logo.png
+og_image: /assets/oscar-d-garcia.png
 ```
 
 <figure>
