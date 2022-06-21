@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+    <html>
+    <META NAME="robots" CONTENT="noindex,nofollow">
+    <head>
+        <title>Ozki Chatbot</title>     
+        <style>
+            html, body {
+                height: 100%;
+            }
+            body {
+                margin: 0;
+            }
+            h1 {
+                font-size: 16px;
+                font-family: Segoe UI;
+                line-height: 20px;
+                color: whitesmoke;
+                display: table-cell;
+                padding: 13px 0px 0px 20px;
+            }
+            .heading {
+                background-color: black;
+                height: 50px;
+            }
+            .main {
+                margin: 18px;
+                border-radius: 4px;
+            }
+
+            div[role="form"]{
+                background-color: black;
+            }        
+            #webchat {
+                position: fixed;
+                height: calc(100% - 50px);
+                width: 100%;
+                top: 50px;                
+                overflow: hidden;                
+
+            }
+            .webchat__bubble:not(.webchat__bubble--from-user) .webchat__bubble__content {
+                font-size: 18px !important;
+                border-top: 7px solid rgb(0, 164, 189) !important;
+                background-color: rgb(245, 248, 250);
+                color: #33475b;
+            }
+
+            .webchat__bubble--from-user .webchat__bubble__content {
+                border-top: 7px solid green !important;                
+            }
+            
+            .webchat__send-box__main, .webchat__send-box-text-box__input {                
+                background-color: whitesmoke !important;
+                color: #33475b !important;
+                font-size: 18px !important;
+                height: 75px !important;
+            }
+          
+          </style>
+    </head>
+    <body>
+        <div>
+            <div class="heading">
+
+                <!-- Change the h1 text to change the bot name -->    
+                <h1> Ozki Vehicle Protection Bot</h1>
+
+            </div>
+            <div id="webchat" role="main"></div>
+        </div>    
+      <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+      <script>
+            const styleOptions = {
+               // Add styleOptions to customize web chat canvas
+               hideUploadButton: true
+            };
+
+            // Add your BOT ID below
+            var BOT_ID = "3f9c3055-69bb-4e75-adf9-67135b5878ad"; 
+
+            var theURL = "https://powerva.microsoft.com/api/botmanagement/v1/directline/directlinetoken?botId=" + BOT_ID;
+
+            const store = window.WebChat.createStore(
+               {},
+               ({ dispatch }) => next => action => {
+                   if (action.type === "DIRECT_LINE/CONNECT_FULFILLED") {
+                      dispatch({
+                          meta: {
+                               method: "keyboard",
+                           },
+                           payload: {
+                               activity: {
+                                     channelData: {
+                                          postBack: true,
+                                     },
+                                      //Web Chat will show the 'Greeting' System Topic message which has a trigger-phrase 'hello'
+                                      name: 'startConversation',
+                                      type: "event"
+                                 },
+                            },
+                            type: "DIRECT_LINE/POST_ACTIVITY",
+                       });
+                 }
+                 return next(action);
+              }
+           );
+           fetch(theURL)
+                .then(response => response.json())
+                .then(conversationInfo => {
+                    window.WebChat.renderWebChat(
+                        {
+                            directLine: window.WebChat.createDirectLine({
+                                token: conversationInfo.token,
+                            }),
+                            store: store,
+                            styleOptions: styleOptions
+                        },
+                        document.getElementById('webchat')
+                    );
+                })
+                .catch(err => console.error("An error occurred: " + err));
+        </script>
+      </body>
+    </html>
