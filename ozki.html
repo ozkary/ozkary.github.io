@@ -24,7 +24,7 @@
             }
             .heading {
                 background-color: black;
-                height: 75px;
+                height: 50px;
             }
             .main {
                 margin: 18px;
@@ -36,9 +36,9 @@
             }        
             #webchat {
                 position: fixed;
-                height: calc(100% - 75px);
+                height: calc(100% - 50px);
                 width: 100%;
-                top: 75px;                
+                top: 50px;                
                 overflow: hidden;                
 
             }
@@ -63,7 +63,7 @@
                 background-color: whitesmoke !important;
                 color: #33475b !important;
                 font-size: 1.5rem !important;
-                height: 75px !important;
+                height: 50px !important;
             }
 
             .webchat__stacked-layout__message {
@@ -99,6 +99,25 @@
                 float: right;
                 margin: 0 0 0 5px;
             }
+
+            @media (max-width: 768px) { 
+
+                h1 {
+                    font-size: 1.6rem;
+                    font-family: Segoe UI;
+                }
+
+               .webchat__bubble{
+                    font-size: 1rem !important;                    
+                }
+
+               .webchat__suggested-actions__button-text{
+                 font-size: 1rem !important;               
+               }
+               .webchat__suggested-action{
+                height: 30px !important;
+               }
+             }
           
           </style>
     </head>
