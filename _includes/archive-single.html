@@ -27,7 +27,7 @@
     </h2>
     {% include page__meta.html type=include.type %}
     {% if include.type == "list" and teaser %}
-      <div class="archive__item-teaser thumbnail-container">
+      <div class="thumbnail-container">
         <img src="{{ teaser | relative_url }}" alt="{{teaserAlt}}">
       </div>
     {% endif %}
