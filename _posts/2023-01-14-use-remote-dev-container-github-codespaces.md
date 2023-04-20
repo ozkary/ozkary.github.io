@@ -1,6 +1,6 @@
 ---
 title: "Use Remote Dev Container with GitHub Codespaces"
-excerpt: "With  the use of remote managed development environments like GitHub Codespaces, Developers can focus on coding instead of managing VMs..."
+excerpt: "As Software Engineers, we usually work with multiple projects in parallel. This forces us to configure our work stations with multiple software development tools, which eventually leaves our workstation performing poorly. To overcome this problem, we often use virtual machine (VM) instances that run in our workstations or a cloud provider like Azure. Setting up those VMs also introduces some overhead into our software development process. "
 last_modified_at: 2023-01-14T13:00:00
 header:
   teaser: "../assets/2023/ozkary-codespace.png"

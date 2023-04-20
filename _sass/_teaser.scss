@@ -3,10 +3,14 @@
     overflow: hidden;
     max-width: 100%;        
     margin-bottom: 25px;
-    
-    img {        
-        width: 250px;
-        margin-top: -11.5%;        
-        margin-bottom: -11.5%;
+        
+    .img {
+        float:left;
+        margin:0px 10px 5px 0px;
+        padding:4px;
+        border:0px solid #eee;
+        background:none;
+        width:250px;
+        height:auto;
     }
 }
