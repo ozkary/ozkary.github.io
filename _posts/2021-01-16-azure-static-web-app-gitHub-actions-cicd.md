@@ -1,5 +1,4 @@
 ---
----
 title: "Azure Static Web App GitHub Actions CICD"
 excerpt: "Static Web App (SWA) is a software as a service (SaaS) solution hosted by Azure cloud which enables us to use Content Delivery Network (CDN) to host single page applications (SPA) built with JavaScript frameworks like React, Angular and others.."
 last_modified_at: 2018-01-03T09:45:06-05:00
