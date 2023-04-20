@@ -3,7 +3,7 @@ title: "Use Remote Dev Container with GitHub Codespaces"
 excerpt: "With  the use of remote managed development environments like GitHub Codespaces, Developers can focus on coding instead of managing VMs..."
 last_modified_at: 2023-01-14T13:00:00
 header:
-  teaser: "assets/2023/ozkary-codespace.png"
+  teaser: "../assets/2023/ozkary-codespace.png"
 tags: 
   - code  
   - cloud
