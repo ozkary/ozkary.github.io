@@ -4,6 +4,7 @@ excerpt: "Static Web App (SWA) is a software as a service (SaaS) solution hosted
 last_modified_at: 2018-01-03T09:45:06-05:00
 header:
   teaser: "../assets/2021/ozkary-GitHub-CICD.png"
+  teaserAlt: ""
 tags: 
   - code
   - syntax highlighting

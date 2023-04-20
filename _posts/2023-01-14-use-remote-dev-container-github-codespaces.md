@@ -4,6 +4,7 @@ excerpt: "With  the use of remote managed development environments like GitHub C
 last_modified_at: 2023-01-14T13:00:00
 header:
   teaser: "../assets/2023/ozkary-codespace.png"
+  teaserAlt: "Ozkary GitHub Codespaces layers"
 tags: 
   - code  
   - cloud
