@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals"
 excerpt: "Data Engineering is changing constantly. From cloud data platforms and pipeline automation to data streaming and visualizations tools, new innovations are impacting that way we build today’s data and analytical solutions. This is an overview of Data Engineering Process with hands-on code samples."
 last_modified_at: 2023-03-25T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-overview.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process.png"
   teaserAlt: "Ozkary Data Engineering Process"
 tags: 
   - pipelines  
