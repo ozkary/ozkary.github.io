@@ -19,6 +19,9 @@ In this series of Data Engineering Process Fundamentals, we explore the Data Eng
 
 During the discovery step of a Data Engineering Process, we look to identify and clearly document a problem statement, which helps us have an understanding of what we are trying to solve. We also look at our analytical approach to make observations about at the data, its structure and source. This leads us into defining the requirements for the project, so we can define the scope, design and architecture of the solution.
 
+![ozkary-data-engineering-process-discovery](../assets/2023/ozkary-data-engineering-process-discovery.png "Data Engineering Process - Discovery")
+
+
 ### Problem Statement
 
 A Problem Statement is a description of what it is that we are trying to solve. As part of the problem statement, we should provide some background or context on how the data is processed or collected. We should also provide a specific description of what the data engineering process is looking to solve by taking a specific approach to integrate the data. Finally, the objective and goals should also be described with information about how this data will be made available for analytical purposes.
@@ -81,7 +84,7 @@ Data orchestration refers to the automation, management and coordination of the 
 
 Since we now understand the discovery step, we should be able to put that into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
 
-> 👉 [Data Engineering Process Fundamentals - Discovery Exercise](2023-04-01-data-engineering-process-foundamentals-discovery)
+> 👉 Data Engineering Process Fundamentals - Discovery Exercise
 
 
 Thanks for reading.
