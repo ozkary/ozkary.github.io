@@ -11,8 +11,6 @@ tags:
   - data-warehouse
   - data-lake
 toc: true
-# reference: [/use-remote-dev-container-github-codespaces](https://www.ozkary.com/2023/01/use-remote-dev-container-github-codespaces.html)
-# filename: 2023-01-14-use-remote-dev-container-github-codespaces.md
 ---
 ## Introduction 
 
@@ -22,7 +20,7 @@ In this series of Data Engineering Process Fundamentals, we explore the Data Eng
 
 ### Data Engineering Process
 
-![ozkary-data-engineering-process](../assets/2023/ozkary-data-engineering-process.png "Data Engineering Process")
+![ozkary-data-engineering-process](../assets/2023/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
 
@@ -92,7 +90,9 @@ Streaming Data is a data source that sends messages with small content but with 
 
 ## Next Step
 
-> 👍 Data Engineering Process Fundamentals - Discovery
+Now that we are familiar with the high level process, let's talk about the discovery step in details.
+
+> 👉[Data Engineering Process Fundamentals - Discovery](2023-04-01-data-engineering-process-foundamentals-discovery)
 
 
 Thanks for reading.
