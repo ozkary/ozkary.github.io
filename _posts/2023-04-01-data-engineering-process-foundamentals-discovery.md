@@ -53,12 +53,12 @@ For the final data analysis and visualization, we could use tools like Looker, P
 
 Requirements refer to the needs, capabilities and constraints that are needed to deliver a data engineering solution. They should outline the project deliverables that are required to meet the main objectives. The requirements should include data related areas like: 
 
-- Data sources and integration
-- Data modeling and transformation
-- Data quality and validation
-- Data storage and infrastructure 
-- Data Processing and Analytics
-- Data Governance and Security
+- Sources and integration
+- Modeling and transformation
+- Quality and validation
+- Storage and infrastructure 
+- Processing and Analytics
+- Governance and Security
 - Scalability and performance
 - Monitoring
 
