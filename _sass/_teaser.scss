@@ -16,6 +16,6 @@
 }
 
 // hide the discuss ads
-div#disqus_thread iframe[sandbox] {
+#disqus_thread iframe[sandbox] {
     display: none !important;
 }
