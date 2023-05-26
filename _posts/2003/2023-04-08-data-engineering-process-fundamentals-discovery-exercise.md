@@ -14,7 +14,10 @@ toc: true
 ---
 
 
-# Data Engineering Process - Discovery
+# Data Engineering Process - Discovery Exercise
+
+In this discovery excercise lab, we review a problem statement and do the analysis to define the scope of work and requirements.
+
 
 ## Problem Statement
 
@@ -22,7 +25,8 @@ In the city of New York, commuters use the Metropolitan Transportation Authority
 
 Geofencing is a location based technology service in which mobile devices’ electronic signal is tracked as it enters or leaves a virtual boundary (geo-fence) on a geographical location. Businesses around those locations would like to use this technology to increase their sales.
 
-![ozkary-data-engineering-mta-geo-fence](../../assets/2023/ozkary-data-engineering-mta-geo-fencing.png "Data Engineering Process - Problem Statement")
+![ozkary-data-engineering-mta-geo-fence](https://github.com/ozkary/data-engineering-mta-turnstile/raw/main/images/mta-geo-fencing.png "Data Engineering Process - Problem Statement")
+
 
 The MTA subway system has stations around the city. All the stations are equipped with turnstiles or gates which tracks as each person enters or leaves the station. MTA provides this information in CSV files, which can be imported into a data warehouse to enable the analytical process to identify patterns that can enable these businesses to understand how to best target consumers.
 
