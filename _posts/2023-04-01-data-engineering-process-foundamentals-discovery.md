@@ -84,7 +84,7 @@ Data orchestration refers to the automation, management and coordination of the 
 
 Since we now understand the discovery step, we should be able to put that into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
 
-> 👉 Data Engineering Process Fundamentals - Discovery Exercise
+> 👉 [Data Engineering Process Fundamentals - Discovery Exercise](//wwww.ozkary.dev/data-engineering-process-fundamentals-discovery-exercise)
 
 
 Thanks for reading.

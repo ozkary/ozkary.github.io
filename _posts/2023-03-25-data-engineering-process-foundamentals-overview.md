@@ -92,7 +92,7 @@ Streaming Data is a data source that sends messages with small content but with 
 
 Now that we are familiar with the high level process, let's talk about the discovery step in details.
 
-> 👉[Data Engineering Process Fundamentals - Discovery](//ozkary.dev/data-engineering-process-foundamentals-discovery)
+> 👉[Data Engineering Process Fundamentals - Discovery](//www.ozkary.dev/data-engineering-process-foundamentals-discovery)
 
 
 Thanks for reading.

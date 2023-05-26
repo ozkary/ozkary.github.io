@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Discovery Excercise"
 excerpt: "During the discovery step of a Data Engineering Process, we look to identify and clearly document a problem statement, which helps us have an understanding of what we are trying to solve. We also look at our analytical approach to make observations about at the data, its structure and source. This leads us into defining the requirements for the project, so we can define the scope, design and architecture of the solution. "
 last_modified_at: 2023-04-08T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-discovery.png"
+  teaser: "../../assets/2023/ozkary-data-engineering-process-discovery.png"
   teaserAlt: "Ozkary Data Engineering Process Discovery"
 tags: 
   - pipelines  
@@ -22,7 +22,7 @@ In the city of New York, commuters use the Metropolitan Transportation Authority
 
 Geofencing is a location based technology service in which mobile devices’ electronic signal is tracked as it enters or leaves a virtual boundary (geo-fence) on a geographical location. Businesses around those locations would like to use this technology to increase their sales.
 
-![ozkary-data-engineering-mta-geo-fence](../assets/2023/ozkary-data-engineering-mta-geo-fencing.png "Data Engineering Process - Problem Statement")
+![ozkary-data-engineering-mta-geo-fence](../../assets/2023/ozkary-data-engineering-mta-geo-fencing.png "Data Engineering Process - Problem Statement")
 
 The MTA subway system has stations around the city. All the stations are equipped with turnstiles or gates which tracks as each person enters or leaves the station. MTA provides this information in CSV files, which can be imported into a data warehouse to enable the analytical process to identify patterns that can enable these businesses to understand how to best target consumers.
 
@@ -56,7 +56,7 @@ We can download a single file to take a look at the data structure and make the 
 - The cumulative exits are on the EXITS field
 - This data is audited in blocks of fours hours apart
 
-![ozkary-data-engineering-mta-discovery](../assets/2023/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
+![ozkary-data-engineering-mta-discovery](../../assets/2023/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
 
 ### Field Description
 
@@ -140,22 +140,20 @@ $ python3 mta_discovery.py --url http://web.mta.info/developers/data/nyct/turnst
 Run the Jupyter notebook (dicovery.ipynb) to do some analysis on the data. 
 
 - Load the Jupyter notebook to do analysis
-  - First start the Jupyter server
+  - First start the Jupyter server from the terminal
   
 ```
 $ jupyter notebook
 ```
-  - See the URL on the console and click it to load on the browser
+  - See the URL on the console and click it to load it on the browser
     - Click the discovery.ipynb file
-      - Or open the file with VSCode and enter the URL when prompted from a kernel url
+  - Or open the file with VSCode and enter the URL when prompted from a kernel url
 
-<img width="650px" src="../images/jupyter-mta.png" alt="ozkary MTA jupyter discovery"/>
+![ozkary-data-engineering-jupyter-notebook](../../assets/2023/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
 
+![ozkary-data-engineering-discovery-query](../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
 
-![ozkary-data-engineering-mta-jupyter-notebook](../assets/2023/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
-
-![ozkary-data-engineering-mta-discovery-jupyter](../assets/2023/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
-<img  width="650px" src="../images/jupyter-browser.png" alt="ozkary MTA jupyter notebook loaded"/>
+![ozkary-data-engineering-discovery-donut-chart](../../assets/2023/ozkary-data-engineering-jupyter-pie-chart.png "ozkary MTA jupyter donut chart")
 
 # Next Step
 
