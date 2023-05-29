@@ -1,10 +1,10 @@
 ---
 title: "Data Engineering Process Fundamentals - Discovery Excercise"
-excerpt: "During the discovery step of a Data Engineering Process, we look to identify and clearly document a problem statement, which helps us have an understanding of what we are trying to solve. We also look at our analytical approach to make observations about at the data, its structure and source. This leads us into defining the requirements for the project, so we can define the scope, design and architecture of the solution. "
+excerpt: "In this discovery exercise lab, we review a problem statement and do the analysis to define the scope of work and requirements. Preliminary data analysis must be done by downloading some sample files with Python and running some queries using Jupyter Notebook."
 last_modified_at: 2023-04-08T13:00:00
 header:
-  teaser: "../../assets/2023/ozkary-data-engineering-process-discovery.png"
-  teaserAlt: "Ozkary Data Engineering Process Discovery"
+  teaser: "../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png"
+  teaserAlt: "Ozkary Data Engineering Process Discovery Excercise"
 tags: 
   - pipelines  
   - cloud-engineering
@@ -13,11 +13,9 @@ tags:
 toc: true
 ---
 
-
 # Data Engineering Process - Discovery Exercise
 
-In this discovery excercise lab, we review a problem statement and do the analysis to define the scope of work and requirements.
-
+In this discovery exercise lab, we review a problem statement and do the analysis to define the scope of work and requirements. Preliminary data analysis must be done by downloading some sample files with Python and running some queries using Jupyter Notebook. 
 
 ## Problem Statement
 
@@ -47,7 +45,7 @@ The data can be grouped into stations, date and time of the day. This data is au
 
  In the discovery process, we take a look at the data that is available for our analysis. We are using the MTA turnstiles information which is available at this location:
 
- [New York Metropolitan Transportantion Authority Turnstile Data](http://web.mta.info/developers/turnstile.html)
+ 👉 [New York Metropolitan Transportantion Authority Turnstile Data](http://web.mta.info/developers/turnstile.html)
 
 We can download a single file to take a look at the data structure and make the following observations about the data:
 
@@ -128,10 +126,12 @@ These observations can be used to define technical requirements that can enable 
 
 ### Requirements
 
-<a target="_python" href="https://github.com/ozkary/data-engineering-mta-turnstile/wiki/Configure-Python-Dependencies">
+<p>👉 <a target="_python" href="https://github.com/ozkary/data-engineering-mta-turnstile/wiki/Configure-Python-Dependencies">
 Install Python, Pandas and Jupyter notebook
-</a>
+</a></p>
 
+<p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery" target="_python">Clone this repo or copy the files from this folder
+</a></p>
 
 ### Follow these steps to run the analysis
 

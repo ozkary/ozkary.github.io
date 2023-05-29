@@ -62,27 +62,9 @@ Requirements refer to the needs, capabilities and constraints that are needed to
 - Scalability and performance
 - Monitoring
 
-### Design
-
-A data engineering design is the actual plan to build the technical solution. It includes the system architecture, data integration, flow and pipeline orchestration, the data storage platform, transformation and management, data processing and analytics tooling. This is the area where we need to clearly define the different technologies that should be used for each area. 
-
-#### System Architecture
-
-The system architecture is a high-level design of the solution, its components and how they integrate with each other. This often includes the data sources, data ingestion resources, workflow and data orchestration resources and frameworks, storage resources, data services for data transformation and continuous data ingestion and validation, and data analysis and visualization tooling.
-
-#### Data Pipelines 
-
-A data pipeline refers to a series of connected tasks that handles the extract, transform and load (ETL) as well as the extract, load and transform (ELT)  operations and integration from a source to a target storage like a data lake or data warehouse. 
-
-The use of ETL or ELT depends on the design. For some solutions, a flow task may transform the data prior to loading it into storage. This approach tends to increase the amount of python code and hardware resources used by the hosting environment. For the ELT process, the transformation may be done using SQL code and the data warehouse resources, which often tend to perform great for big data scenarios.
-
-#### Data Orchestration
-
-Data orchestration refers to the automation, management and coordination of the data pipeline tasks. It involves the scheduling, workflows, monitoring and recovery of those tasks. The orchestration ensures the execution of those tasks, and it takes care of error handling, retry and the alerting of problems in the pipeline.
-
 ## Exercise - Hands-on Use Case
 
-Since we now understand the discovery step, we should be able to put that into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
+After learning th details about the discovery step, let's put them into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
 
 > 👉 [Data Engineering Process Fundamentals - Discovery Exercise](//wwww.ozkary.dev/data-engineering-process-fundamentals-discovery-exercise)
 
