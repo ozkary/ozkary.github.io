@@ -1,6 +1,6 @@
 ---
 title: "Data Engineering Process Fundamentals - Design and Planning"
-excerpt: "During the discovery step of a Data Engineering Process, we look to identify and clearly document a problem statement, which helps us have an understanding of what we are trying to solve. We also look at our analytical approach to make observations about at the data, its structure and source. This leads us into defining the requirements for the project, so we can define the scope, design and architecture of the solution. "
+excerpt: "A data engineering design is the actual plan to build the technical solution. It includes the system architecture, data integration, flow and pipeline orchestration, the data storage platform, transformation and management, data processing and analytics tooling."
 last_modified_at: 2023-04-15T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-process-design-planning.png"
@@ -13,12 +13,12 @@ tags:
 toc: true
 ---
 
-Once the scope of work on a project is clearly defined, we move on to the design and planning step. For this step, we cover the design details to help us build the solution. We also talk about source control, deployments and infrastructure planning.
+Once the discover step has been done and the scope of work on a project is clearly defined, we move on to the design and planning step. For this step, we cover the design details to help us build the solution. We also talk about source control, deployments and infrastructure planning.
 
 ![ozkary-data-engineering-design-planning](../../assets/2023/ozkary-data-engineering-process-design-planning.png "Data Engineering Process Fundamentals- Design and Planning")
 
 
-### Design
+### Data Engineering Design
 
 A data engineering design is the actual plan to build the technical solution. It includes the system architecture, data integration, flow and pipeline orchestration, the data storage platform, transformation and management, data processing and analytics tooling. This is the area where we need to clearly define the different technologies that should be used for each area. 
 
