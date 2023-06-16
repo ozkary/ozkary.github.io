@@ -16,9 +16,9 @@ toc: true
 ---
 # Introduction
 
-Large Language Model (LLM) refers to a class of AI models that are designed to understand and generate human-like text based on large amounts of training data. LLM can play a significant role when it comes to generating code by leveraging the language understanding and generative capabilities. Users can simply create text propmts with a user story format and provide enough context like technologies, requirements, and technial specifications, and the LLM model can generate code snippets to match what is requested by the prompt. 
+Large Language Model (LLM) refers to a class of AI models that are designed to understand and generate human-like text based on large amounts of training data. LLM can play a significant role when it comes to generating code by leveraging the language understanding and generative capabilities. Users can simply create text prompts with a user story format and provide enough context like technologies, requirements, and technical specifications, and the LLM model can generate code snippets to match what is requested by the prompt. 
 
-> 👍 Note that LLM-generated code may not always be perfect, and developers should manualy review and validate the genereted code to ensure its correctness, efficiency, and adherence to coding standards.
+> 👍 Note that LLM-generated code may not always be perfect, and developers should manually review and validate the generated code to ensure its correctness, efficiency, and adherence to coding standards.
 
 ## Benefits of LLM for code generation
 
@@ -28,7 +28,7 @@ When it comes to generating code, LLMs can be used in various ways:
 
 - Code synthesis: LLMs can synthesize code based on high-level descriptions or requirements. Developers can provide natural language specifications or user stories, and the LLM can generate code that implements the desired functionality. This can be particularly useful in the early stages of development or when exploring different approaches to solve a problem.
 
-- Code refactoring: LLMs can help with code refactoring by suggesting improvements or alternative implementations. By analyzing existing code snippets or codebases, LLMs can generate refactored versions that follow best practices, optimize performance, or enhance readability.
+- Code refactoring: LLMs can help with code refactoring by suggesting improvements or alternative implementations. By analyzing existing code snippets or code bases, LLMs can generate refactored versions that follow best practices, optimize performance, or enhance readability.
 
 - Documentation generation: LLMs can assist in generating code documentation or comments. Developers can provide descriptions of functions, classes, or code blocks, and the LLM can generate the corresponding documentation or comments that describe the code's purpose and usage.
 
@@ -36,7 +36,7 @@ When it comes to generating code, LLMs can be used in various ways:
 
 ## Prompt Engineering
 
-Prompt engineering is the process of designing and optimizing prompts to better utilize LLMs. Well described prompts can help the AI models better understand the context and generate more accurate responses. It is also helpful to provide some labels or expected results as examples, as this help the AI models evaluate its reponses and provide more accurate results.
+Prompt engineering is the process of designing and optimizing prompts to better utilize LLMs. Well described prompts can help the AI models better understand the context and generate more accurate responses. It is also helpful to provide some labels or expected results as examples, as this help the AI models evaluate its responses and provide more accurate results.
 
 ### Improve Code Completeness
 
@@ -47,10 +47,9 @@ Due to some of the API configuration, the generated code may be incomplete. To i
 - Try refining and iterating on your prompt to provide clearer instructions to the model
 - Experiment with different temperature and max tokens settings to influence the output
 
+## Generate code from user stories
 
 ![ozkary-openai-generate-code-from-user-stories](../assets/2023/ozkary-openai-user-story-flow.png "Generate Code from User Stories")
-
-## Generate code from user stories
 
 In the Agile development methodology, user stories are used to capture requirements or a feature from the perspective of end user or customer. For code generation, developers can write user stories to capture the context, requirements and technical specification necessary to generate code. This user story can then be processed by the LLM models to generate the code. As an example, a user store could be written in this way:
 
@@ -110,11 +109,11 @@ $ echo export AZURE_OpenAI_ENDPOINT="https://YOUR-END-POINT.OpenAI.azure.com/" >
 ```
 ### Describe the code
 
-The code should run this workflow:
+The code should run this workflow: (see the diagram for a visual reference)
 
-- Get a list of open GitHub issues with the label user-story
-- Each issue content is sent to the OpenAI API to generate the code
-- The generated code is posted as a comment on the user-story for the developers to review
+- 1 Get a list of open GitHub issues with the label user-story
+- 2 Each issue content is sent to the OpenAI API to generate the code
+- 3 The generated code is posted as a comment on the user-story for the developers to review
   
 > 👍 The following code uses a simple API call implementation for the GitHub and OpenAI APIs. Use the code from this repo: - [LLM Code Generation](https://github.com/ozkary/ai-engineering/tree/main/python/code_generation)
 
@@ -150,10 +149,61 @@ def process_issue_by_label(repo: str, label: str):
         print(f"Error:  {ex}")
 
 ```
+
+The OpenAI service handles the API details. It takes default parameters for the model (engine), temperature and token limits, which control the cost and amount of text (roughly four letters per token) that should be allowed. For this service, we use the "Completion" model which allows developers to interact with OpenAI's language models and generate text-based completions.
+
+Other parameters include:
+
+- Temperature: Controls the randomness of the model's output. Higher values like 0.8 make the output more diverse and creative, while lower values like 0.2 make it more focused and deterministic.
+
+- Max Tokens: Specifies the maximum length of the response generated by the model, measured in tokens. It helps to limit the length of the output and prevent excessively long responses.
+
+- Top-p (Nucleus) Sampling: Also known as "P-Top" or "Nucleus Sampling," this parameter determines the probability distribution of the next token based on the likelihood of the most likely tokens. It helps in controlling the diversity of the generated output.
+
+- Frequency Penalty: A parameter used to discourage repetitive or redundant responses by penalizing the model for repeating the same tokens too often.
+
+- Presence Penalty: Used to encourage the model to generate responses that include all the provided information. A higher presence penalty value, such as 0.6, can help in ensuring more accurate and relevant responses.
+
+- Stop Sequences: Optional tokens or phrases that can be specified to guide the model to stop generating output. It can be used to control the length of the response or prevent the model from continuing beyond a certain point.
+
+```
+class OpenAIService:
+    def __init__(self, api_key: str, engine: str = 'code-davinci-002', end_point: str = None, temperature: float = 0.5, max_tokens: int = 350, n: int = 1, stop: str = None):
+        openai.api_key = api_key
+
+        # Azure OpenAI API custom resource
+        # Use these settings only when using a custom endpoint like https://ozkary.openai.azure.com        
+        if end_point is not None:
+            openai.api_base = end_point                  
+            openai.api_type = 'azure'
+            openai.api_version = '2023-05-15' # this will change as the API evolves
+
+        self.engine = engine
+        self.temperature = temperature
+        self.max_tokens = max_tokens
+        self.n = n
+        self.stop = stop
+        
+    def create(self, prompt: str) -> str:
+        """Create a completion using the OpenAI API."""
+                
+        response = openai.Completion.create(
+            engine=self.engine,
+            prompt=prompt,
+            max_tokens=self.max_tokens,
+            n=self.n,
+            stop=self.stop,
+            temperature=self.temperature
+        )
+
+        print(response)       
+        return response.choices[0].text.strip()
+
+```
+
 ### Run the code
 
-After configuring your environment, we can run the code from a terminal by typing the following command:
-
+After configuring your environment and downloading the code, we can run the code from a terminal by typing the following command:
 > 👍 Make sure to enter your repo name and label your issues with either user-story or any other label you would rather use.
 
 ```
@@ -164,7 +214,7 @@ After running the code successfully, we should be able to see the generated code
 
 ### Summary
 
-LLM can play a significant role when it comes to generating code by leveraging the language understanding and generative capabilities. Developers, data engineers and scientist can leverage Ai models to quickly create scripts in different programming langiages, which can aid in their programming efforts. In addition, the ability to document user stories with such details is part of the brainstorming process before a single line of code is ever written.
+LLM plays a crucial role in code generation by harnessing its language understanding and generative capabilities. Developers, data engineers, and scientists can utilize AI models to swiftly generate scripts in various programming languages, streamlining their programming tasks. Moreover, documenting user stories with intricate details forms an integral part of the brainstorming process before writing a single line of code
 
 Thanks for reading.
 
