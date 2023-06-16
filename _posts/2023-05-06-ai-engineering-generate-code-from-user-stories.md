@@ -1,6 +1,6 @@
 ---
 title: "AI Engineering Generate Code from User Stories"
-excerpt: "As Software Engineers, we usually work with multiple projects in parallel. This forces us to configure our work stations with multiple software development tools, which eventually leaves our workstation performing poorly. To overcome this problem, we often use virtual machine (VM) instances that run in our workstations or a cloud provider like Azure. Setting up those VMs also introduces some overhead into our software development process. "
+excerpt:  LLM can play a significant role when it comes to generating code by leveraging the language understanding and generative capabilities. Users can simply create text prompts with a user story format and provide enough context like technologies, requirements, and technical specifications, and the LLM model can generate code snippets to match what is requested by the prompt "
 last_modified_at: 2023-05-06T13:00:00
 header:
   teaser: "../assets/2023/ozkary-openai-user-story-flow.png"
