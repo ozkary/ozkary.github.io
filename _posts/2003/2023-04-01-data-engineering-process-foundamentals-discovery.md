@@ -19,7 +19,7 @@ In this series of Data Engineering Process Fundamentals, we explore the Data Eng
 
 During the discovery step of a Data Engineering Process, we look to identify and clearly document a problem statement, which helps us have an understanding of what we are trying to solve. We also look at our analytical approach to make observations about at the data, its structure and source. This leads us into defining the requirements for the project, so we can define the scope, design and architecture of the solution.
 
-![ozkary-data-engineering-process-discovery](../assets/2023/ozkary-data-engineering-process-discovery.png "Data Engineering Process - Discovery")
+![ozkary-data-engineering-process-discovery](../../assets/2023/ozkary-data-engineering-process-discovery.png "Data Engineering Process - Discovery")
 
 
 ### Problem Statement

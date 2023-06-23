@@ -20,7 +20,7 @@ In this series of Data Engineering Process Fundamentals, we explore the Data Eng
 
 ### Data Engineering Process
 
-![ozkary-data-engineering-process](../assets/2023/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
+![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
 

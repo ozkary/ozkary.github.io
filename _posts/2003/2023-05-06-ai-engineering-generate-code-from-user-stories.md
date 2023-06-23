@@ -4,7 +4,7 @@ excerpt: " LLM can play a significant role when it comes to generating code by l
 last_modified_at: 2023-05-06T13:00:00
 header:
   teaser: "../assets/2023/ozkary-openai-user-story-flow.png"
-  teaserAlt: "Ozkary generate code from user stories"
+  teaserAlt: "Ozkary AI Engineering generate code from user stories"
 tags: 
   - code  
   - cloud
@@ -49,7 +49,7 @@ Due to some of the API configuration, the generated code may be incomplete. To i
 
 ## Generate code from user stories
 
-![ozkary-openai-generate-code-from-user-stories](../assets/2023/ozkary-openai-user-story-flow.png "Generate Code from User Stories")
+![ozkary-openai-generate-code-from-user-stories](../../assets/2023/ozkary-openai-user-story-flow.png "Generate Code from User Stories")
 
 In the Agile development methodology, user stories are used to capture requirements or a feature from the perspective of end user or customer. For code generation, developers can write user stories to capture the context, requirements and technical specification necessary to generate code. This user story can then be processed by the LLM models to generate the code. As an example, a user store could be written in this way:
 
@@ -204,7 +204,8 @@ class OpenAIService:
 ### Run the code
 
 After configuring your environment and downloading the code, we can run the code from a terminal by typing the following command:
-> 👍 Make sure to enter your repo name and label your issues with either user-story or any other label you would rather use.
+
+> 👉 Make sure to enter your repo name and label your issues with either user-story or any other label you would rather use.
 
 ```
 # python3 gen_code_from_issue.py --repo ozkary/ai-engineering --label user-story

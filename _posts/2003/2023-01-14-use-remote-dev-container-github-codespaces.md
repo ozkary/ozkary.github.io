@@ -17,7 +17,7 @@ toc: true
 ---
 As Software Engineers, we usually work with multiple projects in parallel. This forces us to configure our work stations with multiple software development tools, which eventually leaves our workstation performing poorly. To overcome this problem, we often use virtual machine (VM) instances that run in our workstations or a cloud provider like Azure. Setting up those VMs also introduces some overhead into our software development process. As engineers, we want to be able to accelerate this process by using a remote development environment provider like GitHub Codespaces.
 
-![ozkary-github-codespaces-layers](../assets/2023/ozkary-codespace.png "GitHub Codespaces layers")
+![ozkary-github-codespaces-layers](../../assets/2023/ozkary-codespace.png "GitHub Codespaces layers")
 
 ### What is GitHub Codespaces?
 
@@ -39,7 +39,7 @@ We can start a Codespaces environment right from GitHub. Open a repo on GitHub a
 
 > 👍 You can use this repo if you do not have one https://github.com/ozkary/Data-Engineering-Bootcamp
 
-![ozkary-create-github-code-space](../assets/2023/ozkary-codespace-create.png "ozkary create github code space")
+![ozkary-create-github-code-space](../../assets/2023/ozkary-codespace-create.png "ozkary create github code space")
 
 
 When you add a new environment, GitHub essentially provisions a VM on Azure. It loads a Docker image with some of the dependencies of your project. For example, if your code is .Net Core or a TypeScript with React project, a Docker image with those dependencies is built and provisioned into the VM.
@@ -50,7 +50,7 @@ When you add a new environment, GitHub essentially provisions a VM on Azure. It 
 
 Once the environment is provisioned, we can open the project using any of the options listed on the image below. I prefer to use my local VS Code instance, as I often have all the tools needed to work on my projects. Once the project is open on VS Code, the project connection is cached, and we only need to open VS Code again to load the remote project. The browser feature is also very useful, so do take it for a spin and see how you like it.
 
-![ozkary how to open github codespaces](../assets/2023/ozkary-codespace-open.png "ozkary how to open github codespaces")
+![ozkary how to open github codespaces](../../assets/2023/ozkary-codespace-open.png "ozkary how to open github codespaces")
 
 ### Use a Terminal to Manage the Project
 
@@ -58,7 +58,7 @@ When the project is open remotely, we can run common activities like adding addi
 
 In the case of Web projects, we can run the project remotely using our browser. Even though the project runs remotely on the VM, port forwarding is used for secured remote access, so we can open our local browser and load the app. We can see the forwarded ports for our application on the ports tab of VS Code.
 
-![ozkary vscode port forwarding](../assets/2023/ozkary-codespace-port-forward.png "ozkary vscode port forwarding")
+![ozkary vscode port forwarding](../../assets/2023/ozkary-codespace-port-forward.png "ozkary vscode port forwarding")
 
 ### Managing your Codespaces Instance
 
@@ -70,7 +70,7 @@ The Dev Container can also be customized by making changes to the devcontainer.j
 
 > 👍 When the Dev Container is changed, the VM requires a re-start, which is done automatically
 
-![ozkary github codespaces vscode commands](../assets/2023/ozkary-codespace-port-forward.png "ozkary github codespaces vscode commands")
+![ozkary github codespaces vscode commands](../../assets/2023/ozkary-codespace-port-forward.png "ozkary github codespaces vscode commands")
 
 ### Summary
 
