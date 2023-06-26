@@ -26,6 +26,7 @@ A Data Engineering Process follows a series of steps that should be executed to 
 
 > 👍 Note: Follow each link for more details.
 
+
 - [Discovery](//www.ozkary.dev/data-engineering-process-foundamentals-discovery)
   - Problem Statement
   - Data Analysis
