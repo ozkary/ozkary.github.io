@@ -24,16 +24,21 @@ In this series of Data Engineering Process Fundamentals, we explore the Data Eng
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
 
-> 👍 Note: Follow each link for more details
+> 👍 Note: Follow each link for more details.
 
-- Discovery
+- [Discovery](//www.ozkary.dev/data-engineering-process-foundamentals-discovery)
   - Problem Statement
   - Data Analysis
-  - Scope of Work
-- Design and Planning
+  - Define the Requirements and Scope of Work
+  - Discovery Exercise
+- [Design and Planning](//www.ozkary.dev/data-engineering-process-foundamentals-design-planning)
   - Design Approach
-  - Architecture
-  - Cloud Engineering
+  - System Architecture
+  - Cloud Engineering and Automation
+  - Design Exercise
+
+> 👉 Coming Soon. Join this list to receive updates [Sign up here](https://maven.com/forms/56ae79)
+
 - Data Orchestration and Operations
   - Pipeline Orchestration
     - Batch Processing

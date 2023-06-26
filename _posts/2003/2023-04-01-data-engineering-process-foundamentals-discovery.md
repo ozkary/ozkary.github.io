@@ -66,7 +66,7 @@ Requirements refer to the needs, capabilities and constraints that are needed to
 
 After learning th details about the discovery step, let's put them into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
 
-> 👉 [Data Engineering Process Fundamentals - Discovery Exercise](//wwww.ozkary.dev/data-engineering-process-fundamentals-discovery-exercise)
+> 👉 [Data Engineering Process Fundamentals - Discovery Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-discovery-exercise)
 
 
 Thanks for reading.
