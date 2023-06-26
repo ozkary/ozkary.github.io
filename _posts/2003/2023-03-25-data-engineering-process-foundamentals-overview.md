@@ -18,6 +18,14 @@ Data Engineering is changing constantly. From cloud data platforms and pipeline 
 
 In this series of Data Engineering Process Fundamentals, we explore the Data Engineering Process (DEP) with key concepts, principles and relevant technologies, and explain how they are being used to help us deliver the solution. We discuss concepts and take on a real use case where we execute an end-to-end process from downloading data to visualizing the results. 
 
+The end-goal of this series is to take us thru a process in which we deliver an architecture, which facilitates the ongoing analysis of big data via analytical and visualization tools. In the following images, we can get a preview of what we will be delivering as we execute each step of the process. 
+
+### Architecture
+![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process-architecture.png "Data Engineering Process - Overview")
+
+### Analysis Results
+![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process-dashboard.png "Data Engineering Process - Overview")
+
 ### Data Engineering Process
 
 ![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
