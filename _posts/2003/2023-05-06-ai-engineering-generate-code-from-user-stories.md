@@ -51,7 +51,7 @@ Due to some of the API configuration, the generated code may be incomplete. To i
 
 ![ozkary-openai-generate-code-from-user-stories](../../assets/2023/ozkary-openai-user-story-flow.png "Generate Code from User Stories")
 
-In the Agile development methodology, user stories are used to capture requirements or a feature from the perspective of end user or customer. For code generation, developers can write user stories to capture the context, requirements and technical specification necessary to generate code. This user story can then be processed by the LLM models to generate the code. As an example, a user store could be written in this way:
+In the Agile development methodology, user stories are used to capture requirements or a feature from the perspective of end user or customer. For code generation, developers can write user stories to capture the context, requirements and technical specification necessary to generate code. This user story can then be processed by the LLM models to generate the code. As an example, a user story could be written in this way:
 
 ```
 
@@ -80,7 +80,7 @@ Let's take a look a python example to see how we can generate code from a user s
 
 ### Install the OpenAI dependencies
 
-```
+```bash
 $ pip install OpenAI
 ```
 
@@ -97,7 +97,7 @@ Get the following configuration information:
 
 Set the linux environment variables with these commands:
 
-```
+```bash
 $ echo export AZURE_OpenAI_KEY="OpenAI-key-here" >> ~/.bashrc && source ~/.bashrc
 $ echo export GITHUB_TOKEN="github-key-here" >> ~/.bashrc && source ~/.bashrc
 
@@ -117,7 +117,7 @@ The code should run this workflow: (see the diagram for a visual reference)
   
 > 👍 The following code uses a simple API call implementation for the GitHub and OpenAI APIs. Use the code from this repo: - [LLM Code Generation](https://github.com/ozkary/ai-engineering/tree/main/python/code_generation)
 
-```
+```python
 
 def process_issue_by_label(repo: str, label: str):
     
@@ -166,7 +166,7 @@ Other parameters include:
 
 - Stop Sequences: Optional tokens or phrases that can be specified to guide the model to stop generating output. It can be used to control the length of the response or prevent the model from continuing beyond a certain point.
 
-```
+```python
 class OpenAIService:
     def __init__(self, api_key: str, engine: str = 'code-davinci-002', end_point: str = None, temperature: float = 0.5, max_tokens: int = 350, n: int = 1, stop: str = None):
         openai.api_key = api_key
