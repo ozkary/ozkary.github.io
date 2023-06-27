@@ -144,18 +144,30 @@ $ python3 mta_discovery.py --url http://web.mta.info/developers/data/nyct/turnst
 Run the Jupyter notebook (dicovery.ipynb) to do some analysis on the data. 
 
 - Load the Jupyter notebook to do analysis
-  - First start the Jupyter server from the terminal
+  - First start the Jupyter server from the terminal by typing
   
-```
+```bash
 $ jupyter notebook
 ```
-  - See the URL on the console and click it to load it on the browser
-    - Click the discovery.ipynb file
+  - See the URL on the terminal and click it to load it on the browser
+    - Click the discovery.ipynb file link
   - Or open the file with VSCode and enter the URL when prompted from a kernel url
+  - Run every cell from the top down as this is required to load the dependencies
 
+The following images show Jupyter notebook loaded on the browser or directly from VSCode.
+
+#### Jupyter Notebook loaded on the browser
 ![ozkary-data-engineering-jupyter-notebook](../../assets/2023/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
 
+<p></p>
+
 ![ozkary-data-engineering-discovery-query](../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
+
+#### Using VSCode to load the data
+
+![ozkary-data-engineering-discovery-jupyter-vscode](../../assets/2023/ozkary-data-engineering-jupyter-vscode.png "ozkary MTA jupyter vscode")
+
+#### Show the total entries by station using a subset of data using VSCode
 
 ![ozkary-data-engineering-discovery-donut-chart](../../assets/2023/ozkary-data-engineering-jupyter-pie-chart.png "ozkary MTA jupyter donut chart")
 
