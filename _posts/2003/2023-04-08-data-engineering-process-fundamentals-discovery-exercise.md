@@ -3,8 +3,8 @@ title: "Data Engineering Process Fundamentals - Discovery Exercise"
 excerpt: "In this discovery exercise lab, we review a problem statement and do the analysis to define the scope of work and requirements. Preliminary data analysis must be done by downloading some sample files with Python and running some queries using Jupyter Notebook."
 last_modified_at: 2023-04-08T13:00:00
 header:
-  teaser: "../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png"
-  teaserAlt: "Ozkary Data Engineering Process Discovery Exercise"
+  teaser: "../../assets/2023/ozkary-data-engineering-jupyter-vscode.png"
+  teaserAlt: "Ozkary Data Engineering Process Discovery Exercise with Jupyter"
 tags: 
   - pipelines  
   - cloud-engineering
