@@ -163,7 +163,7 @@ The following images show Jupyter notebook loaded on the browser or directly fro
 
 ![ozkary-data-engineering-discovery-query](../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
 
-#### Using VSCode to load the data
+#### #### Using VSCode to load the data and create charts
 
 ![ozkary-data-engineering-discovery-jupyter-vscode](../../assets/2023/ozkary-data-engineering-jupyter-vscode.png "ozkary MTA jupyter vscode")
 
