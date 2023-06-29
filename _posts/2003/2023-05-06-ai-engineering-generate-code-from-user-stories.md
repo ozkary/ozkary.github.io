@@ -211,7 +211,9 @@ After configuring your environment and downloading the code, we can run the code
 # python3 gen_code_from_issue.py --repo ozkary/ai-engineering --label user-story
 ```
 
-After running the code successfully, we should be able to see the generated code as a comment on the GitHub issue.
+After running the code successfully, we should be able to see the generated code as a comment on the GitHub issue. 
+
+![ozkary-ai-engineering-generate-code-from-user-stories](../../assets/2023/ozkary-ai-engineering-code-generated.png "Generate Code from User Stories Back to GitHub")
 
 ### Summary
 
@@ -220,4 +222,4 @@ LLM plays a crucial role in code generation by harnessing its language understan
 Thanks for reading.
 
 Send question or comment at Twitter @ozkary
-Originally published by [ozkary.com](https://www.ozkary.com)
+👍 Originally published by [ozkary.com](https://www.ozkary.com)
