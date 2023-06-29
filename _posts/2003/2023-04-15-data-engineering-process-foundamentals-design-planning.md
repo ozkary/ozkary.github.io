@@ -1,5 +1,5 @@
 ---
-title: "Data Engineering Process Fundamentals - Design and Planning Exercise"
+title: "Data Engineering Process Fundamentals - Design and Planning"
 excerpt: "A data engineering design is the actual plan to build the technical solution. It includes the system architecture, data integration, flow and pipeline orchestration, the data storage platform, transformation and management, data processing and analytics tooling."
 last_modified_at: 2023-04-15T13:00:00
 header:

@@ -1,5 +1,6 @@
 ---
-title: "Now that we have laid the foundation through design and planning, we can dive into a hands-on exercise to build the infrastructure in a cloud-agnostic way. By taking a cloud-agnostic approach, we can ensure that our data engineering project implementation remains flexible and adaptable to different cloud providers. This allows us to leverage the benefits of multiple cloud platforms or easily switch between providers if needed."
+title: "Data Engineering Process Fundamentals - Design and Planning Exercise"
+excerpt: "Now that we have laid the foundation through design and planning, we can dive into a hands-on exercise to build the infrastructure in a cloud-agnostic way. By taking a cloud-agnostic approach, we can ensure that our data engineering project implementation remains flexible and adaptable to different cloud providers. This allows us to leverage the benefits of multiple cloud platforms or easily switch between providers if needed."
 last_modified_at: 2023-04-22T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-process-design-planning-exercise.png"
