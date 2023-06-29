@@ -217,6 +217,10 @@ After configuring your environment and downloading the code, we can run the code
 
 After running the code successfully, we should be able to see the generated code as a comment on the GitHub issue.
 
+After running the code successfully, we should be able to see the generated code as a comment on the GitHub issue. 
+
+![ozkary-ai-engineering-generate-code-from-user-stories](../../assets/2023/ozkary-ai-engineering-code-generated.png "Generate Code from User Stories Back to GitHub")
+
 ## Summary
 
 The Azure OpenAI Service provides a seamless integration of OpenAI models into the Azure platform, offering the benefits of Azure's security, compliance, management, and billing capabilities. On the other hand, using the OpenAI API directly allows for a more direct and independent integration with OpenAI services. It may be a preferable option if you have specific requirements, and you do not want to use Azure resources.
