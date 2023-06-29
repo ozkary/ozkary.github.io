@@ -1,6 +1,6 @@
 ---
 title: "AI Engineering Azure OpenAI API Service with .NET"
-excerpt: " Azure provides the Azure OpenAI services which integrates the OpenAI API in Azure infrastructure. This enables us to create custom hosting resources and access the OpenAI API with a custom domain and deployment configuration. There are API client libraries to support different programming languages. To access the Azure OpenAI API using .NET, we need to use the  OpenAI .NET client library and access an OpenAI resource in Azure."
+excerpt: " Azure provides the Azure OpenAI services which integrates the OpenAI API in Azure infrastructure. This enables us to create custom hosting resources and access the OpenAI API with a custom domain and deployment configuration. There are API client libraries to support different programming languages. To access the Azure OpenAI API using .NET, we could use the  OpenAI .NET client library and access an OpenAI resource in Azure. As an alternative, we could use the HttpClient class from the System.Net.Http namespace and code the HTTP requests."
 last_modified_at: 2023-05-06T13:00:00
 header:
   teaser: "../assets/2023/ozkary-openai-csharp-flow.png"
@@ -223,8 +223,8 @@ After running the code successfully, we should be able to see the generated code
 
 The Azure OpenAI Service provides a seamless integration of OpenAI models into the Azure platform, offering the benefits of Azure's security, compliance, management, and billing capabilities. On the other hand, using the OpenAI API directly allows for a more direct and independent integration with OpenAI services. It may be a preferable option if you have specific requirements, and you do not want to use Azure resources.
 
-
 Thanks for reading.
 
-> Send question or comment at Twitter @ozkary
-> Originally published by [ozkary.com](https://www.ozkary.com)
+Send question or comment at Twitter @ozkary
+
+👍 Originally published by [ozkary.com](https://www.ozkary.com)
