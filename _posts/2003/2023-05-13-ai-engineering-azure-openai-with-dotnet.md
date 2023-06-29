@@ -217,8 +217,6 @@ After configuring your environment and downloading the code, we can run the code
 
 After running the code successfully, we should be able to see the generated code as a comment on the GitHub issue.
 
-After running the code successfully, we should be able to see the generated code as a comment on the GitHub issue. 
-
 ![ozkary-ai-engineering-generate-code-from-user-stories](../../assets/2023/ozkary-ai-engineering-code-generated.png "Generate Code from User Stories Back to GitHub")
 
 ## Summary
