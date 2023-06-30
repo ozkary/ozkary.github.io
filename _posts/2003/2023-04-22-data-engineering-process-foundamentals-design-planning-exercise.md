@@ -28,7 +28,7 @@ Infrastructure planning is a critical aspect of every technical project, laying 
 
 Infrastructure automation, facilitated by tools like Terraform, is important in modern data engineering projects. It enables the provisioning and management of cloud resources, such as virtual machines and storage, in a consistent and reproducible manner. Infrastructure as Code (IaC) allows teams to define their infrastructure declaratively, track it in source control, version it, and apply changes as needed. Automation reduces manual efforts, ensures consistency, and enables infrastructure to be treated as a code artifact, improving reliability and scalability.
 
-![ozkary-data-engineering-terraform](../../assets/2023/ozkary-data-Engineering-terraform.png "Data Engineering Process - Terraform")
+![ozkary-data-engineering-terraform](../../assets/2023/ozkary-data-engineering-terraform.png "Data Engineering Process - Terraform")
 
 # Infrastructure Implementation Requirements
 
@@ -191,15 +191,10 @@ resource "google_storage_bucket" "data-lake-bucket" {
   force_destroy = true
 }
 
+# BigQuery data warehouse
 # Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
 resource "google_bigquery_dataset" "stg_dataset" {
   dataset_id = var.stg_dataset
-  project    = var.project
-  location   = var.region
-}
-
-resource "google_bigquery_dataset" "prd_dataset" {
-  dataset_id = var.prd_dataset
   project    = var.project
   location   = var.region
 }
@@ -226,6 +221,15 @@ resource "google_compute_instance" "vm_instance" {
   }
 }
 ```
+
+This Terraform file defines the infrastructure components to be provisioned on the Google Cloud Platform (GCP). It includes the configuration for the Terraform backend, required providers, and the resources to be created.
+
+- The backend section specifies the backend type as "local" for storing the Terraform state locally. It can be changed to "gcs" or "s3" for cloud storage if desired.
+- The required_providers block defines the required provider and its source, in this case, the Google Cloud provider.
+- The provider block configures the Google provider with the project and region specified as variables. It can use either environment variable GOOGLE_APPLICATION_CREDENTIALS or the credentials file defined in the variables.
+- The resource blocks define the infrastructure resources to be created, such as a Google Storage Bucket for the data lake, Google BigQuery datasets for staging and production, and a Google Compute Engine instance named "mta-instance" with specific configuration settings.
+
+Overall, this Terraform file automates the provisioning of a data lake bucket, BigQuery datasets, and a virtual machine instance on the Google Cloud Platform.
 
 # How to run it!
 
