@@ -103,7 +103,7 @@ $ gcloud auth application-default login
 
 Terraform uses declarative configuration files written in a domain-specific language (DSL) called HCL (HashiCorp Configuration Language). It provides a concise and human-readable syntax for defining resources, dependencies, and configurations, enabling us to provision, modify, and destroy infrastructure in a predictable and reproducible manner.
 
-At a minimum, we should define a variables file, which contains the cloud provider information and a resource file which define what kind of resources should be provision on the cloud. The resource file could broken down into each resource or could be a file that defines multiple resources.  
+At a minimum, we should define a variables file, which contains the cloud provider information and a resource file which define what kind of resources should be provision on the cloud. There could be a file for each resource or a single file can define multiple resources.  
 
 ## Variables File
 
@@ -230,6 +230,7 @@ resource "google_compute_instance" "vm_instance" {
 # How to run it!
 
 - Refresh service-account's auth-token for this session
+  
 ```bash
 $ gcloud auth application-default login
 
@@ -244,16 +245,15 @@ $ echo export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.gcp/filename-here.json" >
 
 - Open the terraform folder in your project
 
-> [Azure Data Lake Configuration](https://github.com/ozkary/data-engineering-mta-turnstile/wiki/Terraform-Create-an-Azure-Data-Lake)
-
 - Initialize state file (.tfstate) by running terraform init
+  
 ```bash
 $ cd ./terraform
 $ terraform init
 ```
 -  Check changes to new infrastructure plan
 
-> Get the project id from your GCP cloud console
+> 👉 Get the project id from your GCP cloud console
 
 ```bash  
 $ terraform plan -var="project=<your-gcp-project-id>"
@@ -271,7 +271,7 @@ $ terraform apply -var="project=<your-gcp-project-id>"
 $ terraform destroy
 ```
 
-#### Terraform Lifecyle
+#### Terraform Lifecycle
 
 ![ozkary-data-engineering-terraform-lifecycle](../../assets/2023/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
 
@@ -279,7 +279,7 @@ $ terraform destroy
 
 In order to be able to automate the building of infrastructure with GitHub, we need to define the cloud provider token as a secret with GitHub. This can be done by following the steps from this link:
 
-> [Configure GitHub Secrets](https://github.com/ozkary/data-engineering-mta-turnstile/wiki/GitHub-Configure-Secrets-for-Build-Actions)
+> 👉 [Configure GitHub Secrets](https://github.com/ozkary/data-engineering-mta-turnstile/wiki/GitHub-Configure-Secrets-for-Build-Actions)
 
 Once the secret has been configured, we can create a build action script with the cloud provider secret information as shown with this GitHub Action workflow YAML file:
 
