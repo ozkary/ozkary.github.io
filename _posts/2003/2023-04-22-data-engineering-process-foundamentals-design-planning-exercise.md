@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Design and Planning Exercise"
 excerpt: "Now that we have laid the foundation through design and planning, we can dive into a hands-on exercise to build the infrastructure in a cloud-agnostic way. By taking a cloud-agnostic approach, we can ensure that our data engineering project implementation remains flexible and adaptable to different cloud providers. This allows us to leverage the benefits of multiple cloud platforms or easily switch between providers if needed."
 last_modified_at: 2023-04-22T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-design-planning-exercise.png"
+  teaser: "../assets/2023/ozkary-data-engineering-terraform.png"
   teaserAlt: "Ozkary Data Engineering Process Design and Planning Exercise"
 tags: 
   - pipelines  
@@ -27,6 +27,8 @@ Infrastructure planning is a critical aspect of every technical project, laying 
 - Data Warehouse: An essential resource that hosts transformed and curated data, providing a high-performance environment for easy access by visualization tools.
 
 Infrastructure automation, facilitated by tools like Terraform, is important in modern data engineering projects. It enables the provisioning and management of cloud resources, such as virtual machines and storage, in a consistent and reproducible manner. Infrastructure as Code (IaC) allows teams to define their infrastructure declaratively, track it in source control, version it, and apply changes as needed. Automation reduces manual efforts, ensures consistency, and enables infrastructure to be treated as a code artifact, improving reliability and scalability.
+
+![ozkary-data-engineering-terraform](../../assets/2023/ozkary-data-Engineering-terraform.png "Data Engineering Process - Terraform")
 
 # Infrastructure Implementation Requirements
 
@@ -67,7 +69,7 @@ on linux_amd64
  - Enter a name for the service account and an optional description
  - Then add the BigQuery Admin, Storage Admin, Storage Object Admin as roles for our service account and click the save button.
 
-![ozkary gcp roles](https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/images/gcp-roles.png)
+![ozkary gcp roles](../../assets/2023/ozkary-data-engineering-gcp-roles.png)
 
  - Enable IAM APIs by clicking the following links:
    - [IAM-API](https://console.cloud.google.com/apis/library/iam.googleapis.com)
@@ -271,14 +273,13 @@ $ terraform destroy
 
 #### Terraform Lifecyle
 
-![ozkary-data-engineering-terraform-lifecycle](../images/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
+![ozkary-data-engineering-terraform-lifecycle](../../assets/2023/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
 
-
+### GitHub Action
 
 In order to be able to automate the building of infrastructure with GitHub, we need to define the cloud provider token as a secret with GitHub. This can be done by following the steps from this link:
 
 > [Configure GitHub Secrets](https://github.com/ozkary/data-engineering-mta-turnstile/wiki/GitHub-Configure-Secrets-for-Build-Actions)
-
 
 Once the secret has been configured, we can create a build action script with the cloud provider secret information as shown with this GitHub Action workflow YAML file:
 
@@ -326,4 +327,5 @@ With this exercise, we gain practical experience in using tools like Terraform t
 Thanks for reading.
 
 Send question or comment at Twitter @ozkary
+
 👍 Originally published by [ozkary.com](https://www.ozkary.com)
