@@ -227,16 +227,101 @@ resource "google_compute_instance" "vm_instance" {
 
 # How to run it!
 
+- Refresh service-account's auth-token for this session
+```bash
+$ gcloud auth application-default login
+
+```
+
+- Set the credentials file on the bash configuration file
+  - Add the export line and replace filename-here with your file
+
+```bash
+$ echo export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.gcp/filename-here.json" >> ~/.bashrc && source ~/.bashrc
+```
+
+- Open the terraform folder in your project
+
+> [Azure Data Lake Configuration](https://github.com/ozkary/data-engineering-mta-turnstile/wiki/Terraform-Create-an-Azure-Data-Lake)
+
+- Initialize state file (.tfstate) by running terraform init
+```bash
+$ cd ./terraform
+$ terraform init
+```
+-  Check changes to new infrastructure plan
+
+> Get the project id from your GCP cloud console
+
+```bash  
+$ terraform plan -var="project=<your-gcp-project-id>"
+```
+
+- Apply the changes
+
+```bash
+$ terraform apply -var="project=<your-gcp-project-id>"
+```
+
+- (Optional) Delete infrastructure after your work, to avoid costs on any running services
+
+```bash
+$ terraform destroy
+```
+
+#### Terraform Lifecyle
+
+![ozkary-data-engineering-terraform-lifecycle](../images/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
+
+
+
+In order to be able to automate the building of infrastructure with GitHub, we need to define the cloud provider token as a secret with GitHub. This can be done by following the steps from this link:
+
+> [Configure GitHub Secrets](https://github.com/ozkary/data-engineering-mta-turnstile/wiki/GitHub-Configure-Secrets-for-Build-Actions)
+
+
+Once the secret has been configured, we can create a build action script with the cloud provider secret information as shown with this GitHub Action workflow YAML file:
+
+```yml
+
+name: Terraform Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+    
+    - name: Terraform Init
+       env:        
+        GOOGLE_APPLICATION_CREDENTIALS:  ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      run: |
+        cd Step2-Cloud-Infrastructure/terraform
+        terraform init
+    
+    - name: Terraform Apply
+      run: |
+        cd path/to/terraform/project
+        terraform apply -auto-approve
+```
 
 # Conclusion
 
 With this exercise, we gain practical experience in using tools like Terraform to automate the provisioning of resources, such as data lakes and other components essential to our data engineering system. By following cloud-agnostic practices, we can achieve interoperability and avoid vendor lock-in, ensuring our project remains scalable, cost-effective, and adaptable to future requirements.
 
-## NEXT??
+# Next Step
 
-We should be ready to put these concepts to work, let’s work on this exercise.
-
-> 👉 [Data Engineering Process Fundamentals - Design and Planning Exercise]
+> 👉 [Data Engineering Process Fundamentals - Data Pipeline and Orchestration]
 
 Thanks for reading.
 
