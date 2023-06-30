@@ -74,7 +74,7 @@ The design and planning phase of a data engineering project sets the stage for s
 
 Now that we have laid a design foundation, we should dive into a hands-on exercise to build the infrastructure where we can host our solution.
 
-> 👉 [Data Engineering Process Fundamentals - Design and Planning Exercise](//www.ozkary.dev/data-engineering-process-fundamentals- Design-Planning-exercise)
+> 👉 [Data Engineering Process Fundamentals - Design and Planning Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-design-planning-exercise/)
 
 Thanks for reading.
 
