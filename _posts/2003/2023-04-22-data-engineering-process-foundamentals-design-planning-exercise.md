@@ -1,6 +1,6 @@
 ---
 title: "Data Engineering Process Fundamentals - Design and Planning Exercise"
-excerpt: "Now that we have laid the foundation through design and planning, we can dive into a hands-on exercise to build the infrastructure in a cloud-agnostic way. By taking a cloud-agnostic approach, we can ensure that our data engineering project implementation remains flexible and adaptable to different cloud providers. This allows us to leverage the benefits of multiple cloud platforms or easily switch between providers if needed."
+excerpt: "Infrastructure planning is a critical aspect of every technical project, laying the foundation for successful project delivery. In the case of a Data Engineering project, it becomes even more crucial. To support our project's objectives, we need to carefully consider and provision specific resources."
 last_modified_at: 2023-04-22T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-terraform.png"
@@ -50,7 +50,7 @@ $ cp terraform /usr/bin/
 $ terraform -v
 ```
 
-We should get the following output:
+We should get an output similar to this:
 
 ```bash
 Terraform v1.3.7
@@ -325,6 +325,8 @@ jobs:
 With this exercise, we gain practical experience in using tools like Terraform to automate the provisioning of resources, such as data lakes and other components essential to our data engineering system. By following cloud-agnostic practices, we can achieve interoperability and avoid vendor lock-in, ensuring our project remains scalable, cost-effective, and adaptable to future requirements.
 
 # Next Step
+
+After building our cloud infrastructure, we are now ready to talk about the implementation and orchestration of a data pipeline and review some of the operational requirements that can enable us to make decisions.
 
 > 👉 [Data Engineering Process Fundamentals - Data Pipeline and Orchestration]
 
