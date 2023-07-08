@@ -13,7 +13,9 @@ tags:
 toc: true
 ---
 
-After completing the Design and Planning phase in the data engineering process, we can transition into the implementation and orchestration of our data pipeline. For this step, it is important to have a clear understanding on what is the implementation and orchestration effort as well as what are the programming languages and tooling that are available to enable us to complete those efforts. It is also important to understand some of the operational requirements, so we can choose the correct platform. Additionally, we show how to leverage the cloud resources we have provisioned to support an operational pipeline, but before we get deep into those concepts, let review some background information about what is exactly a pipeline, and how is the implementation different than the orchestration? 
+After completing the Design and Planning phase in the data engineering process, we can transition into the implementation and orchestration of our data pipeline. For this step, it is important to have a clear understanding on what is the implementation and orchestration effort as well as what are the programming languages and tooling that are available to enable us to complete those efforts. 
+
+It is also important to understand some of the operational requirements, so we can choose the correct platform that should help us deliver on those requirements. Additionally, this is the time to leverage the cloud resources we have provisioned to support an operational pipeline, but before we get deep into those concepts, let's review some background information about what is exactly a pipeline, how can it be implemented and executed with orchestration? 
 
 ![ozkary-data-engineering-design-planning](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals - Pipeline and Orchestration")
 
@@ -27,13 +29,13 @@ The use of ETL or ELT depends on the design. For some solutions, a flow task may
 
 The implementation of a pipeline refers to the building and/or coding of each task in the pipeline. A task can be implemented using a programming languages like Python or SQL. It can also be implemented using a no-code or low-code tool, which provides a visual interface that allows the engineer to connect to Web services, databases, data lakes and other sources that provide access via API. The use of which technology to use depends on the skill set of the engineering team and cost analysis of the tools that should be used. Let's compare some of these options in more detail:
 
-- Python is a versatile programming language widely used in data engineering. It offers robust libraries and frameworks like Apache Airflow, Apache Beam, and Pandas that provide powerful capabilities for building and managing data pipelines. With Python, you have granular control over pipeline logic, allowing for complex transformations and custom data processing. It is ideal for handling diverse data sources and implementing advanced data integration scenarios. Even in some low-code scenarios, Python is used in some components to do special transformation or logic that may not be available on the low-code tool.
+- Python is a versatile programming language widely used in data engineering. It offers robust libraries and frameworks like Apache Airflow, Apache Beam, and Pandas that provide powerful capabilities for building and managing data pipelines. With Python, we have granular control over pipeline logic, allowing for complex transformations and custom data processing. It is ideal for handling diverse data sources and implementing advanced data integration scenarios. Even in some low-code scenarios, Python is used t build components which do special transformation or logic that may not be available right out of the box the low-code tool.
 
 - SQL (Structured Query Language) is a standard language for interacting with relational databases. Many data pipeline frameworks, such as Apache NiFi and Azure Data Factory, offer SQL-based transformation capabilities. SQL allows for declarative and set-based operations, making it efficient for querying and transforming structured data. It is well-suited for scenarios where the data transformations align closely with SQL operations and can be expressed concisely.
   
-- Low-code tools, such as Azure Logic Apps and AWS Glue, provide a visual interface for designing and orchestrating data pipelines. They offer a no-code or low-code approach, making it easier for non-technical users to build pipelines with drag-and-drop functionality. These tools abstract the underlying complexity, enabling faster development and easier maintenance. Low-code tools are beneficial when simplicity, speed, and ease of use are prioritized over fine-grained control and advanced data processing capabilities.
+- Low-code tools, such as Azure Logic Apps, Power Platform Automate, provide a visual interface for designing and orchestrating data pipelines. They offer a no-code or low-code approach, making it easier for non-technical users to build pipelines with drag-and-drop functionality. These tools abstract the underlying complexity, enabling faster development and easier maintenance. Low-code tools are beneficial when simplicity, speed, and ease of use are prioritized over fine-grained control and advanced data processing capabilities.
 
-The choice between Python, SQL, or low-code tools depends on your specific project requirements, team skills, and the complexity of your data processing tasks. Python offers flexibility and control, SQL excels in structured data scenarios, while low-code tools provide rapid development and simplicity
+The choice between Python, SQL, or low-code tools depends on specific project requirements, team skills, and the complexity of the data processing tasks. Python offers flexibility and control, SQL excels in structured data scenarios, while low-code tools provide rapid development and simplicity.
 
 ### Pipeline Orchestration
 
@@ -47,7 +49,7 @@ When it comes to orchestrating data pipelines, there are several options availab
 
 Another option is Azure Data Factory, a cloud-based data integration service provided by Microsoft. It offers a visual interface for building and orchestrating data pipelines, making it suitable for users with less coding experience. Data Factory supports a wide range of data sources and provides features like data movement, transformation, and scheduling. It also integrates well with other Azure services, enabling seamless data integration within the Microsoft ecosystem.
 
-For those who prefer a code-centric approach, frameworks like Prefect can be a good choice. Prefect is an open-source workflow management system that allows you to define and manage data pipelines as code. It provides a Python-native API for building workflows, allowing for version control, testing, and collaboration in addition to the monitoring and reporting capabilities.
+For those who prefer a code-centric approach, frameworks like Prefect can be a good choice. Prefect is an open-source workflow management system that allows us to define and manage data pipelines as code. It provides a Python-native API for building workflows, allowing for version control, testing, and collaboration in addition to the monitoring and reporting capabilities.
 
 When comparing these options, it's essential to consider factors like ease of use, scalability, extensibility, integration with other tools and systems. 
 
@@ -55,7 +57,7 @@ When comparing these options, it's essential to consider factors like ease of us
 
 In addition to the technical skill set requirements, there is an operational requirement that should be highly considered. Important aspects include automation and monitoring:
 
-- Automation allows us to streamline and automate repetitive tasks, ensures consistent execution of tasks and workflows, thus eliminating the human factor, and enables us to scale up or down your data workflows based on demand. 
+- Automation allows us to streamline and automate repetitive tasks, ensures consistent execution of tasks and workflows, thus eliminating the human factor, and enables us to scale up or down the data workflows based on demand. 
 
 - Monitoring plays a critical role in identifying issues, errors, or bottlenecks in data pipelines. We can also gather insights into the performance of the data pipelines. This information helps identify areas for improvement, optimize resource utilization, and enhance overall pipeline efficiency. 
 
@@ -75,11 +77,11 @@ Together, a VM and Data Lake form the backbone of the data pipeline infrastructu
 
 ## Summary
 
-A data pipeline is basically a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is refer as orchestration. In order to support the operations of the pipeline and its orchestration, we need to build a VM and data lake cloud resources. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively.
+A data pipeline is basically a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is refer as orchestration. In order to support the operations of the pipeline and its orchestration, we need to provision a VM and data lake cloud resources, which we can also automate with Terraform. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively.
 
 ## Exercise - Infrastructure Planning and Automation
 
-Now that we understand the concepts of a pipeline and its orchestration, we should dive into a hands-on exercise to build our pipeline and send data to our data lake.
+Now that we understand the concepts of a pipeline and its orchestration, we should dive into a hands-on exercise in which we can implement a pipeline to extract CSV data from a source and send it to our data lake.
 
 > 👉 [Data Engineering Process Fundamentals - Pipeline and Orchestration Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration-exercise/)
 
