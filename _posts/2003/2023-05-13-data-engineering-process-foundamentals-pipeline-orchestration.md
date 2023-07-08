@@ -1,9 +1,9 @@
 ---
 title: "Data Engineering Process Fundamentals - Pipeline and Orchestration"
-excerpt: "A data engineering design is the actual plan to build the technical solution. It includes the system architecture, data integration, flow and pipeline orchestration, the data storage platform, transformation and management, data processing and analytics tooling."
+excerpt: "A data pipeline is a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is refer as orchestration. In order to support the operations of the pipeline and its orchestration, we need to build a VM and data lake cloud resources. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively."
 last_modified_at: 2023-04-15T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-design-planning.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png"
   teaserAlt: "Ozkary Data Engineering Process Pipeline and Orchestration"
 tags: 
   - pipelines  
@@ -13,9 +13,9 @@ tags:
 toc: true
 ---
 
-Once the Design and Planning step of a data engineering process is complete, we can transition into the implementation and orchestration of our data pipeline. For this step, it is important to have a clear understanding on what is the implementation and orchestration effort as well as what are the programming languages and tooling that are available to enable us to complete those efforts. It is also important to understand some of the operational requirements. We also need to see how to use the cloud resources that we have created. But what is exactly a pipeline, and how is the implementation different than the orchestration? 
+After completing the Design and Planning phase in the data engineering process, we can transition into the implementation and orchestration of our data pipeline. For this step, it is important to have a clear understanding on what is the implementation and orchestration effort as well as what are the programming languages and tooling that are available to enable us to complete those efforts. It is also important to understand some of the operational requirements, so we can choose the correct platform. Additionally, we show how to leverage the cloud resources we have provisioned to support an operational pipeline, but before we get deep into those concepts, let review some background information about what is exactly a pipeline, and how is the implementation different than the orchestration? 
 
-![ozkary-data-engineering-design-planning](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals- Pipeline and Orchestration")
+![ozkary-data-engineering-design-planning](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals - Pipeline and Orchestration")
 
 ## Data Pipelines 
 
@@ -39,7 +39,7 @@ The choice between Python, SQL, or low-code tools depends on your specific proje
 
 Pipeline orchestration refers to the automation, management and coordination of the data pipeline tasks. It involves the scheduling, workflows, monitoring and recovery of those tasks. The orchestration ensures the execution of those tasks, and it takes care of error handling, retry and the alerting of problems in the pipeline.
 
-Similar to the implementation effort, there are several options for the orchestration approach. There are code-centric, low-code and no-code platforms. In addition to the technical skill set requirements, there is an operational requirement that should be highly considered. The key to orchestration is automation and monitoring. 
+Similar to the implementation effort, there are several options for the orchestration approach. There are code-centric, low-code and no-code platforms. Let's take a look at some of those options.
 
 #### Orchestration Tooling
 
@@ -47,39 +47,41 @@ When it comes to orchestrating data pipelines, there are several options availab
 
 Another option is Azure Data Factory, a cloud-based data integration service provided by Microsoft. It offers a visual interface for building and orchestrating data pipelines, making it suitable for users with less coding experience. Data Factory supports a wide range of data sources and provides features like data movement, transformation, and scheduling. It also integrates well with other Azure services, enabling seamless data integration within the Microsoft ecosystem.
 
-For those who prefer a code-centric approach, frameworks like Prefect can be a good choice. Prefect is an open-source workflow management system that allows you to define and manage data pipelines as code. It provides a Python-native API for building workflows, allowing for version control, testing, and collaboration.
+For those who prefer a code-centric approach, frameworks like Prefect can be a good choice. Prefect is an open-source workflow management system that allows you to define and manage data pipelines as code. It provides a Python-native API for building workflows, allowing for version control, testing, and collaboration in addition to the monitoring and reporting capabilities.
 
 When comparing these options, it's essential to consider factors like ease of use, scalability, extensibility, integration with other tools and systems. 
 
 #### Orchestration Operations
 
-Automation allows us to streamline and automate repetitive tasks, ensures consistent execution of tasks and workflows, thus eliminating the human factor, and enables us to scale up or down your data workflows based on demand. 
+In addition to the technical skill set requirements, there is an operational requirement that should be highly considered. Important aspects include automation and monitoring:
 
-Monitoring plays a critical role in identifying issues, errors, or bottlenecks in data pipelines. We can also gather insights into the performance of the data pipelines. This information helps identify areas for improvement, optimize resource utilization, and enhance overall pipeline efficiency. 
+- Automation allows us to streamline and automate repetitive tasks, ensures consistent execution of tasks and workflows, thus eliminating the human factor, and enables us to scale up or down your data workflows based on demand. 
+
+- Monitoring plays a critical role in identifying issues, errors, or bottlenecks in data pipelines. We can also gather insights into the performance of the data pipelines. This information helps identify areas for improvement, optimize resource utilization, and enhance overall pipeline efficiency. 
 
 Automation and monitoring contribute to compliance and governance requirements. By tracking and documenting data lineage, monitoring data quality, and implementing data governance policies, engineers can ensure regulatory compliance and maintain data integrity and security.
 
+## Cloud Resources
 
-## Cloud resources
+When it comes to cloud resources, there are often two components that play a significant role in this process: a Virtual Machine (VM) and the Data Lake.
 
-A solid foundation is crucial for the successful implementation and orchestration of data pipelines. Two key components that play a significant role in this process are the Virtual Machine (VM) and the Data Lake.
+![ozkary-data-engineering-design-planning](../../assets/2023/ozkary-data-engineering-process-orchestration-flow.png "Data Engineering Process Fundamentals - Orchestration Flow")
 
-The VM serves as the powerhouse behind the scenes, responsible for executing the pipeline workflows and managing the overall orchestration. It provides the computational resources needed to process and transform data, ensuring the smooth execution of data pipeline tasks.
+- A Virtual Machine (VM) serves as the compute power for the pipelines. It is responsible for executing the pipeline workflows and managing the overall orchestration. It provides the computational resources needed to process and transform data, ensuring the smooth execution of data pipeline tasks. The code executed on this resource is often running on Docker containers, which enables the use of automated deployments when code changes become available. In addition, containers can be deployed on Kubernetes clusters to support high availability and automated management use cases.
 
-On the other hand, the Data Lake acts as a central repository for storing vast amounts of raw and unprocessed data. It offers a scalable and cost-effective solution for capturing and storing data from various sources. The Data Lake allows for easy accessibility and provides the necessary flexibility to accommodate evolving data requirements and support diverse data processing needs.
+- A Data Lake acts as a central repository for storing vast amounts of raw and unprocessed data. It offers a scalable and cost-effective solution for capturing and storing data from various sources. The Data Lake allows for easy integration and flexibility to support evolving data requirements. There are also data retention policies that can be implemented to manage old files.
 
-Together, the VM and Data Lake form the backbone of a robust data pipeline infrastructure. They enable efficient data processing, facilitate data integration, and lay the foundation for seamless data analysis and visualization. By leveraging these components, organizations can unlock the full potential of their data, enabling actionable insights and informed decision-making.
-
+Together, a VM and Data Lake form the backbone of the data pipeline infrastructure. They enable efficient data processing, facilitate data integration, and lay the foundation for seamless data analysis and visualization. By leveraging these components, we can stage the data flow into other resources like a data warehouse, which in turn enables the analytical process.
 
 ## Summary
 
-????
+A data pipeline is basically a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is refer as orchestration. In order to support the operations of the pipeline and its orchestration, we need to build a VM and data lake cloud resources. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively.
 
 ## Exercise - Infrastructure Planning and Automation
 
-Now that we understand the concepts of a pipeline and orchestration, we should dive into a hands-on exercise to build our pipeline and send data to our data lake.
+Now that we understand the concepts of a pipeline and its orchestration, we should dive into a hands-on exercise to build our pipeline and send data to our data lake.
 
-> 👉 [Data Engineering Process Fundamentals - Design and Planning Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-design-planning-exercise/)
+> 👉 [Data Engineering Process Fundamentals - Pipeline and Orchestration Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration-exercise/)
 
 Thanks for reading.
 
