@@ -29,7 +29,7 @@ The use of ETL or ELT depends on the design. For some solutions, a flow task may
 
 The implementation of a pipeline refers to the building and/or coding of each task in the pipeline. A task can be implemented using a programming languages like Python or SQL. It can also be implemented using a no-code or low-code tool, which provides a visual interface that allows the engineer to connect to Web services, databases, data lakes and other sources that provide access via API. The use of which technology to use depends on the skill set of the engineering team and cost analysis of the tools that should be used. Let's compare some of these options in more detail:
 
-- Python is a versatile programming language widely used in data engineering. It offers robust libraries and frameworks like Apache Airflow, Apache Beam, and Pandas that provide powerful capabilities for building and managing data pipelines. With Python, we have granular control over pipeline logic, allowing for complex transformations and custom data processing. It is ideal for handling diverse data sources and implementing advanced data integration scenarios. Even in some low-code scenarios, Python is used t build components which do special transformation or logic that may not be available right out of the box the low-code tool.
+- Python is a versatile programming language widely used in data engineering. It offers robust libraries and frameworks like Apache Airflow, Apache Beam, and Pandas that provide powerful capabilities for building and managing data pipelines. With Python, we have granular control over pipeline logic, allowing for complex transformations and custom data processing. It is ideal for handling diverse data sources and implementing advanced data integration scenarios. Even in some low-code scenarios, Python is used to build components which do special transformation or logic that may not be available right out of the box of the low-code tool.
 
 - SQL (Structured Query Language) is a standard language for interacting with relational databases. Many data pipeline frameworks, such as Apache NiFi and Azure Data Factory, offer SQL-based transformation capabilities. SQL allows for declarative and set-based operations, making it efficient for querying and transforming structured data. It is well-suited for scenarios where the data transformations align closely with SQL operations and can be expressed concisely.
   
@@ -77,11 +77,12 @@ Together, a VM and Data Lake form the backbone of the data pipeline infrastructu
 
 ## Summary
 
-A data pipeline is basically a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is refer as orchestration. In order to support the operations of the pipeline and its orchestration, we need to provision a VM and data lake cloud resources, which we can also automate with Terraform. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively.
+A data pipeline is basically a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is referred as orchestration. In order to support the operations of the pipeline and its orchestration, we need to provision a VM and data lake cloud resources, which we can also automate with Terraform. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively.
 
 ## Exercise - Infrastructure Planning and Automation
 
 Now that we understand the concepts of a pipeline and its orchestration, we should dive into a hands-on exercise in which we can implement a pipeline to extract CSV data from a source and send it to our data lake.
+
 
 > 👉 [Data Engineering Process Fundamentals - Pipeline and Orchestration Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration-exercise/)
 
