@@ -79,7 +79,7 @@ Together, a VM and Data Lake form the backbone of the data pipeline infrastructu
 
 A data pipeline is basically a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is referred as orchestration. In order to support the operations of the pipeline and its orchestration, we need to provision a VM and data lake cloud resources, which we can also automate with Terraform. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively.
 
-## Exercise - Infrastructure Planning and Automation
+## Exercise - Data Pipeline and Orchestration
 
 Now that we understand the concepts of a pipeline and its orchestration, we should dive into a hands-on exercise in which we can implement a pipeline to extract CSV data from a source and send it to our data lake.
 
