@@ -45,11 +45,15 @@ Similar to the implementation effort, there are several options for the orchestr
 
 #### Orchestration Tooling
 
-When it comes to orchestrating data pipelines, there are several options available. One popular choice is Apache Airflow, an open-source platform that provides workflow automation, task scheduling, and monitoring capabilities. With Airflow, engineers can define complex workflows using Python code, allowing for flexibility and customization.
+When it comes to orchestrating data pipelines, there are several options available. 
 
-Another option is Azure Data Factory, a cloud-based data integration service provided by Microsoft. It offers a visual interface for building and orchestrating data pipelines, making it suitable for users with less coding experience. Data Factory supports a wide range of data sources and provides features like data movement, transformation, and scheduling. It also integrates well with other Azure services, enabling seamless data integration within the Microsoft ecosystem.
+- One popular choice is [Apache Airflow](https://airflow.apache.org/), an open-source platform that provides workflow automation, task scheduling, and monitoring capabilities. With Airflow, engineers can define complex workflows using Python code, allowing for flexibility and customization. Apache Airflow requires an active service or process to be running. It operates as a centralized service that manages and schedules workflows. 
 
-For those who prefer a code-centric approach, frameworks like Prefect can be a good choice. Prefect is an open-source workflow management system that allows us to define and manage data pipelines as code. It provides a Python-native API for building workflows, allowing for version control, testing, and collaboration in addition to the monitoring and reporting capabilities.
+- [Apache Spark](https://spark.apache.org/) can be a good choice for batch processing tasks that involve calling APIs and downloading files using Python. Spark provides a distributed processing framework that can handle large-scale data processing and analysis efficiently. Spark provides a Python API (PySpark) that allows you to write Spark applications using Python. Spark runs as a distributed processing engine that provides high-performance data processing capabilities. To use Spark for data pipeline processing, we need to set up and run a Spark cluster or Spark standalone server.
+
+- For those who prefer a code-centric approach, frameworks like [Prefect](https://www.prefect.io/) can be a good choice. Prefect is an open-source workflow management system that allows us to define and manage data pipelines as code. It provides a Python-native API for building workflows, allowing for version control, testing, and collaboration in addition to the monitoring and reporting capabilities. Prefect requires an agent to be running in order to execute scheduled jobs. The agent acts as the workflow engine that coordinates the execution of tasks and manages the scheduling and orchestration of workflows.
+
+- For low-code and no-code efforts, [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory/) is a cloud-based data integration service provided by Microsoft. It offers a visual interface for building and orchestrating data pipelines, making it suitable for users with less coding experience. Data Factory supports a wide range of data sources and provides features like data movement, transformation, and scheduling. It also integrates well with other Azure services, enabling seamless data integration within the Microsoft ecosystem.
 
 When comparing these options, it's essential to consider factors like ease of use, scalability, extensibility, integration with other tools and systems. 
 
