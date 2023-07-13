@@ -173,7 +173,7 @@ The following images show Jupyter notebook loaded on the browser or directly fro
 
 # Next Step
 
-> 👉 [Data Engineering Process Fundamentals - Design and Planning](//www.ozkary.dev/data-engineering-process-foundamentals-design-planning)
+> 👉 [Data Engineering Process Fundamentals - Design and Planning](//www.ozkary.dev/data-engineering-process-fundamentals-design-planning)
 
 
 Thanks for reading.

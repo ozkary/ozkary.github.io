@@ -34,12 +34,12 @@ A Data Engineering Process follows a series of steps that should be executed to 
 
 > 👉 Coming Soon. Join this list to receive updates [Sign up here](https://maven.com/forms/56ae79)
 
-- [Discovery](//www.ozkary.dev/data-engineering-process-foundamentals-discovery/)
+- [Discovery](//www.ozkary.dev/data-engineering-process-fundamentals-discovery/)
   - Problem Statement
   - Data Analysis
   - Define the Requirements and Scope of Work
   - Discovery Exercise
-- [Design and Planning](//www.ozkary.dev/data-engineering-process-foundamentals-design-planning/)
+- [Design and Planning](//www.ozkary.dev/data-engineering-process-fundamentals-design-planning/)
   - Design Approach
   - System Architecture
   - Cloud Engineering and Automation
@@ -102,7 +102,7 @@ Streaming Data is a data source that sends messages with small content but with 
 
 Now that we are familiar with the high level process, let's talk about the discovery step in details.
 
-> 👉[Data Engineering Process Fundamentals - Discovery](//www.ozkary.dev/data-engineering-process-foundamentals-discovery)
+> 👉[Data Engineering Process Fundamentals - Discovery](//www.ozkary.dev/data-engineering-process-fundamentals-discovery)
 
 
 Thanks for reading.
