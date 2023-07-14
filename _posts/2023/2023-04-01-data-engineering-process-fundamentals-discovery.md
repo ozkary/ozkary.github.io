@@ -62,9 +62,13 @@ Requirements refer to the needs, capabilities and constraints that are needed to
 - Scalability and performance
 - Monitoring
 
+## Summary
+
+The data engineering discovery process involves defining the problem statement, gathering requirements, and determining the scope of work. It also includes a data analysis exercise utilizing Python and Jupyter Notebooks or other tools to extract valuable insights from the data. These steps collectively lay the foundation for successful data engineering endeavors.
+
 ## Exercise - Hands-on Use Case
 
-After learning th details about the discovery step, let's put them into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
+Since we now understand the discovery step, we should be able to put that into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
 
 > 👉 [Data Engineering Process Fundamentals - Discovery Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-discovery-exercise)
 

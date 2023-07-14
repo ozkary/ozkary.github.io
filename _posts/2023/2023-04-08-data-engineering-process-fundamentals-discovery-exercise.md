@@ -121,8 +121,188 @@ These observations can be used to define technical requirements that can enable 
   - Look at the daily models
   - Look at the time slot models
 
+## Review the Code
+
+In order to do our data analysis, we need to first download some sample data by writing a Python script. We can the analyze this data by writing some code snippets and use the power of the Python Pandas library. We can also use Jupyter Notebooks to quickly manipulate the data and create some charts that can help us as baseline requirements for the final visualization dashboard.
+
+<p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/" target="_pipeline">Clone this repo or copy the files from this folder
+</a></p>
+
+### Download a CSV File from the MTA Site
+
+With this Python script (mta_discovery.py), we download a CSV file with the URL of http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt. The code creates a data stream to download the file in chunks to avoid any timeouts. We append the chunks into a local compressed file to reduce the size of the file. In order to reuse this code, we use the command line parser, so we can pass as parameters the URL.
+
+```python
+import os
+import argparse
+from time import time
+from pathlib import Path
+import pandas as pd
+
+
+def read_local(file_path: str) -> Path:
+    """
+        Reads a local file
+        Args:
+            file_path:  local file            
+    """
+    print(F'Reading local file {file_path}')
+    df_iter = pd.read_csv(file_path, iterator=True,compression="gzip", chunksize=10000) 
+    if df_iter:        
+        for df in df_iter:
+            try:                                
+                print('File headers',df.columns)                                
+                print('Top 10 rows',df.head(10))            
+                break
+            except Exception as ex:
+                print(f"Error found {ex}")
+                return
+                
+        print(f"file was loaded {file_path}")        
+    else:
+        print(F"failed to read file {file_path}")
+
+def write_local(df: pd.DataFrame, folder: str, file_name: str) -> Path:
+    """
+        Write DataFrame out locally as csv file
+        Args:
+            df: dataframe chunk
+            folder: the download data folder
+            file_name: the local file name
+    """
+
+    path = Path(f"{folder}")
+    if not os.path.exists(path):
+        path.mkdir(parents=True, exist_ok=True)
+    
+    file_path = Path(f"{folder}/{file_name}")
+
+    if not os.path.isfile(file_path):
+        df.to_csv(file_path, compression="gzip")
+        print('new file')
+    else:
+        df.to_csv(file_path, header=None, compression="gzip", mode="a")    
+        print('chunk appended')
+        
+    return file_path
+
+def etl_web_to_local(url: str, name: str) -> None:
+    """
+       Download a file    
+       Args:
+            url : The file url
+            name : the file name
+   
+    """
+    print(url, name)      
+
+    # skip an existent file
+    path = f"../data/"
+    file_path = Path(f"{path}/{name}.csv.gz")
+    if os.path.exists(file_path):
+            read_local(file_path)            
+            return
+        
+    df_iter = pd.read_csv(url, iterator=True, chunksize=10000) 
+    if df_iter:      
+        file_name = f"{name}.csv.gz"    
+        for df in df_iter:
+            try:                                                
+                write_local(df, path, file_name)
+            except StopIteration as ex:
+                print(f"Finished reading file {ex}")
+                break
+            except Exception as ex:
+                print(f"Error found {ex}")
+                return
+                
+        print(f"file was loaded {file_path}")        
+    else:
+        print("dataframe failed")
+
+def main_flow(params: str) -> None:
+    """
+        Process a CSV file from a url location with the goal to understand the data structure
+    """    
+    url = params.url  
+    prefix = params.prefix
+
+    try:
+        start_index = url.index('_')
+        end_index = url.index('.txt')
+        file_name = F"{prefix}{url[start_index:end_index]}"
+        # print(file_name)
+        etl_web_to_local(url, file_name)
+    except ValueError:
+        print("Substring not found")
+          
+
+if __name__ == '__main__':
+    
+    os.system('clear')    
+    parser = argparse.ArgumentParser(description='Process CSV data to understand the data')
+    parser.add_argument('--url', required=True, help='url of the csv file')
+    parser.add_argument('--prefix', required=True, help='the file prefix or group name')
+    args = parser.parse_args()
+    
+    print('running...')
+    main_flow(args)
+    print('end')
+```
+### Analyze the Data
+
+With some sample data, we can now take a look at the data and make some observations. There are a few ways to approach the analysis. We could create another Python script and play with the data, but this will require to run the script from the console after every code change. A more productive way is to use Jupyter Notebooks. This tools enables us to edit and run code snippets in cells without having to run the entire script. This is a friendlier analysis tool that can help us focus on the data analysis instead of coding and running the script. In addition, once we are good with our changes, the notebook can be exported into a Python file. Let's look at that file discovery.ipynb:
+
+```python
+import os
+import argparse
+from time import time
+from pathlib import Path
+import pandas as pd 
+
+# read the file and display the top 10 rows
+df = pd.read_csv('../data/230318.csv.gz', iterator=False,compression="gzip")
+df.head(10)
+
+# Create a new DateTime column and merge the DATE and TIME columns
+df['CREATED'] =  pd.to_datetime(df['DATE'] + ' ' + df['TIME'], format='%m/%d/%Y %H:%M:%S')
+df = df.drop('DATE', axis=1).drop('TIME',axis=1)
+df.head(10)
+
+# Aggregate the information by station and datetime
+df["ENTRIES"] = df["ENTRIES"].astype(int)
+df["EXITS"] = df["EXITS"].astype(int)
+df_totals = df.groupby(["STATION","CREATED"], as_index=False)[["ENTRIES","EXITS"]].sum()
+df_totals.head(10)
+
+df_station_totals = df.groupby(["STATION"], as_index=False)[["ENTRIES","EXITS"]].sum()
+df_station_totals.head(10)
+
+# Show the total entries by station, use a subset of data
+import plotly.express as px
+import plotly.graph_objects as go
+ 
+df_stations =  df_station_totals.head(25)
+donut_chart = go.Figure(data=[go.Pie(labels=df_stations["STATION"], values=df_stations["ENTRIES"], hole=.2)])
+donut_chart.update_layout(title_text='Entries Distribution by Station', margin=dict(t=40, b=0, l=10, r=10))
+donut_chart.show()
+
+# Show the data by the day of the week
+df_by_date = df_totals.groupby(["CREATED"], as_index=False)[["ENTRIES"]].sum()
+day_order = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+df_by_date["WEEKDAY"] = pd.Categorical(df_by_date["CREATED"].dt.strftime('%a'), categories=day_order, ordered=True)
+df_entries_by_date =  df_by_date.groupby(["WEEKDAY"], as_index=False)[["ENTRIES"]].sum()
+df_entries_by_date.head(10)
+
+bar_chart = go.Figure(data=[go.Bar(x=df_entries_by_date["WEEKDAY"], y=df_entries_by_date["ENTRIES"])])
+bar_chart.update_layout(title_text='Total Entries by Week Day')
+bar_chart.show()
+
+```
 
 ## How to Run it!
+
+With an understanding of the code and tools, let's now actually run the process.
 
 ### Requirements
 
@@ -163,7 +343,7 @@ The following images show Jupyter notebook loaded on the browser or directly fro
 
 ![ozkary-data-engineering-discovery-query](../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
 
-#### #### Using VSCode to load the data and create charts
+#### Using VSCode to load the data and create charts
 
 ![ozkary-data-engineering-discovery-jupyter-vscode](../../assets/2023/ozkary-data-engineering-jupyter-vscode.png "ozkary MTA jupyter vscode")
 
