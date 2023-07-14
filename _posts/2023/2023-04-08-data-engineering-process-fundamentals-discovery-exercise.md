@@ -302,7 +302,7 @@ bar_chart.show()
 
 ## How to Run it!
 
-With an understanding of the code and tools, let's now actually run the process.
+With an understanding of the code and tools, let's run the process.
 
 ### Requirements
 
