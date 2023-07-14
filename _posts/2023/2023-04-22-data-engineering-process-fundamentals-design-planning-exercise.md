@@ -328,7 +328,7 @@ With this exercise, we gain practical experience in using tools like Terraform t
 
 After building our cloud infrastructure, we are now ready to talk about the implementation and orchestration of a data pipeline and review some of the operational requirements that can enable us to make decisions.
 
-> 👉 [Data Engineering Process Fundamentals - Data Pipeline and Orchestration]
+> 👉 [Data Engineering Process Fundamentals - Data Pipeline and Orchestration](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration/)
 
 Thanks for reading.
 
