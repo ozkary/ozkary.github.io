@@ -310,6 +310,10 @@ With an understanding of the code and tools, let's run the process.
 Install Python, Pandas and Jupyter notebook
 </a></p>
 
+<p>👉 <a target="_vscode" href="https://code.visualstudio.com/download">
+Install Visual Studio Code
+</a></p>
+
 <p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery" target="_python">Clone this repo or copy the files from this folder
 </a></p>
 

@@ -43,7 +43,9 @@ We should conduct exploratory data analysis to understand the structure, pattern
 
 #### Tools and Framework
 
-Depending on the size and budget of the organization, the solution can be built with lots of coding and integration, or instead a low-code turn-key solution that provides enterprise quality resources could be used instead. Regardless of the approach, a programming language like Python is a popular programming language for data science and engineers, and it is always applicable. The Python Pandas library is great for data manipulation and analysis. Jupyter notes with Python scripts is great for experiments and discovery.
+Depending on the size and budget of the organization, the solution can be built with lots of coding and integration, or instead a low-code turn-key solution that provides enterprise quality resources could be used instead. Regardless of the approach, a programming language like Python is a popular programming language for data science and engineers, and it is always applicable. The Python Pandas library is great for data manipulation and analysis. Jupyter Notebooks with Python scripts is great for experiments and discovery.
+
+To run our Python scripts and Jupyter notebooks, we can use Visual Studio Code (VSCode), which is cross-platform Integrated Development Environment (IDE) tool. This tool also enables the integration with source control and deployments platforms like GitHub, so we can maintain version control and automate the deployment and test of our code changes.
 
 To orchestrate the pipelines, we often use a workflow framework like Apache Airflow, Prefect. To host the data, we use data lakes (blob storage) and a relational data warehouse. For data modeling, incremental data and continuous test and data ingestion, Apache Spark or gbt cloud are used.
 
