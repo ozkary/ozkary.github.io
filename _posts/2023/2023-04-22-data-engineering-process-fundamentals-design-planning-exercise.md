@@ -96,7 +96,7 @@ $ gcloud auth application-default login
 ```
 - Follow the login process on the browser
 
-# Explain the Code
+# Review the Code
 
 <p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/terraform" target="_terraform">Clone this repo or copy the files from this folder
 </a></p>
