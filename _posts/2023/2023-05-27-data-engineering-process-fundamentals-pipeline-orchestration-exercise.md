@@ -108,7 +108,7 @@ $ prefect cloud login
 ```  
 The login creates a key file ~/.prefect/profiles.toml which the framework looks for to authenticate the app.
 
-- Install the Prefect code blocks dependencies and run the ls command to check that there are none installed
+- Install the Prefect code blocks dependencies and run the "block ls" command to check that there are none installed
 
 ```bash
 $ prefect block register -m prefect_gcp
@@ -346,13 +346,13 @@ if __name__ == '__main__':
 ```
 ### Pipeline Flows and Tasks
 
-A pipeline is implemented by defining flows and tasks, which are defined using Python or CSharp code. Flows are composed of multiple tasks and define the sequence and dependencies between them. Flows use the @flow function decorator or attributes, which is specific to Prefect and is used to mark a function as a Prefect flow. It also allows us to define the flow's name, description, and other attributes like number of retries in case of failures.
+A pipeline is implemented by defining flows and tasks, which are defined using Python, CSharp code or other languages. Flows are composed of multiple tasks and define the sequence and dependencies between them. Flows use the @flow function decorator or attributes, which is specific to the Python library being used (Prefect) and is used to mark a function as a flow., and it also allows us to define the flow's name, description, and other attributes like number of retries in case of failures.
 
-Tasks are defined by the @task function decorator or attribute. Tasks are individual units of work that can be combined to form a data pipeline. They represent the different steps or operations that need to be performed in a workflow. Each task is responsible for executing a specific action or computation.
+Tasks are defined by the @task function decorator or attribute. Tasks are individual units of work that can be combined to form a data pipeline. They represent the different steps or operations that need to be performed within a workflow. Each task is responsible for executing a specific action or computation.
 
-In our example, we have a the main_flow function which uses another flow (etl_web_to_local) to handle the file download from the Web to a local storage. The main flow also uses tasks to handle the input validation and file name formatting to make sure the values are only for the specific dates the new CSV file is available for download. 
+In our example, we have the main_flow function which uses another flow (etl_web_to_local) to handle the file download from the Web to a local storage. The main flow also uses tasks to handle the input validation and file name formatting to make sure the values are only for the specific dates the new CSV file is available for download. 
 
-By putting together flows and tasks that handle a specific actions, we build a pipeline that enables us to download files into our data lake. At the same time, by using those function decorators, we are enabling the Prefect framework to call its internal class to track telemetry information for each task in our pipeline, which can enable us to monitor and track failures at a specific point of the pipeline.
+By putting together flows and tasks that handle a specific actions, we build a pipeline that enables us to download files into our data lake. At the same time, by using those function decorators, we are enabling the Prefect framework to call its internal class to track telemetry information for each task in our pipeline, which can enable us to monitor and track failures at a specific point of the pipeline. Here is what our pipeline implementation looks like:
 
 ```python
 import argparse
@@ -539,9 +539,96 @@ def main_flow(year: int = 0 , month: int = 0, day: int = 0, limit_one: bool = Tr
 
 ```
 
+#### Function Decorators
+
+In some programming languages, we can create function decorators or attributes that enables to enhance a specific function without altering its purpose. In Python, this can be done by defining a class with a __call__ method, which allows instances of the class to be callable like functions. Within the __call__ method, logic can be implemented to track telemetry data and then return the original function unchanged. Here's an example of a simple telemetry function decorator class:
+
+```python
+class TelemetryDecorator:
+    def __init__(self, tracking_type):
+        self.tracking_type = tracking_type
+
+    def __call__(self, func):
+        def wrapped_func(*args, **kwargs):
+            # Track telemetry data here
+            print(f"Tracking {self.tracking_type} for function {func.__name__}")
+            
+            # Call the original function with its parameters
+            return func(*args, **kwargs)
+        
+        return wrapped_func
+
+# Usage example:
+@TelemetryDecorator(tracking_type="performance")
+def my_task(x, y):
+    return x + y
+
+result = my_task(3, 5)
+
+```
+
 ## How to Run It
 
-![ozkary-data-engineering-pipeline-orchestration-data-lake](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Data Lake")
+After installing the pre-requisites and reviewing the code, we are ready to actually run our pipeline and set up our orchestration by configuring our components, deployment image and scheduling the runs. 
+
+### Install the code blocks or components for our credentials and data lake access
+
+We should first authenticate our terminal with the cloud instance. This should enable us to call other APIs to register our components. We next register the block dependencies. From the blocks folder, we register our components by running the Python scripts. We then run a block ls command to see the components that have been registered.
+
+> 👍 Components are a secured way to download credentials and secrets that are used by your applications.
+
+```
+$ prefect cloud login
+$ prefect block register -m prefect_gcp
+$ cd ./blocks
+$ python3 gcp_acc_block.py --file_path=~/.gcp/credentials.json --gcp_acc_block_name=blk-gcp-svc-acc
+$ python3 gcs_block.py --gcp_acc_block_name=blk-gcp-svc-acc --gcs_bucket_name=mta_data_lake --gcs_block_name=blk-gcs-name
+$ prefect block ls
+```
+
+### 👉 Create a docker image and push to DockerHub
+
+We are adding our Python script in a Docker container, so we can create and push the image (ozkary/prefect:mta-de-101) to DockerHub. This should enable us to later create a deployment definition and refer to that image, so we can download it from a centralized hub location to one or more environments.
+
+> 👉 Make sure to run the Docker build command where the Docker file is located or use -f with the file path. Ensure Docker is also running.
+
+```
+$ docker login --username USER --password PW
+$ docker image build -t ozkary/prefect:mta-de-101 .
+$ docker image push ozkary/prefect:mta-de-101
+```
+
+The Docker file defines the image dependency with Python already installed. We also copy a requirements file which contains additional dependencies that need to be install on the container image. We also copy our code on the container, so when we run it it is able to find the pipeline code.
+
+```yml
+FROM prefecthq/prefect:2.7.7-python3.9
+COPY docker-requirements.txt .
+
+RUN pip install -r docker-requirements.txt --trusted-host pypi.python.org --no-cache-dir
+
+RUN mkdir -p /opt/prefect/data/
+RUN mkdir -p /opt/prefect/flows/
+
+COPY flows opt/prefect/flows
+COPY data opt/prefect/data
+```
+
+### Create the prefect block with the docker image
+After creating the Docker image, we can register the Docker component (blk-docker-mta-de-101) with the image name reference, which is what allows us to pull that image from Docker Hub during a new deployment.
+
+```
+$ cd ./blocks
+$ python3 docker_block.py --block_name=blk-docker-mta-de-101 --image_name=ozkary/prefect:mta-de-101
+```
+### Create the deployment with the docker image and start the agent
+
+We can now configure a cloud deployment by running our deployment definition file (docker_deploy_etl_web_to_gcs.py). For this configuration, we associate the Docker component (blk-docker-mta-de-101) to our definition. The configuration uses the component, which in turns defines where to get the Docker image from. To verify all was configured properly, we list the deployment configurations by running the "deployment ls" command.
+
+```
+$ cd ./deployments
+$ python3 docker_deploy_etl_web_to_gcs.py --block_name=blk-docker-mta-de-101 --deploy_name=dep-docker-mta-de-101
+$ prefect deployments ls
+```
 
 
 ## Summary
