@@ -17,10 +17,7 @@ Once we have gained an understanding of data pipelines and their orchestration, 
 
 ## Data Flow Process
 
-<img src="../images/mta-data-lake-bucket.png" width="650px" alt="ozkary data lake files">
-
 ![ozkary-data-engineering-pipeline-orchestration-flow](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration-flow.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow")
-
 
 Our basic data flow can be defined as the following:
 
@@ -57,6 +54,8 @@ A code-centric data pipeline refers to a high coding effort using a programming 
 - [Prefect](https://www.prefect.io/) is a modern workflow management system that enables easy task scheduling, dependency management, and error handling. It emphasizes code-driven workflows and offers a user-friendly interface.
 
 For low-code efforts, [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory/) is a cloud-based data integration service provided by Microsoft. It offers a visual interface for building and orchestrating data pipelines, making it suitable for users with less coding experience.
+
+> 👉 There are several platforms for low-code solutions. Some of them provide a total enterprise turn-key solution to build the entire pipeline and orchestration. These platforms, however, come at a higher financial cost.
 
 When choosing between these options, we should consider factors such as the complexity of the pipeline, scalability requirements, ease of use, and integration with other tools and systems. Each framework has its strengths and use cases, so selecting the most suitable one depends on your specific project needs.
 
@@ -106,7 +105,7 @@ $ prefect cloud login
 # or use an API key to login instead
 # prefect cloud login -k API_KEY_FROM_PREFECT 
 ```  
-The login creates a key file ~/.prefect/profiles.toml which the framework looks for to authenticate the app.
+The login creates a key file ~/.prefect/profiles.toml which the framework looks for to authenticate the pipeline.
 
 - Install the Prefect code blocks dependencies and run the "block ls" command to check that there are none installed
 
@@ -117,7 +116,7 @@ $ prefect block ls
 
 ### List of resources that are needed 
 
- These are the resources that are used by the code.
+ These are the resource names that are used by the code. 
 
 - Data lake name
     - mta_data_lake
@@ -226,7 +225,7 @@ if __name__ == '__main__':
 
 #### Docker Container Component
 
-Since we are running our pipeline on a Docker container, we also want to write a component which can manage that technical concern. This allow us to pull the Docker image from Docker Hub when we are ready to deploy and run the pipeline. We will learn more as we create our Docker deployment definition.
+Since we are running our pipeline on a Docker container, we also want to write a component which can manage that technical concern. This allow us to pull the Docker image from Docker Hub when we are ready to deploy and run the pipeline. We will learn more about deployments as we create our Docker deployment definition.
 
 ```python
 
@@ -249,7 +248,7 @@ def main(params) -> None:
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Create a reusable Docker image block from DockerHub')
+    parser = argparse.ArgumentParser(description='Create a reusable Docker image block from Docker Hub')
 
     parser.add_argument('--block_name', required=True, help='Prefect block name')    
     parser.add_argument('--image_name', required=True, help='Docker image name used when the image was build')    
@@ -266,7 +265,7 @@ Cloud deployments are used to deploy and manage pipelines in a production enviro
 
 #### Docker Deployment
 
-With a deployment definition, we can associate a Docker image that is hosted on Docker Hub with a deployment. This enables us to automate the deployment of this image to other environments when we are ready to run the pipeline. The code below associates a Docker component with a deployment definition from the cloud. It also defines the main flow entry point (main_flow) from the etl_web_to_gcs file, so it can be easily executed from a scheduled task from the terminal.
+With a deployment definition, we can associate a Docker image that is hosted on Docker Hub with a deployment. This enables us to automate the deployment of this image to other environments when we are ready to run the pipeline. The code below associates a Docker component with a deployment definition from the cloud. It also defines the main flow entry point (main_flow) from the etl_web_to_gcs.py file, so it can be easily executed from a scheduled task from the terminal.
 
 ```python
 
@@ -346,13 +345,13 @@ if __name__ == '__main__':
 ```
 ### Pipeline Flows and Tasks
 
-A pipeline is implemented by defining flows and tasks, which are defined using Python, CSharp code or other languages. Flows are composed of multiple tasks and define the sequence and dependencies between them. Flows use the @flow function decorator or attributes, which is specific to the Python library being used (Prefect) and is used to mark a function as a flow., and it also allows us to define the flow's name, description, and other attributes like number of retries in case of failures.
+A pipeline is implemented by defining flows and tasks, which are defined using Python, CSharp code or other languages. Flows are composed of multiple tasks and define the sequence and dependencies between them. Flows use the @flow function decorator or attributes, which is specific to the Python library being used (Prefect), and it is used to mark a function as a flow. The decorator also allows us to define the flow's name, description, and other attributes like number of retries in case of failures.
 
 Tasks are defined by the @task function decorator or attribute. Tasks are individual units of work that can be combined to form a data pipeline. They represent the different steps or operations that need to be performed within a workflow. Each task is responsible for executing a specific action or computation.
 
 In our example, we have the main_flow function which uses another flow (etl_web_to_local) to handle the file download from the Web to a local storage. The main flow also uses tasks to handle the input validation and file name formatting to make sure the values are only for the specific dates the new CSV file is available for download. 
 
-By putting together flows and tasks that handle a specific actions, we build a pipeline that enables us to download files into our data lake. At the same time, by using those function decorators, we are enabling the Prefect framework to call its internal class to track telemetry information for each task in our pipeline, which can enable us to monitor and track failures at a specific point of the pipeline. Here is what our pipeline implementation looks like:
+By putting together flows and tasks that handle a specific workflow, we build a pipeline that enables us to download files into our data lake. At the same time, by using those function decorators, we are enabling the Prefect framework to call its internal class to track telemetry information for each task in our pipeline, which enable us to monitor and track failures at a specific point in the pipeline. Let's see what our pipeline implementation looks like:
 
 ```python
 import argparse
@@ -541,7 +540,7 @@ def main_flow(year: int = 0 , month: int = 0, day: int = 0, limit_one: bool = Tr
 
 #### Function Decorators
 
-In some programming languages, we can create function decorators or attributes that enables to enhance a specific function without altering its purpose. In Python, this can be done by defining a class with a __call__ method, which allows instances of the class to be callable like functions. Within the __call__ method, logic can be implemented to track telemetry data and then return the original function unchanged. Here's an example of a simple telemetry function decorator class:
+In some programming languages, we can create function decorators or attributes that enables to enhance a specific function without altering its purpose. In Python, this can be done by defining a class with a ```__call__``` method, which allows instances of the class to be callable like functions. Within the ```__call__``` method, logic can be implemented to track telemetry data and then return the original function unchanged. Here's an example of a simple telemetry function decorator class:
 
 ```python
 class TelemetryDecorator:
@@ -569,15 +568,15 @@ result = my_task(3, 5)
 
 ## How to Run It
 
-After installing the pre-requisites and reviewing the code, we are ready to actually run our pipeline and set up our orchestration by configuring our components, deployment image and scheduling the runs. 
+After installing the pre-requisites and reviewing the code, we are ready to run our pipeline and set up our orchestration by configuring our components, deployment image and scheduling the runs. 
 
 ### Install the code blocks or components for our credentials and data lake access
 
-We should first authenticate our terminal with the cloud instance. This should enable us to call other APIs to register our components. We next register the block dependencies. From the blocks folder, we register our components by running the Python scripts. We then run a block ls command to see the components that have been registered.
+We should first authenticate our terminal with the cloud instance. This should enable us to call other APIs to register our components. We next register the block dependencies. From the blocks folder, we register our components by running the Python scripts. We then run a "block ls" command to see the components that have been registered.
 
 > 👍 Components are a secured way to download credentials and secrets that are used by your applications.
 
-```
+```bash
 $ prefect cloud login
 $ prefect block register -m prefect_gcp
 $ cd ./blocks
@@ -586,9 +585,9 @@ $ python3 gcs_block.py --gcp_acc_block_name=blk-gcp-svc-acc --gcs_bucket_name=mt
 $ prefect block ls
 ```
 
-### 👉 Create a docker image and push to DockerHub
+### Create a docker image and push to Docker Hub
 
-We are adding our Python script in a Docker container, so we can create and push the image (ozkary/prefect:mta-de-101) to DockerHub. This should enable us to later create a deployment definition and refer to that image, so we can download it from a centralized hub location to one or more environments.
+We are adding our Python script in a Docker container, so we can create and push the image (ozkary/prefect:mta-de-101) to Docker Hub. This should enable us to later create a deployment definition and refer to that image, so we can download it from a centralized hub location to one or more environments.
 
 > 👉 Make sure to run the Docker build command where the Docker file is located or use -f with the file path. Ensure Docker is also running.
 
@@ -598,7 +597,7 @@ $ docker image build -t ozkary/prefect:mta-de-101 .
 $ docker image push ozkary/prefect:mta-de-101
 ```
 
-The Docker file defines the image dependency with Python already installed. We also copy a requirements file which contains additional dependencies that need to be install on the container image. We also copy our code on the container, so when we run it it is able to find the pipeline code.
+The Docker file defines the image dependency with Python already installed. We also copy a requirements file which contains additional dependencies that need to be installed on the container image. We finally copy our code on the container, so when we run it, it is able to find the pipeline main_flow.
 
 ```yml
 FROM prefecthq/prefect:2.7.7-python3.9
@@ -616,31 +615,118 @@ COPY data opt/prefect/data
 ### Create the prefect block with the docker image
 After creating the Docker image, we can register the Docker component (blk-docker-mta-de-101) with the image name reference, which is what allows us to pull that image from Docker Hub during a new deployment.
 
-```
+```bash
 $ cd ./blocks
 $ python3 docker_block.py --block_name=blk-docker-mta-de-101 --image_name=ozkary/prefect:mta-de-101
 ```
-### Create the deployment with the docker image and start the agent
+### Create the deployment with the docker image
 
-We can now configure a cloud deployment by running our deployment definition file (docker_deploy_etl_web_to_gcs.py). For this configuration, we associate the Docker component (blk-docker-mta-de-101) to our definition. The configuration uses the component, which in turns defines where to get the Docker image from. To verify all was configured properly, we list the deployment configurations by running the "deployment ls" command.
+We can now configure a cloud deployment by running our deployment definition file (docker_deploy_etl_web_to_gcs.py). For this configuration, we associate the Docker component (blk-docker-mta-de-101) to our definition. The configuration uses the component, which in turns defines where to get the Docker image from. We also setup a cron job to schedule the deployment to run on Saturdays at 9am. This scheduling of the deployments is an orchestration tasks. To verify all is configured properly, we list the deployment configurations by running the "deployment ls" command. The listing of the deployments also enables us to confirm the deployment name and id, which can be used when we test run the deployment.
 
-```
+```bash
 $ cd ./deployments
 $ python3 docker_deploy_etl_web_to_gcs.py --block_name=blk-docker-mta-de-101 --deploy_name=dep-docker-mta-de-101
+$ prefect deployments build etl_web_to_gcs.py:main_flow --name dep-docker-mta-de-101 --tag mta --work-queue default --cron '0 9 * * 6' 
 $ prefect deployments ls
 ```
+> 👍 Scheduled jobs can also be managed from the cloud dashboards
 
+![ozkary-data-engineering-pipeline-jobs](../../assets/2023/ozkary-data-engineering-pipeline-job.png "Data Engineering Process Fundamentals- Pipeline Jobs")
+
+### Start the Prefect agent
+The agent should be running for the scheduled deployments can be executed. This is what allows Prefect to download the container and run the code.
+
+```bash
+$ prefect agent start -q default
+```
+
+### Test run the prefect deployments with the docker image
+
+This next command will download the Docker image and run the entry point, main_flow. The additional parameters are also provided. so the pipeline can download the file for the specified year, month and day.
+
+```bash
+$ prefect deployment run "MTA Batch flow/dep-docker-mta-de-101" -p "year=2023 month=3 day=25"
+```
+
+### Manual test run can be done from a terminal
+
+Manual test run can also be executed from the command line to help us identify any possible bugs without having to run the app from the container.
+
+```bash
+$ python3 etl_web_to_gcs.py --year 2023 --month 5 --day 6
+```
+
+### Check the flow runs from the CLI
+
+To check the actual flow runs, we cam use the "flow-run ls" command, which should show the date and time when the flow was executed.
+
+```bash
+$ prefect flow-run ls
+```
+
+![ozkary-data-engineering-prefect-flow-run](../../assets/2023/ozkary-data-engineering-pipeline-console-flows.png "Data Engineering Process Fundamentals- Pipeline Runs CLI")
+
+> 👍 Flow runs can also be visualized from the cloud dashboards
+
+![ozkary-data-engineering-prefect-flow-run](../../assets/2023/ozkary-data-engineering-pipeline-dashboard-runs.png "Data Engineering Process Fundamentals- Pipeline Runs Dashboard")
+
+### GitHub Action to build and deploy the Docker image to Docker Hub
+
+So far, we have shown how to build and push our Docker images via the CLI. A more mature way to do this is to enable that process on a deployment pipeline. With GitHub, we have CI/CD pipelines that can automate this process. This pipeline can be trigger when a change is made to the code and a pull request is merged into the branch. This is called a GitHub action. A simple script to handle that automation is shown below:
+
+```yml
+
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build and push Docker image
+      env:        
+        DOCKER_REPOSITORY:  ${{ secrets.DOCKERHUB_USERNAME }}/prefect:mta-de-101
+      run: |
+        docker buildx create --use
+        docker buildx build --push --platform linux/amd64,linux/arm64 -t $DOCKER_REPOSITORY .
+
+```
+## Low-Code Data Pipeline with Azure Data Factory
+
+TODO
 
 ## Summary
 
-When it comes to writing a data pipeline and orchestration using Python, there are several options to consider. Apache Spark provides a powerful distributed processing framework for large-scale data processing and is a good choice for batch processing and handling big data. Apache Airflow offers a flexible and scalable solution for workflow orchestration, allowing you to schedule and monitor your data pipeline tasks. Prefect provides a code-centric approach to building workflows, allowing you to define complex data pipelines using Python code. Lastly, Azure Data Factory offers a low-code solution for data integration and orchestration, providing a visual interface to configure and manage your data workflows. Choosing the right option depends on your team's expertise, operational requirements, and the specific needs of your data pipeline. Evaluating these options can help you determine the best fit for your project and ensure efficient data pipeline implementation and orchestration.
+For our code-centric approach, we used Python to code each step of the pipeline to meet our specific requirements. Python allows us to create custom tasks and workflows, providing flexibility and control over the pipeline process. We deploy our pipeline within Docker containers, ensuring consistency across different environments. This facilitates seamless deployment and scalability, making it easier to manage the pipeline as it grows in complexity and volume.
 
-## Next - ???
+For the pipeline orchestration, we are using the power of cloud technologies to host our code for deployments and execution, log the telemetry data to track the performance and health of the process, schedule and monitor our deployments to manage our operational concerns. 
 
-????.
+While the code-centric approach offers more granular control, it also demands more development and DevOps activities. On the other hand, a low-code approach, like Azure Data Factory, abstracts some complexity, making it faster and simpler to set up data pipelines.
 
+The choice between a code-centric and low-code approach depends on the team's expertise, project requirements, and long-term goals. Python, combined with Docker and CI/CD, empowers data engineers to create sophisticated pipelines, while platforms like Azure Data Factory offer a faster and more accessible solution for specific use cases.
 
-> 👉 [Data Engineering Process Fundamentals - Pipeline and Orchestration Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration-exercise/)
+## Next Step
+
+Coming soon!
+
+> 👉 Data Engineering Process Fundamentals - Data Warehouse and Transformation
 
 Thanks for reading.
 
