@@ -13,7 +13,7 @@ tags:
 toc: true
 ---
 
-Once we have gained an understanding of data pipelines and their orchestration, along with the various programming options and technical tools at our disposal, we can proceed with the implementation and configuration of our own data pipeline. We have the flexibility to adopt either a code-centric approach, leveraging languages like Python, or a low-code approach, utilizing tools such as Azure Data Factory. This allows us to evaluate and compare the effectiveness of each approach based on our team's expertise and the operational responsibilities involved. Before diving into the implementation, let's first review our pipeline process to ensure a clear roadmap for our journey ahead.
+Once we have gained an understanding of data pipelines and their orchestration, along with the various programming options and technical tools at our disposal, we can proceed with the implementation and configuration of our own data pipeline. We have the flexibility to adopt either a code-centric approach, leveraging languages like Python, or a low-code approach, utilizing tools such as Azure Data Factory. This allows us to evaluate and compare the effectiveness of each approach based on our team's expertise and the operational responsibilities involved. Before diving into the implementation, let's first review our pipeline process to ensure a clear road map for our journey ahead.
 
 ## Data Flow Process
 
@@ -21,7 +21,9 @@ Once we have gained an understanding of data pipelines and their orchestration, 
 
 Our basic data flow can be defined as the following:
 
-- Perform an HTTP Get request to download the CSV file for the selected week
+- Define the date when a new CSV becomes available
+- Perform an HTTP Get request to download the CSV file for the selected date
+  -  Example: http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt
 - Compress the text file and upload in chunks to the data lake container
 
 After the file is copied to our data lake, the data transformation service picks up the file, identifies new data and inserts into the Data Warehouse. We will take a look at the process on the Data WareHouse and Transformation services on the next step of the process. 
@@ -34,6 +36,8 @@ After the file is copied to our data lake, the data transformation service picks
 When there are requirements to load previous data, we need to first run a batch process to load all the previous months of data. Since the file are available weekly, we need to write code that can accept a date range, identify all the past Saturdays, and copy each file into our data lake. The process can be executed in parallel processes by running different years or months (if only one year is selected) in each process. This way multiple threads can be used to copy the data, which should reduce the processing time.
 
 Moving forward, the process will target a specific date for when the file becomes available. The process will not allow for the download of future data files, so an attempt to pass future dates will not be allowed.
+
+![ozkary-data-engineering-data-lake-files](../../assets/2023/ozkary-data-engineering-pipepine-data-lake.png "Data Engineering Process Fundamentals- Data Lake Files")
 
 ### Weekly Automation
 
@@ -87,7 +91,7 @@ $ cd Step3-Orchestration
 $ pip install -r prefect-requirements.txt
 ```
 
-- Make sure to run the terraform script to build the VM, Datalake and BigQuery resources as shown on the Design and Planning exercise
+- Make sure to run the terraform script to build the VM, Data lake and BigQuery resources as shown on the Design and Planning exercise
 - Copy the GCP credentials file to follow this format
 
 ```bash
@@ -708,9 +712,23 @@ jobs:
         docker buildx build --push --platform linux/amd64,linux/arm64 -t $DOCKER_REPOSITORY .
 
 ```
-## Low-Code Data Pipeline with Azure Data Factory
+## Low-Code Data Pipeline
 
-TODO
+After learning about a code-centric pipeline, we can transition into a low-code approach, which marks a significant evolution in the way data engineering projects are implemented. In the code-centric approach, engineers create and manage every aspect of the pipeline through code, providing maximum flexibility and control. On the other hand, the low-code approach, exemplified by platforms like Azure Data Factory, empowers data engineers to design and orchestrate pipelines with visual interfaces and pre-built components. This results in faster development and a more streamlined pipeline creation process. The low-code approach is especially beneficial for less experienced developers or projects where speed and simplicity are essential.
+
+###  Pipeline with Azure Data Factory 
+
+> 👉 [Setup an Azure Data Factory Resource](#)
+
+To show a low-code approach, we will write our data pipeline using Azure Data Factory. Following a similar approach, we can design an efficient data ingestion process that involves compressing and copying CSV files to Blob storage. The pipeline consists of two essential steps to streamline the process.
+
+![ozkary-data-engineering-azure-data-factory](../../assets/2023/ozkary-data-engineering-azure-data-factory.png "Data Engineering Process Fundamentals- Azure Data Factory")
+
+- Set Pipeline Variable - To ensure proper file naming, we use a code snippet to dynamically set a pipeline variable with today's date in the format "yymmdd.txt" This allows us to create a file name for a specific drop date. This variable is then used by the Copy Data activity.
+
+- Copy with Compression - We initiate a data copy operation from the website "http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt". As the data is copied, the CSV file is compressed into the GZ format, optimizing storage and reducing costs. The compressed file is then stored in the designated Blob container in our Data Lake.
+
+By implementing this data pipeline, we achieve a seamless and automated data ingestion process, ensuring that data is efficiently transferred and stored in a cost-effective manner. The platform also manages all the orchestration concerns like monitoring, scheduling, logging, integration. We should also note that this is a third party managed service, and there is a cost tier based on the resource usage. Depending on the project, this cost could be less than a coding effort or could be higher compared to the code-centric approach.
 
 ## Summary
 
