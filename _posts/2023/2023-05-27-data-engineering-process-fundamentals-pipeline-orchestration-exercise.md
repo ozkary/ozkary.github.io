@@ -718,7 +718,7 @@ After learning about a code-centric pipeline, we can transition into a low-code 
 
 ###  Pipeline with Azure Data Factory 
 
-> 👉 [Setup an Azure Data Factory Resource](#)
+> 👉 [Setup an Azure Data Factory Resource](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-create-data-factory-azure-cli)
 
 To show a low-code approach, we will write our data pipeline using Azure Data Factory. Following a similar approach, we can design an efficient data ingestion process that involves compressing and copying CSV files to Blob storage. The pipeline consists of two essential steps to streamline the process.
 
@@ -726,9 +726,9 @@ To show a low-code approach, we will write our data pipeline using Azure Data Fa
 
 - Set Pipeline Variable - To ensure proper file naming, we use a code snippet to dynamically set a pipeline variable with today's date in the format "yymmdd.txt" This allows us to create a file name for a specific drop date. This variable is then used by the Copy Data activity.
 
-- Copy with Compression - We initiate a data copy operation from the website "http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt". As the data is copied, the CSV file is compressed into the GZ format, optimizing storage and reducing costs. The compressed file is then stored in the designated Blob container in our Data Lake.
+- Copy with Compression - We initiate a data copy action from the website "http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt". This action has a source configuration where we can define the file to download dynamically. There is also a destination configuration, which links to our Blog storage and has a setting to compress and parse the CSV file. As the data is copied, the CSV file is compressed into the GZ format, optimizing storage and reducing costs. The compressed file is then stored in the designated Blob container in our Data Lake.
 
-By implementing this data pipeline, we achieve a seamless and automated data ingestion process, ensuring that data is efficiently transferred and stored in a cost-effective manner. The platform also manages all the orchestration concerns like monitoring, scheduling, logging, integration. We should also note that this is a third party managed service, and there is a cost tier based on the resource usage. Depending on the project, this cost could be less than a coding effort or could be higher compared to the code-centric approach.
+By implementing this data pipeline, we achieve a seamless and automated data ingestion process, ensuring that data is efficiently transferred and stored in a cost-effective manner. The platform also manages all the orchestration concerns like monitoring, scheduling, logging, integration. We should also note that this is a third party managed service, and there is a cost based on the resource usage. Depending on the project, this cost could be less than a coding effort or could be higher compared to the code-centric approach.
 
 ## Summary
 
