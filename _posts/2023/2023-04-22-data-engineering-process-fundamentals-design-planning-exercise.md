@@ -15,8 +15,7 @@ tags:
   - GitHub
 toc: true
 ---
-
-Now that we have laid the foundation through design and planning, we can dive into a hands-on exercise to build the infrastructure in a cloud-agnostic way. By taking a cloud-agnostic approach, we can ensure that our data engineering project implementation remains flexible and adaptable to different cloud providers. This allows us to leverage the benefits of multiple cloud platforms or easily switch between providers if needed.
+Having laid a strong design foundation, it's time to embark on a hands-on exercise that's crucial to our data engineering project's success. Our immediate focus is on building the essential cloud resources that will serve as the backbone for our data pipelines, data lake, and data warehouse. Taking a cloud-agnostic approach ensures our implementation remains flexible and adaptable across different cloud providers, enabling us to leverage the advantages of multiple platforms or switch providers seamlessly if required. By completing this step, we set the stage for efficient and effective coding of our solutions. Let's get started on this vital infrastructure-building journey.
 
 ## Cloud Infrastructure Planning
 
@@ -236,8 +235,7 @@ Overall, this Terraform file automates the provisioning of a data lake bucket, B
 - Refresh service-account's auth-token for this session
   
 ```bash
-$ gcloud auth application-default login
-
+$ gcloud auth application-default login 
 ```
 
 - Set the credentials file on the bash configuration file
@@ -255,15 +253,19 @@ $ echo export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.gcp/filename-here.json" >
 $ cd ./terraform
 $ terraform init
 ```
--  Check changes to new infrastructure plan
+-  Check changes to new infrastructure plan before applying them
+  
+It is important to always review the plan to make sure no unwanted changes are showing up.
 
-> 👉 Get the project id from your GCP cloud console
+> 👉 Get the project id from your GCP cloud console and replace it on the next command
 
 ```bash  
 $ terraform plan -var="project=<your-gcp-project-id>"
 ```
 
-- Apply the changes
+- Apply the changes 
+  
+This provisions the resources on the cloud project.
 
 ```bash
 $ terraform apply -var="project=<your-gcp-project-id>"
@@ -322,7 +324,7 @@ jobs:
 
 # Conclusion
 
-With this exercise, we gain practical experience in using tools like Terraform to automate the provisioning of resources, such as data lakes and other components essential to our data engineering system. By following cloud-agnostic practices, we can achieve interoperability and avoid vendor lock-in, ensuring our project remains scalable, cost-effective, and adaptable to future requirements.
+With this exercise, we gain practical experience in using tools like Terraform to automate the provisioning of resources, such as VM, a data lakes and other components essential to our data engineering system. By following cloud-agnostic practices, we can achieve interoperability and avoid vendor lock-in, ensuring our project remains scalable, cost-effective, and adaptable to future requirements.
 
 # Next Step
 
