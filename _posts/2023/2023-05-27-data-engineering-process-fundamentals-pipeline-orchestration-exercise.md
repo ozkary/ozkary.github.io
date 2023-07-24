@@ -143,7 +143,7 @@ After setting up all the dependencies, we can move forward to look at the actual
 
 #### Credentials Component
 
-Since we need secured access to cloud resources, we first need to create a credentials component to store the cloud key file. We can then use this component in other areas of the code whenever we need to do a cloud operation. The save operation pushes the component to the cloud, so it is centralized.
+Since we need secured access to cloud resources, we first need to create a credentials component to store the cloud key file. We can then use this component in other areas of the code whenever we need to do a cloud operation. The save operation done by the code pushes the component to the cloud, so it is centralized.
 
 ```python
 import argparse
@@ -269,7 +269,7 @@ Cloud deployments are used to deploy and manage pipelines in a production enviro
 
 #### Docker Deployment
 
-With a deployment definition, we can associate a Docker image that is hosted on Docker Hub with a deployment. This enables us to automate the deployment of this image to other environments when we are ready to run the pipeline. The code below associates a Docker component with a deployment definition from the cloud. It also defines the main flow entry point (main_flow) from the etl_web_to_gcs.py file, so it can be easily executed from a scheduled task from the terminal.
+With a deployment definition, we can associate a Docker image that is hosted on Docker Hub with a deployment. This enables us to automate the deployment of this image to other environments when we are ready to run the pipeline. The code below associates a Docker component with a deployment definition from the cloud. It also defines the main flow entry point (main_flow) from the etl_web_to_gcs.py file, so it can be easily executed as a scheduled task from the terminal.
 
 ```python
 
@@ -353,9 +353,9 @@ A pipeline is implemented by defining flows and tasks, which are defined using P
 
 Tasks are defined by the @task function decorator or attribute. Tasks are individual units of work that can be combined to form a data pipeline. They represent the different steps or operations that need to be performed within a workflow. Each task is responsible for executing a specific action or computation.
 
-In our example, we have the main_flow function which uses another flow (etl_web_to_local) to handle the file download from the Web to a local storage. The main flow also uses tasks to handle the input validation and file name formatting to make sure the values are only for the specific dates the new CSV file is available for download. 
+In our example, we have the main_flow function which uses another flow (etl_web_to_local) to handle the file download from the Web to a local storage. The main flow also uses tasks to handle the input validation and file name formatting to make sure the values are only for the specific dates the new CSV file is available for download. Finally, there is task to write a compressed CSV file to the data lake using our components.
 
-By putting together flows and tasks that handle a specific workflow, we build a pipeline that enables us to download files into our data lake. At the same time, by using those function decorators, we are enabling the Prefect framework to call its internal class to track telemetry information for each task in our pipeline, which enable us to monitor and track failures at a specific point in the pipeline. Let's see what our pipeline implementation looks like:
+By putting together flows and tasks that handle a specific workflow, we build a pipeline that enables us to download files into our data lake. At the same time, by using those function decorators, we are enabling the Prefect framework to call its internal class to track telemetry information for each flow and task in our pipeline, which enable us to monitor and track failures at a specific point in the pipeline. Let's see what our pipeline implementation looks like:
 
 ```python
 import argparse
@@ -638,7 +638,7 @@ $ prefect deployments ls
 ![ozkary-data-engineering-pipeline-jobs](../../assets/2023/ozkary-data-engineering-pipeline-job.png "Data Engineering Process Fundamentals- Pipeline Jobs")
 
 ### Start the Prefect agent
-The agent should be running for the scheduled deployments can be executed. This is what allows Prefect to download the container and run the code.
+The agent should be running, so the scheduled deployments can be executed. If the image Docker image is not downloaded yet, it is downloaded, so the code can be executed.
 
 ```bash
 $ prefect agent start -q default
@@ -654,15 +654,15 @@ $ prefect deployment run "MTA Batch flow/dep-docker-mta-de-101" -p "year=2023 mo
 
 ### Manual test run can be done from a terminal
 
-Manual test run can also be executed from the command line to help us identify any possible bugs without having to run the app from the container.
+A manual test run can also be executed from the command line to help us identify any possible bugs without having to run the app from the container. Run the code directly from the terminal by typing this command:
 
 ```bash
 $ python3 etl_web_to_gcs.py --year 2023 --month 5 --day 6
 ```
 
-### Check the flow runs from the CLI
+### See the flow runs from the CLI
 
-To check the actual flow runs, we cam use the "flow-run ls" command, which should show the date and time when the flow was executed.
+To check the actual flow runs, we can use the "flow-run ls" command. This should show the date and time when the flow has been executed.
 
 ```bash
 $ prefect flow-run ls
@@ -671,12 +671,13 @@ $ prefect flow-run ls
 ![ozkary-data-engineering-prefect-flow-run](../../assets/2023/ozkary-data-engineering-pipeline-console-flows.png "Data Engineering Process Fundamentals- Pipeline Runs CLI")
 
 > 👍 Flow runs can also be visualized from the cloud dashboards
+To get more telemetry details about the pipeline, we can look at the flow dashboards on the cloud.
 
 ![ozkary-data-engineering-prefect-flow-run](../../assets/2023/ozkary-data-engineering-pipeline-dashboard-runs.png "Data Engineering Process Fundamentals- Pipeline Runs Dashboard")
 
 ### GitHub Action to build and deploy the Docker image to Docker Hub
 
-So far, we have shown how to build and push our Docker images via the CLI. A more mature way to do this is to enable that process on a deployment pipeline. With GitHub, we have CI/CD pipelines that can automate this process. This pipeline can be trigger when a change is made to the code and a pull request is merged into the branch. This is called a GitHub action. A simple script to handle that automation is shown below:
+So far, we have shown how to build and push our Docker images via the CLI. A more mature way to do this is to enable that process on a deployment pipeline. With GitHub, we have CI/CD pipelines that can automate this process. This pipeline can be triggered when a change is made to the code, and a pull request (PR) is merged into the branch. This is called a GitHub action. A simple script to handle that automation is shown below:
 
 ```yml
 
