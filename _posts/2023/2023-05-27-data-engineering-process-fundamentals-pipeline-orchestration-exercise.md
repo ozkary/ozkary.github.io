@@ -17,7 +17,7 @@ Once we have gained an understanding of data pipelines and their orchestration, 
 
 ## Data Flow Process
 
-![ozkary-data-engineering-pipeline-orchestration-flow](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration-flow.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow")
+![ozkary-data-engineering-pipeline-orchestration-flow](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow")
 
 Our basic data flow can be defined as the following:
 
@@ -739,7 +739,7 @@ For the pipeline orchestration, we are using the power of cloud technologies to 
 
 While the code-centric approach offers more granular control, it also demands more development and DevOps activities. On the other hand, a low-code approach, like Azure Data Factory, abstracts some complexity, making it faster and simpler to set up data pipelines.
 
-The choice between a code-centric and low-code approach depends on the team's expertise, project requirements, and long-term goals. Python, combined with Docker and CI/CD, empowers data engineers to create sophisticated pipelines, while platforms like Azure Data Factory offer a faster and more accessible solution for specific use cases.
+The choice between a code-centric and low-code approach, when building a data pipeline, depends on the team's expertise, project requirements, and long-term goals. Python, combined with Docker and CI/CD, empowers data engineers to create sophisticated pipelines, while platforms like Azure Data Factory offer a faster and more accessible solution for specific use cases.
 
 ## Next Step
 
