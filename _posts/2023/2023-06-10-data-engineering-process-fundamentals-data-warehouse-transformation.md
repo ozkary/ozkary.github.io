@@ -17,15 +17,8 @@ After completing the pipeline and orchestration phase in the data engineering pr
 
 The process to send the data into a data warehouse requires a few essential activities before we can migrate the data into tables. Like any process before any implementation is done, we need to first work on defining the database system and schema, identifying the programming language, frameworks, tools to use for CI/CD requirements, and supporting requirements to keep our data warehouse operational.
 
-On
+Once the data warehouse design is in place, we can then transition into the implementation stage of the process where we can transition from concepts into concrete structures, including dimension and fact tables, while also defining the data transformation tasks to process the data into the data warehouse. 
 
- design the data models and transform the data from its raw format, 
-
-  defining incremental data strategies to continue to support the flow of data,
-
-<!-- 
-Additionally, data transformation processes should be identified to cleanse, validate, and enrich the data, preparing it for analytical purposes. This crucial data modeling and transformation phase not only ensures data quality but also leads us into optimizing the entities that would host the data. By carefully considering the data warehouse schema, such as using a star schema or snowflake schema, and defining appropriate indexes and keys, we can make the data readily available for analytical and visualization tools like Power BI and Looker. 
--->
 To get a better understanding about the data warehouse process, let's first do a refresh on some important concepts related to data warehouse systems. As we cover these concepts, we can then relate them to some of the necessary activities that we need to take on to deliver a solution that can scale according to our data demands.
 
 ![ozkary-data-engineering-data-warehouse-transformation-steps](../../assets/2023/ozkary-data-engineering-process-data-warehouse-steps.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation")
