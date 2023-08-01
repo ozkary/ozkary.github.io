@@ -1,10 +1,10 @@
 ---
-title: "Data Engineering Process Fundamentals - Data Warehouse and Transformation"
-excerpt: "A data pipeline is a workflow of tasks that can be executed in Docker containers. The execution, scheduling, managing and monitoring of the pipeline is refer as orchestration. In order to support the operations of the pipeline and its orchestration, we need to build a VM and data lake cloud resources. By selecting the appropriate programming language and orchestration tools, we can construct resilient pipelines capable of scaling and meeting evolving data demands effectively."
+title: "Data Engineering Process Fundamentals - Data Warehouse Model and Transformation"
+excerpt: "Design and implementation are two pivotal phases for our data warehouse solution. In the design phase, we lay the groundwork by defining the database system, schema model, and technology stack required to support the data warehouse's implementation and operations. This stage ensures a solid infrastructure for data storage and management."
 last_modified_at: 2023-06-10T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-process-data-warehouse-design.png"
-  teaserAlt: "Ozkary Data Engineering Process Data Warehouse and Transformation"
+  teaserAlt: "Ozkary Data Engineering Process Data Warehouse Model and Transformation"
 tags: 
   - pipelines  
   - cloud-engineering
@@ -15,7 +15,7 @@ toc: true
 
 After completing the pipeline and orchestration phase in the data engineering process, our pipeline should be fully operational and loading data into our data lake. The compressed CSV files in our data lake, even though is optimized for storage, are not designed for easy access for analysis and visualization tools. Therefore, we should transition into  moving the data from the files into a data warehouse, so we can facilitate the access for the analysis process.
 
-The process to send the data into a data warehouse requires a few essential activities before we can migrate the data into tables. Like any process before any implementation is done, we need to first work on defining the database system and schema, identifying the programming language, frameworks, tools to use for CI/CD requirements, and supporting requirements to keep our data warehouse operational.
+The process to send the data into a data warehouse requires a few essential design activities before we can migrate the data into tables. Like any process before any implementation is done, we need to first work on defining the database system and schema, identifying the programming language, frameworks, tools to use for CI/CD requirements, and supporting requirements to keep our data warehouse operational.
 
 Once the data warehouse design is in place, we can then transition into the implementation stage of the process where we can transition from concepts into concrete structures, including dimension and fact tables, while also defining the data transformation tasks to process the data into the data warehouse. 
 
@@ -42,6 +42,12 @@ An Online Analytical Processing (OLAP) and an Online Transaction Processing (OLT
 - Some examples include traditional relational databases like MySQL, PostgreSQL, Microsoft SQL Server, and Oracle
 
 In summary, OLAP and OLTP serve different purposes in the database world. OLAP databases are used for analytical processing, supporting complex queries and data analysis, while OLTP databases are used for transaction processing, managing high-frequency and real-time transactional operations. Depending on the needs of the solution, we would choose the appropriate type of database system to achieve the desired performance and functionality. In our case, an OLAP system aligns what the requirements for our solution.
+
+## What is a Data Warehouse
+
+A Data Warehouse is an OLAP system, which serves as the central data repository for historical and aggregated data. A data warehouse is designed to support complex analytical queries, reporting, and data analysis for Big Data use cases. It typically adopts a denormalized entity structure, such as a star schema or snowflake schema, to facilitate efficient querying and aggregations. Data from various OLTP sources is extracted, loaded and transformed (ELT) into the data warehouse to enable analytics and business intelligence. The data warehouse acts as a single source of truth for business users to obtain insights from historical data.
+
+![ozkary-data-engineering-data-warehouse-transformation-design](../../assets/2023/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Design")
 
 ### ELT vs ETL
 
@@ -73,13 +79,6 @@ There are two main types of data marts:
 - Independent Data Mart: An independent data mart is created separately from the data warehouse, often using its own ELT processes to extract and transform data from the source systems. It is not directly connected to the data warehouse
 
 By providing a more focused view of the data, data marts enable faster and more efficient decision-making within targeted business areas. 
-
-
-## What is a Data Warehouse
-
-A Data Warehouse is an OLAP system, which serves as the central data repository for historical and aggregated data. A data warehouse is designed to support complex analytical queries, reporting, and data analysis for Big Data use cases. It typically adopts a denormalized entity structure, such as a star schema or snowflake schema, to facilitate efficient querying and aggregations. Data from various OLTP sources is extracted, loaded and transformed (ELT) into the data warehouse to enable analytics and business intelligence. The data warehouse acts as a single source of truth for business users to obtain insights from historical data.
-
-![ozkary-data-engineering-data-warehouse-transformation-design](../../assets/2023/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Design")
 
 ## Data Warehouse Design and Architecture
 
@@ -266,16 +265,15 @@ A well-executed implementation phase ensures that the data warehouse aligns with
 
 ## Summary
 
-Optimized data access allows stakeholders to explore insights and make informed decisions based on reliable and up-to-date data.
+Before we can move data into a data warehouse system, we explore two pivotal phases for our data warehouse solution: design and implementation. In the design phase, we lay the groundwork by defining the database system, schema model, and technology stack required to support the data warehouse's implementation and operations. This stage ensures a solid infrastructure for data storage and management.
 
-????
+Moving on to the implementation phase, we focus on converting conceptual data models into a functional system. By creating concrete structures like dimension and fact tables and performing data transformation tasks, including data cleansing, integration, and scheduled batch loading, we ensure that raw data is processed and unified for analysis. With this approach, we successfully complete the entire data pipeline and orchestration, seamlessly moving data from CSV files to the data warehouse. 
 
+## Exercise - Data Warehouse Model and Transformation
 
-## Exercise - Data Warehouse and Transformation
+With a solid understanding of the data warehouse design and implementation, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we build a cloud data warehouse system, applying the knowledge gained to create a powerful and efficient analytical platform.
 
-??
-
-> 👉 [Data Engineering Process Fundamentals - Data Warehouse and Transformation Exercise]
+> 👉 [Data Engineering Process Fundamentals - Data Warehouse Model and Transformation Exercise]
 
 Thanks for reading.
 
