@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Pipeline and Orchestration Exerc
 excerpt: "When it comes to writing a data pipeline using Python, there are several options to consider. Apache Spark provides a powerful distributed processing framework, Apache Airflow offers a flexible and scalable solution for workflow orchestration, Prefect provides a code-centric approach to building workflows, allowing you to define complex data pipelines using Python code. Lastly, Azure Data Factory offers a low-code solution for data integration and orchestration."
 last_modified_at: 2023-05-27T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-pipeline-orchestration-flow.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-pipeline-orchestration-architecture.png"
   teaserAlt: "Ozkary Data Engineering Process Pipeline and Orchestration Exercise"
 tags: 
   - pipelines  

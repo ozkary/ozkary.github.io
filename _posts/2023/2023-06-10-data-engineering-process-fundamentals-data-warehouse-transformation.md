@@ -10,6 +10,8 @@ tags:
   - cloud-engineering
   - data-warehouse
   - data-lake
+  - Python
+  - Spark
 toc: true
 ---
 
@@ -41,6 +43,8 @@ An Online Analytical Processing (OLAP) and an Online Transaction Processing (OLT
 - The data is organized in a relational structure and optimized for read and write operations
 - Some examples include traditional relational databases like MySQL, PostgreSQL, Microsoft SQL Server, and Oracle
 
+> 👉  OLAP databases  (e.g., BigQuery) are used for analytical processing. OLTP databases (e.g., SQL Server) are used for transaction processing
+
 In summary, OLAP and OLTP serve different purposes in the database world. OLAP databases are used for analytical processing, supporting complex queries and data analysis, while OLTP databases are used for transaction processing, managing high-frequency and real-time transactional operations. Depending on the needs of the solution, we would choose the appropriate type of database system to achieve the desired performance and functionality. In our case, an OLAP system aligns what the requirements for our solution.
 
 ## What is a Data Warehouse
@@ -54,6 +58,8 @@ A Data Warehouse is an OLAP system, which serves as the central data repository 
 An extract, load and transform (ELT) process differs from the extract, transform and load (ETL) process on the data transformation approach. For some solutions, a flow task may transform (ETL) the data prior to loading it into storage, so it can then be inserted into the data warehouse directly. This approach increases the amount of python code and hardware resources used by the VM environments. 
 
 For the ELT process, the transformation may be done using SQL (Structured Query Language) code and the data warehouse resources, which often tends to perform great for Big Data scenarios. This is usually done by defining the data model with views over some external tables and running the transformation using SQL for bulk data processing. In our case, we can use the data lake as external tables and use the power of the data warehouse to read and transform the data, which aligns with the ELT approach as the data is first loaded in the data lake.
+
+> 👉 For the ETL process, the data is transformed before adding to storage. For the ELT process, the data is first loaded in storage in raw format, the transformation is then done before inserting into the dimension and fact tables.
 
 ### External Tables
 
@@ -273,7 +279,7 @@ Moving on to the implementation phase, we focus on converting conceptual data mo
 
 With a solid understanding of the data warehouse design and implementation, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we build a cloud data warehouse system, applying the knowledge gained to create a powerful and efficient analytical platform.
 
-> 👉 [Data Engineering Process Fundamentals - Data Warehouse Model and Transformation Exercise]
+> 👉 [Data Engineering Process Fundamentals - Data Warehouse Model and Transformation Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation-exercise/)
 
 Thanks for reading.
 
