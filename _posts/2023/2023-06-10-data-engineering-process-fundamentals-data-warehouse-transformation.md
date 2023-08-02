@@ -88,7 +88,7 @@ By providing a more focused view of the data, data marts enable faster and more 
 
 ## Data Warehouse Design and Architecture
 
-with a clear understanding of the business requirements, data sources and their update frequencies, we can move forward with the design of the data warehouse architecture. To start, we need to define the data warehouse models such as star schema, snowflake schema, or hybrid models based on data relationships and query patterns. We should also determine the infrastructure and technology stack for the data warehouse, considering factors like data volume, frequency of updates, and query performance requirements, source control, and CI/CD activities.
+During the design and architecture stage of our data warehouse project, our primary objective is to transition from conceptual ideas to concrete designs. With a clear understanding of the business requirements, data sources and their update frequencies, we can move forward with the design of the data warehouse architecture. To start, we need to define the data warehouse models such as star schema, snowflake schema, or hybrid models based on data relationships and query patterns. We should also determine the infrastructure and technology stack for the data warehouse, considering factors like data volume, frequency of updates, and query performance requirements, source control, and CI/CD activities.
 
 ### Schema Design
 
@@ -128,7 +128,7 @@ Within the memory context and processing power of the data warehouse, we could u
 
 Frameworks provide libraries to handle specific technical concerns. In the case of a Python-centric solution, we can use the [Pandas](https://pandas.pydata.org/) library, which is an open-source data manipulation, cleaning, transformation and analysis library widely use by data engineers and scientists. Pandas supports a DataFrame-based modeling and transformation. A DataFrame is a two-dimensional table-like data structure. It can hold data with different data types and allows us to perform various operations like filtering, grouping, joining, and aggregating. Pandas offers functions for handling missing data, removing duplicates, and converting data types, making data cleaning tasks easier.
 
-There are also frameworks that consist of generating SQL code to build the models and process the transformation. [dbt](https://www.getdbt.com/) (data build tool) is a SQL-centric framework which at its core is primarily focused on transforming data using SQL-based queries. It allows us to define data transformation logic using SQL and Jinja, a templating language with data transformation capabilities, such as loops, conditionals, and macros, within our SQL code. dbt enable us to build the actual data models as views, entities (tables) and SQL based transformation that are hosted on the data warehouse. 
+There are also frameworks that consist of generating SQL code to build the models and process the transformation. [dbt](https://www.getdbt.com/) (data build tool) is a SQL-centric framework which at its core is primarily focused on transforming data using SQL-based queries. It allows us to define data transformation logic using SQL and Jinja, a templating language with data transformation capabilities, such as loops, conditionals, and macros, within our SQL code. dbt enables us to build the actual data models as views, entities (tables) and SQL based transformation that are hosted on the data warehouse. 
 
 #### Apache Spark Platform
 
@@ -209,7 +209,7 @@ By supporting multiple languages like PySpark and SQL, Apache Spark caters to a 
 
 As we build code for our data model and transformation tasks, we need to track it, manage the different versions and automate the deployments to our data warehouse. Storing the source code on systems like GitHub offers several benefits that enhance governance, version control, collaboration, and continuous integration/continuous deployment (CI/CD) on a data engineering project. Some of these benefits include:
 
-- Governance and Version Control for Data Models: GitHub provides version control, ensuring that all changes to data models are tracked, audited, and properly managed, ensuring compliance with regulatory requirements and business standards
+- Governance and Version Control for Data Models: [GitHub](https://github.com/) provides version control, ensuring that all changes to data models are tracked, audited, and properly managed, ensuring compliance with regulatory requirements and business standards
 
 - CI/CD for Data Transformation: CI/CD pipelines ensure that changes to data transformation code are thoroughly tested and safely deployed, reducing errors and improving data accuracy
 
@@ -227,7 +227,7 @@ The data warehouse implementation is the stage where the conceptual data model a
 
 ### Data Modeling
 
-Data modeling the implementation of the structure of the data warehouse, creating models (views) and entities (tables), defining attributes (columns), and establishing data relationships to ensure efficient querying and reporting. It is also important to identify the primary keys, foreign keys, and indexes to improve data retrieval performance. This is also the area where data needs to be normalize or denormalized data based on query patterns and analytical needs.
+Data modeling is the implementation of the structure of the data warehouse, creating models (views) and entities (tables), defining attributes (columns), and establishing data relationships to ensure efficient querying and reporting. It is also important to identify the primary keys, foreign keys, and indexes to improve data retrieval performance. This is also the area where data needs to be normalize or denormalized data based on query patterns and analytical needs.
 
 When using the Star Schema model, we need to carefully understand the data, so we can identify the dimensions and fact tables that need to be created. Dimension tables represent descriptive attributes or context data (e.g., train stations, commuters), while fact tables contain quantitative data or measures (e.g., number of stations or passengers). Dimensions are used for slicing data, providing business context to the measures, whereas fact tables store numeric data that can be aggregated to derive KPIs (Key Performance Indicators).
 

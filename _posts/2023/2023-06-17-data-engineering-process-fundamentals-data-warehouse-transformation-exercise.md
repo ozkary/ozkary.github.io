@@ -49,21 +49,68 @@ When this file is executed and the external table is created, the data warehouse
 
 ## Design and Architecture
 
+During the design and architecture stage of our data warehouse project, our primary objective is to transition from conceptual ideas to concrete designs. Here, we make pivotal technical choices that pave the way for building the essential resources and defining our data warehouse approach. 
 
-### Schema Design
+### Star Schema
 
-star schema show the content from github
+We start by selecting the Star Schema model. This model consist of a central fact table is connected to multiple dimension tables via foreign key relationships. The fact table contains the measures or metrics, while the dimension tables hold descriptive attributes. 
 
 ### Infrastructure
 
-bigquery talk here
+For the infrastructure, we are using a cloud hosted OLAP system, BigQuery. This is a system that can handle petabytes of data. It also provides MPP (Massive Parallel Processing), built-in indexing and caching, which improves query performance and reduce compute by caching query results. The serverless architecture of these systems help us on reducing cost. Because the system is managed by the cloud provider, we can focus on the data analysis instead of infrastructure management.
 
 ### Technology Stack
 
-list all the tech including github
+For the technology stack, we are using a SQL-centric approach. We want to be able to manage our models and transformation tasks within the memory context and processing power of the database, which tends to work best for large datasets and faster processing. This approach works well with a batch processing approach.
 
+[dbt](https://www.getdbt.com/) (data build tool) is a SQL-centric framework which at its core is primarily focused on transforming data using SQL-based queries. It allows us to define data models and transformation logic using SQL and Jinja, a templating language with data transformation capabilities, such as loops, conditionals, and macros, within our SQL code. This framework enables us to build the actual data models as views, entities (tables) and SQL based transformation that are hosted on the data warehouse. 
+
+As we build code for our data model and transformation tasks, we need to track it, manage the different versions and automate the deployments to our database. [GitHub](https://github.com/) is a web-based platform that provides version control and collaborative features for software development and management. It also provides CI/CD capabilities to help us execute test plans, build releases and deploy them. dbt connects with GitHub to manage deployments. This enables the dbt orchestration features to run the latest code as part of the pipeline. A deployment consists of getting the latest model metadata, build it on the database, and run the incremental data tasks.
+
+## Data Warehouse Implementation
+
+The data warehouse implementation is the stage where the conceptual data model and design plans are transformed into a functional system by implementing the data models and writing the code for our transformation tasks.
 
 ### Data Modeling
+
+Data modeling is the implementation of the structure of the data warehouse, creating models (views) and entities (tables), defining attributes (columns), and establishing data relationships to ensure efficient querying and reporting. It is also important to identify the primary keys, foreign keys, and indexes to improve data retrieval performance. 
+
+To build our models, we should follow these specifications:
+
+- Create an external table using the Data Lake folder and *.csv.gz file pattern as a source
+  - ext_turnstile
+- Create the staging models
+  - Create the station view (stg_station) from the external table as source
+    - Get the unique stations 
+    - Create a surrogate key using the station name    
+  - Create the booth view (stg_booth) from the external table as source
+    - Get the unique booths and associate to the station id
+    - Create a surrogate key using the booth unit and ca fields    
+- Create the physical models
+  - Create the station dimension table (dim_station) from the stg_station model    
+  - Create the booth dimension table (dim_booth) from the stg_booth model    
+    - Cluster the table by station_id  
+  - Create the fact table (fact_turnstile) using the external table structure and an incremental strategy for ongoing new data    
+    - Partition the table by created_dt and day granularity
+    - Cluster the table by station_id
+    - Join on dimension tables to use id references instead of text
+  - Continuously run all the model with an incremental strategy to append new records
+
+Our physical data model should look like this:
+
+![ozkary-data-engineering-data-warehouse-star-schema](../../assets/2023/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
+
+#### Why do we use partitions and cluster
+
+- Partitioning is the process of dividing a large table into smaller, more manageable parts based on the specified column. Each partition contains rows that share a common value like a specific date. A partition improves performance and query cost.
+
+- When we run a query in BigQuery, it gets executed by a distributed computing infrastructure that spans multiple machines. Clustering is an optional feature in BigQuery that allows us to organize the data within each partition. The purpose of clustering is to physically arrange data within a partition in a way that is conducive to efficient query processing.
+
+#### SQL Server and Big Query Concept Comparison
+
+- In SQL Server, a clustered index defines the physical order of data in a table. In BigQuery, clustering refers to the organization of data within partitions based on one or more columns. Clustering in BigQuery does not impact the physical storage order like a clustered index in SQL Server.
+
+- Both SQL Server and BigQuery support table partitioning. The purpose is similar, allowing for better data management and performance optimization. 
 
 ### Data Transformation
 
@@ -74,7 +121,6 @@ list all the tech including github
 ## Database Tuning
 
 Database tuning involves making adjustments to the database system itself to optimize query execution and overall system performance. It includes actions like creating appropriate indexes on key columns, setting up partitioning for large tables, optimizing the database cache, and fine-tuning query plans generated by the query optimizer. The aim is to make the database engine run queries efficiently and reduce the query execution time.
-
 
 
 ### Incremental Models
@@ -120,7 +166,7 @@ In summary, metadata management is crucial in a data warehouse project because i
 
 Implement monitoring and logging mechanisms to track data pipeline performance and identify bottlenecks.
 Continuously optimize the data warehouse for improved query performance as data volume grows.
-
+<!--
 ## how is a data warehouse project improve by using tools like dbt and keep all the source code in source control. what are the compliance requirements?
 
 Using tools like dbt (data build tool) and keeping all the source code in source control can significantly improve a data warehouse project in several ways:
@@ -153,9 +199,6 @@ Remember that compliance requirements can be specific to your organization and i
 
 
 
-
-![ozkary-data-engineering-data-warehouse-transformation](../../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Exercise")
-
 Dbt (data build tool) is an open-source data transformation tool that is used for the transformation step in the data pipeline. It allows data engineers and analysts to define data transformations using SQL and Jinja, a templating language, and to manage those transformations as part of version-controlled projects.
 
 Within dbt, the incremental model is a specific type of data transformation technique used to update a data warehouse table incrementally instead of performing a full reload of the data each time. The incremental model is designed to identify changes or new data in the source and apply those changes to the destination table in the data warehouse. It is particularly useful when dealing with large datasets and data sources with frequent updates.
@@ -183,6 +226,7 @@ Dependency Management: dbt automatically manages the dependencies between data m
 Incremental Processing: dbt supports incremental processing to efficiently update data models, reducing processing time and resource usage.
 
 Overall, dbt acts as a powerful framework for data engineers and analysts to build and manage their data transformations, data models, and data pipelines. It complements the data warehouse or database by providing advanced data transformation capabilities and facilitating best practices in data engineering.
+-->
 
 ## Summary
 
