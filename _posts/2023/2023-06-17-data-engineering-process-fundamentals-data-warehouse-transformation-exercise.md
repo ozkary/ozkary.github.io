@@ -7,9 +7,12 @@ header:
   teaserAlt: "Ozkary Data Engineering Process Data Warehouse Model and Transformation Exercise"
 tags: 
   - pipelines  
+  - SQL
+  - Views and Tables
   - cloud-engineering
   - data-warehouse
-  - 
+  - data-transformation
+  - CI/CD
   - data-lake
 toc: true
 ---
@@ -179,6 +182,14 @@ $ nano profiles.yml
 
 > 👉 Use your dbt cloud project project information and cloud key file
 
+- Run this command see the project folder configuration location
+  
+```bash
+$ dbt debug --config-dir
+```
+
+- Update the content of that file to match your project information
+  
 ```
 Analytics:
   outputs:
@@ -593,7 +604,7 @@ models:
 
 In dbt, an incremental model uses a merge operation to update a data warehouse's tables incrementally rather than performing a full reload of the data each time. This approach is particularly useful when dealing with large datasets and when the source data has frequent updates or inserts. Incremental models help optimize data processing and reduce the amount of data that needs to be processed during each run, resulting in faster data updates. 
 
-SQL with merge operation:
+SQL merge query:
 
 ```sql
 
@@ -625,14 +636,122 @@ using (
 
 ## How to Run It
 
+Follow these steps to build the data models on our database.
+
+### Build the models and set the test run variable to false. This allows for the full dataset to be created
+
+```bash
+$ dbt build --select stg_booth.sql --var 'is_test_run: false'
+$ dbt build --select stg_station.sql --var 'is_test_run: false'
+$ dbt build --select stg_turnstile.sql --var 'is_test_run: false'
+
+$ dbt build --select dim_booth.sql 
+$ dbt build --select dim_station.sql 
+$ dbt build --select fact_turnstile.sql
+
+```  
+
+After running these command, the following resources should be in the data warehouse:
+
+![ozkary-data-engineering-data-warehouse-schema](../../assets/2023/ozkary-data-engineering-process-data-warehouse-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Schema")
+
+> 👍 The build command is responsible for compiling, generating and deploying the SQL code for our dbt project, while the run command executes that SQL code against your data warehouse to update the data. Typically, we would run dbt build first to compile the project, and then run dbt run to execute the compiled code against the database.
+
+### Validate the project. 
+
+There should be no compilation errors.
+  
+```bash
+$ dbt debug
+```
+
+### Run the test cases
+
+All test should pass.
+
+```bash
+$ dbt test
+```
+
+![ozkary-data-engineering-data-warehouse-tests](../../assets/2023/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests")
+
+### Generate documentation
+
+Run generate to create the documentation. We can then run serve to view the documentation on the browser.
+
+```bash
+$ dbt docs generate
+$ dbt docs serve
+```
+
+This is the documentation for the fact table with the lineage graph showing how it was built.
+
+![ozkary-data-engineering-data-warehouse-docs](../../assets/2023/ozkary-data-engineering-process-data-warehouse-docs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Documents")
+
+### Schedule the job
+
+Login to dbt cloud and set this job:
+
+  - On dbt Cloud setup the dbt schedule job to run every Sunday at 9am
+  - Use the production environment
+  - Use the following command
+  
+```bash
+$ dbt run --model fact_turnstile.sql
+```
+> 👍 We should also note, that we can run the fact_turnstile.sql model to test the data import from the CLI
+
+After running the cloud job, the log should show the following information with the number of rows affected. 
+
+![ozkary-data-engineering-data-warehouse-job](../../assets/2023/ozkary-data-engineering-process-data-warehouse-jobs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Job")
+
+> 👍 There should be files on the data lake for the job to insert any new records. To validate this, run these queries from the Data Warehouse to check how many rows are in each table.
+
+```sql
+-- check station dimension table
+select count(*) from mta_data.dim_station;
+
+-- check booth dimension table
+select count(*) from mta_data.dim_booth;
+
+-- check the fact table
+select count(*) from mta_data.fact_turnstile;
+
+-- check the staging fact data
+select count(*) from mta_data.stg_turnstile;
+```
+
+### Manually Query the data lake for new data
+
+To test the for new records, we can manually run this query. 
+
+> This is automatically done when we run the fact table model
+
+```sql
+with turnstile as (
+    select 
+        log_id      
+    from mta_data.stg_turnstile
+)
+select 
+    log.log_id    
+from turnstile as log
+-- logic for incremental models find new rows that are not in the fact table
+left outer join mta_data.fact_turnstile fact
+    on log.log_id = fact.log_id
+where fact.log_id is null     
+
+```
 
 ## Summary
 
-????
+During this data warehouse exercise, we delve into the design and implementation step, crafting robust data models, and designing transformation tasks. Carefully selecting a star schema design and utilizing BigQuery as our OLAP system, we optimize performance and handle large datasets efficiently. Leveraging SQL for coding and a SQL-Centric framework, we ensure seamless data modeling and transformation. We use GitHub for our source code management and CI/CD tool integration, so the latest changes can be built and deployed. Thorough documentation and automated data transformations underscore our commitment to data governance and streamlined operations. The result is a resilient and future-ready data warehouse capable of meeting diverse analytical needs.
 
 ## Next Step
 
-??
+With our data warehouse design and implementation complete, we have laid a solid foundation to unleash the full potential of our data. Now, we venture into the realm of data analysis and visualization, where we can leverage powerful tools like Power BI and Looker to transform raw data into actionable insights.
+
+Coming Soon!
 
 > 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization]
 
