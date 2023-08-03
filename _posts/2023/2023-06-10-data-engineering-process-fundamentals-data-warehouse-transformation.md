@@ -43,7 +43,7 @@ An Online Analytical Processing (OLAP) and an Online Transaction Processing (OLT
 - The data is organized in a relational structure and optimized for read and write operations
 - Some examples include traditional relational databases like MySQL, PostgreSQL, Microsoft SQL Server, and Oracle
 
-> 👉  OLAP databases  (e.g., BigQuery) are used for analytical processing. OLTP databases (e.g., SQL Server) are used for transaction processing
+> 👍 OLAP databases  (e.g., BigQuery) are used for analytical processing. OLTP databases (e.g., SQL Server) are used for transaction processing
 
 In summary, OLAP and OLTP serve different purposes in the database world. OLAP databases are used for analytical processing, supporting complex queries and data analysis, while OLTP databases are used for transaction processing, managing high-frequency and real-time transactional operations. Depending on the needs of the solution, we would choose the appropriate type of database system to achieve the desired performance and functionality. In our case, an OLAP system aligns what the requirements for our solution.
 
@@ -59,7 +59,7 @@ An extract, load and transform (ELT) process differs from the extract, transform
 
 For the ELT process, the transformation may be done using SQL (Structured Query Language) code and the data warehouse resources, which often tends to perform great for Big Data scenarios. This is usually done by defining the data model with views over some external tables and running the transformation using SQL for bulk data processing. In our case, we can use the data lake as external tables and use the power of the data warehouse to read and transform the data, which aligns with the ELT approach as the data is first loaded in the data lake.
 
-> 👉 For the ETL process, the data is transformed before adding to storage. For the ELT process, the data is first loaded in storage in raw format, the transformation is then done before inserting into the dimension and fact tables.
+> 👍 For the ETL process, the data is transformed before adding to storage. For the ELT process, the data is first loaded in storage in raw format, the transformation is then done before inserting into the dimension and fact tables.
 
 ### External Tables
 
@@ -251,9 +251,9 @@ By defining clear dimension and fact tables with appropriate measures, a well-st
 
 ### Data Transformation
 
-The data transformation phase is a critical stage in a data warehouse project, where raw data is processed, cleansed, and loaded into the data warehouse to create a reliable dataset for analysis. This phase involves several key steps, including data extraction, cleaning, and loading. Additionally, implementing incremental loads to continuously insert the new information since the last update via batch processes, ensures that the data warehouse stays up-to-date with the latest data.
+The data transformation phase is a critical stage in a data warehouse project, where raw data is processed, cleansed, mapped to use proper naming conventions, and loaded into the data warehouse to create a reliable dataset for analysis. Additionally, implementing incremental loads to continuously insert the new information since the last update via batch processes, ensures that the data warehouse stays up-to-date with the latest data.
 
-To help us define the data transformation tasks, we should do the following:
+To help us define the data transformation tasks, we should do the following activities:
 
 - Data Dictionary, Mapping and Transformation Rules: Develop a clear and comprehensive data dictionary and mapping document that outlines how source data fields correspond to target data warehouse tables and columns
  
@@ -265,7 +265,9 @@ To help us define the data transformation tasks, we should do the following:
 
 - Complete the Orchestration: Schedule the transformation tasks to automate the data loading process
 
-- Monitor and Operations: Monitor the transformation tasks to check for failures. Track incomplete data and notify the team of errors.
+- Monitor and Operations: Monitor the transformation tasks to check for failures. Track incomplete data and notify the team of errors
+
+- Database Tuning: Involves making adjustments to the database system itself to optimize query execution and overall system performance.
 
 A well-executed implementation phase ensures that the data warehouse aligns with the business requirements and enables stakeholders to make informed decisions based on comprehensive and organized data, thus playing a fundamental role in the success of the overall data warehouse project.
 

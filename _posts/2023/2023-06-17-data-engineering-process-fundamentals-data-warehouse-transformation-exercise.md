@@ -14,17 +14,17 @@ tags:
 toc: true
 ---
 
-In this hands-on lab, we build upon our data engineering process where we previously focused on defining a data pipeline orchestration process. Now, we should focus on storing and making the data accessible for visualization and analysis. So far, our data is stored in a Data Lake, while Data Lakes excel at handling vast volumes of data, they are not optimized for query performance. To enable bulk data reading and analytics, we work on the design and implementation of a Data Warehouse (DW), which is a powerful Online Analytical Processing (OLAP) tool. 
+In this hands-on lab, we build upon our data engineering process where we previously focused on defining a data pipeline orchestration process. Now, we should focus on storing and making the data accessible for visualization and analysis. So far, our data is stored in a Data Lake, while Data Lakes excel at handling vast volumes of data, they are not optimized for query performance, so our step is to enable the bulk data processing and analytics by working on our Data Warehouse (DW).
 
-During this exercise, we delve into the data warehouse design and implementation step, crafting robust data models, and designing transformation tasks. We explore how to efficiently load, cleanse, and merge data, ultimately creating dimension and fact tables. Additionally, we discuss areas like query performance, testability, and source control of our code, ensuring a reliable and scalable data solution. By leveraging incremental models, we continuously update our DW with only the deltas, optimizing query performance and enhancing the overall data pipeline. By the end, we have a complete data pipeline, taking data from CSV to our data warehouse, equipped for seamless visualization and analysis.
+During this exercise, we delve into the data warehouse design and implementation step, crafting robust data models, and designing transformation tasks. We explore how to efficiently load, cleanse, and merge data, ultimately creating dimension and fact tables. Additionally, we discuss areas like query performance, testability, and source control of our code, ensuring a reliable and scalable data solution. By leveraging incremental models, we continuously update our data warehouse with only the deltas (new updates), optimizing query performance and enhancing the overall data pipeline. By the end, we have a complete data pipeline, taking data from CSV to our data warehouse, equipped for seamless visualization and analysis.
 
 ## Data Warehouse Design
 
-A Data warehouse (DW) is an OLAP system, which serves as the central data repository for historical and aggregated data. In contrast to the ETL process employed by Data Lakes with Python code, a data warehouse (DW) relies on the ETL process. This fundamental distinction emphasizes the need for well-defined and optimized models within the DW, enabling efficient data access and exceptional performance. 
+A data warehouse is an OLAP system, which serves as the central data repository for historical and aggregated data. In contrast to the ETL process employed by data lakes with Python code, a data warehouse relies on the ETL process. This fundamental distinction emphasizes the need for well-defined and optimized models within the database, enabling efficient data access and exceptional performance. 
 
-> 👉 For the ETL process, the data is transformed before adding it to storage. For the ELT process, the data is first loaded in storage in its raw format, the transformation is then done before inserting into the dimension and fact tables.
+> 👍 For the ETL process, the data is transformed before adding it to storage. For the ELT process, the data is first loaded in storage in its raw format, the transformation is then done before inserting into the dimension and fact tables.
 
-Before proceeding the implementation of concrete tables, our initial focus is on creating precise data models based on thorough analysis and specific requirements. To achieve this, we leverage code and tools that facilitate model development in an automated, testable, and repeatable manner. By incorporating such tools into our project, our architecture evolves to the following:
+Before building the concrete tables, our initial focus is on creating precise data models based on thorough analysis and specific requirements. To achieve this, we leverage SQL (Structured Query Language) and tools that facilitate model development in an automated, testable, and repeatable manner. By incorporating such tools into our project, we build the data services area in which we manage the data modeling and transformation to expand our architecture into the following:
 
 ![ozkary-data-engineering-data-warehouse-architecture](../../assets/2023/ozkary-data-engineering-process-data-warehouse-architecture.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture")
 
@@ -34,7 +34,7 @@ Before proceeding the implementation of concrete tables, our initial focus is on
 
 An external table is not physically hosted within the data warehouse database. Since our raw data is stored on a data lake, we can reference that location and load those files as an external table. we can create an external table using the data lake files as the source by providing a file pattern to select all the compressed files. 
 
-The following SQL can be executed as a query on the data warehouse. Access to the data lake should already be configured when the service accounts where assigned to the resources.
+The following SQL can be executed as a query on the data warehouse. Access to the data lake should already be configured when the service accounts where assigned to the resources during the design and planning phase.
 
 ```sql
 CREATE OR REPLACE EXTERNAL TABLE mta_data.ext_turnstile
@@ -45,7 +45,7 @@ OPTIONS (
 
 ```
 
-When this file is executed and the external table is created, the data warehouse retrieves the metadata about the external data, such as the schema, column names, and data types, without actually moving the data into the data warehouse storage. Once the external table is created, we can query the data using SQL as if it were a regular table. 
+When this SQL script is executed, and the external table is created, the data warehouse retrieves the metadata about the external data, such as the schema, column names, and data types, without actually moving the data into the data warehouse storage. Once the external table is created, we can query the data using SQL as if it were a regular table. 
 
 ## Design and Architecture
 
@@ -53,19 +53,21 @@ During the design and architecture stage of our data warehouse project, our prim
 
 ### Star Schema
 
-We start by selecting the Star Schema model. This model consist of a central fact table is connected to multiple dimension tables via foreign key relationships. The fact table contains the measures or metrics, while the dimension tables hold descriptive attributes. 
+We start by selecting the Star Schema model. This model consist of a central fact table that is connected to multiple dimension tables via foreign key relationships. The fact table contains the measures or metrics, while the dimension tables hold descriptive attributes. 
 
 ### Infrastructure
 
-For the infrastructure, we are using a cloud hosted OLAP system, BigQuery. This is a system that can handle petabytes of data. It also provides MPP (Massive Parallel Processing), built-in indexing and caching, which improves query performance and reduce compute by caching query results. The serverless architecture of these systems help us on reducing cost. Because the system is managed by the cloud provider, we can focus on the data analysis instead of infrastructure management.
+For the infrastructure, we are using a cloud hosted OLAP system, Google BigQuery. This is a system that can handle petabytes of data. It also provides MPP (Massive Parallel Processing), built-in indexing and caching, which improves query performance and reduce compute by caching query results. The serverless architecture of these systems help us on reducing cost. Because the system is managed by the cloud provider, we can focus on the data analysis instead of infrastructure management.
 
 ### Technology Stack
 
-For the technology stack, we are using a SQL-centric approach. We want to be able to manage our models and transformation tasks within the memory context and processing power of the database, which tends to work best for large datasets and faster processing. This approach works well with a batch processing approach.
+For the technology stack, we are using a SQL-centric approach. We want to be able to manage our models and transformation tasks within the memory context and processing power of the database, which tends to work best for large datasets and faster processing. In addition, this approach works well with a batch processing approach.
 
-[dbt](https://www.getdbt.com/) (data build tool) is a SQL-centric framework which at its core is primarily focused on transforming data using SQL-based queries. It allows us to define data models and transformation logic using SQL and Jinja, a templating language with data transformation capabilities, such as loops, conditionals, and macros, within our SQL code. This framework enables us to build the actual data models as views, entities (tables) and SQL based transformation that are hosted on the data warehouse. 
+[dbt](https://www.getdbt.com/) (data build tool) is a SQL-centric framework which at its core is primarily focused on transforming data using SQL-based queries. It allows us to define data models and transformation logic using SQL and Jinja, a templating language with data transformation capabilities, such as loops, conditionals, and macros, within our SQL code. This framework enables us to build the actual data models as views, tables and SQL based transformation that are hosted on the data warehouse. 
 
-As we build code for our data model and transformation tasks, we need to track it, manage the different versions and automate the deployments to our database. [GitHub](https://github.com/) is a web-based platform that provides version control and collaborative features for software development and management. It also provides CI/CD capabilities to help us execute test plans, build releases and deploy them. dbt connects with GitHub to manage deployments. This enables the dbt orchestration features to run the latest code as part of the pipeline. A deployment consists of getting the latest model metadata, build it on the database, and run the incremental data tasks.
+As we build code for our data model and transformation tasks, we need to track it, manage the different versions and automate the deployments to our database. To manage this, we use [GitHub](https://github.com/), which is a web-based platform that provides version control and collaborative features for software development and management. It also provides CI/CD capabilities to help us execute test plans, build releases and deploy them. dbt connects with GitHub to manage deployments. This enables the dbt orchestration features to run the latest code as part of the pipeline. 
+
+> 👍 A deployment consists of getting the latest model metadata, build it on the database, and run the incremental data tasks when new data is available in the data lake.
 
 ## Data Warehouse Implementation
 
@@ -83,24 +85,18 @@ To build our models, we should follow these specifications:
   - Create the station view (stg_station) from the external table as source
     - Get the unique stations 
     - Create a surrogate key using the station name    
-  - Create the booth view (stg_booth) from the external table as source
-    - Get the unique booths and associate to the station id
-    - Create a surrogate key using the booth unit and ca fields    
-- Create the physical models
-  - Create the station dimension table (dim_station) from the stg_station model    
-  - Create the booth dimension table (dim_booth) from the stg_booth model    
-    - Cluster the table by station_id  
-  - Create the fact table (fact_turnstile) using the external table structure and an incremental strategy for ongoing new data    
-    - Partition the table by created_dt and day granularity
-    - Cluster the table by station_id
-    - Join on dimension tables to use id references instead of text
-  - Continuously run all the model with an incremental strategy to append new records
+  - Create the booth view (stg_booth) from the external table as source    
+    - Create a surrogate key using the booth UNIT and CA fields  
+  - Create the fact view (stg_turnstile) from the external table as source
+    - Create a surrogate key using CA, UNIT, SCP, DATE, time
 
 Our physical data model should look like this:
 
 ![ozkary-data-engineering-data-warehouse-star-schema](../../assets/2023/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
 
 #### Why do we use partitions and cluster
+
+> 👍 We should always review the technical specifications of the database system to find out what other best practices are recommended to improve performance.
 
 - Partitioning is the process of dividing a large table into smaller, more manageable parts based on the specified column. Each partition contains rows that share a common value like a specific date. A partition improves performance and query cost.
 
@@ -114,34 +110,55 @@ Our physical data model should look like this:
 
 ### Data Transformation
 
+The data transformation phase is a critical stage in a data warehouse project. This phase involves several key steps, including data extraction, cleaning, loading, data type casting, use naming conventions, and implementing incremental loads to continuously insert the new information since the last update via batch processes.
+
+For our transformation services, we follow these specifications:
+
+- Use the staging models to build the physical models
+  - Map all the columns to our naming conventions, lowercase and underline between words
+  - Create the station dimension table (dim_station) from the stg_station model 
+    - Add incremental strategy for ongoing new data       
+  - Create the booth dimension table (dim_booth) from the stg_booth model    
+    - Add incremental strategy for ongoing new data    
+    - Use the station_name to get the foreign key, station_id
+    - Cluster the table by station_id      
+  - Create the fact table (fact_turnstile) from the stg_turnstile model
+    - Add incremental strategy for ongoing new data    
+    - Partition the table by created_dt and use day granularity
+    - Cluster the table by station_id
+    - Join on dimension tables to use id references instead of text
+- Remove rows with null values for the required fields
+  - Station, CA, UNIT, SCP, DATE, TIME
+- Cast columns to the correct data types
+  - created
+- Continuously run all the model with an incremental strategy to append new records
+
+#### Database Tuning
+
+Database tuning involves making adjustments to the database system itself to optimize query execution and overall system performance. It includes actions like creating appropriate indexes on key columns, setting up partitioning for large tables, optimizing the database cache, and fine-tuning query plans generated by the query optimizer. The aim is to make the database engine run queries efficiently and reduce the query execution time.
+
+#### Incremental Models
+
+In dbt, an incremental model is a technique used to update a data warehouse's tables incrementally rather than performing a full reload of the data each time. This approach is particularly useful when dealing with large datasets and when the source data has frequent updates or inserts. Incremental models help optimize data processing and reduce the amount of data that needs to be processed during each run, resulting in faster data updates.
+
+## Review the Code
+
+With clear specifications about how to build the models and our transformation, we can now look at the code and see how that is done. Use Visual Studio code or a similar tool to edit this project.
+
+<p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse" target="_datawarehouse">Clone this repo or copy the files from this folder, dbt and sql
+</a></p>
+
+
+
+
+### 
+
 ## How to Run It
 
 <!--END-->
 
-## Database Tuning
+#### Incremental Models
 
-Database tuning involves making adjustments to the database system itself to optimize query execution and overall system performance. It includes actions like creating appropriate indexes on key columns, setting up partitioning for large tables, optimizing the database cache, and fine-tuning query plans generated by the query optimizer. The aim is to make the database engine run queries efficiently and reduce the query execution time.
-
-
-### Incremental Models
-
-In dbt (data build tool), an incremental model is a technique used to update a data warehouse's tables incrementally rather than performing a full reload of the data each time. This approach is particularly useful when dealing with large datasets and when the source data has frequent updates or inserts. Incremental models help optimize data processing and reduce the amount of data that needs to be processed during each run, resulting in faster data updates.
-
-Here's how an incremental model works against a database like SQL Server:
-
-Initial Full Load: When you create a dbt incremental model for a table, the first step is to perform an initial full load of the data. This involves extracting all the data from the source and loading it into the destination table in the data warehouse. This initial load establishes a baseline for the table.
-
-Timestamp or Incremental Column: In order to perform incremental updates, you need a column in the table that can act as a timestamp or an incremental marker. This column keeps track of when the data was last updated or inserted. It can be a timestamp field (e.g., "created_at" or "updated_at") or an incremental ID field.
-
-Identifying Changed or New Data: During subsequent runs of the incremental model, dbt queries the source database to identify rows that have been updated or inserted since the last run. It does this by comparing the timestamp or incremental column value in the source data with the corresponding values in the destination table.
-
-Updating Changed Data: After identifying the changed or new data, dbt applies updates to the destination table in the data warehouse. It can use a combination of SQL statements, such as "UPDATE" and "INSERT," to modify the existing records and add new records accordingly.
-
-Dealing with Deletes: Depending on the database and use case, dbt may handle deleted records in different ways. Some databases may support soft deletes, where a flag is set to indicate the record has been deleted. In other cases, dbt may need to execute a "DELETE" operation explicitly to remove records from the destination table.
-
-Maintaining Consistency: During the incremental process, dbt ensures that the data in the destination table remains consistent with the source data, accounting for any changes or additions.
-
-The incremental model is particularly powerful in scenarios where data changes frequently, as it significantly reduces the time and resources required to update the data warehouse. However, it's essential to design the incremental process carefully, taking into account the characteristics of the data and the database to ensure data integrity and accuracy.
 
 ## Data Quality and Governance:
 
