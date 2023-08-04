@@ -93,24 +93,6 @@ To build our models, we should follow these specifications:
   - Create the fact view (stg_turnstile) from the external table as source
     - Create a surrogate key using CA, UNIT, SCP, DATE, time
 
-Our physical data model should look like this:
-
-![ozkary-data-engineering-data-warehouse-star-schema](../../assets/2023/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
-
-#### Why do we use partitions and cluster
-
-> 👍 We should always review the technical specifications of the database system to find out what other best practices are recommended to improve performance.
-
-- Partitioning is the process of dividing a large table into smaller, more manageable parts based on the specified column. Each partition contains rows that share a common value like a specific date. A partition improves performance and query cost.
-
-- When we run a query in BigQuery, it gets executed by a distributed computing infrastructure that spans multiple machines. Clustering is an optional feature in BigQuery that allows us to organize the data within each partition. The purpose of clustering is to physically arrange data within a partition in a way that is conducive to efficient query processing.
-
-#### SQL Server and Big Query Concept Comparison
-
-- In SQL Server, a clustered index defines the physical order of data in a table. In BigQuery, clustering refers to the organization of data within partitions based on one or more columns. Clustering in BigQuery does not impact the physical storage order like a clustered index in SQL Server.
-
-- Both SQL Server and BigQuery support table partitioning. The purpose is similar, allowing for better data management and performance optimization. 
-
 ### Data Transformation
 
 The data transformation phase is a critical stage in a data warehouse project. This phase involves several key steps, including data extraction, cleaning, loading, data type casting, use naming conventions, and implementing incremental loads to continuously insert the new information since the last update via batch processes.
@@ -136,6 +118,24 @@ For our transformation services, we follow these specifications:
   - created
 - Continuously run all the model with an incremental strategy to append new records
 
+Our physical data model should look like this:
+
+![ozkary-data-engineering-data-warehouse-star-schema](../../assets/2023/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
+
+#### Why do we use partitions and cluster
+
+> 👍 We should always review the technical specifications of the database system to find out what other best practices are recommended to improve performance.
+
+- Partitioning is the process of dividing a large table into smaller, more manageable parts based on the specified column. Each partition contains rows that share a common value like a specific date. A partition improves performance and query cost
+
+- When we run a query in BigQuery, it gets executed by a distributed computing infrastructure that spans multiple machines. Clustering is an optional feature in BigQuery that allows us to organize the data within each partition. The purpose of clustering is to physically arrange data within a partition in a way that is conducive to efficient query processing
+
+#### SQL Server and Big Query Concept Comparison
+
+- In SQL Server, a clustered index defines the physical order of data in a table. In BigQuery, clustering refers to the organization of data within partitions based on one or more columns. Clustering in BigQuery does not impact the physical storage order like a clustered index in SQL Server
+
+- Both SQL Server and BigQuery support table partitioning. The purpose is similar, allowing for better data management and performance optimization 
+
 ## Install System Requirements and Frameworks
 
 Before looking at the code, we need to setup our environment with all the necessary dependencies, so we can build our models.
@@ -144,13 +144,12 @@ Before looking at the code, we need to setup our environment with all the necess
 
 > 👉 Verify that there are files on the data lake. If not, run the data pipeline process to download the files into the data lake.
 
-> 👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse" target="_datawarehouse">Clone this repo or copy the files from this folder, dbt and sql and create a GitHub project
-</a>
+> 👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse" target="_repo">Clone this repo</a> or copy the files from this folder, dbt and sql.
 
-- CSV files in the data lake
+- Must have CSV files in the data lake
 - Create a [dbt](https://www.getdbt.com/) cloud account  
-  - Link dbt with your GitHub project. 
-  - Create schedule job on dbt cloud for every Sunday 9am
+  - Link dbt with your GitHub project (Not needed when running locally)
+  - Create schedule job on dbt cloud for every Saturday 9am
   - Or install locally (VM) and run from CLI
 - GitHub account
 - Google BigQuery resource 
@@ -158,7 +157,8 @@ Before looking at the code, we need to setup our environment with all the necess
 #### Configure the CLI
 
 ##### Install dbt core and BigQuery dependencies 
-Run these command from the Step4-Data-Warehouse/dbt folder
+
+Run these command from the Step4-Data-Warehouse/dbt folder to install the dependencies and initialize the project.
 
 ```bash
 $ cd Step4-Data-Warehouse/dbt
@@ -168,7 +168,7 @@ $ dbt deps
 ```
 
 ##### Create a profile file
-From the Step4-Data-Warehouse folder, run the following commands
+From the Step4-Data-Warehouse folder, run the following commands.
 
 ```bash
 $ cd ~
@@ -188,9 +188,9 @@ $ nano profiles.yml
 $ dbt debug --config-dir
 ```
 
-- Update the content of that file to match your project information
+- Update the content of the file to match your project information
   
-```
+```bash
 Analytics:
   outputs:
     dev:
@@ -217,13 +217,15 @@ $ dbt list --profile Analytics
 
 ## Review the Code
 
-With our environment setup and clear specifications about how to build the models and our transformation, we can now look at the code and see how that is done. Use Visual Studio code or a similar tool to edit this project.
+With a dev environment ready and clear specifications about how to build the models and our transformations, we can now look at the code and review the approach. We can use [Visual Studio Code](https://code.visualstudio.com/) or a similar tool to edit the source code and open a terminal to run the CLI commands.
 
-The dbt folder contains the source code. The stating file has the view definitions. The core folder has the table definitions. The schema files have rules and data constraints that are used to validate the models. This is how we are able to test our models. 
+Start by navigating to the dbt project folder.
 
-The schema.yml file is a configuration file used to define the schema of the final output of the models. It provides the ability to explicitly specify the column names, data types, and other properties of the resulting table created by each dbt model. This file allows dbt to generate the appropriate SQL statements for creating or altering tables in the target data warehouse.
+```bash
+$ cd Step4-Data-Warehouse/dbt
+```
 
-> 👍 All these files are executed with the dbt CLI. The files are compiled into SQL statements that are deployed to the database or just executed in memory to run the test and validation scripts. The compiled SQL is stored in the target folder. The transformation tasks are compiled into the run folder and executed on the database.
+Project tree:
 
 ```
 - dbt
@@ -250,15 +252,23 @@ The schema.yml file is a configuration file used to define the schema of the fin
 
 ```
 
+The dbt folder contains the SQL-based source code. The staging folder contains the view definitions. The core folder contains the table definitions. The schema files in those folders have test rules and data constraints that are used to validate the models. This is how we are able to test our models. 
+
+The schema.yml files are used as configurations to define the schema of the final output of the models. It provides the ability to explicitly specify the column names, data types, and other properties of the resulting table created by each dbt model. This file allows dbt to generate the appropriate SQL statements for creating or altering tables in the target data warehouse.
+
+> 👍 All these files are executed using the dbt CLI. The files are compiled into SQL statements that are deployed to the database or just executed in memory to run the test, validation and insert scripts. The compiled SQL is stored in the target folder and these are assets deployed to the database. The transformation tasks are compiled into the run folder and are only executed on the database.
+
 ### Lineage
 
-Data lineage is the documentation and tracking of the flow of data from its origin to its destination, including all the intermediate processes and transformations that it undergoes. 
+Data lineage is the documentation and tracking of the flow of data from its origin to its destination, including all the intermediate processes and transformations that it undergoes. In this case, we show how the external table is the source for the fact table and the dimension table dependencies.
 
 ![ozkary-data-engineering-data-warehouse-lineage](../../assets/2023/ozkary-data-engineering-process-data-warehouse-lineage.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Lineage")
 
 ### Staging Data Models - Views
 
-We use the view strategy to build our staging models. When these files are executed (via CLI commands), the SQL is generated and deployed to the database. We also add a test parameter to limit the number of data to 100 rows during the development process, which is removed when deploying. Jinja directives are in double brackets {{}}.
+We use the view strategy to build our staging models. When these files are executed (via CLI commands), the SQL DDL (Data Definition Language) is generated and deployed to the database, essentially building the views. We also add a test parameter to limit the number of rows to 100 during the development process only. This is removed when it is deployed. Notice how the Jinja directives are in double brackets {{}} and handle some conditional logic and directives to configure the build process or call user defined functions.
+
+> 👍  DDL (Data Definition Language) is used to create objects. DML (Data Manipulation Language) is used to query the data.
 
 - stg_station.sql
   
@@ -375,7 +385,9 @@ where rn = 1
 
 ### Physical Data Models - Tables
 
-we use the incremental strategy to build our tables. This enable us to continuously append data to our tables when there is new information. We use the models (views) to build the actual tables. When these scripts are executed (via CLI commands), the process checks if the object exists, if it does not exists, it creates it. It then reads the data from the views using CTE (common table expressions) and appends all the records that are not already in the table using the id, for the dimension tables. For the fact table, this is done by checking the created date condition.
+We use the incremental strategy to build our tables. This enable us to continuously append data to our tables when there is new information. This strategy creates both DDL and DML scripts. This enable us to build the tables and also create the scripts to merge the new data in the table. 
+
+We use the models (views) to build the actual tables. When these scripts are executed (via CLI commands), the process checks if the object exists, if it does not exists, it creates it. It then reads the data from the views using CTE (common table expressions) and appends all the records that are not already in the table.
 
 - dim_station.sql
 
@@ -606,7 +618,7 @@ models:
 
 In dbt, an incremental model uses a merge operation to update a data warehouse's tables incrementally rather than performing a full reload of the data each time. This approach is particularly useful when dealing with large datasets and when the source data has frequent updates or inserts. Incremental models help optimize data processing and reduce the amount of data that needs to be processed during each run, resulting in faster data updates. 
 
-SQL merge query:
+- SQL merge query for the station dimension table (generated code)
 
 ```sql
 
@@ -628,21 +640,100 @@ using (
       on ns.station_id = s.station_id
   where s.station_id is null     
   -- 
-      ) as DBT_INTERNAL_SOURCE
-      on (FALSE)  
-  when not matched then insert
-      (`station_id`, `station_name`)
-  values
-      (`station_id`, `station_name`)
+    ) as DBT_INTERNAL_SOURCE
+    on (FALSE)  
+when not matched then insert
+    (`station_id`, `station_name`)
+values
+    (`station_id`, `station_name`)
+```
+
+- SQL merge query for the fact table (generated code)
+  
+```sql
+merge into `ozkary-de-101`.`mta_data`.`fact_turnstile` as DBT_INTERNAL_DEST
+using (
+
+    with turnstile as (
+        select 
+            log_id,
+            remote,
+            booth,
+            station,
+            scp,
+            line_name,
+            division,
+            created_dt,
+            entries,
+            exits
+        from `ozkary-de-101`.`mta_data`.`stg_turnstile`
+        where log_id is not null
+    ), 
+
+    dim_station as (
+        select station_id, station_name from `ozkary-de-101`.`mta_data`.`dim_station`   
+    ),
+
+    dim_booth as (
+        select booth_id, remote, booth_name  from `ozkary-de-101`.`mta_data`.`dim_booth`   
+    )
+    select 
+        log.log_id,
+        st.station_id,
+        booth.booth_id,
+        log.scp,
+        log.line_name,
+        log.division,
+        log.created_dt,
+        log.entries,
+        log.exits
+    from turnstile as log
+    left join dim_station as st
+      on log.station = st.station_name
+    left join dim_booth as booth
+    on log.remote = booth.remote and log.booth = booth.booth_name 
+
+    -- logic for incremental models this = fact_turnstile table
+    left outer join `ozkary-de-101`.`mta_data`.`fact_turnstile` fact
+        on log.log_id = fact.log_id
+    where fact.log_id is null     
+
+    ) as DBT_INTERNAL_SOURCE
+    on (FALSE)
+    when not matched then insert
+        (`log_id`, `station_id`, `booth_id`, `scp`, `line_name`, `division`, `created_dt`, `entries`, `exits`)
+    values
+        (`log_id`, `station_id`, `booth_id`, `scp`, `line_name`, `division`, `created_dt`, `entries`, `exits`)
 ```
 
 ## How to Run It
 
-Follow these steps to build the data models on our database.
+We are ready to see this in action. We first need to build the data models on our database by running the following steps:
 
-### Build the models and set the test run variable to false. This allows for the full dataset to be created
+### Validate the project 
+
+Debug the project to make sure there are no compilation errors.
+  
+```bash
+$ dbt debug
+```
+
+### Run the test cases
+
+All test should pass.
 
 ```bash
+$ dbt test
+```
+
+![ozkary-data-engineering-data-warehouse-tests](../../assets/2023/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests")
+
+### Build the models 
+
+Set the test run variable to false. This allows for the full dataset to be created without limiting the rows.
+
+```bash
+$ cd Step4-Data-Warehouse/dbt
 $ dbt build --select stg_booth.sql --var 'is_test_run: false'
 $ dbt build --select stg_station.sql --var 'is_test_run: false'
 $ dbt build --select stg_turnstile.sql --var 'is_test_run: false'
@@ -659,24 +750,6 @@ After running these command, the following resources should be in the data wareh
 
 > 👍 The build command is responsible for compiling, generating and deploying the SQL code for our dbt project, while the run command executes that SQL code against your data warehouse to update the data. Typically, we would run dbt build first to compile the project, and then run dbt run to execute the compiled code against the database.
 
-### Validate the project. 
-
-There should be no compilation errors.
-  
-```bash
-$ dbt debug
-```
-
-### Run the test cases
-
-All test should pass.
-
-```bash
-$ dbt test
-```
-
-![ozkary-data-engineering-data-warehouse-tests](../../assets/2023/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests")
-
 ### Generate documentation
 
 Run generate to create the documentation. We can then run serve to view the documentation on the browser.
@@ -686,48 +759,45 @@ $ dbt docs generate
 $ dbt docs serve
 ```
 
-This is the documentation for the fact table with the lineage graph showing how it was built.
+The entire project is documented. The image below shows the documentation for the fact table with the lineage graph showing how it was built.
 
 ![ozkary-data-engineering-data-warehouse-docs](../../assets/2023/ozkary-data-engineering-process-data-warehouse-docs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Documents")
 
+### Manually test the incremental updates
+
+We can run our updates on demand by using the CLI. To be able to run the updates. We should first run the data pipeline and import a new CSV file into the data lake. We can then run our updates as follows:
+
+```bash
+$ cd Step4-Data-Warehouse/dbt
+$ dbt run --model dim_booth.sql 
+$ dbt run --model dim_station.sql 
+$ dbt run --model fact_turnstile.sql
+
+```  
+
+We should notice that we are "running" the model, which only runs the incremental (merge) updates.
+
 ### Schedule the job
 
-Login to dbt cloud and set this job:
+Login to dbt cloud and set this scheduled job:
 
-  - On dbt Cloud setup the dbt schedule job to run every Sunday at 9am
+  - On dbt Cloud setup the dbt schedule job to run every Saturday at 9am
   - Use the production environment
   - Use the following command
   
 ```bash
 $ dbt run --model fact_turnstile.sql
 ```
-> 👍 We should also note, that we can run the fact_turnstile.sql model to test the data import from the CLI
 
 After running the cloud job, the log should show the following information with the number of rows affected. 
 
 ![ozkary-data-engineering-data-warehouse-job](../../assets/2023/ozkary-data-engineering-process-data-warehouse-jobs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Job")
 
-> 👍 There should be files on the data lake for the job to insert any new records. To validate this, run these queries from the Data Warehouse to check how many rows are in each table.
-
-```sql
--- check station dimension table
-select count(*) from mta_data.dim_station;
-
--- check booth dimension table
-select count(*) from mta_data.dim_booth;
-
--- check the fact table
-select count(*) from mta_data.fact_turnstile;
-
--- check the staging fact data
-select count(*) from mta_data.stg_turnstile;
-```
+> 👍 There should be files on the data lake for the job to insert any new records. 
 
 ### Manually Query the data lake for new data
 
-To test the for new records, we can manually run this query. 
-
-> This is automatically done when we run the fact table model
+To test the for new records, we can manually run this query on the database. 
 
 ```sql
 with turnstile as (
@@ -744,6 +814,25 @@ left outer join mta_data.fact_turnstile fact
 where fact.log_id is null     
 
 ```
+### Validate the data
+
+To validate the number of records in our database, we can run these queries:
+
+```sql
+-- check station dimension table
+select count(*) from mta_data.dim_station;
+
+-- check booth dimension table
+select count(*) from mta_data.dim_booth;
+
+-- check the fact table
+select count(*) from mta_data.fact_turnstile;
+
+-- check the staging fact data
+select count(*) from mta_data.stg_turnstile;
+```
+
+After following all these instructions, we should see data in our data warehouse, which closes the loop on the entire data pipeline for data ingestion from a CSV file to our data warehouse. We should also note that we could have done this process using a Python-Centric approach with Apache Spark, and we will discuss that in a later section.
 
 ## Summary
 
