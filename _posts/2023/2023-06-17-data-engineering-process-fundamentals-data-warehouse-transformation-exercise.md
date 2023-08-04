@@ -446,11 +446,11 @@ inner join dim_station st
 
 ```sql
 {{ config(materialized='incremental',
-    partition_by={
-      "field": "created_dt",
-      "data_type": "timestamp",
-      "granularity": "day"
-    },
+    -- partition_by={
+    --   "field": "created_dt",
+    --   "data_type": "timestamp",
+    --   "granularity": "day"
+    -- },
     cluster_by = "station_id") 
 }}
 
