@@ -450,9 +450,8 @@ inner join dim_station st
       "field": "created_dt",
       "data_type": "timestamp",
       "granularity": "day"
-      },
-      cluster_by = "station_id"
-    ) 
+    },
+    cluster_by = "station_id") 
 }}
 
 with turnstile as (
