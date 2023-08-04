@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Data Warehouse Model and Transfo
 excerpt: "During this exercise, we delve into the Data Warehouse design and implementation step, crafting robust data models, and designing transformation tasks. We explore how to efficiently load, cleanse, and merge data, ultimately creating dimension and fact tables. Additionally, we discuss areas like query performance, testability, and source control of our code, ensuring a reliable and scalable data solution."
 last_modified_at: 2023-06-17T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-pipeline-orchestration.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-pipeline-architecture.png"
   teaserAlt: "Ozkary Data Engineering Process Data Warehouse Model and Transformation Exercise"
 tags: 
   - pipelines  
