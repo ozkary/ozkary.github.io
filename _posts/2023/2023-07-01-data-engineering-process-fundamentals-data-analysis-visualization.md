@@ -3,15 +3,17 @@ title: "Data Engineering Process Fundamentals - Data Analysis and Visualization"
 excerpt: "Data Analysis and Visualization"
 last_modified_at: 2023-07-01T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-data-warehouse-design.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-analysis-brainstorm.png"
   teaserAlt: "Ozkary Data Engineering Process Data Analysis and Visualization"
 tags: 
-  - pipelines  
+  - visualization  
   - cloud-engineering
   - data-warehouse
   - data-lake
   - Python
   - Spark
+  - looker
+  - powerbi
 toc: true
 ---
 
@@ -23,7 +25,10 @@ Data analysis entails utilizing guidelines and patterns to guide the selection o
 
 In data visualization, we follow guidelines and design patterns to determine the appropriate chart for our data. For instance, a Business Intelligence (BI) dashboard may employ bar and pie charts to monitor sales performance in specific regions, while a Quality Control (QA) dashboard might utilize box plots, bell curves, and control charts to assess manufacturing process quality.
 
-Data analysis and visualization are fundamental to data-driven decision-making. To grasp the optimal strategy for our scenario, a deeper exploration of these processes is essential.
+Data analysis and visualization are fundamental to data-driven decision-making. To grasp the optimal strategy for our scenario, a deeper exploration of these processes is essential, so we will be using a sample dataset from our data warehouse to illustrate the approach.
+
+
+![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-analysis-brainstorm.png "Data Engineering Process Fundamentals - Analysis and Visualization")
 
 ## Data Analysis
 
@@ -258,38 +263,17 @@ Afternoon - Arrivals: 493029769709.00, Departures: 615375337214.00
 Night - Arrivals: 814729184132.00, Departures: 1008230417627.00
 ```
 
-BI analysis is important in helping us understand the data, which can then be communicated to stakeholders so that we can make decisions based on which information is more relevant to the decision-making process.
+BI analysis is important in helping us understand the data, which can then be communicated to stakeholders so that we can make decisions based on which information is more relevant to the organization.
 
 ## Data Visualization
 
-Importance of Data Visualization: Exploring the significance of visual representation in data communication.
+Data visualization is a powerful tool that takes the insights derived from data analysis and presents them in a visual format. While tables of numbers provide raw information, visualizations allow us to grasp complex relationships and trends at a glance. Dashboards, in particular, bring together various visual components like charts, graphs, and scorecards into a unified interface.
 
-Data visualization is vital for business communication as it transforms complex data and insights into easily digestible, visual representations. Here's why it's so crucial:
+Imagine a scenario where we have analyzed passenger data using Python and determined that certain stations experience higher passenger volumes during specific times of the day. Translating this into a dashboard, we can use donut graphs to show the distribution of passenger counts on stations, bar graphs to visualize passenger trends over different times of the day, and scorecards to highlight key metrics like total passengers.
 
-1. **Simplifies Complexity:** Business data often involves intricate relationships and patterns. Visualization simplifies complex concepts, making it easier for both technical and non-technical stakeholders to understand and interpret information.
+Such a dashboard offers a comprehensive view of the data, enabling quick comparisons, trend identification, and actionable insights. Instead of sifting through numbers, stakeholders can directly observe the patterns, correlations, and anomalies, leading to informed decision-making. This visualization approach enhances communication, collaboration, and comprehension among teams, making it an essential tool for data-driven organizations.
 
-2. **Enhances Clarity:** Visuals provide a clear and concise representation of data, eliminating confusion and minimizing the risk of misinterpretation. This ensures that everyone is on the same page when discussing insights.
-
-3. **Fosters Insight Discovery:** Visualizations highlight trends, outliers, and correlations that might not be apparent in raw data. This enables businesses to uncover insights, make informed decisions, and seize opportunities.
-
-4. **Aids Decision-Making:** Visuals empower stakeholders to make data-driven decisions quickly. By presenting facts in an engaging way, data visualization helps in evaluating options and choosing the best course of action.
-
-5. **Improves Communication:** Visuals transcend language barriers and enable effective communication across diverse teams. It's an effective tool to convey messages to stakeholders with varied expertise and backgrounds.
-
-6. **Engages Audiences:** Visuals captivate audiences and keep them engaged. Whether in presentations, reports, or dashboards, data visualization encourages active participation and better retention of information.
-
-7. **Tells a Story:** Visualizations weave data into a narrative, allowing businesses to communicate their findings as compelling stories. This storytelling aspect resonates more deeply with audiences and leaves a lasting impact.
-
-8. **Supports Transparency:** Transparent communication is essential in business. Visualizations provide a transparent view of data, promoting open discussions and building trust among stakeholders.
-
-9. **Accelerates Reporting:** Traditional text-based reporting can be time-consuming and overwhelming. Visualizations condense large volumes of data into easily graspable visuals, saving time and effort.
-
-10. **Drives Action:** Well-designed visualizations lead to actionable insights. When stakeholders can see and understand trends, they are more likely to take action based on those insights.
-
-In essence, data visualization is a bridge between raw data and meaningful insights, fostering effective communication, informed decision-making, and ultimately driving business success.
-
-
-### Types of Data Visualizations: 
+### Types of Data Visualizations
 
 There are a few terms that are used interchangeably when it comes to data visualization, but in reality there are subtle differences and specific uses between the terms. Let's review them in more details.
 
@@ -303,67 +287,55 @@ There are a few terms that are used interchangeably when it comes to data visual
 
 In summary, a chart is a specific type of visual representation focusing on data points, a graph represents broader data relationships, a report is a structured document presenting detailed analysis, and a dashboard is an interactive screen displaying real-time KPIs and metrics. Each serves a unique purpose in effectively communicating information to different types of audiences.
 
-### Dashboard Design Principles: Designing interactive and intuitive dashboards for enhanced user experience.
+### Dashboard Design Principles
 
-Certainly! Designing effective dashboards requires attention to several key principles to ensure clarity, usability, and the ability to convey insights. Here's a short bullet list of essential Dashboard Design Principles:
+Designing effective dashboards requires attention to several key principles to ensure clarity, usability, and the ability to convey insights. Here's a short list of essential Dashboard Design Principles:
 
-1. **User-Centered Design:** Understand your audience and their needs. Design the dashboard to provide relevant and actionable information to specific user roles.
+- User-Centered Design: Understand our audience and their needs. Design the dashboard to provide relevant and actionable information to specific user roles.
 
-2. **Clarity and Simplicity:** Keep the design clean and uncluttered. Use a simple layout, concise titles, and avoid unnecessary decorations. Focus on the most important information.
+- Clarity and Simplicity: Keep the design clean and uncluttered. Use a simple layout, meaningful titles, and avoid unnecessary decorations. 
 
-3. **Hierarchy and Prioritization:** Arrange elements in a hierarchy, emphasizing the most critical information prominently. Use size, color, and position to indicate importance.
+- Consistency: Maintain a consistent design across all dashboard components. Use the same color schemes, fonts, and visual styles to create a cohesive experience.
 
-4. **Consistency:** Maintain a consistent design across all dashboard components. Use the same color schemes, fonts, and visual styles to create a cohesive experience.
+- Master Filter: Include a master filter that allows users to select a date range, segment, or other criteria. This synchronizes data across all components, ensuring a unified view.
 
-5. **Master Filter:** Include a master filter that allows users to select a date range, segment, or other criteria. This synchronizes data across all components, ensuring a unified view.
+- Data Context and Relationships: Clearly label components and provide context to explain data relationships. Help users understand the significance of each element.
 
-6. **Data Context and Relationships:** Clearly label components and provide context to explain data relationships. Help users understand the significance of each element.
+- Limited Data Density: Avoid overloading the dashboard with excessive data points. Present only the most relevant information to prevent cognitive overload.
 
-7. **Limited Data Density:** Avoid overloading the dashboard with excessive data points. Present only the most relevant information to prevent cognitive overload.
+- Whitespace: Use whitespace effectively to separate components and enhance readability. Proper spacing reduces visual clutter.
 
-8. **Interactive Elements:** Incorporate interactivity through drill-downs, pop-ups, or clickable elements. This helps users explore specific data details.
+- Real-Time Updates: If applicable, ensure that the dashboard provides real-time or near-real-time data updates for accurate decision-making.
 
-9. **Visual Hierarchy:** Use visual cues like color, size, and contrast to guide attention. Important elements should stand out, guiding users' focus.
+- Mobile Responsiveness: Design the dashboard to be responsive across various devices and screen sizes, ensuring usability on both desktop and mobile.
 
-10. **Meaningful Titles:** Choose descriptive titles for each component that convey the purpose and relevance of the displayed data.
+- Testing and Iteration: Test the dashboard with actual users and gather feedback. Iterate on the design based on user insights and preferences.
 
-11. **Whitespace:** Use whitespace effectively to separate components and enhance readability. Proper spacing reduces visual clutter.
+Effective dashboard design not only delivers data but also tells a story. It guides users through insights, highlights trends, and supports data-driven decision-making. Applying these principles will help create dashboards that are intuitive, informative, and impactful.
 
-12. **Real-Time Updates:** If applicable, ensure that the dashboard provides real-time or near-real-time data updates for accurate decision-making.
+### Data Visualization Tools
 
-13. **Mobile Responsiveness:** Design the dashboard to be responsive across various devices and screen sizes, ensuring usability on both desktop and mobile.
+The data visualization tools can be divided into code-centric and low-code solutions. A code-centric solution involves writing programs to manage the data analysis and visuals. A low-code solution uses cloud-hosted tools that accelerate the data analysis and visualization. Instead of focusing on code, a low-code tool enables data professionals to focus on the data. Let's review some of these tools in more detail:
 
-14. **Testing and Iteration:** Test the dashboard with actual users and gather feedback. Iterate on the design based on user insights and preferences.
+- Python, coupled with libraries like Plotly, offers a versatile platform for data visualization that comes with its own set of advantages and limitations. This code-centric approach enables data professionals to integrate data analysis and visualization seamlessly, and they are particularly suited for individual research, in-depth analysis, and presentations in a controlled setting. For organizations seeking to share insights with a wider audience, exploring dedicated visualization tools or cloud-based services may be more practical.
 
-15. **Relate the Data:** Show data relationships by arranging components logically. Group related visuals together to provide a comprehensive view.
+- Looker is a powerful low-code, cloud-hosted business intelligence and data visualization platform that empowers organizations to explore, analyze, and share insights from their data. It offers a user-friendly interface that allows users to create interactive reports, dashboards, and visualizations. One of Looker's standout features is its ability to build models directly on the database, enabling real-time data exploration. 
 
-16. **Meaningful Labels and Legends:** Use clear labels and legends for charts and graphs to avoid confusion and aid understanding.
+- Microsoft Power BI is a widely-used low-code, cloud-hosted data visualization and business intelligence tool. It seamlessly integrates with other Microsoft tools and services, making it a popular choice for organizations already in the Microsoft ecosystem. Power BI offers an intuitive drag-and-drop interface for building interactive reports and dashboards. Its extensive library of visuals and custom visuals allows users to create compelling data representations
 
-Remember that effective dashboard design not only delivers data but also tells a story. It guides users through insights, highlights trends, and supports data-driven decision-making. Applying these principles will help create dashboards that are intuitive, informative, and impactful.
-
-### Data Visualization Tools: Exploring popular data visualization tools and their capabilities.
-Exploring Data Trends through Visualization: Identifying patterns, trends, and outliers through visual representations.
-
-Certainly! Here's an overview of three popular data visualization tools in today's market: Looker, Power BI, and Tableau.
-
-- Looker is a powerful business intelligence and data visualization platform that empowers organizations to explore, analyze, and share insights from their data. It offers a user-friendly interface that allows users to create interactive reports, dashboards, and visualizations. One of Looker's standout features is its ability to build models directly on the database, enabling real-time data exploration. 
-
-- Microsoft Power BI is a widely-used data visualization and business intelligence tool. It seamlessly integrates with other Microsoft tools and services, making it a popular choice for organizations already in the Microsoft ecosystem. Power BI offers an intuitive drag-and-drop interface for building interactive reports and dashboards. Its extensive library of visuals and custom visuals allows users to create compelling data representations
-
-- Tableau, acquired by Salesforce, is renowned for its data visualization capabilities. It provides users with an array of options for creating dynamic and interactive visuals. Tableau's "drag-and-drop" approach simplifies the process of connecting to various data sources and creating insightful dashboards. Its strength lies in its ability to handle large datasets and complex calculations efficiently. 
+- Tableau, acquired by Salesforce, is renowned for its cloud-hosted and low-code data visualization capabilities. It provides users with an array of options for creating dynamic and interactive visuals. Tableau's "drag-and-drop" approach simplifies the process of connecting to various data sources and creating insightful dashboards. Its strength lies in its ability to handle large datasets and complex calculations efficiently. 
 
 Each of these tools offers unique features and benefits, catering to different user preferences and organizational needs. Whether it's Looker's focus on data modeling, Power BI's integration with Microsoft products, or Tableau's flexibility and advanced analytics capabilities, these tools play a significant role in empowering users to unlock insights from their data.
 
-### Real-time Data Visualization: Leveraging real-time data streams for dynamic and up-to-date visualizations.
-
-
 ## Summary
 
-??
+Data analysis involves meticulous exploration, transformation, and comprehension of raw data to identify meaningful insights. There are guidelines and design patterns to follow for each specific use case. A BA might focus on KPIs, while a QAE might focus on statistical analysis of process quality. These insights, however, find their true value through data visualization. A code-centric approach with Python, aided by Plotly, offers potent tools for crafting analyses and visuals, but a low-code cloud hosted solution is often the solution for broader sharing and enterprise solutions. 
+
+In conclusion, the synergy between data analysis and visualization is pivotal for data-driven projects. Navigating data analysis with established principles and communicating insights through visually engaging dashboards empowers us to extract value from data. Whether opting for code-centric or low-code solutions, the choice of tooling and platform hinges on the balance between team expertise and target audience.
 
 ## Exercise - Data Analysis and Visualization
 
-With a solid understanding of the data warehouse analysis and visualization, the next step is to put these concepts into practice through a hands-on exercise. In this lab, ???
+With a better understanding of the data analysis and visualization, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we can continue our data engineering process and create a dashboard that will meet the requirements established in the discovery phase. 
 
 > 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization]
 
