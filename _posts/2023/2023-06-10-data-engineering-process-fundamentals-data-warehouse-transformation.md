@@ -235,9 +235,9 @@ To help us define the data models, we can follow these simple rules:
 
 - Dimensions: Dimensions are textual, and categorical attributes that describe business entities. They are often discrete and used for grouping, filtering, and organizing data.
 
-- Fact Tables: Fact tables contain numeric data that can be aggregated. They hold the measurable data and are related to dimensions through foreign keys.
+- Fact Tables: Fact tables contain numeric data that can be aggregated. They hold the measurable data and are related to dimensions through foreign keys
 
-- Measures: Measures are the quantitative values that are subject to calculations such as sum, average, minimum, maximum, etc. They represent the KPIs that organizations want to track and analyze.
+- Measures: Measures are the quantitative values that are subject to calculations such as sum, average, minimum, maximum, etc. They represent the KPIs that organizations want to track and analyze
 
 - ERD: Create a Entity Relationship Diagram to visualize the models and their relationships
 
