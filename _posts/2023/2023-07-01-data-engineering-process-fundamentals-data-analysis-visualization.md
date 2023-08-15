@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Data Analysis and Visualization"
 excerpt: "Data Analysis and Visualization"
 last_modified_at: 2023-07-01T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-analysis-flow.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-flow.png"
   teaserAlt: "Ozkary Data Engineering Process Data Analysis and Visualization"
 tags: 
   - visualization  
@@ -14,6 +14,7 @@ tags:
   - Spark
   - looker
   - powerbi
+  - jupyter
 toc: true
 ---
 
@@ -27,8 +28,7 @@ In data visualization, we follow guidelines and design patterns to determine the
 
 Data analysis and visualization are fundamental to data-driven decision-making. To grasp the optimal strategy for our scenario, a deeper exploration of these processes is essential, so we will be using a sample dataset from our data warehouse to illustrate the approach.
 
-
-![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-analysis-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
+![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
 
 ## Data Analysis
 
@@ -337,7 +337,7 @@ In conclusion, the synergy between data analysis and visualization is pivotal fo
 
 With a better understanding of the data analysis and visualization, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we can continue our data engineering process and create a dashboard that will meet the requirements established in the discovery phase. 
 
-> 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization]
+> 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization-exercise/)
 
 Thanks for reading.
 
