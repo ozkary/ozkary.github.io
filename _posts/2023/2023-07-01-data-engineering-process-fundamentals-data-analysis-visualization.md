@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Data Analysis and Visualization"
 excerpt: "Data Analysis and Visualization"
 last_modified_at: 2023-07-01T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-analysis-brainstorm.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-analysis-flow.png"
   teaserAlt: "Ozkary Data Engineering Process Data Analysis and Visualization"
 tags: 
   - visualization  
@@ -28,7 +28,7 @@ In data visualization, we follow guidelines and design patterns to determine the
 Data analysis and visualization are fundamental to data-driven decision-making. To grasp the optimal strategy for our scenario, a deeper exploration of these processes is essential, so we will be using a sample dataset from our data warehouse to illustrate the approach.
 
 
-![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-analysis-brainstorm.png "Data Engineering Process Fundamentals - Analysis and Visualization")
+![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-analysis-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
 
 ## Data Analysis
 
