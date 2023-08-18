@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Data Analysis and Visualization 
 excerpt: "Data Analysis and Visualization"
 last_modified_at: 2023-07-08T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-data-warehouse-dashboard.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-dashboard.png"
   teaserAlt: "Ozkary Data Engineering Process Data Analysis and Visualization Exercise"
 tags: 
  - visualization  
@@ -21,6 +21,7 @@ After learning the concepts of efficient analysis and visualization, we are read
 
 With the understanding on best practices for data analysis, we first create a code-based dashboard utilizing Python and Plotly. We then follow up by using a high-quality enterprise tool, such as Looker, to construct a low-code cloud-hosted dashboard. This can provides us with enough understanding of the type of effort that each approach takes.
 
+> 👍 This is a dashboard created with Looker
 ![ozkary-data-engineering-analysis-visualization-dashboard](../../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-dashboard.png "Data Engineering Process Fundamentals - Analysis and Visualization Dashboard")
 
 Once we have built our dashboard, we can align with our original requirements and work on the data analysis conclusion, which allows the stake holders to make the corresponding business decisions. But before we start coding, let's start by reviewing some of the specifications for our data analysis, which defines the blue print for our implementation effort.
@@ -283,13 +284,132 @@ The result should be this dashboard:
 
 ![ozkary-data-engineering-analysis-visualization-dashboard](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-python-dash.png "Data Engineering Process Fundamentals - Analysis and Visualization Python Dashboard")
 
+### Requirements
+
+> 👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis" target="_repo">Clone this repo</a> or copy the files from this folder, dbt and sql.
+
+- Use the analysis_data.csv file
+  - We are using a local file for this implementation
+- Install the Python dependencies
+
+```bash
+$ pip install pandas
+$ pip install plotly
+$ pip install dash
+$ pip install dash_bootstrap_components
+```
 
 ### How to Run It
 
+After installing the dependencies and downloading the code, we should be able to run the code from terminal by typing:
+
+```bash
+$ python3 dashboard.py
+```
+
+We should note that this is a simple implementation to illustrate the amount of effort that takes to build a dashboard using code. The code uses a local csv file. To connect to the data warehouse, we need to expand this code to use an API call that is authorized to access the data warehouse. This approach works wells for small teams that are working closely together running experiments on the data, but for a more enterprise solution, we should look at using a tool like Looker or PowerBI. Let's take a look at that next.
 
 ## Review the Code - Low-Code
 
-### How to Run It
+Tools like Looker and PowerBI excel at data visualization with little to no code. Since those tools provide use with all the visual tools to configure a dashboard, there is really no much code. As an example, these tools can take a date-time field and allow us to show the day of the week automatically. 
+
+Only for some situation where there is no out-of-box solution, we could add another field with a snippet of code. If we recall, we have a time range requirement. Since this is very particular to our project, we need to create that new series with our labels. The way this is done is by adding a new field that maps to the date-time hour value. That looks as follows:
+
+```python
+CASE 
+    WHEN HOUR(created_dt) BETWEEN 0 AND 3 THEN "12:00-3:59am" 
+    WHEN HOUR(created_dt) BETWEEN 4 AND 7 THEN "04:00-7:59am" 
+    WHEN HOUR(created_dt) BETWEEN 8 AND 11 THEN "08:00-11:59am" 
+    WHEN HOUR(created_dt) BETWEEN 12 AND 15 THEN "12:00-3:59pm" 
+    WHEN HOUR(created_dt) BETWEEN 16 AND 20 THEN "04:00-7:59pm" 
+    WHEN HOUR(created_dt) BETWEEN 20 AND 23 THEN "08:00-11:59pm" 
+END
+```
+
+### Requirements
+
+The only requirement here is to sign up with Looker Studio and have access to a data warehouse or database than can serve data, and it is accessible from outside sources.
+
+> 👉 [Sign-up for Looker Studio](https://lookerstudio.google.com/)
+
+Other Visualizations tools: 
+
+- [PowerBI](https://powerbi.microsoft.com/)
+- [Tableau](https://www.tableau.com/)
+
+### Looker UI
+
+Take a look at the image below. It is the Looker UI. We should become familiar with the following areas:
+
+- Add data: Use this to add a new data source
+- Add a chart: This allows us to add new charts
+- Add a control: This is where we can add the date range and station name list
+- Canvas: This is where we drop all the components
+- Setup Pane: Enable us to configure the date range, dimension, measures and sort settings
+- Style Pane: This is where we can configure the colors, font 
+- Data Pane:  It shows us the data sources with the fields. Here we can add new fields.
+  - New fields are create as functions. As we hover over the field, we are able to see a function (fx) icon, which means that we can edit the function and configure our snippet
+
+![ozkary-data-engineering-analysis-visualization-looker](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-looker-design.png "Data Engineering Process Fundamentals - Analysis and Visualization Looker design")
+
+### How to Build it
+
+- Sign up for a looker account or use another BI tool
+- Create a new dashboard
+- Click on the Add Data button
+- Use the connector for our data source
+   -  This should enable us to configure the credentials for the access
+   -  Pick the view rpt_turnstile which already has the join with the fact_table and the dimension tables
+- Once the data is loaded, we can see the dimensions and measures
+- Add the dashboard filters
+  - Add a date range control for the filter, this should use the created_dt field
+  - Add a list control and associate it with the station name
+- Add the rest of the charts
+- All charts should be associated with the date range dimension
+  - This enables the filtering to cascade to all the charts
+- Use the entries and exits measures for all the dashboards
+  - Add two scorecards for the sum of entries and exits 
+  - Add a donut char for the exits and entries distribution by stations
+  - Add two bar charts (entries and exits) and use the week day value from the created date dimension
+    - Sort then by the week day. Use the day number (0-6) not name (Sun-Sat). This is done by adding a new field with this code and using that for sorting
+
+```python
+WEEKDAY(created_dt)
+```
+  - Create the time slot dimension field (click add field and enter this definition)
+```python
+CASE 
+    WHEN HOUR(created_dt) BETWEEN 0 AND 3 THEN "12:00-3:59am" 
+    WHEN HOUR(created_dt) BETWEEN 4 AND 7 THEN "04:00-7:59am" 
+    WHEN HOUR(created_dt) BETWEEN 8 AND 11 THEN "08:00-11:59am" 
+    WHEN HOUR(created_dt) BETWEEN 12 AND 15 THEN "12:00-3:59pm" 
+    WHEN HOUR(created_dt) BETWEEN 16 AND 19 THEN "04:00-7:59pm" 
+    WHEN HOUR(created_dt) BETWEEN 20 AND 23 THEN "08:00-11:59pm" 
+END
+```
+  - Add two bar charts (entries and exits) and use the time slot dimension
+    - Use the hour value from the created date dimension for sorting by adding a new field and using that for your sort criteria
+
+```python
+HOUR(created_dt)
+```
+
+### View the Dashboard
+
+Load the dashboard by clicking this link:
+
+> 👉 [View the dashboard online](https://lookerstudio.google.com/reporting/94749e6b-2a1f-4b41-aff6-35c6c33f401e/)
+
+## Data Analysis Conclusions
+
+By looking at the dashboard, the following conclusions can be observed:
+
+- The stations with the highest distribution represent the busiest location 
+- The busiest time slot for both exits and entries is the hours between 4pm to 9pm
+- All days of the week show a high volume of commuters
+- Businesses can select the station close to their location for further analysis
+  
+With these observations, plans can be made to optimize the marketing campaigns and target users around a geo-fence area and hours of the day with proximity to the corresponding business locations.  
 
 ## Summary
 
