@@ -17,66 +17,91 @@ tags:
   - jupyter
 toc: true
 ---
-After learning the concepts of efficient analysis and visualization, we are ready to embark on the data analysis and visualization exercise in our data engineering process. This phase marks an inflection point in our transformation of data into valuable insights.
+Data analysis and visualization are fundamental to a data-driven decision-making process. To grasp the best strategy for our scenario, we delve into the data analysis and visualization phase of the process, making data models, analyzes and diagrams that allow us to tell stories from the data.
 
-With the understanding on best practices for data analysis, we first create a code-based dashboard utilizing Python and Plotly. We then follow up by using a high-quality enterprise tool, such as Looker, to construct a low-code cloud-hosted dashboard. This can provides us with enough understanding of the type of effort that each approach takes.
+With the understanding of best practices for data analysis and visualization, we start by creating a code-based dashboard using Python, Pandas and Plotly. We then follow up by using a high-quality enterprise tool, such as Looker, to construct a low-code cloud-hosted dashboard, providing us with insights into the type of effort each method takes.
 
-> 👍 This is a dashboard created with Looker
+> 👍 This is a dashboard created with Looker. Similar dashboards can be created with PowerBI and Tableau
+
 ![ozkary-data-engineering-analysis-visualization-dashboard](../../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-dashboard.png "Data Engineering Process Fundamentals - Analysis and Visualization Dashboard")
 
-Once we have built our dashboard, we can align with our original requirements and work on the data analysis conclusion, which allows the stake holders to make the corresponding business decisions. But before we start coding, let's start by reviewing some of the specifications for our data analysis, which defines the blue print for our implementation effort.
+Once we have designed our dashboard, we can align it with our initial requirements and proceed to formulate the data analysis conclusions, thereby facilitating informed business decisions for stakeholders. However, before delving into coding, let's commence by reviewing the data analysis specifications, which provide the blueprint for our implementation effort.
 
 ## Specifications
 
-At this point of the process, we understand the requirements, and we are also familiar with the data, so we can define our specifications as follows:
+At this stage of the process, we have a clear grasp of the requirements and a deep familiarity with the data. With these insights, we can now define our specifications as outlined below:
 
-- Identify the relevant measures, exits and entries
-- Perform distribution analysis by station
-  - This provides a geo-fence boundary
-- Perform distribution analysis by day of the week and time slots
+- Identify pertinent measures such as exits and entries
+- Conduct distribution analysis based on station
+  - This analysis delineates geographical boundary patterns
+- Conduct distribution analysis based on days of the week and time slots
   
-By calculating the total number of passengers for arrivals and departures, we gain a comprehensive understanding of passenger flow dynamics. Furthermore, we can employ distribution analysis to investigate variations across stations, days of the week, and time slots. These analyses provide essential insights for business strategy and decision-making, allowing us to identify peak travel periods, station preferences, and time-specific trends that can help us make informed decisions.
+By calculating the total count of passengers for arrivals and departures, we gain a holistic comprehension of passenger flow dynamics. Furthermore, we can employ distribution analysis to investigate variations across stations, days of the week, and time slots. These analyses provide essential insights for business strategy and decision-making, allowing us to identify peak travel periods, station preferences, and time-specific trends that can help us make informed decisions.
 
 ### Data Analysis Requirements
 
-- Identify the time slots for morning and afternoon analysis
-  - 12:00am-3:59am 
-  - 04:00am-7:59am 
-  - 08:00am-11:59am 
-  - 12:00pm-3:59pm 
-  - 04:00pm-7:59pm 
-  - 08:00pm-11:59pm	
-- Analyze the data by commuter exits (arrival) and entries (departure)
-- Use a master filter for a date rage to control all the charts
-- Add a secondary filter component to select stations
-- Show the total number of entries and exits for the selected date range 
-  - Use a score card component
-- Look at the distribution by stations, which represents the busiest stations
-  - Create donut charts using the subway station name as main dimension 
-- Look at the distribution using the day of the week to identify the busiest days
-  - Add a bar chart to see the exits and entries per day
- - Look at the distribution using the time slot to identify the busiest hours of the day
-  - Add a bar chart to see the exits and entries within each time slot
+In our analysis process, we can adhere to these specified requirements:
+
+- Determine distinct time slots for morning and afternoon analysis:
+```bash
+ 12:00 AM - 3:59 AM
+ 04:00 AM - 7:59 AM
+ 08:00 AM - 11:59 AM
+ 12:00 PM - 3:59 PM
+ 04:00 PM - 7:59 PM
+ 08:00 PM - 11:59 PM	
+```
+- Examine data regarding commuter exits (arrivals) and entries (departures)
+- Implement a master filter for date ranges, which exerts control over all charts
+- Incorporate a secondary filter component to facilitate station selection
+- Display the aggregate counts of entries and exits for the designated date range
+  - Employ score card components for this purpose
+- Investigate station distributions to identify the most frequented stations
+  - Utilize donut charts, with the subway station name as the primary dimension
+- Analyze distributions using the day of the week to unveil peak traffic days
+  - Employ bar charts to visualize entries and exits per day
+- Explore distributions based on time slots to uncover daily peak hours
+  - Integrate bar charts to illustrate entries and exits within each time slot
 
 ## Dashboard Design
 
-For the dashboard design, we can use a a two column layout and place the exits components in the left column and the entries components on the right column of the dashboard. We can also add a header container for the filters, date range and station name. 
+In the dashboard design, we can utilize a two-column layout, positioning the exits charts in the left column and the entries charts in the right column of the dashboard. Additionally, we can incorporate a header container to encompass the filters, date range, and station name.
 
 ### UI Components
 
-For our dashboard components, we should use the following:
+For our dashboard components, we should incorporate the following:
 
 - Date range picker
 - Station name list box
-- For each selected measure (exits, entries), we should use a set of the following components
-  - A score cards for the total numbers
-  - A donut chart for the station distribution
-  - A bar chart for the day of the week distribution
-  - A bar chart for the time slot distribution
+- For each selected measure (exits, entries), we should employ a set of the following components:
+ - Score cards for the total numbers
+ - Donut charts for station distribution
+ - Bar charts for day of the week distribution
+ - Bar charts for time slot distribution
 
 ## Review the Code - Code Centric
 
-The dashboard layout is done using HTML for the presentation and Python to build the different HTML elements using the [dash](https://dash.plotly.com/) library.
+The dashboard layout is done using HTML for the presentation and Python to build the different HTML elements using the [dash](https://dash.plotly.com/) library. All the charts are generated by plotly. 
+
+Certainly, here's the description using Markdown:
+
+The provided Python code is building a web application dashboard layout using Dash, a Python framework for creating interactive web applications. This dashboard is designed to showcase insights and visualizations derived from MTA Turnstile Data. Here's a breakdown of the main components:
+
+- App Layout: The `app.layout` defines the overall structure of the dashboard using the `html.Div` component. It acts as a container for all the displayed components
+
+- Title: `html.H4("MTA Turnstile Data Dashboard")` creates a header displaying the title of the dashboard
+
+- Date Picker Range: The `dcc.DatePickerRange` component allows users to select a date range for analysis. It's a part of Dash Core Components (`dcc`)
+
+- Score Cards: The `dbc.Row` and `dbc.Col` components create rows and columns for displaying score cards using `dbc.Card` and `dbc.CardBody`. These cards show metrics like "Total Entries" and "Total Exits"
+
+- Donut Charts: Another set of `dbc.Row` and `dbc.Col` components creates columns for displaying donut charts using the `dcc.Graph` component. These charts visualize the distribution of top entries and exits by station
+
+- Bar Charts: Similar to the previous sections, `dbc.Row` and `dbc.Col` components are used to create columns for displaying bar charts using the `dcc.Graph` component. These charts showcase the distribution of exits and entries by day of the week and time slot
+
+- CSS Classnames: The `className` attribute is used to apply CSS class names to the components, allowing for custom styling using CSS
+
+In summary, the code establishes the layout of the dashboard with distinct sections for date selection, score cards, donut charts, and bar charts. The various visualizations and metrics offer valuable insights into MTA Turnstile Data, enabling users to comprehend passenger flow patterns and trends effectively.
 
 ```javascript
 # Define the layout of the app
@@ -148,8 +173,11 @@ app.layout = html.Div([
 
 ])
 ```
+The `update_dashboard` function is responsible for updating and refreshing the dashboard. It handles the data range change event. As the user changes the date range, this function takes in the start and end dates as inputs. The function then filters the dataset, retaining only the records falling within the specified date range. Subsequently, the function calculates key metrics for the dashboard's score cards. It computes the total number of entries and exits during the filtered time period, and these values are converted to trillions for better readability.
 
-The `update_dashboard` handles the data range on change event. As the date range changes, the data is filtered. We then calculate the score card values for exits and entries. We then make the calls to generated the other charts using the filtered data frame. Lastly, we return all the components, so the dashboard can be rendered.
+The code proceeds to generate various visual components for the dashboard. These components include donut charts illustrating station-wise entries and exits, bar charts showcasing entries and exits by day of the week, and another set of bar charts displaying entries and exits by time slot. Each of these visualizations is created using specialized functions like create_station_donut_chart, create_day_bar_chart, and create_time_bar_chart.
+
+Finally, the function compiles all the generated components and calculated metrics into a tuple. This tuple is then returned by the update_dashboard function, containing values like total entries, total exits, and the various charts. 
 
 ```python
 
@@ -179,7 +207,9 @@ def update_dashboard(start_date, end_date):
     )
 ```
 
-The `create_station_donut_chart` function builds the donut charts. It gets the top stations with the most entries ans exits. It thens build the charts.
+The `create_station_donut_chart` function is responsible for generating donut charts to visualize the distribution of entries and exits across the top stations. It starts by selecting the top stations based on the highest entries and exits from the provided DataFrame. Using Plotly Express, the function then constructs two separate donut charts: one for the top stations by entries and another for the top stations by exits.
+
+Each donut chart provides a graphical representation of the distribution, where each station is represented by a segment based on the number of entries or exits it recorded. The charts are presented in a visually appealing manner with a central hole for a more focused view.
 
 ```python
 def create_station_donut_chart(df: pd.DataFrame ) -> Tuple[go.Figure, go.Figure]:
@@ -200,7 +230,11 @@ def create_station_donut_chart(df: pd.DataFrame ) -> Tuple[go.Figure, go.Figure]
 
 ```
 
-The `create_day_bar_chart` builds two bar charts to show the data distribution based on the day of the week. Since a date-time data type does not now about the actual day. We need to map the information to our day category and add the result series as another column. This enables us to build the charts.
+The `create_day_bar_chart` function is responsible for generating bar charts that illustrate the distribution of data based on the day of the week. Due to the limitations of the date-time data type not inherently containing day information, the function maps the data to the corresponding day category. 
+
+To begin, the function calculates the sum of the specified measures (entries and exits) for each date in the DataFrame using group_by_date. Next, it creates a new column named 'weekday' that holds the abbreviated day names (Sun, Mon, Tue, etc.) by applying the strftime method to the 'created_dt' column. This column is then transformed into a categorical variable using predefined day categories, ensuring that the order of days is preserved.
+
+Using the grouped data by 'weekday', the function constructs two separate bar charts using Plotly Express. One chart visualizes the distribution of exits by day of the week, while the other visualizes the distribution of entries by day of the week.
 
 ```python
 def create_day_bar_chart(df: pd.DataFrame, measures: List[str]) -> Tuple[go.Figure, go.Figure]:
@@ -233,7 +267,13 @@ def create_day_bar_chart(df: pd.DataFrame, measures: List[str]) -> Tuple[go.Figu
     return exits_chart_by_day, entries_chart_by_day
 ```
 
-The `create_time_bar_chart` builds two bar charts showing the data distribution at particular times of the day. Similar to resolving the day name, we need to map and label our time range, so we can create another series with that label. This enable us to create those charts.
+The `create_time_bar_chart` function is responsible for generating bar charts that depict the data distribution at specific times of the day. Just as with days of the week, the function maps and labels time ranges to create a new series, enabling the creation of these charts.
+
+First, the function defines time slots using a dictionary, where each slot corresponds to a specific time range. For each data row, a new column named 'time_slot' is added based on the time ranges defined. This is achieved by using the categorize_time function, which checks the hour of the row's timestamp and assigns it to the appropriate time slot.
+
+The data is then grouped by 'time_slot', and the sum of the specified measures (exits and entries) is calculated for each slot. To ensure that the time slots are displayed in the correct order, the grouped data is sorted based on a sorting value derived from the time slots' dictionary.
+
+Using the grouped and sorted data, the function constructs two bar charts using Plotly Express. One chart visualizes the distribution of exits by time of day, while the other visualizes the distribution of entries by time of day. Each bar in the chart represents the sum of exits or entries for a specific time slot.
 
 ```python
 def create_time_bar_chart(df: pd.DataFrame, measures : List[str] ) -> Tuple[go.Figure, go.Figure]:
@@ -280,17 +320,20 @@ def create_time_bar_chart(df: pd.DataFrame, measures : List[str] ) -> Tuple[go.F
 
 ```
 
-The result should be this dashboard:
+Once the implementation of this Python dashboard is complete, we can run it and see the following dashboard load on our browser:
 
 ![ozkary-data-engineering-analysis-visualization-dashboard](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-python-dash.png "Data Engineering Process Fundamentals - Analysis and Visualization Python Dashboard")
 
 ### Requirements
 
+These are the requirements to be able to run the Python dashboard.
+
 > 👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis" target="_repo">Clone this repo</a> or copy the files from this folder, dbt and sql.
 
 - Use the analysis_data.csv file
-  - We are using a local file for this implementation
-- Install the Python dependencies
+  - Use the local file for this implementation
+- Install the Python dependencies 
+  - Type the following from the terminal
 
 ```bash
 $ pip install pandas
@@ -307,13 +350,15 @@ After installing the dependencies and downloading the code, we should be able to
 $ python3 dashboard.py
 ```
 
-We should note that this is a simple implementation to illustrate the amount of effort that takes to build a dashboard using code. The code uses a local csv file. To connect to the data warehouse, we need to expand this code to use an API call that is authorized to access the data warehouse. This approach works wells for small teams that are working closely together running experiments on the data, but for a more enterprise solution, we should look at using a tool like Looker or PowerBI. Let's take a look at that next.
+We should note that this is a simple implementation to illustrate the amount of effort it takes to build a dashboard using code. The code uses a local CSV file. If we need to connect to the data warehouse, we need to expand this code to use an API call that is authorized to access the data warehouse. Writing Python dashboards or creating Jupyter charts, works well for small teams that are working closely together and are running experiments on the data. However, for a more enterprise solution, we should look at using a tool like Looker or PowerBI. Let's take a look at that next.
 
 ## Review the Code - Low-Code
 
-Tools like Looker and PowerBI excel at data visualization with little to no code. Since those tools provide use with all the visual tools to configure a dashboard, there is really no much code. As an example, these tools can take a date-time field and allow us to show the day of the week automatically. 
+Tools like Looker and PowerBI excel in data visualization, requiring little to no coding. These tools offer a plethora of visual elements for configuring dashboards, minimizing the need for extensive coding. For instance, these platforms effortlessly handle tasks like automatically displaying the day of the week from a date-time field.
 
-Only for some situation where there is no out-of-box solution, we could add another field with a snippet of code. If we recall, we have a time range requirement. Since this is very particular to our project, we need to create that new series with our labels. The way this is done is by adding a new field that maps to the date-time hour value. That looks as follows:
+In cases where an out-of-the-box solution is lacking, we might need to supplement it with a code snippet. For instance, consider our time range requirement. Since this is quite specific to our project, we must generate a new series with our desired labels. To achieve this, we introduce a new field that corresponds to the date-time hour value. When the field is created, we are essentially implementing a function.
+
+The provided code reads the hour value from the date-time fields and subsequently maps it to its corresponding label.
 
 ```python
 CASE 
