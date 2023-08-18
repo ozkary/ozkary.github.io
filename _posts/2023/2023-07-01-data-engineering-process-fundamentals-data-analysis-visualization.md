@@ -18,7 +18,7 @@ tags:
 toc: true
 ---
 
-After completing our data warehouse design and implementation, and our data pipeline is fully operation, we can move forward with the analysis and visualization step of our process. Data analysis entails exploring, comprehending, and reshaping data to yield insights, thereby enabling stakeholders to make informed business decisions. Conversely, data visualization employs these insights to adeptly convey information via visual elements, encompassing charts and dashboards.
+After completing our data warehouse design and implementation, our data pipeline should be fully operational.  We can move forward with the analysis and visualization step of our process. Data analysis entails exploring, comprehending, and reshaping data to yield insights, thereby enabling stakeholders to make informed business decisions. Conversely, data visualization employs these insights to adeptly convey information via visual elements, encompassing charts and dashboards.
 
 > 👉 [Data Engineering Process Fundamentals - Data Warehouse and Transformation](https://www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation/)
 
@@ -26,13 +26,15 @@ Data analysis entails utilizing guidelines and patterns to guide the selection o
 
 In data visualization, we follow guidelines and design patterns to determine the appropriate chart for our data. For instance, a Business Intelligence (BI) dashboard may employ bar and pie charts to monitor sales performance in specific regions, while a Quality Control (QA) dashboard might utilize box plots, bell curves, and control charts to assess manufacturing process quality.
 
-Data analysis and visualization are fundamental to data-driven decision-making. To grasp the optimal strategy for our scenario, a deeper exploration of these processes is essential, so we will be using a sample dataset from our data warehouse to illustrate the approach.
+Data analysis and visualization are fundamental to a data-driven decision-making process. To grasp the best strategy for our scenario, we now dive deeper into this process by using a sample dataset from our data warehouse to illustrate the approach with examples.
 
 ![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
 
 ## Data Analysis
 
-Data analysis is the practice of exploring data and understanding its meaning. It involves activities specific to achieving a specific goal, such as identifying dimensions, measures, outliers, trends, distributions, hypothesis testing. We can accomplish these activities by writing code snippets using Python and Pandas. We can write the code using tools like Visual Studio Code or Jupyter Notebooks. Additionally, we can use libraries, such as Plotly, to generate some visuals to further analyze data and create prototypes. 
+Data analysis is the practice of exploring data and understanding its meaning. It involves activities that can help us achieve a specific goal, such as identifying data dimensions and measures, as well as data analysis to identify outliers, trends, distributions, and hypothesis testing. We can accomplish these activities by writing code snippets using Python and Pandas, Visual Studio Code or Jupyter Notebooks. What's more, we can use libraries, such as Plotly, to generate some visuals to further analyze data and create prototypes.
+
+For low-code tools, the analysis can be done using a smart and rich user interface that automatically discovers the meta-data to identify the dataset properties like dimensions and measures. With little to no-code, those tools can help us model the data, create charts and dashboards.
 
 ### Data Profiling
 
@@ -44,7 +46,9 @@ Data profiling is the process to identify the data types, dimensions, measures, 
 
 - Measures: Measures are the quantitative values that are subject to calculations such as sum, average, minimum, maximum, etc. They represent the KPIs that the organization wants to track and analyze
 
-As an example, we can inspect the average of arrivals and departures at certain time slots. This can help us identify patterns at different times.
+As an example of data profiling, we can inspect the average of arrivals and departures at certain time slots. This can help us identify patterns at different times.
+
+> 👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis" target="_repo">Clone this repo</a> or copy the files from this folder. Use Jupyter Notebook file.
 
 ```python
 
@@ -78,7 +82,7 @@ Afternoon - Avg Arrivals: 30094161.08, Avg Departures: 37482421.78
 Night - Avg Arrivals: 29513309.25, Avg Departures: 36829260.66
 ```
 
-The code calculates the average arrivals and departures for each time slot. It prints out the results for each time slot, helping us identify the patterns of commuter activity during different parts of the day.
+The code calculates the average arrivals and departures for each time slot. It prints out the results for each time slot, helping us identify the patterns of commuter activity during different times of the day.
 
 ### Data Cleaning and Preprocessing
 
@@ -171,6 +175,8 @@ fig_scatter.show()
 - `df_top_stations.describe()` provides summary statistics for the numerical columns
 - `plotly_x.scatter()` creates scatter plots to visualize relationships between numerical columns
 
+![ozkary-data-engineering-analysis-visualization-jupyter](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-jupyter-scatter-chart.png "Data Engineering Process Fundamentals - Analysis and Visualization Jupyter Scatter Chart")
+
 These statistics can help us identify trends, correlations, and relationships in our data, allowing us to gain insights and make informed decisions about further analysis or modeling.
 
 > 👍 Data correlation refers to the degree to which two or more variables change together. It indicates the strength and direction of the linear relationship between variables. The correlation coefficient is a value between -1 and 1. A 1 indicates a strong positive correlation, while a value close to -1 indicates a strong negative correlation. A correlation coefficient near 0 suggests a weak or no linear relationship between the variables.
@@ -206,7 +212,7 @@ Conclusion: The correlation all stations is statistically significant.
 
 Let's take a look at the output and explain what is going on. A correlation coefficient of -0.14 suggests a weak negative correlation between the variables being analyzed. The p-value of 0.69 is relatively high, which suggests that there is no real correlation between morning arrivals and night departures for the top stations. This means that the high number of arrivals in that morning is not reflecting a correlation of departures in the evening.
 
-If we compare the entire data frame with all the stations, we can see a correlation .73 (close to 1) and a p-value of 0 which indicates that there is a statistically significant correlation for the entire data frame, which means that other stations had an increase in departures compared to its arrivals, but by looking at the entire data sample, the results do reflect that an increase in arrivals directly impacts departures later in the day.
+If we compare the entire data frame with all the stations, we can see a correlation .73 (close to 1) and a p-value of 0 which indicates that there is a statistically significant correlation for the entire dataset, which means that other stations had an increase in departures compared to its arrivals. By looking at the entire data sample, we can see there is in fact a correlation, and the increase in arrivals directly impacts departures later in the day.
 
 ### Business Intelligence and Reporting
 
@@ -267,7 +273,7 @@ BI analysis is important in helping us understand the data, which can then be co
 
 ## Data Visualization
 
-Data visualization is a powerful tool that takes the insights derived from data analysis and presents them in a visual format. While tables of numbers provide raw information, visualizations allow us to grasp complex relationships and trends at a glance. Dashboards, in particular, bring together various visual components like charts, graphs, and scorecards into a unified interface.
+Data visualization is a powerful tool that takes the insights derived from data analysis and presents them in a visual format. While tables with numbers on a report provide raw information, visualizations allow us to grasp complex relationships and trends at a glance. Dashboards, in particular, bring together various visual components like charts, graphs, and scorecards into a unified interface.
 
 Imagine a scenario where we have analyzed passenger data using Python and determined that certain stations experience higher passenger volumes during specific times of the day. Translating this into a dashboard, we can use donut graphs to show the distribution of passenger counts on stations, bar graphs to visualize passenger trends over different times of the day, and scorecards to highlight key metrics like total passengers.
 
@@ -277,7 +283,7 @@ Such a dashboard offers a comprehensive view of the data, enabling quick compari
 
 There are a few terms that are used interchangeably when it comes to data visualization, but in reality there are subtle differences and specific uses between the terms. Let's review them in more details.
 
-- Chart: A chart is a visual representation that displays data points, trends, and patterns. It uses graphical elements such as bars, lines, or pie slices to depict data relationships. Charts are focused on illustrating specific data comparisons or distributions, making it easier for viewers to understand data at a glance. Common types of charts include bar charts, line charts, pie charts, and scatter plots
+- Chart: A chart is a visual representation that displays data points, trends, and patterns. It uses graphical elements such as bars, lines, or pie charts to depict data relationships. Charts are focused on illustrating specific data comparisons or distributions, making it easier for viewers to understand data at a glance. 
 
 - Graph: A graph is a broader term that encompasses both charts and diagrams. It's used to represent data visually and can include a variety of visual elements, including nodes, edges, bars, lines, and more. Graphs are often used to showcase relationships and connections among various data points, allowing viewers to understand complex structures or networks
 
@@ -291,25 +297,23 @@ In summary, a chart is a specific type of visual representation focusing on data
 
 Designing effective dashboards requires attention to several key principles to ensure clarity, usability, and the ability to convey insights. Here's a short list of essential Dashboard Design Principles:
 
-- User-Centered Design: Understand our audience and their needs. Design the dashboard to provide relevant and actionable information to specific user roles.
+- User-Centered Design: Understand our audience and their needs. Design the dashboard to provide relevant and actionable information to specific user roles, executives only want to see the big picture not details
 
-- Clarity and Simplicity: Keep the design clean and uncluttered. Use a simple layout, meaningful titles, and avoid unnecessary decorations. 
+- Clarity and Simplicity: Keep the design clean and uncluttered. Use a simple layout, meaningful titles, and avoid unnecessary decorations 
 
-- Consistency: Maintain a consistent design across all dashboard components. Use the same color schemes, fonts, and visual styles to create a cohesive experience.
+- Consistency: Maintain a consistent design across all dashboard components. Use the same color schemes, fonts, and visual styles to create a cohesive experience
 
-- Master Filter: Include a master filter that allows users to select a date range, segment, or other criteria. This synchronizes data across all components, ensuring a unified view.
+- Master Filter: Include a master filter that allows users to select a date range, segment, or other criteria. This synchronizes data across all components, ensuring a unified view
 
-- Data Context and Relationships: Clearly label components and provide context to explain data relationships. Help users understand the significance of each element.
+- Data Context and Relationships: Clearly label components and provide context to explain data relationships. Help users understand the significance of each element
 
-- Limited Data Density: Avoid overloading the dashboard with excessive data points. Present only the most relevant information to prevent cognitive overload.
+- Whitespace: Use whitespace effectively to separate components and enhance readability. Proper spacing reduces visual clutter
 
-- Whitespace: Use whitespace effectively to separate components and enhance readability. Proper spacing reduces visual clutter.
+- Real-Time Updates: If applicable, ensure that the dashboard provides real-time or near-real-time data updates for accurate decision-making
 
-- Real-Time Updates: If applicable, ensure that the dashboard provides real-time or near-real-time data updates for accurate decision-making.
+- Mobile Responsiveness: Design the dashboard to be responsive across various devices and screen sizes, ensuring usability on both desktop and mobile
 
-- Mobile Responsiveness: Design the dashboard to be responsive across various devices and screen sizes, ensuring usability on both desktop and mobile.
-
-- Testing and Iteration: Test the dashboard with actual users and gather feedback. Iterate on the design based on user insights and preferences.
+- Testing and Iteration: Test the dashboard with actual users and gather feedback. Iterate on the design based on user insights and preferences
 
 Effective dashboard design not only delivers data but also tells a story. It guides users through insights, highlights trends, and supports data-driven decision-making. Applying these principles will help create dashboards that are intuitive, informative, and impactful.
 
@@ -317,13 +321,11 @@ Effective dashboard design not only delivers data but also tells a story. It gui
 
 The data visualization tools can be divided into code-centric and low-code solutions. A code-centric solution involves writing programs to manage the data analysis and visuals. A low-code solution uses cloud-hosted tools that accelerate the data analysis and visualization. Instead of focusing on code, a low-code tool enables data professionals to focus on the data. Let's review some of these tools in more detail:
 
-- Python, coupled with libraries like Plotly, offers a versatile platform for data visualization that comes with its own set of advantages and limitations. This code-centric approach enables data professionals to integrate data analysis and visualization seamlessly, and they are particularly suited for individual research, in-depth analysis, and presentations in a controlled setting. For organizations seeking to share insights with a wider audience, exploring dedicated visualization tools or cloud-based services may be more practical.
-
-- Looker is a powerful low-code, cloud-hosted business intelligence and data visualization platform that empowers organizations to explore, analyze, and share insights from their data. It offers a user-friendly interface that allows users to create interactive reports, dashboards, and visualizations. One of Looker's standout features is its ability to build models directly on the database, enabling real-time data exploration. 
-
-- Microsoft Power BI is a widely-used low-code, cloud-hosted data visualization and business intelligence tool. It seamlessly integrates with other Microsoft tools and services, making it a popular choice for organizations already in the Microsoft ecosystem. Power BI offers an intuitive drag-and-drop interface for building interactive reports and dashboards. Its extensive library of visuals and custom visuals allows users to create compelling data representations
-
-- Tableau, acquired by Salesforce, is renowned for its cloud-hosted and low-code data visualization capabilities. It provides users with an array of options for creating dynamic and interactive visuals. Tableau's "drag-and-drop" approach simplifies the process of connecting to various data sources and creating insightful dashboards. Its strength lies in its ability to handle large datasets and complex calculations efficiently. 
+- Python, coupled with libraries like Plotly, offers a versatile platform for data visualization that comes with its own set of advantages and limitations. This code-centric approach enables data professionals to integrate data analysis and visualization seamlessly, and they are particularly suited for individual research, in-depth analysis, and presentations in a controlled setting
+  
+- [Looker Studio](https://lookerstudio.google.com/) is a powerful low-code, cloud-hosted business intelligence and data visualization platform that empowers organizations to explore, analyze, and share insights from their data. It offers a user-friendly interface that allows users to create interactive reports, dashboards, and visualizations  
+- [Microsoft Power BI](https://powerbi.microsoft.com/) is a widely-used low-code, cloud-hosted data visualization and business intelligence tool. It seamlessly integrates with other Microsoft tools and services, making it a popular choice for organizations already in the Microsoft ecosystem. Power BI offers an intuitive drag-and-drop interface for building interactive reports and dashboards. Its extensive library of visuals and custom visuals allows users to create compelling data representations
+- [Tableau](https://www.tableau.com/), acquired by Salesforce, is renowned for its cloud-hosted and low-code data visualization capabilities. It provides users with an array of options for creating dynamic and interactive visuals. Tableau's "drag-and-drop" approach simplifies the process of connecting to various data sources and creating insightful dashboards.
 
 Each of these tools offers unique features and benefits, catering to different user preferences and organizational needs. Whether it's Looker's focus on data modeling, Power BI's integration with Microsoft products, or Tableau's flexibility and advanced analytics capabilities, these tools play a significant role in empowering users to unlock insights from their data.
 
@@ -335,7 +337,7 @@ In conclusion, the synergy between data analysis and visualization is pivotal fo
 
 ## Exercise - Data Analysis and Visualization
 
-With a better understanding of the data analysis and visualization, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we can continue our data engineering process and create a dashboard that will meet the requirements established in the discovery phase. 
+With a better understanding of the data analysis and visualization process, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we can continue our data engineering process and create a dashboard that will meet the requirements established in the discovery phase. 
 
 > 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization Exercise](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization-exercise/)
 

@@ -413,11 +413,11 @@ With these observations, plans can be made to optimize the marketing campaigns a
 
 ## Summary
 
-??
+
 
 ## Next Step
 
-We have completed our data pipeline from a CSV files to our data warehouse and dashboard. We can now discuss an advanced concept in data engineering, data streaming, which enables the integration of data in real-time.
+We have completed our data pipeline from a CSV files to our data warehouse and dashboard. We can now discuss an advanced concept in data engineering, data streaming, which enables the integration of data in real-time. Let's take a look at that next.
 
 Coming Soon!
 
