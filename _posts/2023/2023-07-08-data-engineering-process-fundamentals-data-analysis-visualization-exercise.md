@@ -373,7 +373,7 @@ END
 
 ### Requirements
 
-The only requirement here is to sign up with Looker Studio and have access to a data warehouse or database than can serve data, and it is accessible from outside sources.
+The only requirement here is to sign up with Looker Studio and have access to a data warehouse or database that can serve data and is accessible from external sources.
 
 > 👉 [Sign-up for Looker Studio](https://lookerstudio.google.com/)
 
@@ -384,44 +384,46 @@ Other Visualizations tools:
 
 ### Looker UI
 
-Take a look at the image below. It is the Looker UI. We should become familiar with the following areas:
-
-- Add data: Use this to add a new data source
-- Add a chart: This allows us to add new charts
-- Add a control: This is where we can add the date range and station name list
-- Canvas: This is where we drop all the components
-- Setup Pane: Enable us to configure the date range, dimension, measures and sort settings
-- Style Pane: This is where we can configure the colors, font 
-- Data Pane:  It shows us the data sources with the fields. Here we can add new fields.
-  - New fields are create as functions. As we hover over the field, we are able to see a function (fx) icon, which means that we can edit the function and configure our snippet
+Take a look at the image below. This is the Looker UI. We should familiarize ourselves with the following areas:
 
 ![ozkary-data-engineering-analysis-visualization-looker](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-looker-design.png "Data Engineering Process Fundamentals - Analysis and Visualization Looker design")
 
+- Add data: Use this to add a new data source
+- Add a chart: This allows us to add new charts
+- Add a control: Here, we can add the date range and station name list
+- Canvas: This is where we place all the components
+- Setup Pane: This allows us to configure the date range, dimension, measures, and sorting settings
+- Style Pane: Here, we can configure the colors and font
+- Data Pane: This displays the data sources with their fields. New fields are created as functions. When we hover over a field, we can see a function (fx) icon, which indicates that we can edit the function and configure our snippet
+
 ### How to Build it
 
-- Sign up for a looker account or use another BI tool
+Sign up for a Looker account or use another BI tool and follow these steps:
+
 - Create a new dashboard
-- Click on the Add Data button
-- Use the connector for our data source
-   -  This should enable us to configure the credentials for the access
-   -  Pick the view rpt_turnstile which already has the join with the fact_table and the dimension tables
+- Click on the "Add Data" button
+- Use the connector for our data source:
+   - This should allow us to configure the credentials for access
+   - Select the "rpt_turnstile" view, which already includes joins with the fact_table and dimension tables
 - Once the data is loaded, we can see the dimensions and measures
-- Add the dashboard filters
-  - Add a date range control for the filter, this should use the created_dt field
+- Add the dashboard filters:
+  - Include a date range control for the filter, using the "created_dt" field
   - Add a list control and associate it with the station name
-- Add the rest of the charts
-- All charts should be associated with the date range dimension
-  - This enables the filtering to cascade to all the charts
-- Use the entries and exits measures for all the dashboards
-  - Add two scorecards for the sum of entries and exits 
-  - Add a donut char for the exits and entries distribution by stations
-  - Add two bar charts (entries and exits) and use the week day value from the created date dimension
-    - Sort then by the week day. Use the day number (0-6) not name (Sun-Sat). This is done by adding a new field with this code and using that for sorting
+- Proceed to add the remaining charts:
+  - Ensure that all charts are associated with the date range dimension
+  - This enables filtering to cascade across all the charts
+- Utilize the "entries" and "exits" measures for all dashboards:
+  - Integrate two scorecards for the sum of entries and exits
+  - Incorporate a donut chart to display exits and entries distribution by stations
+  - Incorporate two bar charts (entries and exits) and use the weekday value from the "created_dt" dimension
+    - Sort them by the weekday. Use the day number (0-6), not the name (Sun-Sat). This is achieved by adding a new field with the following code and using it for sorting:
 
 ```python
 WEEKDAY(created_dt)
 ```
-  - Create the time slot dimension field (click add field and enter this definition)
+
+  - Create the time slot dimension field (click "Add Field" and enter this definition):
+
 ```python
 CASE 
     WHEN HOUR(created_dt) BETWEEN 0 AND 3 THEN "12:00-3:59am" 
@@ -432,37 +434,39 @@ CASE
     WHEN HOUR(created_dt) BETWEEN 20 AND 23 THEN "08:00-11:59pm" 
 END
 ```
-  - Add two bar charts (entries and exits) and use the time slot dimension
-    - Use the hour value from the created date dimension for sorting by adding a new field and using that for your sort criteria
+
+  - Add two bar charts (entries and exits) and use the time slot dimension:
+    - Use the hour value from the "created_dt" dimension for sorting by adding a new field and using it as your sorting criteria:
 
 ```python
 HOUR(created_dt)
 ```
-
 ### View the Dashboard
 
-Load the dashboard by clicking this link:
+After following all the specification, we should be able to preview the dashboard on the browser. We can load an example, of a dashboard by clicking on the link below:
 
 > 👉 [View the dashboard online](https://lookerstudio.google.com/reporting/94749e6b-2a1f-4b41-aff6-35c6c33f401e/)
 
 ## Data Analysis Conclusions
 
-By looking at the dashboard, the following conclusions can be observed:
+By examining the dashboard, the following conclusions can be observed:
 
-- The stations with the highest distribution represent the busiest location 
-- The busiest time slot for both exits and entries is the hours between 4pm to 9pm
-- All days of the week show a high volume of commuters
-- Businesses can select the station close to their location for further analysis
-  
-With these observations, plans can be made to optimize the marketing campaigns and target users around a geo-fence area and hours of the day with proximity to the corresponding business locations.  
+- Stations with the highest distribution represent the busiest locations
+- The busiest time slot for both exits and entries is between 4pm and 9pm
+- Every day of the week exhibits a high volume of commuters
+- Businesses can choose the stations near their locations for further analysis
+
+With these insights, strategies can be devised to optimize marketing campaigns and target users within geo-fenced areas and during specific hours of the day that are in close proximity to corresponding business locations.
 
 ## Summary
 
+We utilize our expertise in data analysis and visualization to construct charts and amalgamate them into dashboards. We adopt two distinct approaches for dashboard creation: a code-centric method and a low-code enterprise solution like Looker. After a comprehensive comparison, we deduce that the code-centric approach is optimal for small teams, whereas it might not suffice for enterprise users, especially when targeting executive stakeholders.
 
+Lastly, as the dashboard becomes operational, we transition into the role of business analysts, deciphering insights from the data. This enables us to offer answers aligned with our original requirements.
 
-## Next Step
+## Next
 
-We have completed our data pipeline from a CSV files to our data warehouse and dashboard. We can now discuss an advanced concept in data engineering, data streaming, which enables the integration of data in real-time. Let's take a look at that next.
+We have successfully completed our data pipeline from CSV files to our data warehouse and dashboard. Now, let's explore an advanced concept in data engineering: data streaming, which facilitates real-time data integration. This involves the continuous and timely processing of incoming data. Technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) play a crucial role in enabling efficient data streaming processes. Let's take a closer look at these components next.
 
 Coming Soon!
 
