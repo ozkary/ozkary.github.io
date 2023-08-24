@@ -65,7 +65,12 @@ In our analysis process, we can adhere to these specified requirements:
 
 ## Dashboard Design
 
-In the dashboard design, we can utilize a two-column layout, positioning the exits charts in the left column and the entries charts in the right column of the dashboard. Additionally, we can incorporate a header container to encompass the filters, date range, and station name.
+In the dashboard design, we can utilize a two-column layout, positioning the exits charts in the left column and the entries charts in the right column of the dashboard. Additionally, we can incorporate a header container to encompass the filters, date range, and station name. To support multiple devices, we need a responsive layout. We should note that when using a platform like Looker, there is really no responsive layout, but we need to define different layouts for mobile and desktop.
+
+Layout Configuration:
+
+- Desktop 1200px by 900px
+- Mobile 360px by 1980px
 
 ### UI Components
 
@@ -447,6 +452,12 @@ After following all the specification, we should be able to preview the dashboar
 
 > 👉 [View the dashboard online](https://lookerstudio.google.com/reporting/94749e6b-2a1f-4b41-aff6-35c6c33f401e/)
 
+> 👉 [View the mobile dashboard online](https://lookerstudio.google.com/reporting/94749e6b-2a1f-4b41-aff6-35c6c33f401e/)
+
+
+![ozkary-data-engineering-analysis-visualization-mobile-dashboard](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-looker-mobile.png "Data Engineering Process Fundamentals - Analysis and Visualization Mobile Dashboard")
+
+
 ## Data Analysis Conclusions
 
 By examining the dashboard, the following conclusions can be observed:
@@ -460,7 +471,7 @@ With these insights, strategies can be devised to optimize marketing campaigns a
 
 ## Summary
 
-We utilize our expertise in data analysis and visualization to construct charts and amalgamate them into dashboards. We adopt two distinct approaches for dashboard creation: a code-centric method and a low-code enterprise solution like Looker. After a comprehensive comparison, we deduce that the code-centric approach is optimal for small teams, whereas it might not suffice for enterprise users, especially when targeting executive stakeholders.
+We utilize our expertise in data analysis and visualization to construct charts and build them into dashboards. We adopt two distinct approaches for dashboard creation: a code-centric method and a low-code enterprise solution like Looker. After a comprehensive comparison, we deduce that the code-centric approach is optimal for small teams, whereas it might not suffice for enterprise users, especially when targeting executive stakeholders.
 
 Lastly, as the dashboard becomes operational, we transition into the role of business analysts, deciphering insights from the data. This enables us to offer answers aligned with our original requirements.
 
