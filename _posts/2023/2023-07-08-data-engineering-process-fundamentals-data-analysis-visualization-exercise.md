@@ -1,6 +1,6 @@
 ---
 title: "Data Engineering Process Fundamentals - Data Analysis and Visualization Exercise"
-excerpt: "Data Analysis and Visualization"
+excerpt: "We utilize our expertise in data analysis and visualization to construct charts and build them into dashboards. We adopt two distinct approaches for dashboard creation: a code-centric method and a low-code enterprise solution like Looker. "
 last_modified_at: 2023-07-08T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-dashboard.png"
