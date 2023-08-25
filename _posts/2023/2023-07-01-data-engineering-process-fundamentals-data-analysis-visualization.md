@@ -1,6 +1,6 @@
 ---
 title: "Data Engineering Process Fundamentals - Data Analysis and Visualization"
-excerpt: "Data Analysis and Visualization"
+excerpt: " Navigating data analysis with established principles and communicating insights through visually engaging dashboards empowers us to extract value from data. "
 last_modified_at: 2023-07-01T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-flow.png"
