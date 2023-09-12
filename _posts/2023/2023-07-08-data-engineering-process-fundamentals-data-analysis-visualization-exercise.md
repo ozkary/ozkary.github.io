@@ -483,7 +483,7 @@ We have successfully completed our data pipeline from CSV files to our data ware
 
 Coming Soon!
 
-> 👉 [Data Engineering Process Fundamentals - Real-Time Data]
+> 👉 [Data Engineering Process Fundamentals - Real-Time Data](https://www.ozkary.dev/data-engineering-process-fundamentals-data-streaming/)
 
 Thanks for reading.
 

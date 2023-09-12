@@ -44,21 +44,22 @@ A Data Engineering Process follows a series of steps that should be executed to 
   - System Architecture
   - Cloud Engineering and Automation
   - Design Exercise
-- Data Orchestration and Operations
+- [Data Orchestration and Operations](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration/)
   - Pipeline Orchestration
     - Batch Processing
   - Workflow Automation
   - Deployment, Schedules and Monitoring
-- Data Warehouse and Modeling
+- [Data Warehouse and Modeling](//www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation/)
   - Data modeling
   - Data Warehouse Design
   - Continuous Integration
-- Data Analysis and Visualization
+- [Data Analysis and Visualization](//www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization/)
   - Analyze the data
   - Visualization Concepts
   - Create a Dashboard
     - Provide answers to the problem statement
 - Streaming Data
+  - Real-time Data Pipeline
   - Data Warehouse Integration
   - Real-time dashboard
   
