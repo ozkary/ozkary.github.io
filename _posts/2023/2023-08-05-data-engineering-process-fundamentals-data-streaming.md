@@ -1,9 +1,9 @@
 ---
 title: "Data Engineering Process Fundamentals - Data Streaming"
-excerpt: " Navigating data analysis with established principles and communicating insights through visually engaging dashboards empowers us to extract value from data. "
+excerpt: " Data streaming enables us to build data integration in real-time. Unlike traditional batch processing, where data is collected and processed periodically, streaming data arrives continuously by and is processed on-the-fly. "
 last_modified_at: 2023-08-05T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-data-streaming-flow.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-data-streaming-design.png"
   teaserAlt: "Ozkary Data Engineering Process Data Streaming"
 tags:   
   - cloud-engineering
@@ -18,6 +18,7 @@ toc: true
 In modern data engineering solutions, the ability to handle streaming data is an absolute necessity. Many businesses require real-time insights to monitor and quickly respond to changing operational and performance conditions. This is where data streaming comes in, integrating real-time data into data warehouses and visual dashboards. To incorporate this capability into a data engineering solution, it's crucial to grasp the concept of data streaming and explore how technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) enable us to construct dynamic streaming data pipelines.
 
 > 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization/)
+
 
 ## What is Data Streaming
 
@@ -56,9 +57,11 @@ Data streaming sources often produce small payload size with high volume of mess
 
 - Scalable Compute Resources: As data volumes grow, compute resources should be able to scale horizontally to handle increased data loads. Cloud-based solutions are often used for this purpose
 
-## Data Streaming Design and Architecture
+## Data Streaming Components
 
 At the heart of data streaming solutions lies technologies like Apache Kafka, a distributed event streaming platform, and Apache Spark, a versatile data processing engine. Together, they form a powerful solution that ingests, processes, and analyzes streaming data at scale.
+
+![ozkary-data-engineering-design-data-streaming](../../assets/2023/ozkary-data-engineering-process-data-streaming-kafka-spark.png "Data Engineering Process Fundamentals - Data Streaming Design Kafka and Spark")
 
 ### Apache Kafka
 
@@ -102,11 +105,56 @@ A Kafka and Spark integration enables us to build solutions with High Availabili
 
 - End-to-End Pipeline: By combining Kafka's ingestion capabilities with Spark's processing power, you can create end-to-end data streaming pipelines that handle real-time data ingestion, processing, and storage
 
+## Solution Design and Architecture
+
+For our solution strategy, we follow a design as shown below. This design helps us ensure the smooth flow of data, efficient processing and storage, so it can become immediately available in our data warehouse and consequently the visualization tools. Let's break down each component and explain its purpose.
+
+![ozkary-data-engineering-design-data-streaming](../../assets/2023/ozkary-data-engineering-process-data-streaming-design.png "Data Engineering Process Fundamentals - Data Streaming Design")
+
+### Components
+
+- Real-Time Data Source:
+   - This is an external data source, which continuously emits data as events or messages
+
+- Message Broker Layer:
+   - Our message broker layer as the central hub for data ingestion and distribution. It consists of two vital components:
+     - Kafka Instance: Kafka acts as a scalable message broker and entry point for data ingestion. It efficiently collects and organizes data in topics from the source
+     - Kafka Producer (Python): To bridge the gap between the data source and Kafka, we write a Python-based Kafka producer. This component is responsible for capturing data from the real-time source and forwarding it to the Kafka instance and corresponding topic
+
+- Stream Processing Layer:
+   - The stream processing layer is where the messages from Kafka are processed, aggregated and sent to the corresponding data storage. This layer also consists of two key components:   
+     - Spark Instance: Apache Spark, a high-performance stream processing framework, is responsible for processing and transforming data in real-time
+     - Stream Consumer (Python): In order to consume the messages from a Kafka topic, we write a Python component that acts as both a Kafka Consumer and Spark application. 
+       - The Kafka consumer retrieves data from the Kafka topic, ensuring that the data is processed as soon as it arrives
+       - The Spark application process the messages, aggregates the data and saves the results in the data warehouse. This dual role ensures efficient data processing and storage.
+
+- Data Warehouse:
+   - As the final destination for our processed data, the data warehouse provides a reliable and structured repository for storing the results of our real-time data processing, so visualization tools like Looker and PowerBI can display the data as soon as the dashboards are refreshed
+
+> 👉 We should note that dashboards query the data from the database. This means that for a near real-time data to be available, the dashboard data needs to be refreshed at certain intervals (e.g., minutes or hourly). For real-time data to be pushed to a dashboard, there needs to be a live connection (socket) between the dashboard and the streaming platform, which is not done from the data warehouse but another system component.
+
+### DevOps Support - Containerization
+
+In order to continue to meet our DevOps requirement, enhance scalability and manageability,  and following best enterprise level practices, we use Docker containers for all of our components. Each component, our Kafka and Spark instance as well as our two Python-based components, runs in separate Docker container. This ensures modularity, easy deployment, and resource isolation.
+
+### Advantages
+
+Our data streaming design offers several advantages:
+
+     - Real-time Processing: Data is processed as it arrives, enabling timely insights and rapid response to changing conditions
+     - Scalability: The use of Kafka and Spark allows us to scale our architecture effortlessly to handle growing data volumes
+     - Containerization: Docker containers simplify deployment and management, making our system highly portable and maintainable
+     - Integration: The seamless integration of Kafka, Spark, and the Kafka consumer as a Spark client ensures data continuity and efficient processing
+
+This data streaming strategy, powered by Kafka and Spark, empowers us to unlock real-time insights from our data streams, providing valuable information for rapid decision-making, analytics, and storage.
+
 ## Summary
 
 In today's data-driven landscape, data streaming solutions are an absolute necessity, enabling the rapid processing and analysis of vast amounts of real-time data. Technologies like Kafka and Spark play a pivotal role in empowering organizations to harness real-time insights from their data streams.
 
 Kafka and Spark, work together seamlessly to enable real-time data processing and analytics. Kafka handles the reliable ingestion of events, while Spark Streaming provides the tools for processing, transforming, analyzing, and storing the data in a data lake or data warehouse in near real-time, allowing businesses to make  decisions much at a much faster pace.
+
+TODO: https://medium.com/plumbersofdatascience/a-beginners-guide-building-your-first-dockerized-streaming-pipeline-3bd5a62046e1
 
 ## Exercise - Data Streaming with Apache Kafka Exercise
 
