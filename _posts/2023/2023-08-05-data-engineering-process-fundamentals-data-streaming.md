@@ -29,6 +29,9 @@ Data streaming enables us to build data integration in real-time. Unlike traditi
 - Enhance User Experience: Provide real-time updates and personalization
 - Optimize Operations: Streamline processes and resource allocation
 
+![ozkary-data-engineering-design-data-streaming-messages](../../assets/2023/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
+
+
 ### Data Streaming Channels
 
 Data streaming is a continuous data flow which can arrive from a channel that is usually hosted on an HTTP end-point. The type of the channel technology depends on the provider technology stack and can be any of the following:
@@ -77,9 +80,9 @@ Kafka acts as the ingestion layer or message broker in the streaming pipeline. I
 
   - A consumer is a program or process that subscribes to one or more topics and processes the records within them. Consumers can read data from topics in real-time and perform various operations on it, such as analytics, storage, or forwarding to other systems
 
-### Apache Spark
+### Apache Spark Structured Streaming
 
-Apache Spark Streaming is a micro-batch processing framework built on top of Apache Spark. It enables real-time data processing by ingesting data from Kafka topics in mini-batches. Here's how the process works:
+Apache Spark Structured Streaming is a micro-batch processing framework built on top of Apache Spark. It enables real-time data processing by ingesting data from Kafka topics in mini-batches. Here's how the process works:
 
 > 👍 Apache Spark offers a unified platform for both batch and stream processing. If your application requires seamless transitions between batch and stream processing modes, Spark can be a good fit.
 
@@ -115,7 +118,7 @@ When it comes to programming language support, both Kafka and Spark allows devel
 
 #### Sample Python Code for a Kafka Producer
 
-This is a very simple implementation of a Kafka producer using Python as the programming language. This code does not consume a data feed from a provider. It only shows how a producer sends messages to a kafka topic.
+This is a very simple implementation of a Kafka producer using Python as the programming language. This code does not consume a data feed from a provider. It only shows how a producer sends messages to a Kafka topic.
 
 ```python
 
@@ -134,6 +137,7 @@ producer = KafkaProducer(
 sample_message = "timestamp,station,turnstile_id,device_id,entry,exit,entry_datetime"
 
 try:
+    # continue to run until the instance is shutdown
     while True:
         # Simulate generating a new data message. This data should come from the data provider
         data_message = sample_message + f"\n{int(time.time())},StationA,123,456,10,15,'2023-07-12 08:30:00'"
@@ -160,11 +164,11 @@ This Kafka producer code initializes a producer, sends a sample message to the s
 - Define Kafka Topic: Define the Kafka topic to send messages (turnstile-stream in this example)
 
 - Create a Kafka Producer:
-  - Create an instance of the Kafka producer with the configured settings
+  - Create an instance of the Kafka producer with the broker end-point
+  - Use a `value_serializer` to encode the string message with unicode utf-8
 
 - Define Message Contents:
-  - Prepare the message you want to send to Kafka
-  - In this example, the message is a comma-delimited string with 11 columns
+  - Prepare the message to send as a CSV string with the header and value information  
 
 - Produce Messages:
   - Use the send method of the Kafka producer to send messages to the Kafka topic, turnstile-stream
@@ -175,7 +179,7 @@ This Kafka producer code initializes a producer, sends a sample message to the s
 
 #### Sample Python Code for a Kafka Consumer and Spark Client
 
-After looking at the Kafka producer code, let's take a look at how a Kafka consumer on Spark would consume that data and aggregated in time windows of four hours.
+After looking at the Kafka producer code, let's take a look at how a Kafka consumer on Spark would consume and process the messages.
 
 ```python
 
@@ -229,7 +233,7 @@ query.awaitTermination()
 
 ```
 
-This simple example shows how to write a Kafka consumer, processed and aggregate the data using Spark and finally write the csv files to a data lake. Let's look at each code segment for more details:
+This simple example shows how to write a Kafka consumer, process and aggregate the data using Spark and finally write the csv files to a data lake. Let's look at each code segment for more details:
 
 - Create a Spark Session: 
   - Initialize a Spark session with the name "TurnstileStreamApp"
@@ -254,14 +258,14 @@ This simple example shows how to write a Kafka consumer, processed and aggregate
   - The "entry_datetime" column is used as the timestamp for windowing
   - Aggregations are performed to calculate the sum of "entries" and "exits" within each window
 
-- Write Aggregated Data to Blob Storage:
+- Write the Aggregated Data to a Data Lake:
   - Define a streaming query (`query`) to write the aggregated data to a blob storage path
   - The "update" output mode indicates that only updated results will be written
   - A function is applied to each batch of data, which specifies how to write the data
-  - In this case, data is written as compressed CSV files to a blob storage location
+  - In this case, data is written as compressed CSV files to a data lake location
   - The `awaitTermination` method ensures the query continues to run and process data until manually terminated.
 
-This Spark example processes data from Kafka, aggregates it in 4-hour windows, and it writes the results to blob storage. The code is structured to efficiently handle real-time streaming data and organize it into folders based on station names and time windows. Within each subdirectory, Spark will generate filenames automatically based on the default naming convention. Typically, it uses a combination of a unique identifier and partition number to create filenames. The exact format of the filename might vary depending on the Spark version and configuration. This is an approach to send the information to a data lake, so the data transformation process can pick it up and send to a data warehouse.
+This Spark example processes data from Kafka, aggregates it in 4-hour windows, and it writes the results to blob storage. The code is structured to efficiently handle real-time streaming data and organize the output into folders in the data lake based on station names and time windows. Within each folder, Spark will generate filenames automatically based on the default naming convention. Typically, it uses a combination of a unique identifier and partition number to create filenames. The exact format of the filename might vary depending on the Spark version and configuration. This is an approach to send the information to a data lake, so the data transformation process can pick it up and send to a data warehouse.
 
 Alternatively, the aggregated information could be saved directly to the data warehouse. This requires for the Spark client to connect to the data warehouse, so it can directly insert the information without using a data lake as an staging step.
 
@@ -294,18 +298,18 @@ For our solution strategy, we follow a design as shown below. This design helps 
 - Containerization: In order to continue to meet our DevOps requirements, enhance scalability and manageability, and follow best enterprise level practices, we use Docker containers for all of our components. Each component, our Kafka and Spark instance as well as our two Python-based components, runs in separate Docker container. This ensures modularity, easy deployment, and resource isolation. 
   - This approach also enable us to use a Kubernetes cluster , a container orchestration platform that can help us manage and deploy Docker containers at scale, to run our components. We could use Minikube for local development or use a cloud-managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS)
 
-- Virtual Machine (VM): Our components need to run on a VM, so we need to create a VM instance using a Terraform template like it was done during our planning and design phase
+- Virtual Machine (VM): Our components need to run on a VM, so we follow the same approach and create a VM instance using a Terraform script, similar to how it was done for our batch data pipeline during our planning and design phase.
 
 ### Advantages
 
 Our data streaming design offers several advantages:
 
-     - Real-time Processing: Data is processed as it arrives, enabling timely insights and rapid response to changing conditions
-     - Scalability: The use of Kafka and Spark allows us to scale our architecture effortlessly to handle growing data volumes
-     - Containerization: Docker containers simplify deployment and management, making our system highly portable and maintainable
-     - Integration: The seamless integration of Kafka, Spark, and the Kafka consumer as a Spark client ensures data continuity and efficient processing
+- Real-time Processing: Data is processed as it arrives, enabling timely insights and rapid response to changing conditions
+- Scalability: The use of Kafka and Spark allows us to scale our architecture effortlessly to handle growing data volumes
+- Containerization: Docker containers simplify deployment and management, making our system highly portable and maintainable
+- Integration: The seamless integration of Kafka, Spark, and the Kafka consumer as a Spark client ensures data continuity and efficient processing
 
-This data streaming strategy, powered by Kafka and Spark, empowers us to unlock real-time insights from our data streams, providing valuable information for rapid decision-making, analytics, and storage.
+This data streaming strategy, powered by Kafka and Spark, empowers us to unlock real-time insights from our data streams, providing valuable information for rapid decision-making, analytics, and storage. 
 
 ## Summary
 
@@ -315,7 +319,7 @@ Kafka and Spark, work together seamlessly to enable real-time data processing an
 
 ## Exercise - Data Streaming with Apache Kafka
 
-Now that we have a good understanding on our data streaming strategy, we can now move forward and write a Kafka producer that can consume a real-time data feed, so we can then process this information using Spark.
+Now that we have defined our data streaming strategy, we can continue on our journey and build our a containerized Kafka producer that can consume a real-time data feed. Let's take a look at that next.
 
 Coming soon!
 
