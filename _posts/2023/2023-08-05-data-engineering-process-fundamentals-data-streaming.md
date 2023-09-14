@@ -131,17 +131,17 @@ producer = KafkaProducer(
 )
 
 # Sample data message (comma-delimited)
-sample_message = "timestamp,station,turnstile_id,device_id,entry,exit,entries_since_midnight,exits_since_midnight,entries_since_last_reading,exits_since_last_reading,entry_datetime"
+sample_message = "timestamp,station,turnstile_id,device_id,entry,exit,entry_datetime"
 
 try:
     while True:
         # Simulate generating a new data message. This data should come from the data provider
-        data_message = sample_message + f"\n{int(time.time())},StationA,123,456,1,0,10,5,1,0,'2023-07-12 08:30:00'"
+        data_message = sample_message + f"\n{int(time.time())},StationA,123,456,10,15,'2023-07-12 08:30:00'"
 
         # Send the message to the Kafka topic
         producer.send('turnstile-stream', value=data_message)
 
-        # add logging information to track
+        # add logging information for tracking
         print("Message sent:", data_message)
         time.sleep(1)  # Sending messages every second
 except KeyboardInterrupt:
@@ -182,8 +182,7 @@ After looking at the Kafka producer code, let's take a look at how a Kafka consu
 from pyspark.sql import SparkSession
 from pyspark.streaming import StreamingContext
 from pyspark.streaming.kafka import KafkaUtils
-from pyspark.sql.functions import window
-from pyspark.sql import functions as F
+from pyspark.sql.functions import window, sum
 
 # Create a Spark session
 spark = SparkSession.builder.appName("TurnstileStreamApp").getOrCreate()
@@ -209,12 +208,12 @@ df = spark.read.csv(lines)
 
 # Define a window for aggregation (4-hour window)
 windowed_df = df
-  .withWatermark("event_time", "4 hours") \
+  .withWatermark("entry_datetime", "4 hours") \
   # 4-hour window with a 4-hour sliding interval
-  .groupBy("station_name", window("_c0", "4 hours")) 
+  .groupBy("station", window("entry_datetime", "4 hours")) 
   .agg(
-    F.sum("_c4").alias("entries"),
-    F.sum("_c5").alias("exits")
+    sum("entries").alias("entries"),
+    sum("exits").alias("exits")
   )
 
 # Write the aggregated data to a blob storage as compressed CSV files
@@ -250,8 +249,9 @@ This simple example shows how to write a Kafka consumer, processed and aggregate
   - Read these messages into a DataFrame (`df`) using Spark's CSV reader
 
 - Define a Window for Aggregation:
-  - Create a windowed DataFrame (`windowed_df`) by grouping data based on "station_name" and a 4-hour window
-  - The "event_time" column is used as the timestamp for windowing
+  - We specify the watermark for late data using `withWatermark`. This ensures that any data arriving later than the specified window is still considered for aggregation
+  - Create a windowed DataFrame (`windowed_df`) by grouping data based on "station" and a 4-hour window
+  - The "entry_datetime" column is used as the timestamp for windowing
   - Aggregations are performed to calculate the sum of "entries" and "exits" within each window
 
 - Write Aggregated Data to Blob Storage:
@@ -261,7 +261,7 @@ This simple example shows how to write a Kafka consumer, processed and aggregate
   - In this case, data is written as compressed CSV files to a blob storage location
   - The `awaitTermination` method ensures the query continues to run and process data until manually terminated.
 
-This Spark example processes data from Kafka, aggregates it in 4-hour windows, and writes the results to blob storage. The code is structured to efficiently handle real-time streaming data and organize it into folders based on station names and time windows. Within each subdirectory, Spark will generate filenames automatically based on the default naming convention. Typically, it uses a combination of a unique identifier and partition number to create filenames. The exact format of the filename might vary depending on the Spark version and configuration. This is an approach to send the information to a data lake, so the data transformation process can pick it up and send to a data warehouse.
+This Spark example processes data from Kafka, aggregates it in 4-hour windows, and it writes the results to blob storage. The code is structured to efficiently handle real-time streaming data and organize it into folders based on station names and time windows. Within each subdirectory, Spark will generate filenames automatically based on the default naming convention. Typically, it uses a combination of a unique identifier and partition number to create filenames. The exact format of the filename might vary depending on the Spark version and configuration. This is an approach to send the information to a data lake, so the data transformation process can pick it up and send to a data warehouse.
 
 Alternatively, the aggregated information could be saved directly to the data warehouse. This requires for the Spark client to connect to the data warehouse, so it can directly insert the information without using a data lake as an staging step.
 
@@ -313,7 +313,9 @@ In today's data-driven landscape, data streaming solutions are an absolute neces
 
 Kafka and Spark, work together seamlessly to enable real-time data processing and analytics. Kafka handles the reliable ingestion of events, while Spark Streaming provides the tools for processing, transforming, analyzing, and storing the data in a data lake or data warehouse in near real-time, allowing businesses to make  decisions much at a much faster pace.
 
-## Exercise - Data Streaming with Apache Kafka Exercise
+## Exercise - Data Streaming with Apache Kafka
+
+Now that we have a good understanding on our data streaming strategy, we can now move forward and write a Kafka producer that can consume a real-time data feed, so we can then process this information using Spark.
 
 Coming soon!
 
