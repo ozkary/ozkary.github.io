@@ -15,7 +15,7 @@ tags:
 toc: true
 ---
 
-In modern data engineering solutions, the ability to handle streaming data is an absolute necessity. Many businesses require real-time insights to monitor and quickly respond to changing operational and performance conditions. This is where data streaming comes in, integrating real-time data into data warehouses and visual dashboards. To incorporate this capability into a data engineering solution, it's crucial to grasp the concept of data streaming and explore how technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) enable us to construct dynamic streaming data pipelines.
+In modern data engineering solutions, handling streaming data is very important. Businesses often need real-time insights to promptly monitor and respond to operational changes and performance trends. A data streaming pipeline facilitates the integration of real-time data into data warehouses and visualization dashboards. To achieve this integration in a data engineering solution, understanding the principles of data streaming is essential, and how technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) play a key role in building efficient streaming data pipelines.
 
 > 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization/)
 
@@ -68,7 +68,7 @@ At the heart of data streaming solutions lies technologies like Apache Kafka, a 
 
 ### Apache Kafka
 
-Kafka acts as the ingestion layer or message broker in the streaming pipeline. It serves as a highly durable, fault-tolerant, and scalable event streaming platform. Data producers, which can be various sources like applications, sensors, or webhooks publish events (messages) to Kafka topics. These events are typically small pieces of data containing information such as transactions, logs, or sensor readings. This is a simplified overview of how Kafka works:
+Kafka acts as the ingestion layer or message broker in the streaming pipeline. It serves as a highly durable, fault-tolerant, and scalable event streaming platform. Data producers, which can be various sources like applications, sensors, or webhooks publish events (messages) to Kafka topics. These events are typically small pieces of data containing information such as transactions, logs, or sensor readings. Let's look at a simplified overview of how Kafka works:
 
 - Kafka organizes events into topics. A topic is a logical channel or category to which records (messages) are sent by producers and from which records are consumed by consumers. Topics serve as the central mechanism for organizing and categorizing data within Kafka. Each topic can have multiple partitions to support fail-over scenarios
   
@@ -155,7 +155,7 @@ finally:
 
 ```
 
-This Kafka producer code initializes a producer, sends a sample message to the specified Kafka topic. Let's review each code segment:
+This Kafka producer code initializes a producer and sends a sample message to the specified Kafka topic. Let's review each code segment:
 
 - Create Kafka Producer Configuration:
   - Set up the Kafka producer configuration
@@ -233,7 +233,7 @@ query.awaitTermination()
 
 ```
 
-This simple example shows how to write a Kafka consumer, process and aggregate the data using Spark and finally write the csv files to a data lake. Let's look at each code segment for more details:
+This simple example shows how to write a Kafka consumer, use Spark to process and aggregate the data, and finally write a csv file to the data lake. Let’s look at each code segment for more details:
 
 - Create a Spark Session: 
   - Initialize a Spark session with the name "TurnstileStreamApp"
@@ -265,13 +265,13 @@ This simple example shows how to write a Kafka consumer, process and aggregate t
   - In this case, data is written as compressed CSV files to a data lake location
   - The `awaitTermination` method ensures the query continues to run and process data until manually terminated.
 
-This Spark example processes data from Kafka, aggregates it in 4-hour windows, and it writes the results to blob storage. The code is structured to efficiently handle real-time streaming data and organize the output into folders in the data lake based on station names and time windows. Within each folder, Spark will generate filenames automatically based on the default naming convention. Typically, it uses a combination of a unique identifier and partition number to create filenames. The exact format of the filename might vary depending on the Spark version and configuration. This is an approach to send the information to a data lake, so the data transformation process can pick it up and send to a data warehouse.
+This Spark example processes data from Kafka, aggregates it in 4-hour windows, and it writes the results to blob storage. The code is structured to efficiently handle real-time streaming data and organize the output into folders in the data lake based on station names and time windows. In each folder, Spark will generate filenames automatically based on the default naming convention. Typically, it uses a combination of a unique identifier and partition number to create filenames. The exact format of the file name might vary depending on the Spark version and configuration. This approach is used to send the information to a data lake, so the data transformation process can pick it up and send to a data warehouse.
 
-Alternatively, the aggregated information could be saved directly to the data warehouse. This requires for the Spark client to connect to the data warehouse, so it can directly insert the information without using a data lake as an staging step.
+Alternatively, the Spark client can send the aggregated results directly in the data warehouse. The Spark client can connect to the data warehouse, so it can directly insert the information without using a data lake as an staging step.
 
 ## Solution Design and Architecture
 
-For our solution strategy, we follow a design as shown below. This design helps us ensure the smooth flow of data, efficient processing and storage, so it can become immediately available in our data warehouse and consequently the visualization tools. Let's break down each component and explain its purpose.
+For our solution strategy, we followed the design shown below. This design helps us ensure smooth flow, efficient processing and storage of data so that it is immediately available in our data warehouse consequently, the visualization tools. Let's break down each component and explain its purpose.
 
 ![ozkary-data-engineering-design-data-streaming](../../assets/2023/ozkary-data-engineering-process-data-streaming-design.png "Data Engineering Process Fundamentals - Data Streaming Design")
 
@@ -291,14 +291,14 @@ For our solution strategy, we follow a design as shown below. This design helps 
 
 - Data Warehouse: As the final destination for our processed data, the data warehouse provides a reliable and structured repository for storing the results of our real-time data processing, so visualization tools like Looker and PowerBI can display the data as soon as the dashboards are refreshed
 
-> 👉 We should note that dashboards query the data from the database. This means that for a near real-time data to be available, the dashboard data needs to be refreshed at certain intervals (e.g., minutes or hourly). For real-time data to be pushed to a dashboard, there needs to be a live connection (socket) between the dashboard and the streaming platform, which is not done from the data warehouse but another system component, which is not included in this article.
+> 👉 We should note that dashboards query the data from the database. For a near real-time data to be available, the dashboard data needs to be refreshed at certain intervals (e.g., minutes or hourly). To make available the real-time data to the dashboard, there needs to be a live connection (socket) between the dashboard and the streaming platform, which is done by another system component, like [Redis Cache](https://redis.com/) or custom service, that could push those events on a socket channel. 
 
 ### DevOps Support 
 
-- Containerization: In order to continue to meet our DevOps requirements, enhance scalability and manageability, and follow best enterprise level practices, we use Docker containers for all of our components. Each component, our Kafka and Spark instance as well as our two Python-based components, runs in separate Docker container. This ensures modularity, easy deployment, and resource isolation. 
+- Containerization: In order to continue to meet our DevOps requirements, enhance scalability and manageability, and follow best enterprise level practices, we use Docker containers for all of our components. Each component, our Kafka and Spark instance as well as our two Python-based components, runs in separate Docker container. This ensures modularity, easy deployment, and resource isolation
   - This approach also enable us to use a Kubernetes cluster , a container orchestration platform that can help us manage and deploy Docker containers at scale, to run our components. We could use Minikube for local development or use a cloud-managed Kubernetes service like Google Kubernetes Engine (GKE), Amazon Elastic Kubernetes Service (EKS), or Azure Kubernetes Service (AKS)
 
-- Virtual Machine (VM): Our components need to run on a VM, so we follow the same approach and create a VM instance using a Terraform script, similar to how it was done for our batch data pipeline during our planning and design phase.
+- Virtual Machine (VM): Our components need to run on a VM, so we follow the same approach and create a VM instance using a Terraform script, similar to how it was done for our batch data pipeline during our planning and design phase
 
 ### Advantages
 
@@ -319,7 +319,7 @@ Kafka and Spark, work together seamlessly to enable real-time data processing an
 
 ## Exercise - Data Streaming with Apache Kafka
 
-Now that we have defined our data streaming strategy, we can continue on our journey and build our a containerized Kafka producer that can consume a real-time data feed. Let's take a look at that next.
+Now that we have defined the data streaming strategy, we can continue our journey and build a containerized Kafka producer that can consume real-time data sources. Let's take a look at that next.
 
 Coming soon!
 
