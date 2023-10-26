@@ -3,7 +3,7 @@ title: "AI with Python and Tensorflow - Convolutional Neural Networks Analysis"
 excerpt: "CNNs employ convolution operations, primarily used for processing images. The network initiates the analysis by applying filters that aim to extract valuable image features using various convolutional kernels. "
 last_modified_at: 2023-10-15T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-ai-python-tensorflow-neural-networks.png"
+  teaser: "../assets/2023/ozkary-ai-engineering-neural-network-analysis.png"
   teaserAlt: "Ozkary AI Engineering Convolutional Neural Networks"
 tags:   
   - AI  
