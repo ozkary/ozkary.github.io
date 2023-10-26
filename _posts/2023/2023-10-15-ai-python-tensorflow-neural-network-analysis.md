@@ -15,7 +15,8 @@ toc: true
 
 # AI with Python and Tensorflow - Convolutional Neural Networks
 
-[![Neural Network Model Analysis - Youtube](https://www.ozkary.dev/assets/2023/ozkary-neural-network-analysis.png)](https://youtu.be/OJjZGb7fmOo?si=TRxK13hoSJWdTy9r "Neural Network Model Analysis")
+[![Neural Network Model Analysis - Youtube](https://www.ozkary.dev/assets/2023/ozkary-ai-engineering-neural-network-analysis.png)](https://youtu.be/OJjZGb7fmOo?si=TRxK13hoSJWdTy9r "Neural Network Model Analysis")
+
 
 ## Convolutional neural network (CNN)  
 
@@ -23,7 +24,7 @@ Convolutional Neural Networks (CNNs) have revolutionized the field of computer v
 
 CNNs employ convolution operations, primarily used for processing images. The network initiates the analysis by applying filters that aim to extract valuable image features using various convolutional kernels. Similar to other weights in the neural network, these filters can be enhanced by adjusting their kernels based on the output error. After this, the resultant images undergo pooling, followed by pixel-wise input to a standard neural network in a process known as flattening.
 
-![AI convolutional neural network - ozkary](../assets/2023/../../../assets/2023/ozkary-ai-engineering-neural-network-analysis.png "AI Traffic Signs Classifier neural networks")
+![AI convolutional neural network - ozkary](https://www.ozkary.dev/assets/2023/ozkary-ai-engineering-neural-network-analysis.png "AI Traffic Signs Classifier neural networks")
 
 ### Model 1
 
