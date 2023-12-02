@@ -1,6 +1,6 @@
 ---
 title: "Data Engineering Process Fundamentals - Unveiling the Power of Data: A Comprehensive Journey through Analysis and Visualization"
-excerpt: " Understanding how to harness the potential of data is paramount. Join us in this insightful presentation as we delve into the multifaceted world of data analysis and visualization, driven by the powerful tools of Python, Jupyter Notebooks, and Visual Studio Code. "
+excerpt: " Understanding how to harness the potential of data is paramount. Understand data analysis and visualization using a code-centric and low-code approach. "
 last_modified_at: 2023-11-29T13:00:00
 header:
   teaser: "../assets/2023/ozkary-data-engineering-process-data-analysis-visualization.png"
