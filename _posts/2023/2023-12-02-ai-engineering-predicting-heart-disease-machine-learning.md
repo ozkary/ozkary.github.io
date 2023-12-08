@@ -305,19 +305,14 @@ race           0.001976
 For model training, we first pre-process the data by taking these steps:
 
 - `preprocess_data` 
-  - The input features X are converted to a dictionary format using the to_dict method with the orientation set to `records`. This is a common step when working with scikit-learn transformers, as they often expect input data in this format.
-  
+  - The input features X are converted to a dictionary format using the to_dict method with the orientation set to `records`. This is a common step when working with scikit-learn transformers, as they often expect input data in this format.  
   - If is_training is True, it fits a transformer (self.encoder) on the data using the fit_transform method. If False, it transforms the data using the previously fitted transformer (self.encoder.transform). The standardized features are then returned.
 
 We then train the different models:
 
 - `train`
   -This method takes X_train (training features) and y_train (training labels) as parameters.
-
-  -If the models attribute of the class is None, it initializes a dictionary of machine learning models including logistic regression, random forest, XGBoost, and decision tree classifiers. These models are stored in the self.models attribute.
-
-  - It then iterates over each model, prints a message indicating which model is being trained, and fits the model to the training data.
-
+  -If the models attribute of the class is None, it initializes a dictionary of machine learning models including logistic regression, random forest, XGBoost, and decision tree classifiers. 
 
 ```python
 def preprocess_data(self, X, is_training=True):      
@@ -363,8 +358,6 @@ model_factory.train(X_train_std, y_train)
 #### Model Evaluation
 
 For the model evaluation, we calculate the following metrics:
-
-Certainly! Here are the simplified descriptions with associated percentage benchmarks:
 
 1. **Accuracy** tells us how often your model is correct. It's the percentage of all predictions that are accurate. For example, an accuracy of 92% is great, while 70% is not good.
 
@@ -413,15 +406,17 @@ def evaluate(self, X_val, y_val, threshold=0.5):
 
 ```
 
-**Results:**
-```python
-          model	      accuracy	precision	recall	  f1
-0	logistic_regression	0.909668	0.508954	0.098720	0.165365
-1	random_forest	      0.909502	0.695652	0.002925	0.005826
-2	xgboost	            0.909883	0.515385	0.097989	0.164670
-3	decision_tree	      0.909734	0.519658	0.055576	0.100413
+**Model Performance Metrics:**
 
-```
+| Model               | Accuracy | Precision | Recall   | F1       |
+|---------------------|----------|-----------|----------|----------|
+| Logistic Regression | 0.9097   | 0.509     | 0.0987   | 0.1654   |
+| Random Forest       | 0.9095   | 0.6957    | 0.0029   | 0.0058   |
+| XGBoost             | 0.9099   | 0.5154    | 0.098    | 0.1647   |
+| Decision Tree       | 0.9097   | 0.5197    | 0.0556   | 0.1004   |
+
+These metrics provide insights into the performance of each model, helping us understand their strengths and areas for improvement. 
+
 
 **Analysis:**
 
@@ -450,13 +445,13 @@ def evaluate(self, X_val, y_val, threshold=0.5):
    - F1 Score: 0.58%
 
 
-- XGBoost Model (Model 2) has a relatively balanced precision and recall, indicating it's better at identifying true positives while keeping false positives in check.
+- XGBoost Model has a relatively balanced precision and recall, indicating it's better at identifying true positives while keeping false positives in check.
 
-- Decision Tree Model (Model 3) has the lowest recall, suggesting that it may miss some positive cases.
+- Decision Tree Model has the lowest recall, suggesting that it may miss some positive cases.
 
-- Logistic Regression Model (Model 0) has a good balance of precision and recall similar to the XGBoost Model.
+- Logistic Regression Model has a good balance of precision and recall similar to the XGBoost Model.
 
-- Random Forest Model (Model 1) has high precision but an extremely low recall, meaning it's cautious in predicting positive cases but may miss many of them.
+- Random Forest Model has high precision but an extremely low recall, meaning it's cautious in predicting positive cases but may miss many of them.
 
 Based on this analysis, we will choose XGBoost as our API model
 
@@ -590,6 +585,8 @@ All models achieved a good number of True Negatives, suggesting their ability to
 In the quest to find the best solution for predicting heart disease, it's crucial to evaluate various models. However, it's not just about picking a model and hoping for the best. We need to be mindful of class imbalances – situations where one group has more examples than the other. This imbalance can throw our predictions off balance. 
 
 To fine-tune our models, we also need to adjust the hyperparameters. Think of it as finding the perfect settings to make our models have a better performance. By addressing class imbalances and tweaking those hyperparameters, we ensure our models perform accurately. 
+
+By using the correct data features and evaluating the performance of our models, we can build solutions that could assist healthcare professionals in evaluating an individual's risk profile for heart disease.
 
 Thanks for reading.
 
