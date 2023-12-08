@@ -1,10 +1,10 @@
 ---
-title: "AI Engineering - A Learning Based Approach For Predicting Heart Disease Using Machine Learning Algorithms"
-excerpt: " With the help of electronic health records (EHR) and a wealth of health-related data, there is a significant opportunity to leverage machine learning techniques for predicting and assessing the risk of heart disease in individuals"
+title: "AI Engineering - A Learning Based Approach For Predicting Heart Disease"
+excerpt: " With the help of electronic health records (EHR) and a wealth of health-related data, there is a significant opportunity to leverage machine learning techniques for predicting and assessing the risk of heart disease in individuals."
 last_modified_at: 2023-12-02T13:00:00
 header:
   teaser: "../assets/2023/ozkary-ml-heart-disease-app.png"
-  teaserAlt: "Ozkary AI Engineering - A Learning Based Approach For Predicting Heart Disease Using Machine Learning Algorithms"
+  teaserAlt: "Ozkary AI Engineering - A Learning Based Approach For Predicting Heart Disease"
 tags: 
   - code  
   - cloud
@@ -299,6 +299,54 @@ race           0.001976
 - Use a 60/20/20 distribution fir train/val/test
 - Random_state 42 to shuffle the data
 - Use strategy = y when there is a class imbalance in the dataset. It helps ensure that the class distribution in both the training and validation (or test) sets closely resembles the original dataset's class distribution
+
+```python
+def split_data(self, test_size=0.2, random_state=42):
+        """
+        Split the data into training and validation sets
+        """
+        # split the data in train/val/test sets, with 60%/20%/20% distribution with seed 1
+        X = self.df[self.all_features]
+        y = self.df[self.target_variable]
+        X_full_train, X_test, y_full_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state, stratify=y)
+
+        # .25 splits the 80% train into 60% train and 20% val
+        X_train, X_val, y_train, y_val  = train_test_split(X_full_train, y_full_train, test_size=0.25, random_state=random_state)
+
+        X_train = X_train.reset_index(drop=True)
+        X_val = X_val.reset_index(drop=True)
+        y_train = y_train.reset_index(drop=True)
+        y_val = y_val.reset_index(drop=True)
+        X_test = X_test.reset_index(drop=True)
+        y_test = y_test.reset_index(drop=True)
+
+        # print the shape of all the data splits
+        print('X_train shape', X_train.shape)
+        print('X_val shape', X_val.shape)
+        print('X_test shape', X_test.shape)
+        print('y_train shape', y_train.shape)
+        print('y_val shape', y_val.shape)
+        print('y_test shape', y_test.shape)
+        
+        return X_train, X_val, y_train, y_val, X_test, y_test
+
+X_train, X_val, y_train, y_val, X_test, y_test = train_data.split_data(test_size=0.2, random_state=42)
+
+```
+
+The `split_data` call is a method that splits a dataset into training, validation, and test sets. Here's a breakdown of the returned values:
+
+- **X_train:** This represents the features (input variables) of the training set. The model will be trained on this data.
+
+- **y_train:** This corresponds to the labels (output variable) for the training set. It contains the correct outcomes corresponding to the features in `X_train`.
+
+- **X_val:** These are the features of the validation set. The model's performance is often assessed on this set during training to ensure it generalizes well to new, unseen data.
+
+- **y_val:** These are the labels for the validation set. They serve as the correct outcomes for the features in `X_val` during the evaluation of the model's performance.
+
+- **X_test:** These are the features of the test set. The model's final evaluation is typically done on this set to assess its performance on completely unseen data.
+
+- **y_test:** Similar to `y_val`, this contains the labels for the test set. It represents the correct outcomes for the features in `X_test` during the final evaluation of the model.
 
 #### Model Training
 
