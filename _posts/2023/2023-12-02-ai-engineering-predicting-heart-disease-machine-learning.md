@@ -1,10 +1,10 @@
 ---
-title: "AI Engineering - Learning Based For Predicting Heart Disease Using Machine Learning Algorithms"
-excerpt: "A******* "
+title: "AI Engineering - A Learning Based Approach For Predicting Heart Disease Using Machine Learning Algorithms"
+excerpt: " With the help of electronic health records (EHR) and a wealth of health-related data, there is a significant opportunity to leverage machine learning techniques for predicting and assessing the risk of heart disease in individuals"
 last_modified_at: 2023-12-02T13:00:00
 header:
   teaser: "../assets/2023/ozkary-ml-heart-disease-app.png"
-  teaserAlt: "Ozkary AI Engineering -  Learning Based For Predicting Heart Disease Using Machine Learning Algorithms"
+  teaserAlt: "Ozkary AI Engineering - A Learning Based Approach For Predicting Heart Disease Using Machine Learning Algorithms"
 tags: 
   - code  
   - cloud
