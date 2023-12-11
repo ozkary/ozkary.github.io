@@ -27,7 +27,7 @@ This study aims to use machine learning models to predict an individual's likeli
 
 ## Key Objectives
 
-Key objectives of this research include:
+Key objectives of this study include:
 
 1. Developing a robust machine learning model capable of accurately predicting the risk of heart disease using CDC data.
 2. Identifying the most influential risk factors and parameters contributing to heart disease prediction.
@@ -59,13 +59,13 @@ In order to execute this project, we follow a series of steps for discovery and 
 ### Experimental Phase Notebooks
 
 - Data analysis and cleanup 
-  - [Step 1 - Data Analysis](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_analysis.ipynb/data_analysis.ipynb)  
+  - [Step 1 - Data Analysis](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_analysis.ipynb)  
 - Process and convert the data for modeling, feature analysis
-  - [Step 2 - Data Processing](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_analysis.ipynb/data_processing.ipynb)
+  - [Step 2 - Data Processing](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_processing.ipynb)
 - Train the model using different algorithm to evaluate the best option
-  - [Step 3 - Model Processing](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_analysis.ipynb/data_train.ipynb)
+  - [Step 3 - Model Processing](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_train.ipynb)
 - Run test cases and predict results
-  - [Step 4 - Model Prediction](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_analysis.ipynb/data_predict.ipynb)
+  - [Step 4 - Model Prediction](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_predict.ipynb)
 
 ## Data Analysis - Exploratory Data Analysis (EDA)
 
@@ -161,7 +161,7 @@ For data processing, we should follow these steps:
 
 #### Feature Analysis
 
-The purpose of feature analysis in heart disease research is to uncover the relationships and associations between various patient characteristics (features) and the occurrence of heart disease. By examining factors such as lifestyle, medical history, demographics, and more, we aim to identify which specific attributes or combinations of attributes are most strongly correlated with heart disease. Feature analysis allows for the discovery of risk factors and insights that can inform prevention and early detection strategies. 
+The purpose of feature analysis in heart disease study is to uncover the relationships and associations between various patient characteristics (features) and the occurrence of heart disease. By examining factors such as lifestyle, medical history, demographics, and more, we aim to identify which specific attributes or combinations of attributes are most strongly correlated with heart disease. Feature analysis allows for the discovery of risk factors and insights that can inform prevention and early detection strategies. 
 
 ```python
 # Calculate the mean and count of heart disease occurrences per feature value
