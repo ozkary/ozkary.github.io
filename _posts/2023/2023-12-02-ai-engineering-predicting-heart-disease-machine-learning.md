@@ -67,6 +67,8 @@ In order to execute this project, we follow a series of steps for discovery and 
 - Run test cases and predict results
   - [Step 4 - Model Prediction](https://github.com/ozkary/machine-learning-engineering/blob/main/projects/heart-disease-risk/data_predict.ipynb)
 
+> 👉 The data files for this study can be found in the same GitHub project as the Jupyter Notebook files.
+
 ## Data Analysis - Exploratory Data Analysis (EDA)
 
 These are the steps to analysis the data:
