@@ -41,9 +41,35 @@ While data lakes excel at storing large volumes of data, they're not ideal for d
 
 Cloud data platform tools depend on data to perform their functions. To ensure data flows seamlessly within these systems, we construct data pipelines. These pipelines enable us to create workflows with interconnected tasks to execute both extract, transform, and load (ETL) and extract, load, and transform (ELT) operations. The choice of pipeline construction method aligns with team expertise. Options include code-centric pipelines using Python and SQL, or low-code tools like Amazon Data Factory. Python, due to its simplicity and abundance of data libraries, excels as a powerful language for data engineering and data science workloads. Alternatively, low-code tools allow data engineers to visually build workflows using user interface (UI) tools and embed code snippets for custom transformation tasks.
 
+### Data Analysis and Visualization
+
+A data warehouse brimming with information isn't enough. We need to unlock its data value and turn them into actionable insights. This is where data analysis and visualization come into play. Data analysis delves into the data, exploring, comprehending, and even reshaping it to yield powerful insights empowering stakeholders to make informed business decisions. Visualization, on the other hand, takes these insights and paints them onto a canvas of charts and dashboards, transforming abstract data into a clear and compelling story. Tools like Looker Studio, PowerBI, and Tableau excel at this artistry, ensuring your audience not only receives information, but truly understands it.
+
 ### Orchestration
 
 Even with data pipelines and robust data platform tools in place, running at an enterprise level requires a well-designed orchestration system for effective management and monitoring. Orchestration engines act as guardians, ensuring data processes and systems operate as planned. They orchestrate the entire data flow, from scheduling and execution to monitoring and alerting. This comprehensive oversight empowers the Ops team to swiftly respond to and resolve any system issues in case of failures.
+
+### Docker Containers
+
+Regardless of whether you code in Python, .NET, or any other language, one truth remains constant: without the right dependencies in place, our solution won't reach its full potential. To avoid this common pitfall, we turn to the power of Docker containers. By packaging our code within these self-contained environments, we ensure consistent execution across systems, effectively isolating our code from any environment-specific dependency issues. This not only guarantees smooth operation but also unlocks the power of effortless scaling. Need to expand your infrastructure to handle growing demands? Simply deploy additional containerized nodes, ensuring a seamless user experience. And for added convenience, repositories like DockerHub offer a vast library of ready-to-use images, saving you time and effort in the deployment process. As we create custom images for our solutions, a CICD process can download the image from DockerHub as part of our automation process.
+
+### Cloud Infrastructure Automation
+
+Deployment isn't just about code; it's about crafting a seamless, adaptable cloud infrastructure. This is where the magic of CICD pipelines and cloud automation enters the stage. By harnessing tools like Terraform, we can orchestrate the construction of cloud resources across providers like AWS, GCP, or Azure with ease. Terraform scripts become our blueprints, enabling us to effortlessly spin up new environments or expand existing ones. Imagine a world where infrastructure evolves in sync with your code, adapting gracefully to changing needs and scaling effortlessly to meet growing demands. This is the power of CICD and cloud automation, unlocking a whole new level of efficiency and agility in our data engineering journey.
+
+### Continuous Integration Continuous Delivery
+
+In the world of DevOps, CICD pipelines serve as the tireless assembly lines, automating the build and deployment of our custom solutions and cloud infrastructure. GitHub, one of the most popular cloud code repository and project management cloud tools, also provides GitHub actions. These actions offer a versatile framework for orchestrating our pipelines. Whether coding Python scripts, Docker files, Terraform configurations, or bash script, GitHub Actions empower us to streamline the build, test, and deployment processes into a harmonious flow. 
+
+By leveraging these pipelines, we can consistently build and deploy our changes, we can experience a boost in DevOps efficiency, productivity, and overall satisfaction. Embrace the automation, and watch our development journey transform into a flawless and smooth execution.
+
+## Why Python?
+
+The Data Engineering battlefield demands adaptability, efficiency, and versatility. This series, "Data Engineering Process Fundamentals," reflects this reality by choosing Python as our language of choice. Python's expansive and robust ecosystem of libraries, including NumPy, Pandas, and scikit-learn, empowers us to tackle a vast array of data challenges. From data analysis to complex transformations, Python offers a comprehensive and performant toolset, with support from all major cloud providers for hosting Python-based solutions.
+
+Python also champions accessibility. Its intuitive syntax and emphasis on readability make it approachable for veterans and aspiring data engineers alike. Python prioritizes clear expression, allowing us to focus on the problem's essence rather than wrestling with syntactical roadblocks and coding complexity.
+
+The vibrant and thriving Python community further strengthens its appeal. This network of passionate developers, extensive online resources, and readily available libraries serves as a constant source of support and collaboration. Therefore, Python's selection in this series is not simply a technological preference, but a strategic decision. It grants access to a potent blend of power, simplicity, and community – the essential ingredients for conquering data challenges with confidence and efficiency.
 
 ## Why write this book?
 
@@ -60,13 +86,13 @@ Therefore, I want to share my experience, expertise, and thought process develop
 The title of this book, "Data Engineering Process Fundamentals," reflects our focus on a foundational process accessible to data engineers of all levels. By adopting this process-oriented mindset, you'll be equipped to execute projects and deliver scalable, robust data engineering solutions.
 
 The scope of this book embraces the following areas, each accompanied by a corresponding GitHub project showcasing the relevant code.
-
-- [Discovery Process](https://www.ozkary.dev/data-engineering-process-fundamentals-discovery/)  
-- [Design and Planning](https://www.ozkary.dev/data-engineering-process-fundamentals-design-planning/)  
-- [Data Pipeline and Orchestration](https://www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration/)
-- [Data Warehouse and Modeling](https://www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation/)
-- [Data Analysis and Visualization](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization/)  
-- [Data Streaming](https://www.ozkary.com/2023/08/data-engineering-process-fundamentals-data-streaming.html)
+- [Project Home Page](https://github.com/ozkary/data-engineering-mta-turnstile)
+- [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)  
+- [Design and Planning](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/)  
+- [Data Pipeline and Orchestration](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step3-Orchestration/)
+- [Data Warehouse and Modeling](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse/)
+- [Data Analysis and Visualization](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis/)  
+- [Data Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
   
 ## How to Use the Code
 
@@ -76,12 +102,13 @@ To fully utilize the project, ensure you have a GitHub profile. If you don't, cr
 
 ## Closing Thoughts
 
-As the final page turns, your journey as a cloud-native data engineer is just beginning. This book has forged your process-oriented mindset, armed you with practical principles, and ignited your hands-on coding. Now, embrace the GitHub project, refine your skills, and witness the transformative power of your coding prowess. Remember, process guides, practice refines, and learning never ends. Step into the cloud with confidence, use this book as a roadmap to get you started. 
+As the final page turns, your journey as a cloud-native data engineer is just beginning. This book forges your process-oriented mindset, armed you with practical principles, and ignited your hands-on coding with Python, SQL and Jupiter Notebooks. Now, embrace the GitHub project, refine your skills, complete the coding exercises and witness the evolution and organization of your coding and process skills. Remember, process guides, practice refines, and learning never ends. Step into the cloud with confidence, use this book as a roadmap to get you started. Follow the GitHub project, give it a star, and stay in touch as this project as well as this book will continue to evolve with the latest trend in technology.
+
+> 👉 If you have problems with the exercises, open a GitHub issue on the project, so we can help you resolve the problem.
 
 **Are you ready to step into the cloud? Learn about Data Engineering Process Fundamentals today!**
 
 ## Preface
-
 
 ### 1. **Introduction and Welcome:**
    - Introduce yourself to the readers.
@@ -125,18 +152,12 @@ As the final page turns, your journey as a cloud-native data engineer is just be
 
 Remember, the preface sets the stage for the entire book, so make it informative, engaging, and reflective of your passion for the subject. Keep it concise but impactful, giving readers a glimpse into the journey that led you to write the book.
 
-## Purpose and Scope
 
 
-why python:
 
-The Pragmatic Choice: Python for Data Engineering Mastery
-The Data Engineering battlefield demands versatility, efficiency, and adaptability. This series, "Data Engineering Process Fundamentals," reflects this reality by anchoring its exploration in the prevalent and potent force of Python. Forget fleeting trends and alluring buzzwords; our focus is on equipping you with the tools and frameworks that deliver tangible results. So, why Python?
 
-This choice is not driven by whimsicality, but by a careful assessment of the landscape. Python's extensive and robust ecosystem of libraries like NumPy, Pandas, and scikit-learn empowers you to tackle a vast array of data challenges. From data wrangling through complex model training, Python provides a comprehensive and performant toolset.
+The Data Engineering battlefield demands versatility, efficiency, and adaptability. This series, "Data Engineering Process Fundamentals," reflects this reality by using Python as our programming language. Python's extensive and robust ecosystem of libraries like NumPy, Pandas, and scikit-learn empowers us to tackle a vast array of data challenges. From data analysis through complex data transformation, Python provides a comprehensive and performant tool set and support from all the cloud providers to host Python based solutions.
 
-Furthermore, Python champions accessibility. Its intuitive syntax and emphasis on readability make it approachable for both seasoned veterans and aspiring data engineers. Unlike the esoteric rituals of some languages, Python prioritizes clear expression, allowing you to focus on the essence of your solution rather than wrestling with syntactical roadblocks.
+Python champions accessibility. Its intuitive syntax and emphasis on readability make it approachable for both seasoned veterans and aspiring data engineers. Python prioritizes clear expression, allowing us to focus on the essence of the solution rather than wrestling with syntactical roadblocks.
 
-Finally, Python boasts a vibrant and thriving community. This network of passionate developers, extensive online resources, and readily available libraries serves as a constant source of support and collaboration. No matter the obstacle you encounter, the Python community stands ready to assist, ensuring you're never left to navigate the dataverse alone.
-
-Therefore, Python's selection in this series is not merely a technological preference, but a strategic decision. It grants you access to a potent blend of power, simplicity, and community – the essential ingredients for conquering data challenges with confidence and efficiency. So, buckle up, fellow data engineers, as we embark on this practical and pragmatic journey together. With Python as our trusted companion, we are poised to master the intricate dance of data engineering and build solutions that truly transform the world.
+Python also boasts a vibrant and thriving community. This network of passionate developers, extensive online resources, and readily available libraries serves as a constant source of support and collaboration. Therefore, Python's selection in this series is not merely a technological preference, but a strategic decision. It grants us access to a potent blend of power, simplicity, and community – the essential ingredients for conquering data challenges with confidence and efficiency. 
