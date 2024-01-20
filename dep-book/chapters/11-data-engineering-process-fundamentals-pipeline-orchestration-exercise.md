@@ -743,12 +743,4 @@ The choice between a code-centric and low-code approach, when building a data pi
 
 ## Next Step
 
-Having successfully established a robust data pipeline and data orchestration, it is now time to embark on the next phase of our data engineering process – the design and implementation of a data warehouse. 
-
-> 👉 [Data Engineering Process Fundamentals - Data Warehouse and Transformation](https://www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+Having successfully constructed a robust data pipeline and orchestrated its seamless flow, we now eagerly embark upon the next phase of our data engineering journey: designing and implementing a data warehouse.

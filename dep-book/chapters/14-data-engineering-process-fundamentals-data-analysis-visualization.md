@@ -337,12 +337,4 @@ In conclusion, the synergy between data analysis and visualization is pivotal fo
 
 ## Exercise - Data Analysis and Visualization
 
-With a better understanding of the data analysis and visualization process, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we can continue our data engineering process and create a dashboard that will meet the requirements established in the discovery phase. 
-
-> 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization Exercise](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization-exercise/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+With a better understanding of the data analysis and visualization process, let's take the next step and put these concepts into action through a hands-on exercise. In this lab, we'll seamlessly continue our data engineering journey by crafting a dashboard that flawlessly fulfills the requirements defined in the discovery phase.

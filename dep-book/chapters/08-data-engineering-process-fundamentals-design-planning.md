@@ -72,12 +72,4 @@ The design and planning phase of a data engineering project sets the stage for s
 
 ## Exercise - Infrastructure Planning and Automation
 
-Having established a solid design foundation, it's time to put that into practice with a hands-on exercise. Our objective is to construct the necessary infrastructure that will serve as the hosting environment for our solution. Let's delve into the practical implementation to bring our data engineering project to life.
-
-> 👉 [Data Engineering Process Fundamentals - Design and Planning Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-design-planning-exercise/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+Having established a solid design foundation, it's time to put that into practice with a hands-on exercise. Our mission: construct the essential infrastructure that will house our solution. By diving into the practical implementation, we'll breathe life into our data engineering project.

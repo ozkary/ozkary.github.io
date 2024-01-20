@@ -70,12 +70,4 @@ The data engineering discovery process involves defining the problem statement, 
 
 ## Exercise - Hands-on Use Case
 
-Since we now understand the discovery step, we should be able to put that into practice. Let’s move on to a hands-on use case and see how we apply those concepts.
-
-> 👉 [Data Engineering Process Fundamentals - Discovery Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-discovery-exercise)
-
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-Originally published by [ozkary.com](https://www.ozkary.com)
+Time to put our newfound discovery skills to the test! Let's dive into a hands-on use case and see those concepts in action.

@@ -355,12 +355,6 @@ The following images show Jupyter notebook loaded on the browser or directly fro
 
 ![ozkary-data-engineering-discovery-donut-chart](../../assets/2023/ozkary-data-engineering-jupyter-pie-chart.png "ozkary MTA jupyter donut chart")
 
-# Next Step
+## Next Step
 
-> 👉 [Data Engineering Process Fundamentals - Design and Planning](//www.ozkary.dev/data-engineering-process-fundamentals-design-planning)
-
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-Originally published by [ozkary.com](https://www.ozkary.com)
+With our problem statement, requirements, and data exploration successfully completed, we now embark upon the next phase of our data engineering journey: designing and planning the solution.

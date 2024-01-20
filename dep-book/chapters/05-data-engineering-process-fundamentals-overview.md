@@ -101,12 +101,4 @@ Streaming Data is a data source that sends messages with small content but with 
 
 ## Next Step
 
-Now that we are familiar with the high level process, let's talk about the discovery step in details.
-
-> 👉[Data Engineering Process Fundamentals - Discovery](//www.ozkary.dev/data-engineering-process-fundamentals-discovery)
-
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-Originally published by [ozkary.com](https://www.ozkary.com)
+Now that we're familiar with the high-level process, let's delve into the details of the discovery phase. This crucial step in our data engineering process empowers us to define the problem statement, establish requirements, and make insightful observations about the data.

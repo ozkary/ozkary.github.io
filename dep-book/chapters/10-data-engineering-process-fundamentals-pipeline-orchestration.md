@@ -85,12 +85,4 @@ A data pipeline is basically a workflow of tasks that can be executed in Docker 
 
 ## Exercise - Data Pipeline and Orchestration
 
-Now that we understand the concepts of a pipeline and its orchestration, we should dive into a hands-on exercise in which we can implement a pipeline to extract CSV data from a source and send it to our data lake.
-
-> 👉 [Data Engineering Process Fundamentals - Pipeline and Orchestration Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration-exercise/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+With a firm grasp of pipeline concepts and orchestration, let's let's tackle a hands-on exercise. We'll navigate the practical world of implementing a pipeline to seamlessly extract CSV data from a source and deliver it in our data lake.

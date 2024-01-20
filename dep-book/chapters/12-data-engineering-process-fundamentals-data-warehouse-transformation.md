@@ -279,12 +279,4 @@ Moving on to the implementation phase, we focus on converting conceptual data mo
 
 ## Exercise - Data Warehouse Model and Transformation
 
-With a solid understanding of the data warehouse design and implementation, the next step is to put these concepts into practice through a hands-on exercise. In this lab, we build a cloud data warehouse system, applying the knowledge gained to create a powerful and efficient analytical platform.
-
-> 👉 [Data Engineering Process Fundamentals - Data Warehouse Model and Transformation Exercise](//www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation-exercise/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+Equipped with the knowledge of data warehouse design and implementation, let's put theory into practice with a hands-on exercise. We'll build a cloud data warehouse system, harnessing our newfound skills to create a powerful and efficient analytical platform.

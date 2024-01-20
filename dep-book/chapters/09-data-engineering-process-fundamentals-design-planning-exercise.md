@@ -328,14 +328,6 @@ jobs:
 
 With this exercise, we gain practical experience in using tools like Terraform to automate the provisioning of resources, such as VM, a data lakes and other components essential to our data engineering system. By following cloud-agnostic practices, we can achieve interoperability and avoid vendor lock-in, ensuring our project remains scalable, cost-effective, and adaptable to future requirements.
 
-# Next Step
+## Next Step
 
-After building our cloud infrastructure, we are now ready to talk about the implementation and orchestration of a data pipeline and review some of the operational requirements that can enable us to make decisions.
-
-> 👉 [Data Engineering Process Fundamentals - Data Pipeline and Orchestration](//www.ozkary.dev/data-engineering-process-fundamentals-pipeline-orchestration/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+With our cloud infrastructure in place, we're now ready to move on to the exciting stage of implementing and orchestrating a data pipeline. Along the way, we'll also examine some key operational requirements that will enable us to make informed decisions.
