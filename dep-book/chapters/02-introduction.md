@@ -1,14 +1,5 @@
 # Preface
 
-## About the Author
-
-Oscar D Garcia is passionate technologist and principal software engineer with over 25 years of experience with a proven track record in leading the development of innovative and scalable cloud solutions across diverse industries. Oscar's professional focus has been writing enterprise solutions using technologies like Python, .NET (C#, VB), JavaScript, TypeScript, SQL, Visual Studio, GitHub among others.
-
-When it comes to Data Engineering for Big Data use cases, Oscar has a wide broad experience using data platform technologies hosted on the cloud. From on-premises Oracle and SQL Server relational systems to cloud based data warehouse platforms like AWS Redshift and Google BigQuery as well as data lakes, pipelines and orchestration tools. His expertise start from the concept of the solution, to the design, architecture, implementation and delivery to production environments with security and operation specifications in mind.
-
-Beyond code, Oscar actively contribute to the tech community as a leader of the Google Developer Group in Broward County, FL, and a recipient of five Microsoft MVP awards. He maintains and constantly writes articles on the latest technology on his blog at ozkary.com, and he publishes technology videos on YouTube at youtube.com/@ozkary. Oscar thrives in collaborative environments and is eager to leverage his experience and passion to contribute the technical communities around the world. You can contact Oscar at Twitter @ozkary.
-
-
 ## How it all started
 
 I started my career in data by learning and doing database design using Power Designer for Data Architects by Sybase, which is now own by SAP. This was a great tool that taught me how to build relational logical and physical database models using Oracle as the database system. The trend back then was to model both the software and databases using Unified Modeling Language (UML). In those days, my focus was to write apps in C++ for remote devices, use by police and emergency systems, that communicated over radio networks using Motorola Technology. No, there was no data nor WIFi networks back then, so the data transaction had to be very small.  
@@ -49,13 +40,21 @@ A data warehouse brimming with information isn't enough. We need to unlock its d
 
 Even with data pipelines and robust data platform tools in place, running at an enterprise level requires a well-designed orchestration system for effective management and monitoring. Orchestration engines act as guardians, ensuring data processes and systems operate as planned. They orchestrate the entire data flow, from scheduling and execution to monitoring and alerting. This comprehensive oversight empowers the Ops team to swiftly respond to and resolve any system issues in case of failures.
 
+### Data Streaming
+
+Data streaming enables us to build data integration in real-time. Unlike traditional batch processing, where data is collected and processed periodically, streaming data arrives continuously by and is processed on-the-fly.
+
+At the heart of data streaming solutions lies technologies like Apache Kafka, a distributed event streaming platform, and Apache Spark, a versatile data processing engine. Together, they form a powerful solution that ingests, processes, and analyzes streaming data at scale.
+
 ### Docker Containers
 
-Regardless of whether you code in Python, .NET, or any other language, one truth remains constant: without the right dependencies in place, our solution won't reach its full potential. To avoid this common pitfall, we turn to the power of Docker containers. By packaging our code within these self-contained environments, we ensure consistent execution across systems, effectively isolating our code from any environment-specific dependency issues. This not only guarantees smooth operation but also unlocks the power of effortless scaling. Need to expand your infrastructure to handle growing demands? Simply deploy additional containerized nodes, ensuring a seamless user experience. And for added convenience, repositories like DockerHub offer a vast library of ready-to-use images, saving you time and effort in the deployment process. As we create custom images for our solutions, a CICD process can download the image from DockerHub as part of our automation process.
+Regardless of whether you code in Python, .NET, or any other language, one truth remains constant: without the right dependencies in place, our solution won't reach its full potential. To avoid this common pitfall, we turn to the power of Docker containers. 
+
+By packaging our code within these self-contained environments, we ensure consistent execution across systems, effectively isolating our code from any environment-specific dependency issues. This not only guarantees smooth operation but also unlocks the power of effortless scaling. Need to expand your infrastructure to handle growing demands? Simply deploy additional containerized nodes, ensuring a seamless user experience. And for added convenience, repositories like DockerHub offer a vast library of ready-to-use images, saving us time and effort in the deployment process. As we create custom images for our solutions, a CICD process can download the image from DockerHub as part of our automation process.
 
 ### Cloud Infrastructure Automation
 
-Deployment isn't just about code; it's about crafting a seamless, adaptable cloud infrastructure. This is where the magic of CICD pipelines and cloud automation enters the stage. By harnessing tools like Terraform, we can orchestrate the construction of cloud resources across providers like AWS, GCP, or Azure with ease. Terraform scripts become our blueprints, enabling us to effortlessly spin up new environments or expand existing ones. Imagine a world where infrastructure evolves in sync with your code, adapting gracefully to changing needs and scaling effortlessly to meet growing demands. This is the power of CICD and cloud automation, unlocking a whole new level of efficiency and agility in our data engineering journey.
+Deployment isn't just about code; it's about building a seamless, adaptable cloud infrastructure. This is where the magic of CICD pipelines and cloud automation enters the stage. By harnessing tools like Terraform, we can orchestrate the construction of cloud resources across providers like AWS, GCP, or Azure with ease. Terraform scripts become our blueprints, enabling us to effortlessly spin up new environments or expand existing ones. Imagine a world where infrastructure evolves in sync with your code, adapting gracefully to changing needs and scaling effortlessly to meet growing demands. This is the power of CICD and cloud automation, unlocking a whole new level of efficiency and agility in our data engineering journey.
 
 ### Continuous Integration Continuous Delivery
 
@@ -107,57 +106,3 @@ As the final page turns, your journey as a cloud-native data engineer is just be
 > 👉 If you have problems with the exercises, open a GitHub issue on the project, so we can help you resolve the problem.
 
 **Are you ready to step into the cloud? Learn about Data Engineering Process Fundamentals today!**
-
-## Preface
-
-### 1. **Introduction and Welcome:**
-   - Introduce yourself to the readers.
-   - Extend a warm welcome and express gratitude for their interest in your book.
-
-### 2. **Your Background and Expertise:**
-   - Briefly discuss your background, including your education and professional experience.
-   - Highlight relevant achievements or projects that showcase your expertise in the subject matter.
-
-### 3. **Motivation for Writing the Book:**
-   - Share the motivation behind writing the book. What inspired you to delve into the topic?
-   - Explain how your experiences have shaped your understanding and perspective.
-
-### 4. **Connection to the Reader:**
-   - Establish a connection with the reader. Share common challenges or experiences that they may relate to.
-   - Convey your enthusiasm for sharing knowledge and helping others learn.
-
-### 5. **Scope and Purpose of the Book:**
-   - Clearly define the scope of the book. What topics will be covered, and what can readers expect to gain?
-   - Articulate the purpose of the book and how it addresses the needs of the target audience.
-
-### 6. **Acknowledgments:**
-   - Express gratitude to anyone who has contributed to the book or supported you in your writing journey.
-   - Acknowledge mentors, colleagues, or anyone else who played a role in shaping your understanding of the subject.
-
-### 7. **Use of GitHub or Other Platforms:**
-   - If applicable, mention that supporting code and resources are available on GitHub.
-   - Provide information on how readers can access and interact with the code examples.
-
-### 8. **Reader Guidance:**
-   - Offer guidance on how readers can approach the book. Are there exercises or hands-on activities they should engage with?
-   - Provide any additional information that will enhance the reader's experience.
-
-### 9. **Personal Touch:**
-   - Consider adding a personal touch or anecdote that illustrates your passion for the subject.
-   - Show your personality to make the preface engaging and relatable.
-
-### 10. **Closing Thoughts:**
-   - Conclude the preface with a positive and encouraging note.
-   - Invite readers to dive into the content and assure them that they are in for a valuable learning experience.
-
-Remember, the preface sets the stage for the entire book, so make it informative, engaging, and reflective of your passion for the subject. Keep it concise but impactful, giving readers a glimpse into the journey that led you to write the book.
-
-
-
-
-
-The Data Engineering battlefield demands versatility, efficiency, and adaptability. This series, "Data Engineering Process Fundamentals," reflects this reality by using Python as our programming language. Python's extensive and robust ecosystem of libraries like NumPy, Pandas, and scikit-learn empowers us to tackle a vast array of data challenges. From data analysis through complex data transformation, Python provides a comprehensive and performant tool set and support from all the cloud providers to host Python based solutions.
-
-Python champions accessibility. Its intuitive syntax and emphasis on readability make it approachable for both seasoned veterans and aspiring data engineers. Python prioritizes clear expression, allowing us to focus on the essence of the solution rather than wrestling with syntactical roadblocks.
-
-Python also boasts a vibrant and thriving community. This network of passionate developers, extensive online resources, and readily available libraries serves as a constant source of support and collaboration. Therefore, Python's selection in this series is not merely a technological preference, but a strategic decision. It grants us access to a potent blend of power, simplicity, and community – the essential ingredients for conquering data challenges with confidence and efficiency. 
