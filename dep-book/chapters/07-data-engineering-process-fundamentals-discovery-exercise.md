@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Discovery Exercise"
 excerpt: "In this discovery exercise lab, we review a problem statement and do the analysis to define the scope of work and requirements. Preliminary data analysis must be done by downloading some sample files with Python and running some queries using Jupyter Notebook."
 last_modified_at: 2023-04-08T13:00:00
 header:
-  teaser: "../../assets/2023/ozkary-data-engineering-jupyter-vscode.png"
+  teaser: "images/ozkary-data-engineering-jupyter-vscode.png"
   teaserAlt: "Ozkary Data Engineering Process Discovery Exercise with Jupyter"
 tags: 
   - pipelines  
@@ -58,7 +58,7 @@ We can download a single file to take a look at the data structure and make the 
 - The cumulative exits are on the EXITS field
 - This data is audited in blocks of fours hours apart
 
-![ozkary-data-engineering-mta-discovery](../../assets/2023/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
+![ozkary-data-engineering-mta-discovery](images/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
 
 ### Field Description
 
@@ -125,8 +125,9 @@ These observations can be used to define technical requirements that can enable 
 
 In order to do our data analysis, we need to first download some sample data by writing a Python script. We can the analyze this data by writing some code snippets and use the power of the Python Pandas library. We can also use Jupyter Notebooks to quickly manipulate the data and create some charts that can help us as baseline requirements for the final visualization dashboard.
 
-<p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/" target="_pipeline">Clone this repo or copy the files from this folder
-</a></p>
+>👉 Clone this repo or copy the files from this folder  [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)
+
+![Discovery Process](images/ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process")
 
 ### Download a CSV File from the MTA Site
 
@@ -306,16 +307,11 @@ With an understanding of the code and tools, let's run the process.
 
 ### Requirements
 
-<p>👉 <a target="_python" href="https://github.com/ozkary/data-engineering-mta-turnstile/wiki/Configure-Python-Dependencies">
-Install Python, Pandas and Jupyter notebook
-</a></p>
+> 👉 [Install **Python, Pandas, and Jupyter notebook**](https://github.com/ozkary/data-engineering-mta-turnstiles/wiki/Configure-Python-Dependencies "_target=_python")
 
-<p>👉 <a target="_vscode" href="https://code.visualstudio.com/download">
-Install Visual Studio Code
-</a></p>
+> 👉 [Install Visual Studio Code](https://code.visualstudio.com/download "_target=_vscode")
 
-<p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery" target="_python">Clone this repo or copy the files from this folder
-</a></p>
+> 👉 [Clone this repo or copy the files from this folder](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery "_target=_github")
 
 ### Follow these steps to run the analysis
 
@@ -341,19 +337,17 @@ $ jupyter notebook
 The following images show Jupyter notebook loaded on the browser or directly from VSCode.
 
 #### Jupyter Notebook loaded on the browser
-![ozkary-data-engineering-jupyter-notebook](../../assets/2023/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
+![ozkary-data-engineering-jupyter-notebook](images/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
 
-<p></p>
-
-![ozkary-data-engineering-discovery-query](../../assets/2023/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
+![ozkary-data-engineering-discovery-query](images/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
 
 #### Using VSCode to load the data and create charts
 
-![ozkary-data-engineering-discovery-jupyter-vscode](../../assets/2023/ozkary-data-engineering-jupyter-vscode.png "ozkary MTA jupyter vscode")
+![ozkary-data-engineering-discovery-jupyter-vscode](images/ozkary-data-engineering-jupyter-vscode.png "ozkary MTA jupyter vscode")
 
 #### Show the total entries by station using a subset of data using VSCode
 
-![ozkary-data-engineering-discovery-donut-chart](../../assets/2023/ozkary-data-engineering-jupyter-pie-chart.png "ozkary MTA jupyter donut chart")
+![ozkary-data-engineering-discovery-donut-chart](images/ozkary-data-engineering-jupyter-pie-chart.png "ozkary MTA jupyter donut chart")
 
 ## Next Step
 

@@ -15,7 +15,7 @@ toc: true
 
 Now that we have completed the discovery step and the scope of work on the project is clearly defined, we move on to the design and planning step. The design and planning phase of a data engineering project is crucial for laying out the foundation of a successful system. It involves defining the system architecture, designing data pipelines, implementing source control practices, ensuring continuous integration and deployment (CI/CD), and leveraging tools like Docker and Terraform for infrastructure automation.
 
-![ozkary-data-engineering-design-planning](../../assets/2023/ozkary-data-engineering-process-design-planning.png "Data Engineering Process Fundamentals- Design and Planning")
+![ozkary-data-engineering-design-planning](images/ozkary-data-engineering-process-design-planning.png "Data Engineering Process Fundamentals- Design and Planning")
 
 
 ### Data Engineering Design
@@ -60,7 +60,7 @@ Docker Hub is a container registry which allows us to push our pipeline images i
 
 Terraform is an Infrastructure as Code (IaC) tool that enables us to manage cloud resources across multiple cloud providers. By creating resource definition scripts and tracking them under version control, we can automate the creation, modification and deletion of resources. Terraform tracks the state of the infrastructure, so when changes are made, they can be applied to the environments as part of a CI/CD process. 
 
-![ozkary-data-engineering-design-planning-docker-terraform](../../assets/2023/ozkary-data-engineering-design-terraform-docker.png "Data Engineering Process Fundamentals- Design and Planning Docker Terraform")
+![ozkary-data-engineering-design-planning-docker-terraform](images/ozkary-data-engineering-design-terraform-docker.png "Data Engineering Process Fundamentals- Design and Planning Docker Terraform")
 
 ## Data Analysis and Visualization Tools
 

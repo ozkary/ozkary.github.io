@@ -21,14 +21,14 @@ In this series of Data Engineering Process Fundamentals, we explore the Data Eng
 The end-goal of this series is to take us thru a process in which we deliver an architecture, which facilitates the ongoing analysis of big data via analytical and visualization tools. In the following images, we can get a preview of what we will be delivering as we execute each step of the process. 
 
 ### Architecture
-![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process-architecture.png "Data Engineering Process - Overview")
+![ozkary-data-engineering-process](images/ozkary-data-engineering-process-architecture.png "Data Engineering Process - Overview")
 
 ### Analysis Results
-![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process-dashboard.png "Data Engineering Process - Overview")
+![ozkary-data-engineering-process](images/ozkary-data-engineering-process-dashboard.png "Data Engineering Process - Overview")
 
 ### Data Engineering Process
 
-![ozkary-data-engineering-process](../../assets/2023/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
+![ozkary-data-engineering-process](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
 

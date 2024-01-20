@@ -28,7 +28,7 @@ In data visualization, we follow guidelines and design patterns to determine the
 
 Data analysis and visualization are fundamental to a data-driven decision-making process. To grasp the best strategy for our scenario, we now dive deeper into this process by using a sample dataset from our data warehouse to illustrate the approach with examples.
 
-![ozkary-data-engineering-analysis-visualization](../../assets/2023/ozkary-data-engineering-process-data-analysis-visualization-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
+![ozkary-data-engineering-analysis-visualization](images/ozkary-data-engineering-process-data-analysis-visualization-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
 
 ## Data Analysis
 
@@ -48,7 +48,7 @@ Data profiling is the process to identify the data types, dimensions, measures, 
 
 As an example of data profiling, we can inspect the average of arrivals and departures at certain time slots. This can help us identify patterns at different times.
 
-> 👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis" target="_repo">Clone this repo</a> or copy the files from this folder. Use Jupyter Notebook file.
+> 👉 Clone this repo or copy the files from this folder. Use the Jupyter Notebook file.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis")
 
 ```python
 
@@ -175,7 +175,7 @@ fig_scatter.show()
 - `df_top_stations.describe()` provides summary statistics for the numerical columns
 - `plotly_x.scatter()` creates scatter plots to visualize relationships between numerical columns
 
-![ozkary-data-engineering-analysis-visualization-jupyter](../../assets/2023/ozkary-data-engineering-process-analysis-visualization-jupyter-scatter-chart.png "Data Engineering Process Fundamentals - Analysis and Visualization Jupyter Scatter Chart")
+![ozkary-data-engineering-analysis-visualization-jupyter](images/ozkary-data-engineering-process-analysis-visualization-jupyter-scatter-chart.png "Data Engineering Process Fundamentals - Analysis and Visualization Jupyter Scatter Chart")
 
 These statistics can help us identify trends, correlations, and relationships in our data, allowing us to gain insights and make informed decisions about further analysis or modeling.
 

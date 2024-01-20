@@ -22,16 +22,18 @@ CONTENT_FILTERS = tee # Use this to add sed filters or other piped commands
 
 # Debugging
 
-# DEBUG_ARGS = --verbose
+DEBUG_ARGS = --verbose
 
 # Pandoc filtes - uncomment the following variable to enable cross references filter. For more
 # information, check the "Cross references" section on the README.md file.
 
 # FILTER_ARGS = --filter pandoc-crossref
 
+# set working directory for relative image paths to work
+PWD_ARGS = --resource-path=.
 # Combined arguments
 
-ARGS = $(TOC) $(MATH_FORMULAS) $(METADATA_ARGS) $(FILTER_ARGS) $(DEBUG_ARGS)
+ARGS = $(TOC) $(MATH_FORMULAS) $(METADATA_ARGS) $(FILTER_ARGS) $(DEBUG_ARGS) $(PWD_ARGS)
 	
 PANDOC_COMMAND = pandoc
 

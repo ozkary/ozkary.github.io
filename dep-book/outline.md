@@ -76,6 +76,10 @@ pandoc introduction.md chapter1.md chapter2.md conclusion.md --toc --template my
 
 pandoc introduction.md conclusion.md --toc --template template.docx -o output.docx
 
+# Use make
+
+> make docx
+
 Github reference:
 
 https://github.com/wikiti/pandoc-book-template/tree/master

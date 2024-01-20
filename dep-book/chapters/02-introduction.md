@@ -85,6 +85,9 @@ Therefore, I want to share my experience, expertise, and thought process develop
 The title of this book, "Data Engineering Process Fundamentals," reflects our focus on a foundational process accessible to data engineers of all levels. By adopting this process-oriented mindset, you'll be equipped to execute projects and deliver scalable, robust data engineering solutions.
 
 The scope of this book embraces the following areas, each accompanied by a corresponding GitHub project showcasing the relevant code.
+
+![Data Engineering Process Fundamentals GitHub Project](images/ozkary-data-engineering-process-fundamentals-home.png "Data Engineering Process Fundamentals GitHub Project"){ width=50% height=50% }
+
 - [Project Home Page](https://github.com/ozkary/data-engineering-mta-turnstile)
 - [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)  
 - [Design and Planning](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/)  

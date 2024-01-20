@@ -6,4 +6,4 @@ When it comes to Data Engineering for Big Data use cases, Oscar has a wide broad
 
 Beyond code, Oscar actively contribute to the tech community as a leader of the Google Developer Group in Broward County, FL, and a recipient of five Microsoft MVP awards. He maintains and constantly writes articles on the latest technology on his blog at [ozkary.com](ozkary.com), and he publishes technology videos on YouTube [Ozkary YouTube Channel](http://www.youtube.com/@ozkary). He also maintains code repos on [ozkary GitHub](https://github.com/ozkary). Oscar thrives in collaborative environments and is eager to leverage his experience and passion to contribute the technical communities around the world. You can contact Oscar at Twitter/X @ozkary.
 
-![Oscar D. Garcia, ozkary](../../assets/oscar-d-garcia.png "ozkary")
+![Oscar D. Garcia, ozkary](images/ozkary.png "ozkary")

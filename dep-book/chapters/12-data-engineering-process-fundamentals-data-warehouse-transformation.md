@@ -23,7 +23,7 @@ Once the data warehouse design is in place, we can then transition into the impl
 
 To get a better understanding about the data warehouse process, let's first do a refresh on some important concepts related to data warehouse systems. As we cover these concepts, we can then relate them to some of the necessary activities that we need to take on to deliver a solution that can scale according to our data demands.
 
-![ozkary-data-engineering-data-warehouse-transformation-steps](../../assets/2023/ozkary-data-engineering-process-data-warehouse-steps.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation")
+![ozkary-data-engineering-data-warehouse-transformation-steps](images/ozkary-data-engineering-process-data-warehouse-steps.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation")
 
 ## OLAP vs OLTP Database Systems
 
@@ -51,7 +51,7 @@ In summary, OLAP and OLTP serve different purposes in the database world. OLAP d
 
 A Data Warehouse is an OLAP system, which serves as the central data repository for historical and aggregated data. A data warehouse is designed to support complex analytical queries, reporting, and data analysis for Big Data use cases. It typically adopts a denormalized entity structure, such as a star schema or snowflake schema, to facilitate efficient querying and aggregations. Data from various OLTP sources is extracted, loaded and transformed (ELT) into the data warehouse to enable analytics and business intelligence. The data warehouse acts as a single source of truth for business users to obtain insights from historical data.
 
-![ozkary-data-engineering-data-warehouse-transformation-design](../../assets/2023/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Design")
+![ozkary-data-engineering-data-warehouse-transformation-design](images/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Design")
 
 ### ELT vs ETL
 
@@ -243,7 +243,7 @@ To help us define the data models, we can follow these simple rules:
 
 > 👍 Simple Star Schema ERD with dimension and fact tables
 
-![ozkary-data-engineering-data-warehouse-star-schema](../../assets/2023/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
+![ozkary-data-engineering-data-warehouse-star-schema](images/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
 
 For reporting and dashboards, additional models can be created to accelerate the data analysis process. This is usually done to create common queries and abstract the join complexity with SQL views. Alternative, data scientist can choose to connect directly to the entities and create their data models using their analytical tools, which handle the building of SQL queries. The approach really depends on the expertise of the team, and the data modeling standards of the organization.
 

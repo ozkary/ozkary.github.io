@@ -17,7 +17,7 @@ toc: true
 ---
 Having laid a strong design foundation, it's time to embark on a hands-on exercise that's crucial to our data engineering project's success. Our immediate focus is on building the essential cloud resources that will serve as the backbone for our data pipelines, data lake, and data warehouse. Taking a cloud-agnostic approach ensures our implementation remains flexible and adaptable across different cloud providers, enabling us to leverage the advantages of multiple platforms or switch providers seamlessly if required. By completing this step, we set the stage for efficient and effective coding of our solutions. Let's get started on this vital infrastructure-building journey.
 
-![ozkary-data-engineering-design-planning-docker-terraform](../../assets/2023/ozkary-data-engineering-design-terraform-docker.png "Data Engineering Process Fundamentals- Design and Planning Docker Terraform")
+![ozkary-data-engineering-design-planning-docker-terraform](images/ozkary-data-engineering-design-terraform-docker.png "Data Engineering Process Fundamentals- Design and Planning Docker Terraform")
 
 ## Cloud Infrastructure Planning
 
@@ -29,7 +29,7 @@ Infrastructure planning is a critical aspect of every technical project, laying 
 
 Infrastructure automation, facilitated by tools like Terraform, is important in modern data engineering projects. It enables the provisioning and management of cloud resources, such as virtual machines and storage, in a consistent and reproducible manner. Infrastructure as Code (IaC) allows teams to define their infrastructure declaratively, track it in source control, version it, and apply changes as needed. Automation reduces manual efforts, ensures consistency, and enables infrastructure to be treated as a code artifact, improving reliability and scalability.
 
-![ozkary-data-engineering-terraform](../../assets/2023/ozkary-data-engineering-terraform.png "Data Engineering Process - Terraform")
+![ozkary-data-engineering-terraform](images/ozkary-data-engineering-terraform.png "Data Engineering Process - Terraform")
 
 # Infrastructure Implementation Requirements
 
@@ -70,7 +70,7 @@ on linux_amd64
  - Enter a name for the service account and an optional description
  - Then add the BigQuery Admin, Storage Admin, Storage Object Admin as roles for our service account and click the save button.
 
-![ozkary gcp roles](../../assets/2023/ozkary-data-engineering-gcp-roles.png)
+![ozkary gcp roles](images/ozkary-data-engineering-gcp-roles.png)
 
  - Enable IAM APIs by clicking the following links:
    - [IAM-API](https://console.cloud.google.com/apis/library/iam.googleapis.com)
@@ -88,9 +88,10 @@ $ mkdir -p $HOME/.gcp/
 $ mv ~/Downloads/{xxxxxx}.json ~/.gcp/{acc_credentials}.json
 ```
 - install the SDK and CLI Tools
-  - <a href="https://cloud.google.com/sdk/docs/install-sdk" target="_new">Follow the instruction here</a>
+  - [Follow these instruction](https://cloud.google.com/sdk/docs/install-sdk "_target=_sdk")  
 - Validate the installation and login to GCP with the following commands
-```
+
+```bash
 $ echo 'export GOOGLE_APPLICATION_CREDENTIALS="~/.gcp/{acc_credentials}.json"' >> ~/.bashrc
 $ export GOOGLE_APPLICATION_CREDENTIALS="~/.gcp/{acc_credentials}.json"
 $ gcloud auth application-default login
@@ -99,8 +100,7 @@ $ gcloud auth application-default login
 
 # Review the Code
 
-<p>👉 <a href="https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/terraform" target="_terraform">Clone this repo or copy the files from this folder
-</a></p>
+> 👉 Clone this repo or copy the files from this folder [Terraform](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/terraform target="_terraform")
 
 Terraform uses declarative configuration files written in a domain-specific language (DSL) called HCL (HashiCorp Configuration Language). It provides a concise and human-readable syntax for defining resources, dependencies, and configurations, enabling us to provision, modify, and destroy infrastructure in a predictable and reproducible manner.
 
@@ -281,7 +281,7 @@ $ terraform destroy
 
 #### Terraform Lifecycle
 
-![ozkary-data-engineering-terraform-lifecycle](../../assets/2023/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
+![ozkary-data-engineering-terraform-lifecycle](images/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
 
 ### GitHub Action
 
