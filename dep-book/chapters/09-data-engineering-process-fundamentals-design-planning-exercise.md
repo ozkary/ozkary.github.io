@@ -15,6 +15,9 @@ tags:
   - GitHub
 toc: true
 ---
+
+# Design and Planning - Exercise
+
 Having laid a strong design foundation, it's time to embark on a hands-on exercise that's crucial to our data engineering project's success. Our immediate focus is on building the essential cloud resources that will serve as the backbone for our data pipelines, data lake, and data warehouse. Taking a cloud-agnostic approach ensures our implementation remains flexible and adaptable across different cloud providers, enabling us to leverage the advantages of multiple platforms or switch providers seamlessly if required. By completing this step, we set the stage for efficient and effective coding of our solutions. Let's get started on this vital infrastructure-building journey.
 
 ![ozkary-data-engineering-design-planning-docker-terraform](images/ozkary-data-engineering-design-terraform-docker.png "Data Engineering Process Fundamentals- Design and Planning Docker Terraform")

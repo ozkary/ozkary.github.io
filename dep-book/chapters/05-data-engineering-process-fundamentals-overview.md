@@ -12,7 +12,7 @@ tags:
   - data-lake
 toc: true
 ---
-## Introduction 
+# Introduction to Data Engineering Process Fundamentals 
 
 Data Engineering is changing constantly. From cloud data platforms and pipeline automation to data streaming and visualizations tools, new innovations are impacting that way we build today’s data and analytical solutions. 
 

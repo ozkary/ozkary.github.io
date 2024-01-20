@@ -12,6 +12,7 @@ tags:
   - data-lake
 toc: true
 ---
+# Data Pipeline and Orchestration
 
 After completing the Design and Planning phase in the data engineering process, we can transition into the implementation and orchestration of our data pipeline. For this step, it is important to have a clear understanding on what is the implementation and orchestration effort as well as what are the programming languages and tooling that are available to enable us to complete those efforts. 
 

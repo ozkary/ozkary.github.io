@@ -90,10 +90,10 @@ The scope of this book embraces the following areas, each accompanied by a corre
 
 - [Project Home Page](https://github.com/ozkary/data-engineering-mta-turnstile)
 - [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)  
-- [Design and Planning](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/)  
+- [Design and Planning](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/)
 - [Data Pipeline and Orchestration](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step3-Orchestration/)
 - [Data Warehouse and Modeling](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse/)
-- [Data Analysis and Visualization](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis/)  
+- [Data Analysis and Visualization](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis/)
 - [Data Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
   
 ## How to Use the Code

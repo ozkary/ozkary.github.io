@@ -17,6 +17,8 @@ tags:
   - jupyter
 toc: true
 ---
+# Data Analysis and Visualization - Exercise
+
 Data analysis and visualization are fundamental to a data-driven decision-making process. To grasp the best strategy for our scenario, we delve into the data analysis and visualization phase of the process, making data models, analyzes and diagrams that allow us to tell stories from the data.
 
 With the understanding of best practices for data analysis and visualization, we start by creating a code-based dashboard using Python, Pandas and Plotly. We then follow up by using a high-quality enterprise tool, such as Looker, to construct a low-code cloud-hosted dashboard, providing us with insights into the type of effort each method takes.

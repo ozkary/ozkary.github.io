@@ -13,7 +13,7 @@ tags:
 toc: true
 ---
 
-## Introduction
+# Discovery Process
 
 In this series of Data Engineering Process Fundamentals, we explore the Data Engineering Process (DEP) with key concepts, principles and relevant technologies, and explain how they are being used to help us deliver solutions. The first step, and important to never skip, in this process is the Discovery step.
 

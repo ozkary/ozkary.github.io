@@ -16,6 +16,7 @@ tags:
   - data-lake
 toc: true
 ---
+# Data Warehouse and Modeling - Exercise
 
 In this hands-on lab, we build upon our data engineering process where we previously focused on defining a data pipeline orchestration process. Now, we should focus on storing and making the data accessible for visualization and analysis. So far, our data is stored in a Data Lake, while Data Lakes excel at handling vast volumes of data, they are not optimized for query performance, so our step is to enable the bulk data processing and analytics by working on our Data Warehouse (DW).
 

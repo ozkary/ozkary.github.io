@@ -12,6 +12,7 @@ tags:
   - data-lake
 toc: true
 ---
+# Design and Planning
 
 Now that we have completed the discovery step and the scope of work on the project is clearly defined, we move on to the design and planning step. The design and planning phase of a data engineering project is crucial for laying out the foundation of a successful system. It involves defining the system architecture, designing data pipelines, implementing source control practices, ensuring continuous integration and deployment (CI/CD), and leveraging tools like Docker and Terraform for infrastructure automation.
 

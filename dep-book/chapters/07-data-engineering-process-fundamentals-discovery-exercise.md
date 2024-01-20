@@ -13,7 +13,7 @@ tags:
 toc: true
 ---
 
-# Data Engineering Process - Discovery Exercise
+# Discovery Process - Exercise
 
 In this discovery exercise lab, we review a problem statement and do the analysis to define the scope of work and requirements. Preliminary data analysis must be done by downloading some sample files with Python and running some queries using Jupyter Notebook. 
 
@@ -45,7 +45,7 @@ The data can be grouped into stations, date and time of the day. This data is au
 
  In the discovery process, we take a look at the data that is available for our analysis. We are using the MTA turnstiles information which is available at this location:
 
- 👉 [New York Metropolitan Transportantion Authority Turnstile Data](http://web.mta.info/developers/turnstile.html)
+ 👉 [New York Metropolitan Transportation Authority Turnstile Data](http://web.mta.info/developers/turnstile.html)
 
 We can download a single file to take a look at the data structure and make the following observations about the data:
 
