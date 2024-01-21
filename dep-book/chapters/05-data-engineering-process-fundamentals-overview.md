@@ -39,39 +39,39 @@ The end-goal of this book is to take us thru a process in which we deliver an ar
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
 
-[Discovery Process](#sec-discovery)
-  - Problem Statement
-  - Data Analysis
-  - Define the Requirements and Scope of Work
-  - Discovery Exercise
+#### [Discovery Process](#sec-discovery)
+- Problem Statement
+- Data Analysis
+- Define the Requirements and Scope of Work
+- Discovery Exercise
 
-[Design and Planning](#sec-design)
-  - Design Approach
-  - System Architecture
-  - Cloud Engineering and Automation
-  - Design Exercise
+#### [Design and Planning](#sec-design)
+- Design Approach
+- System Architecture
+- Cloud Engineering and Automation
+- Design Exercise
 
-[Data Pipeline and Orchestration](#sec-pipeline)
-  - Pipeline Orchestration
-    - Batch Processing
-  - Workflow Automation
-  - Deployment, Schedules and Monitoring
+#### [Data Pipeline and Orchestration](#sec-pipeline)
+- Pipeline Orchestration
+  - Batch Processing
+- Workflow Automation
+- Deployment, Schedules and Monitoring
 
-[Data Warehouse and Modeling](#sec-dw)
-  - Data modeling
-  - Data Warehouse Design
-  - Continuous Integration
+#### [Data Warehouse and Modeling](#sec-dw)
+- Data modeling
+- Data Warehouse Design
+- Continuous Integration
 
-[Data Analysis and Visualization](#sec-analysis)
-  - Analyze the data
-  - Visualization Concepts
-  - Create a Dashboard
-    - Provide answers to the problem statement
- 
-[Streaming Data](#sec-streaming)
-  - Real-time Data Pipeline
-  - Data Warehouse Integration  
-  
+#### [Data Analysis and Visualization](#sec-analysis)
+- Analyze the data
+- Visualization Concepts
+- Create a Dashboard
+  - Provide answers to the problem statement
+
+#### [Streaming Data](#sec-streaming)
+- Real-time Data Pipeline
+- Data Warehouse Integration  
+
 ## Concepts 
 
 ### What is Data Engineering?
