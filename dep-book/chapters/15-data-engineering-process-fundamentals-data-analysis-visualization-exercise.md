@@ -479,16 +479,6 @@ We utilize our expertise in data analysis and visualization to construct charts 
 
 Lastly, as the dashboard becomes operational, we transition into the role of business analysts, deciphering insights from the data. This enables us to offer answers aligned with our original requirements.
 
-## Next
+## Next Step
 
 We have successfully completed our data pipeline from CSV files to our data warehouse and dashboard. Now, let's explore an advanced concept in data engineering: data streaming, which facilitates real-time data integration. This involves the continuous and timely processing of incoming data. Technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) play a crucial role in enabling efficient data streaming processes. Let's take a closer look at these components next.
-
-Coming Soon!
-
-> 👉 [Data Engineering Process Fundamentals - Real-Time Data](https://www.ozkary.dev/data-engineering-process-fundamentals-data-streaming/)
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)

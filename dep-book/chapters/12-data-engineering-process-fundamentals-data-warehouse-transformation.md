@@ -15,7 +15,7 @@ tags:
 toc: true
 ---
 
-# Data Warehouse and Modeling
+# Data Warehouse and Modeling {#sec-dw}
 
 After completing the pipeline and orchestration phase in the data engineering process, our pipeline should be fully operational and loading data into our data lake. The compressed CSV files in our data lake, even though is optimized for storage, are not designed for easy access for analysis and visualization tools. Therefore, we should transition into  moving the data from the files into a data warehouse, so we can facilitate the access for the analysis process.
 

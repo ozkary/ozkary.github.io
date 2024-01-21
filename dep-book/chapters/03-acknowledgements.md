@@ -17,6 +17,6 @@ The Microsoft MVP community pulsates with technical expertise from professionals
 
 The Google Developer Groups (GDG) community, powered by Google, connects technology enthusiasts through regional chapters worldwide. Sharing technical knowledge is at the heart of this movement, and I'm honored to lead the Broward County Florida chapter since 2019. Through in-person and virtual meetings, we host technical presentations, fostering a vibrant exchange of ideas and expertise. This role has allowed me to reach a wider audience and connect with fellow organizers from across the globe. A big thank you to all the GDG organizers for entrusting me with this platform and for the continuous opportunity to share my experience and learn from others.
 
-- **The technical community**
+- **The Technical Community**
 
 Finally, my deepest gratitude goes to the incredible international technical community. Whether you delve into my blog articles [ozkary.com](https://www.ozkary.com), explore my YouTube channel [Ozkary YouTube Channel](http://www.youtube.com/@ozkary), contribute to my GitHub projects [ozkary GitHub](https://github.com/ozkary), or engage with me on Twitter (@ozkary), you are the fuel that keeps me going. Your enthusiasm motivates me to push the boundaries of my work, and your engagement creates a rich environment for mutual learning and growth. Thank you for being the foundation of my journey!

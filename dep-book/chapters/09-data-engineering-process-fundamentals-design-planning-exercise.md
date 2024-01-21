@@ -34,11 +34,11 @@ Infrastructure automation, facilitated by tools like Terraform, is important in 
 
 ![ozkary-data-engineering-terraform](images/ozkary-data-engineering-terraform.png "Data Engineering Process - Terraform")
 
-# Infrastructure Implementation Requirements
+## Infrastructure Implementation Requirements
 
 When using Terraform with a any cloud provider, there are several key artifacts and considerations to keep in mind for successful configuration and security. Terraform needs access to the cloud account where it can provision the resources. The account token or credentials can vary based on your cloud configuration.  For our purpose, we will use a GCP (Google) project to build our resources, but first we need to install the Terraform dependencies for the development environment.
 
-## Install Terraform
+### Install Terraform
 
 To install Terraform, open a bash terminal and run the commands below:
 
@@ -101,7 +101,7 @@ $ gcloud auth application-default login
 ```
 - Follow the login process on the browser
 
-# Review the Code
+## Review the Code
 
 > 👉 Clone this repo or copy the files from this folder [Terraform](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/terraform target="_terraform")
 
@@ -113,7 +113,7 @@ At a minimum, we should define a variables file, which contains the cloud provid
 
 The variables file is used to define a set of variables that can be used on the resource file. This allows for the use of those variables in one more more resource configuration files. The format looks as follows:
 
-```terraform
+```bash
 locals {
   data_lake_bucket = "mta_data_lake"
 }
@@ -152,7 +152,7 @@ variable "vm_image" {
 
 The resource file is where we define what should be provisioned on the cloud. This is also the file where we need to define the provider specific resources that need to be created.
 
-```terraform
+```bash
 terraform {
   required_version = ">= 1.0"
   backend "local" {}  # Can change from "local" to "gcs" (for google) or "s3" (for aws), if you would like to preserve your tf-state online
@@ -235,7 +235,7 @@ This Terraform file defines the infrastructure components to be provisioned on t
 
 Overall, this Terraform file automates the provisioning of a data lake bucket, BigQuery datasets, and a virtual machine instance on the Google Cloud Platform.
 
-# How to run it!
+## How to run it!
 
 - Refresh service-account's auth-token for this session
   
@@ -282,7 +282,7 @@ $ terraform apply -var="project=<your-gcp-project-id>"
 $ terraform destroy
 ```
 
-#### Terraform Lifecycle
+### Terraform Lifecycle
 
 ![ozkary-data-engineering-terraform-lifecycle](images/ozkary-data-Engineering-terraform-lifecycle.png "Data Engineering Process - Terraform Lifecycle")
 
@@ -294,7 +294,7 @@ In order to be able to automate the building of infrastructure with GitHub, we n
 
 Once the secret has been configured, we can create a build action script with the cloud provider secret information as shown with this GitHub Action workflow YAML file:
 
-```yml
+```yaml
 
 name: Terraform Deployment
 
@@ -327,7 +327,7 @@ jobs:
         terraform apply -auto-approve
 ```
 
-# Conclusion
+## Conclusion
 
 With this exercise, we gain practical experience in using tools like Terraform to automate the provisioning of resources, such as VM, a data lakes and other components essential to our data engineering system. By following cloud-agnostic practices, we can achieve interoperability and avoid vendor lock-in, ensuring our project remains scalable, cost-effective, and adaptable to future requirements.
 

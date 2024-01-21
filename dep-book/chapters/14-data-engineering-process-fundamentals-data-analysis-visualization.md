@@ -18,7 +18,7 @@ tags:
 toc: true
 ---
 
-# Data Analysis and Visualization
+# Data Analysis and Visualization {#sec-analysis}
 
 After completing our data warehouse design and implementation, our data pipeline should be fully operational.  We can move forward with the analysis and visualization step of our process. Data analysis entails exploring, comprehending, and reshaping data to yield insights, thereby enabling stakeholders to make informed business decisions. Conversely, data visualization employs these insights to adeptly convey information via visual elements, encompassing charts and dashboards.
 

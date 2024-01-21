@@ -228,7 +228,7 @@ $ cd Step4-Data-Warehouse/dbt
 
 Project tree:
 
-```
+```bash
 - dbt
   │
   ├─ models
@@ -518,7 +518,7 @@ on log.remote = booth.remote and log.booth = booth.booth_name
 
 - schema.yml
   
-```yml
+```yaml
 version: 2
 
 models:

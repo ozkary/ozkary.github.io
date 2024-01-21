@@ -595,7 +595,7 @@ We are adding our Python script in a Docker container, so we can create and push
 
 > 👉 Make sure to run the Docker build command where the Docker file is located or use -f with the file path. Ensure Docker is also running.
 
-```
+```bash
 $ docker login --username USER --password PW
 $ docker image build -t ozkary/prefect:mta-de-101 .
 $ docker image push ozkary/prefect:mta-de-101
@@ -603,7 +603,7 @@ $ docker image push ozkary/prefect:mta-de-101
 
 The Docker file defines the image dependency with Python already installed. We also copy a requirements file which contains additional dependencies that need to be installed on the container image. We finally copy our code on the container, so when we run it, it is able to find the pipeline main_flow.
 
-```yml
+```bash
 FROM prefecthq/prefect:2.7.7-python3.9
 COPY docker-requirements.txt .
 
@@ -679,7 +679,7 @@ To get more telemetry details about the pipeline, we can look at the flow dashbo
 
 So far, we have shown how to build and push our Docker images via the CLI. A more mature way to do this is to enable that process on a deployment pipeline. With GitHub, we have CI/CD pipelines that can automate this process. This pipeline can be triggered when a change is made to the code, and a pull request (PR) is merged into the branch. This is called a GitHub action. A simple script to handle that automation is shown below:
 
-```yml
+```bash
 
 name: Build and Push Docker Image
 

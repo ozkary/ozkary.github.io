@@ -23,8 +23,7 @@ In the city of New York, commuters use the Metropolitan Transportation Authority
 
 Geofencing is a location based technology service in which mobile devices’ electronic signal is tracked as it enters or leaves a virtual boundary (geo-fence) on a geographical location. Businesses around those locations would like to use this technology to increase their sales.
 
-![ozkary-data-engineering-mta-geo-fence](https://github.com/ozkary/data-engineering-mta-turnstile/raw/main/images/mta-geo-fencing.png "Data Engineering Process - Problem Statement")
-
+![ozkary-data-engineering-mta-geo-fence](images/ozkary-data-engineering-process-geo-fence.jpg "Data Engineering Process - Problem Statement")
 
 The MTA subway system has stations around the city. All the stations are equipped with turnstiles or gates which tracks as each person enters or leaves the station. MTA provides this information in CSV files, which can be imported into a data warehouse to enable the analytical process to identify patterns that can enable these businesses to understand how to best target consumers.
 
@@ -127,7 +126,7 @@ In order to do our data analysis, we need to first download some sample data by 
 
 >👉 Clone this repo or copy the files from this folder  [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)
 
-![Discovery Process](images/ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process")
+![Discovery Process](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){width=50% height=50%}
 
 ### Download a CSV File from the MTA Site
 
@@ -232,7 +231,7 @@ def main_flow(params: str) -> None:
         start_index = url.index('_')
         end_index = url.index('.txt')
         file_name = F"{prefix}{url[start_index:end_index]}"
-        # print(file_name)
+        print(file_name)
         etl_web_to_local(url, file_name)
     except ValueError:
         print("Substring not found")
@@ -318,7 +317,7 @@ With an understanding of the code and tools, let's run the process.
 - Download a file to look at the data
   - This should create a gz file under the ../data folder
 
-```
+```bash
 $ python3 mta_discovery.py --url http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt
 ```
 Run the Jupyter notebook (dicovery.ipynb) to do some analysis on the data. 
