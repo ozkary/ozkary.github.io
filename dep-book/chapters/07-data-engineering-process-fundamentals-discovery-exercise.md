@@ -126,7 +126,7 @@ In order to do our data analysis, we need to first download some sample data by 
 
 >👉 Clone this repo or copy the files from this folder  [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)
 
-![Data Engineering Process Fundamentals - Discovery Process](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){width=50% height=50%}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){height=7cm}
 
 ### Download a CSV File from the MTA Site
 

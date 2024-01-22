@@ -20,27 +20,28 @@ In this book of Data Engineering Process Fundamentals, we explore the Data Engin
 
 The end-goal of this book is to take us thru a process in which we deliver an architecture, which facilitates the ongoing analysis of big data via analytical and visualization tools. In the following images, we can get a preview of what we will be delivering as we execute each step of the process. 
 
-### Architecture
+## Solution Architecture and Flow Diagrams
+ 
+#### Solutions Architecture
+  
+  ![Data Engineering Process Fundamentals - Architecture](images/ozkary-data-engineering-process-architecture.png "ozkary-data-engineering-process-architecture")  
+ 
+#### Analysis Dashboard
 
+  ![Data Engineering Process Fundamentals - Dashboard](images/ozkary-data-engineering-process-dashboard.png "ozkary-data-engineering-process-dashboard")
 
-![Data Engineering Process Fundamentals - Architecture](images/ozkary-data-engineering-process-architecture.png "ozkary-data-engineering-process-architecture")
+#### Data Warehouse Architecture
 
-### Analysis Results
+  ![Data Engineering Process Fundamentals - Data Warehouse](images/ozkary-data-engineering-process-data-warehouse-design.png "ozkary-data-engineering-process-data-warehouse")
 
+#### Process Flow
 
-![Data Engineering Process Fundamentals - Dashboard](images/ozkary-data-engineering-process-dashboard.png "ozkary-data-engineering-process-dashboard")
+  ![Data Engineering Process Fundamentals - Overview](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
 
-### Data Warehouse Architecture
-
-
-![Data Engineering Process Fundamentals - Data Warehouse](images/ozkary-data-engineering-process-data-warehouse-design.png "ozkary-data-engineering-process-data-warehouse")
-
-### Data Engineering Process
-
-
-![Data Engineering Process Fundamentals - Overview](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
+## Process Phases
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
+ 
 
 #### [Discovery Process](#sec-discovery)
 - Problem Statement

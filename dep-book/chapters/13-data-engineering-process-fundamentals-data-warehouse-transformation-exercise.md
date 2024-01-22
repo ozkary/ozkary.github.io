@@ -147,6 +147,8 @@ Before looking at the code, we need to setup our environment with all the necess
 
 > 👉 Clone this repo or copy the files from this folders: dbt and sql.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse")
 
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-warehouse.png){height=7cm}
+
 - Must have CSV files in the data lake
 - Create a [dbt](https://www.getdbt.com/) cloud account  
   - Link dbt with your GitHub project (Not needed when running locally)

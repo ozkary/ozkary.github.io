@@ -105,6 +105,8 @@ $ gcloud auth application-default login
 
 > 👉 Clone this repo or copy the files from this folder [Terraform](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step2-Cloud-Infrastructure/terraform target="_terraform")
 
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-design.png){height=7cm}
+
 Terraform uses declarative configuration files written in a domain-specific language (DSL) called HCL (HashiCorp Configuration Language). It provides a concise and human-readable syntax for defining resources, dependencies, and configurations, enabling us to provision, modify, and destroy infrastructure in a predictable and reproducible manner.
 
 At a minimum, we should define a variables file, which contains the cloud provider information and a resource file which define what kind of resources should be provision on the cloud. There could be a file for each resource or a single file can define multiple resources.  

@@ -52,6 +52,8 @@ As an example of data profiling, we can inspect the average of arrivals and depa
 
 > 👉 Clone this repo or copy the files from this folder. Use the Jupyter Notebook file.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis")
 
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-analysis.png){height=7cm}
+
 ```python
 
 import pandas as pd

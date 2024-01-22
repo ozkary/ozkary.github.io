@@ -29,13 +29,13 @@ DEBUG_ARGS = --verbose
 
 # FILTER_ARGS = --filter pandoc-crossref
 
-FILTER_ARGS = --filter pandoc-image-size
+# FILTER_ARGS = --filter pandoc-image-size
 
 # set working directory for relative image paths to work
 PWD_ARGS = --resource-path=.
 # Combined arguments
 
-ARGS = $(TOC) $(MATH_FORMULAS) $(METADATA_ARGS) $(FILTER_ARGS) $(DEBUG_ARGS) $(PWD_ARGS) $(FILTER_ARGS)
+ARGS = $(TOC) $(MATH_FORMULAS) $(METADATA_ARGS) $(FILTER_ARGS) $(DEBUG_ARGS) $(PWD_ARGS)
 	
 PANDOC_COMMAND = pandoc
 
