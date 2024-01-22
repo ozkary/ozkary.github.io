@@ -30,7 +30,7 @@ Data streaming enables us to build data integration in real-time. Unlike traditi
 - Enhance User Experience: Provide real-time updates and personalization
 - Optimize Operations: Streamline processes and resource allocation
 
-![ozkary-data-engineering-design-data-streaming-messages](images/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
+!Data Engineering Process Fundamentals - Data Streaming Kafka Topics](images/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
 
 
 ### Data Streaming Channels
@@ -65,7 +65,7 @@ Data streaming sources often produce small payload size with high volume of mess
 
 At the heart of data streaming solutions lies technologies like Apache Kafka, a distributed event streaming platform, and Apache Spark, a versatile data processing engine. Together, they form a powerful solution that ingests, processes, and analyzes streaming data at scale.
 
-![ozkary-data-engineering-design-data-streaming](images/ozkary-data-engineering-process-data-streaming-kafka-spark.png "Data Engineering Process Fundamentals - Data Streaming Design Kafka and Spark")
+![Data Engineering Process Fundamentals - Data Streaming Design Kafka and Spark](images/ozkary-data-engineering-process-data-streaming-kafka-spark.png "Data Engineering Process Fundamentals - Data Streaming Design Kafka and Spark")
 
 ### Apache Kafka
 
@@ -274,7 +274,7 @@ Alternatively, the Spark client can send the aggregated results directly in the 
 
 For our solution strategy, we followed the design shown below. This design helps us ensure smooth flow, efficient processing and storage of data so that it is immediately available in our data warehouse consequently, the visualization tools. Let's break down each component and explain its purpose.
 
-![ozkary-data-engineering-design-data-streaming](images/ozkary-data-engineering-process-data-streaming-design.png "Data Engineering Process Fundamentals - Data Streaming Design")
+![Data Engineering Process Fundamentals - Data Streaming Design](images/ozkary-data-engineering-process-data-streaming-design.png "Data Engineering Process Fundamentals - Data Streaming Design")
 
 ### Components
 

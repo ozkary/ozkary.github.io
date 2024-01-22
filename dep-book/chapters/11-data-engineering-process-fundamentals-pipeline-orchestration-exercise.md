@@ -18,7 +18,7 @@ Once we have gained an understanding of data pipelines and their orchestration, 
 
 ## Data Flow Process
 
-![ozkary-data-engineering-pipeline-orchestration-flow](images/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow")
+![Data Engineering Process Fundamentals - Pipeline and Orchestration Flow](images/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow")
 
 Our basic data flow can be defined as the following:
 
@@ -38,7 +38,7 @@ When there are requirements to load previous data, we need to first run a batch 
 
 Moving forward, the process will target a specific date for when the file becomes available. The process will not allow for the download of future data files, so an attempt to pass future dates will not be allowed.
 
-![ozkary-data-engineering-data-lake-files](images/ozkary-data-engineering-pipepine-data-lake.png "Data Engineering Process Fundamentals- Data Lake Files")
+![Data Engineering Process Fundamentals- Data Lake Files](images/ozkary-data-engineering-pipepine-data-lake.png "Data Engineering Process Fundamentals- Data Lake Files")
 
 ### Weekly Automation
 
@@ -635,7 +635,7 @@ $ prefect deployments ls
 ```
 > 👍 Scheduled jobs can also be managed from the cloud dashboards
 
-![ozkary-data-engineering-pipeline-jobs](images/ozkary-data-engineering-pipeline-job.png "Data Engineering Process Fundamentals- Pipeline Jobs")
+![Data Engineering Process Fundamentals- Pipeline Jobs](images/ozkary-data-engineering-pipeline-job.png "Data Engineering Process Fundamentals- Pipeline Jobs")
 
 ### Start the Prefect agent
 The agent should be running, so the scheduled deployments can be executed. If the image Docker image is not downloaded yet, it is downloaded, so the code can be executed.
@@ -668,12 +668,12 @@ To check the actual flow runs, we can use the "flow-run ls" command. This should
 $ prefect flow-run ls
 ```
 
-![ozkary-data-engineering-prefect-flow-run](images/ozkary-data-engineering-pipeline-console-flows.png "Data Engineering Process Fundamentals- Pipeline Runs CLI")
+![Data Engineering Process Fundamentals- Pipeline Runs CLI](images/ozkary-data-engineering-pipeline-console-flows.png "Data Engineering Process Fundamentals- Pipeline Runs CLI")
 
 > 👍 Flow runs can also be visualized from the cloud dashboards
 To get more telemetry details about the pipeline, we can look at the flow dashboards on the cloud.
 
-![ozkary-data-engineering-prefect-flow-run](images/ozkary-data-engineering-pipeline-dashboard-runs.png "Data Engineering Process Fundamentals- Pipeline Runs Dashboard")
+![Data Engineering Process Fundamentals- Pipeline Runs Dashboard](images/ozkary-data-engineering-pipeline-dashboard-runs.png "Data Engineering Process Fundamentals- Pipeline Runs Dashboard")
 
 ### GitHub Action to build and deploy the Docker image to Docker Hub
 
@@ -723,7 +723,7 @@ After learning about a code-centric pipeline, we can transition into a low-code 
 
 To show a low-code approach, we will write our data pipeline using Azure Data Factory. Following a similar approach, we can design an efficient data ingestion process that involves compressing and copying CSV files to Blob storage. The pipeline consists of two essential steps to streamline the process.
 
-![ozkary-data-engineering-azure-data-factory](images/ozkary-data-engineering-azure-data-factory.png "Data Engineering Process Fundamentals- Azure Data Factory")
+![Data Engineering Process Fundamentals- Azure Data Factory](images/ozkary-data-engineering-azure-data-factory.png "Data Engineering Process Fundamentals- Azure Data Factory")
 
 - Set Pipeline Variable - To ensure proper file naming, we use a code snippet to dynamically set a pipeline variable with today's date in the format "yymmdd.txt" This allows us to create a file name for a specific drop date. This variable is then used by the Copy Data activity.
 

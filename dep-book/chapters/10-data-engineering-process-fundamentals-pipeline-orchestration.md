@@ -18,7 +18,7 @@ After completing the Design and Planning phase in the data engineering process, 
 
 It is also important to understand some of the operational requirements, so we can choose the correct platform that should help us deliver on those requirements. Additionally, this is the time to leverage the cloud resources we have provisioned to support an operational pipeline, but before we get deep into those concepts, let's review some background information about what is exactly a pipeline, how can it be implemented and executed with orchestration? 
 
-![ozkary-data-engineering-design-planning](images/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals - Pipeline and Orchestration")
+![Data Engineering Process Fundamentals - Pipeline and Orchestration](images/ozkary-data-engineering-process-pipeline-orchestration.png "Data Engineering Process Fundamentals - Pipeline and Orchestration")
 
 ## Data Pipelines 
 
@@ -72,7 +72,7 @@ Automation and monitoring contribute to compliance and governance requirements. 
 
 When it comes to cloud resources, there are often two components that play a significant role in this process: a Virtual Machine (VM) and the Data Lake.
 
-![ozkary-data-engineering-design-planning](images/ozkary-data-engineering-process-orchestration-flow.png "Data Engineering Process Fundamentals - Orchestration Flow")
+![Data Engineering Process Fundamentals - Orchestration Flow](images/ozkary-data-engineering-process-orchestration-flow.png "Data Engineering Process Fundamentals - Orchestration Flow")
 
 - A Virtual Machine (VM) serves as the compute power for the pipelines. It is responsible for executing the pipeline workflows and managing the overall orchestration. It provides the computational resources needed to process and transform data, ensuring the smooth execution of data pipeline tasks. The code executed on this resource is often running on Docker containers, which enables the use of automated deployments when code changes become available. In addition, containers can be deployed on Kubernetes clusters to support high availability and automated management use cases.
 

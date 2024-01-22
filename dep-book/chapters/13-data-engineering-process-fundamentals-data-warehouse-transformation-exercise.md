@@ -30,7 +30,7 @@ A data warehouse is an OLAP system, which serves as the central data repository 
 
 Before building the concrete tables, our initial focus is on creating precise data models based on thorough analysis and specific requirements. To achieve this, we leverage SQL (Structured Query Language) and tools that facilitate model development in an automated, testable, and repeatable manner. By incorporating such tools into our project, we build the data services area in which we manage the data modeling and transformation to expand our architecture into the following:
 
-![ozkary-data-engineering-data-warehouse-architecture](images/ozkary-data-engineering-process-data-warehouse-architecture.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture-data-warehouse-architecture](images/ozkary-data-engineering-process-data-warehouse-architecture.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture")
 
 > 👉 For our use case, we are using [Google BigQuery](https://cloud.google.com/bigquery/) as our data warehouse system. Make sure to review the Data Engineering Process - Design and Planning section and run the Terraform script to provision this resource.
 
@@ -121,7 +121,7 @@ For our transformation services, we follow these specifications:
 
 Our physical data model should look like this:
 
-![ozkary-data-engineering-data-warehouse-star-schema](images/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema](images/ozkary-data-engineering-process-data-warehouse-star-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Star Schema")
 
 #### Why do we use partitions and cluster
 
@@ -263,7 +263,7 @@ The schema.yml files are used as configurations to define the schema of the fina
 
 Data lineage is the documentation and tracking of the flow of data from its origin to its destination, including all the intermediate processes and transformations that it undergoes. In this case, we show how the external table is the source for the fact table and the dimension table dependencies.
 
-![ozkary-data-engineering-data-warehouse-lineage](images/ozkary-data-engineering-process-data-warehouse-lineage.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Lineage")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Lineage](images/ozkary-data-engineering-process-data-warehouse-lineage.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Lineage")
 
 ### Staging Data Models - Views
 
@@ -727,7 +727,7 @@ All test should pass.
 $ dbt test
 ```
 
-![ozkary-data-engineering-data-warehouse-tests](images/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests](images/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests")
 
 ### Build the models 
 
@@ -747,7 +747,7 @@ $ dbt build --select fact_turnstile.sql
 
 After running these command, the following resources should be in the data warehouse:
 
-![ozkary-data-engineering-data-warehouse-schema](images/ozkary-data-engineering-process-data-warehouse-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Schema")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Schema](images/ozkary-data-engineering-process-data-warehouse-schema.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Schema")
 
 > 👍 The build command is responsible for compiling, generating and deploying the SQL code for our dbt project, while the run command executes that SQL code against your data warehouse to update the data. Typically, we would run dbt build first to compile the project, and then run dbt run to execute the compiled code against the database.
 
@@ -762,7 +762,7 @@ $ dbt docs serve
 
 The entire project is documented. The image below shows the documentation for the fact table with the lineage graph showing how it was built.
 
-![ozkary-data-engineering-data-warehouse-docs](images/ozkary-data-engineering-process-data-warehouse-docs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Documents")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Documents](images/ozkary-data-engineering-process-data-warehouse-docs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Documents")
 
 ### Manually test the incremental updates
 
@@ -792,7 +792,7 @@ $ dbt run --model fact_turnstile.sql
 
 After running the cloud job, the log should show the following information with the number of rows affected. 
 
-![ozkary-data-engineering-data-warehouse-job](images/ozkary-data-engineering-process-data-warehouse-jobs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Job")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Job](images/ozkary-data-engineering-process-data-warehouse-jobs.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Job")
 
 > 👍 There should be files on the data lake for the job to insert any new records. 
 

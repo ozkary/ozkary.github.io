@@ -6,5 +6,5 @@ Now, you should have a solid foundation for writing solutions with Python and Ju
 
 But the journey doesn't end here. This book has armed you with a process-oriented mindset for data engineering. You understand the critical steps, the tools of the trade, and the importance of operational considerations. Now, step boldly into the cloud, wielding your newfound skills with confidence. Remember, this book is your trusty datapad, a launchpad for endless exploration and innovation. The world of data awaits your mastery, so dive in, experiment, and conquer it one line of code at a time.
 
-> Remember, process guides, practice refines, and learning never ends.
+> 👍 Remember, process guides, practice refines, and learning never ends.
 

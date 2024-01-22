@@ -23,7 +23,7 @@ In the city of New York, commuters use the Metropolitan Transportation Authority
 
 Geofencing is a location based technology service in which mobile devices’ electronic signal is tracked as it enters or leaves a virtual boundary (geo-fence) on a geographical location. Businesses around those locations would like to use this technology to increase their sales.
 
-![ozkary-data-engineering-mta-geo-fence](images/ozkary-data-engineering-process-geo-fence.jpg "Data Engineering Process - Problem Statement")
+![Data Engineering Process Fundamentals - Problem Statement](images/ozkary-data-engineering-process-geo-fence.jpg "Data Engineering Process - Problem Statement")
 
 The MTA subway system has stations around the city. All the stations are equipped with turnstiles or gates which tracks as each person enters or leaves the station. MTA provides this information in CSV files, which can be imported into a data warehouse to enable the analytical process to identify patterns that can enable these businesses to understand how to best target consumers.
 
@@ -57,7 +57,7 @@ We can download a single file to take a look at the data structure and make the 
 - The cumulative exits are on the EXITS field
 - This data is audited in blocks of fours hours apart
 
-![ozkary-data-engineering-mta-discovery](images/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
+![Data Engineering Process Fundamentals - Discovery](images/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
 
 ### Field Description
 
@@ -126,7 +126,7 @@ In order to do our data analysis, we need to first download some sample data by 
 
 >👉 Clone this repo or copy the files from this folder  [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)
 
-![Discovery Process](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){width=50% height=50%}
+![Data Engineering Process Fundamentals - Discovery Process](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){width=50% height=50%}
 
 ### Download a CSV File from the MTA Site
 
@@ -336,17 +336,18 @@ $ jupyter notebook
 The following images show Jupyter notebook loaded on the browser or directly from VSCode.
 
 #### Jupyter Notebook loaded on the browser
-![ozkary-data-engineering-jupyter-notebook](images/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
+![Data Engineering Process Fundamentals - Discovery](images/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
 
-![ozkary-data-engineering-discovery-query](images/ozkary-data-engineering-jupyter-notepbook.png "ozkary MTA jupyter notebook loaded")
+
+![MTA jupyter notebook loaded](images/ozkary-data-engineering-jupyter-notepbook.png "MTA jupyter notebook loaded")
 
 #### Using VSCode to load the data and create charts
 
-![ozkary-data-engineering-discovery-jupyter-vscode](images/ozkary-data-engineering-jupyter-vscode.png "ozkary MTA jupyter vscode")
+![MTA jupyter vscode](images/ozkary-data-engineering-jupyter-vscode.png "MTA jupyter vscode")
 
 #### Show the total entries by station using a subset of data using VSCode
 
-![ozkary-data-engineering-discovery-donut-chart](images/ozkary-data-engineering-jupyter-pie-chart.png "ozkary MTA jupyter donut chart")
+![MTA jupyter donut chart](images/ozkary-data-engineering-jupyter-pie-chart.png "MTA jupyter donut chart")
 
 ## Next Step
 

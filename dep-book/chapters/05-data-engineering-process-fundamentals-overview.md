@@ -22,20 +22,23 @@ The end-goal of this book is to take us thru a process in which we deliver an ar
 
 ### Architecture
 
-![ozkary-data-engineering-process-architecture](images/ozkary-data-engineering-process-architecture.png "Data Engineering Process - Architecture")
+
+![Data Engineering Process Fundamentals - Architecture](images/ozkary-data-engineering-process-architecture.png "ozkary-data-engineering-process-architecture")
 
 ### Analysis Results
 
-![ozkary-data-engineering-process-dashboard](images/ozkary-data-engineering-process-dashboard.png "Data Engineering Process - Dashboard")
+
+![Data Engineering Process Fundamentals - Dashboard](images/ozkary-data-engineering-process-dashboard.png "ozkary-data-engineering-process-dashboard")
 
 ### Data Warehouse Architecture
 
-![ozkary-data-engineering-process-data-warehouse](images/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process - Data Warehouse")
 
+![Data Engineering Process Fundamentals - Data Warehouse](images/ozkary-data-engineering-process-data-warehouse-design.png "ozkary-data-engineering-process-data-warehouse")
 
 ### Data Engineering Process
 
-![ozkary-data-engineering-process](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
+
+![Data Engineering Process Fundamentals - Overview](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
 
 A Data Engineering Process follows a series of steps that should be executed to properly understand the problem statement, scope of work, design and architecture that should be used to create the solution. Some of these steps include the following:
 

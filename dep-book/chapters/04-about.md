@@ -18,4 +18,4 @@ This book will guide you into not thinking about ad-hoc implementations but embr
 
 By the end, you won't just be a data enthusiast; you'll become familiar with the technologies and process to be a data engineer, equipped to conquer similar challenges with confidence. This book isn't just about learning tools; it's about understanding the data engineering process. You'll learn how cloud engineers, DevOps specialists, data analysts, SQL and Python developers weave their work together to transform raw data into actionable insights. This holistic perspective empowers you to collaborate effectively and navigate the data landscape with ease.
 
-> This book is about HI (Human Intelligence) expertise and experience &#x1F60A;  
+> 👍This book is about HI (Human Intelligence) expertise and experience  
