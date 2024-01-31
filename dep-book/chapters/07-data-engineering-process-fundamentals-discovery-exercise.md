@@ -71,7 +71,7 @@ LINENAME | Represents all train lines that can be boarded at this station. Norma
 DIVISION | Represents the Line originally the station belonged to BMT, IRT, or IND   
 DATE     | Represents the date (MM-DD-YY)
 TIME     | Represents the time (hh:mm:ss) for a scheduled audit event
-DESc     | Represent the "REGULAR" scheduled audit event (Normally occurs every 4 hours). Audits may occur more that 4 hours due to planning, or troubleshooting activities. Additionally, there may be a "RECOVR AUD" entry: This refers to missed audit that was recovered. 
+DESC     | Represent the "REGULAR" scheduled audit event (Normally occurs every 4 hours). Audits may occur more that 4 hours due to planning, or troubleshooting activities. Additionally, there may be a "RECOVR AUD" entry: This refers to missed audit that was recovered. 
 ENTRIES  | The cumulative entry register value for a device
 EXIST    | The cumulative exit register value for a device
 

@@ -80,6 +80,7 @@ Instead of advocating for specific, out-of-the-box technologies, I favor discuss
 
 Therefore, I want to share my experience, expertise, and thought process developed over the years to help you identify additional, highly relevant areas in data engineering. Throughout this journey, I also share my reflections on some technologies and the rationale behind their potential use. By the end of this book, you should have acquired a profound understanding of cloud data platforms and a solid thought process regarding data engineering process fundamentals.
 
+
 ## Scope and purpose of this book
 
 The title of this book, "Data Engineering Process Fundamentals," reflects our focus on a foundational process accessible to data engineers of all levels. By adopting this process-oriented mindset, you'll be equipped to execute projects and deliver scalable, robust data engineering solutions.

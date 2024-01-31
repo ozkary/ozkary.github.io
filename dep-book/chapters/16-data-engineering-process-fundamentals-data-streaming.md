@@ -18,9 +18,6 @@ toc: true
 
 In modern data engineering solutions, handling streaming data is very important. Businesses often need real-time insights to promptly monitor and respond to operational changes and performance trends. A data streaming pipeline facilitates the integration of real-time data into data warehouses and visualization dashboards. To achieve this integration in a data engineering solution, understanding the principles of data streaming is essential, and how technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) play a key role in building efficient streaming data pipelines.
 
-> 👉 [Data Engineering Process Fundamentals - Data Analysis and Visualization](https://www.ozkary.dev/data-engineering-process-fundamentals-data-analysis-visualization/)
-
-
 ## What is Data Streaming
 
 Data streaming enables us to build data integration in real-time. Unlike traditional batch processing, where data is collected and processed periodically, streaming data arrives continuously by and is processed on-the-fly. This kind of integration empowers organizations to:
@@ -29,9 +26,6 @@ Data streaming enables us to build data integration in real-time. Unlike traditi
 - Predict Trends: Identify patterns and trends as they emerge
 - Enhance User Experience: Provide real-time updates and personalization
 - Optimize Operations: Streamline processes and resource allocation
-
-!Data Engineering Process Fundamentals - Data Streaming Kafka Topics](images/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
-
 
 ### Data Streaming Channels
 
