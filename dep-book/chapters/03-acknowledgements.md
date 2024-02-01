@@ -1,4 +1,10 @@
-# Acknowledgements
+---
+short_title: Acknowledgements
+---
+
+# Acknowledgements {#sec-ack}
+
+---
 
 - **Mark J. Caplin** author of Adventures of Full Stack Software Development
 

@@ -1,4 +1,6 @@
-# About this book
+# About this book {#sec-about}
+
+---
 
 This book transcends theory, thrusting you directly into the dynamic world of data engineering. We'll journey through the entire process, from **discovering raw data** to **crafting insightful visualizations** using powerful tools like **Python, Jupyter Notebooks, Terraform, Docker, Data Lakes, Data Warehouse, Pipelines, Orchestration and Looker Studio**. Each step is a hands-on learning experience, guided by **GitHub-hosted exercises** that let you tackle real-world challenges.
 

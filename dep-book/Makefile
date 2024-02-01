@@ -6,7 +6,8 @@
 
 BUILD = build
 MAKEFILE = Makefile
-OUTPUT_FILENAME = book
+TEMPLATE_NAME = final
+OUTPUT_FILENAME = book_$(TEMPLATE_NAME)
 METADATA = metadata.yml
 CHAPTERS = chapters/*.md
 TOC = --toc --toc-depth 2
@@ -29,19 +30,21 @@ DEBUG_ARGS = --verbose
 
 # FILTER_ARGS = --filter pandoc-crossref
 
-# FILTER_ARGS = --filter pandoc-image-size
-
 # set working directory for relative image paths to work
 PWD_ARGS = --resource-path=.
+
+# Page breaks - force each chapter on a new page
+PAGE_BREAK = --number-sections --lua-filter pagebreak.lua
+
 # Combined arguments
 
-ARGS = $(TOC) $(MATH_FORMULAS) $(METADATA_ARGS) $(FILTER_ARGS) $(DEBUG_ARGS) $(PWD_ARGS)
+ARGS = $(TOC) $(MATH_FORMULAS) $(METADATA_ARGS) $(FILTER_ARGS) $(DEBUG_ARGS) $(PWD_ARGS) $(PAGE_BREAK)
 	
 PANDOC_COMMAND = pandoc
 
 # Per-format options
 
-DOCX_ARGS = --standalone --reference-doc templates/docx.docx
+DOCX_ARGS = --standalone --reference-doc templates/$(TEMPLATE_NAME).docx
 EPUB_ARGS = --template templates/epub.html --epub-cover-image $(COVER_IMAGE)
 HTML_ARGS = --template templates/html.html --standalone --to html5
 PDF_ARGS = --template templates/pdf.latex --pdf-engine xelatex

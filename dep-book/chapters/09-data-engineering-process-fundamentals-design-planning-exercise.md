@@ -336,3 +336,5 @@ With this exercise, we gain practical experience in using tools like Terraform t
 ## Next Step
 
 With our cloud infrastructure in place, we're now ready to move on to the exciting stage of implementing and orchestrating a data pipeline. Along the way, we'll also examine some key operational requirements that will enable us to make informed decisions.
+
+---

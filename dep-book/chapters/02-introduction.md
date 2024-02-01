@@ -1,4 +1,9 @@
-# Preface
+---
+short_title: Preface
+---
+# Preface {#sec-preface}
+
+---
 
 ## How it all started
 

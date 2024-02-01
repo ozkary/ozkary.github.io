@@ -14,6 +14,8 @@ toc: true
 ---
 # Data Pipeline and Orchestration {#sec-pipeline}
 
+---
+
 After completing the Design and Planning phase in the data engineering process, we can transition into the implementation and orchestration of our data pipeline. For this step, it is important to have a clear understanding on what is the implementation and orchestration effort as well as what are the programming languages and tooling that are available to enable us to complete those efforts. 
 
 It is also important to understand some of the operational requirements, so we can choose the correct platform that should help us deliver on those requirements. Additionally, this is the time to leverage the cloud resources we have provisioned to support an operational pipeline, but before we get deep into those concepts, let's review some background information about what is exactly a pipeline, how can it be implemented and executed with orchestration? 

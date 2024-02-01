@@ -336,6 +336,7 @@ $ jupyter notebook
 The following images show Jupyter notebook loaded on the browser or directly from VSCode.
 
 #### Jupyter Notebook loaded on the browser
+
 ![Data Engineering Process Fundamentals - Discovery](images/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
 
 
@@ -352,3 +353,5 @@ The following images show Jupyter notebook loaded on the browser or directly fro
 ## Next Step
 
 With our problem statement, requirements, and data exploration successfully completed, we now embark upon the next phase of our data engineering journey: designing and planning the solution.
+
+---

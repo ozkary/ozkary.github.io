@@ -337,7 +337,7 @@ These are the requirements to be able to run the Python dashboard.
 
 > 👉 Clone this repo or copy the files from this folder. We could also create a GitHub CodeSpace and run this online. [Analysis](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-analysis.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=7cm}
 
 - Use the analysis_data.csv file for test data
   - Use the local file for this implementation
@@ -484,3 +484,5 @@ Lastly, as the dashboard becomes operational, we transition into the role of bus
 ## Next Step
 
 We have successfully completed our data pipeline from CSV files to our data warehouse and dashboard. Now, let's explore an advanced concept in data engineering: data streaming, which facilitates real-time data integration. This involves the continuous and timely processing of incoming data. Technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) play a crucial role in enabling efficient data streaming processes. Let's take a closer look at these components next.
+
+---

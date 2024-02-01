@@ -15,6 +15,8 @@ toc: true
 
 # Discovery Process {#sec-discovery}
 
+---
+
 In this series of Data Engineering Process Fundamentals, we explore the Data Engineering Process (DEP) with key concepts, principles and relevant technologies, and explain how they are being used to help us deliver solutions. The first step, and important to never skip, in this process is the Discovery step.
 
 During the discovery step of a Data Engineering Process, we look to identify and clearly document a problem statement, which helps us have an understanding of what we are trying to solve. We also look at our analytical approach to make observations about at the data, its structure and source. This leads us into defining the requirements for the project, so we can define the scope, design and architecture of the solution.

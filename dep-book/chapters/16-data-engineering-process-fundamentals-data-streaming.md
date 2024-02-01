@@ -16,6 +16,8 @@ toc: true
 ---
 # Data Streaming {#sec-streaming}
 
+---
+
 In modern data engineering solutions, handling streaming data is very important. Businesses often need real-time insights to promptly monitor and respond to operational changes and performance trends. A data streaming pipeline facilitates the integration of real-time data into data warehouses and visualization dashboards. To achieve this integration in a data engineering solution, understanding the principles of data streaming is essential, and how technologies like [Apache Kafka](https://kafka.apache.org/) and [Apache Spark](https://spark.apache.org/) play a key role in building efficient streaming data pipelines.
 
 ## What is Data Streaming

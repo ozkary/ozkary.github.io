@@ -17,6 +17,8 @@ toc: true
 
 # Data Warehouse and Modeling {#sec-dw}
 
+---
+
 After completing the pipeline and orchestration phase in the data engineering process, our pipeline should be fully operational and loading data into our data lake. The compressed CSV files in our data lake, even though is optimized for storage, are not designed for easy access for analysis and visualization tools. Therefore, we should transition into  moving the data from the files into a data warehouse, so we can facilitate the access for the analysis process.
 
 The process to send the data into a data warehouse requires a few essential design activities before we can migrate the data into tables. Like any process before any implementation is done, we need to first work on defining the database system and schema, identifying the programming language, frameworks, tools to use for CI/CD requirements, and supporting requirements to keep our data warehouse operational.

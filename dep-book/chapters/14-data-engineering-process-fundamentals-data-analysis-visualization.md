@@ -20,9 +20,9 @@ toc: true
 
 # Data Analysis and Visualization {#sec-analysis}
 
-After completing our data warehouse design and implementation, our data pipeline should be fully operational.  We can move forward with the analysis and visualization step of our process. Data analysis entails exploring, comprehending, and reshaping data to yield insights, thereby enabling stakeholders to make informed business decisions. Conversely, data visualization employs these insights to adeptly convey information via visual elements, encompassing charts and dashboards.
+---
 
-> 👉 [Data Engineering Process Fundamentals - Data Warehouse and Transformation](https://www.ozkary.dev/data-engineering-process-fundamentals-data-warehouse-transformation/)
+After completing our data warehouse design and implementation, our data pipeline should be fully operational.  We can move forward with the analysis and visualization step of our process. Data analysis entails exploring, comprehending, and reshaping data to yield insights, thereby enabling stakeholders to make informed business decisions. Conversely, data visualization employs these insights to adeptly convey information via visual elements, encompassing charts and dashboards.
 
 Data analysis entails utilizing guidelines and patterns to guide the selection of appropriate analyses tailored to the specific use case. For instance, a Business Analyst (BA) focuses on examining data summations and aggregations across categorical dimensions such as date or station name. Conversely, a Manufacturing Quality Engineer (MQE) prioritizes the examination of statistical data, encompassing metrics like the mean and standard deviation.
 
@@ -30,7 +30,7 @@ In data visualization, we follow guidelines and design patterns to determine the
 
 Data analysis and visualization are fundamental to a data-driven decision-making process. To grasp the best strategy for our scenario, we now dive deeper into this process by using a sample dataset from our data warehouse to illustrate the approach with examples.
 
-![Data Engineering Process Fundamentals - Analysis and Visualization](images/ozkary-data-engineering-process-data-analysis-visualization-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization")
+![Data Engineering Process Fundamentals - Analysis and Visualization](images/ozkary-data-engineering-process-data-analysis-visualization-flow.png "Data Engineering Process Fundamentals - Analysis and Visualization"){height=80%}
 
 ## Data Analysis
 
@@ -52,7 +52,7 @@ As an example of data profiling, we can inspect the average of arrivals and depa
 
 > 👉 Clone this repo or copy the files from this folder. Use the Jupyter Notebook file.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis")
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-analysis.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=7cm}
 
 ```python
 

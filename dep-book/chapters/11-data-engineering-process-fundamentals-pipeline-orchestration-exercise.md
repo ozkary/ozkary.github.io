@@ -746,3 +746,5 @@ The choice between a code-centric and low-code approach, when building a data pi
 ## Next Step
 
 Having successfully constructed a robust data pipeline and orchestrated its seamless flow, we now eagerly embark upon the next phase of our data engineering journey: designing and implementing a data warehouse.
+
+---
