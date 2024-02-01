@@ -17,34 +17,35 @@ toc: true
 
 # Data Streaming - Exercise
 
-With the concepts of data streaming already covered, we can now move forward and work on an actual coding exercise. During this exercise, we delve into building a Kafka message broker, and a Spark consumer with the objective to have the Kafka message broker work as a data producer for our subway system information. The Spark consumer acts as a message aggregator and writes the results to our data lake, so the data modeling process can pickup the information and insert it into the data warehouse, thus providing a seem less integration and reusing our data pipeline that is already operational.
+Now that we've covered the concepts of data streaming, let's move forward with an actual coding exercise. During this exercise, we'll delve into building a Kafka message broker and a Spark consumer with the objective of having the Kafka message broker work as a data producer for our subway system information. The Spark consumer acts as a message aggregator and writes the results to our data lake. This allows the data modeling process to pick up the information and insert it into the data warehouse, providing seamless integration and reusing our already operational data pipeline.
 
 ## Batch Process vs Data Stream 
 
-In a batch process data pipeline, we define a schedule to process the data from its source. With a data stream pipeline, there is not schedule as the data flow as soon as it is available from its source. 
+In a batch process data pipeline, we define a schedule to process the data from its source. With a data stream pipeline, there is no schedule as the data flows as soon as it is available from its source.
 
-In the batch data download, the data is aggregated for periods of four hours. Since the data stream comes in with more frequency, there are no four hour aggregation. The data comes in as single transactions.
+In the batch data download, the data is aggregated for periods of four hours. Since the data stream comes in more frequently, there is no four-hour aggregation. The data comes in as single transactions.
 
 ### Data Stream Strategy
 
-From our system requirements, we already have a data pipeline process that runs an incremental update process to import the data from the data lake into our data warehouse. This process already handles data transformation, mapping and populates all the dimension tables and fact tables with the correct information.
+From our system requirements, we already have a data pipeline process that runs an incremental update process to import the data from the data lake into our data warehouse. This process already handles data transformation, mapping, and populates all the dimension tables and fact tables with the correct information.
 
-Therefore, we want to follow the same pipeline process and utilize what already exists. To account for the fact that the data comes in as single transaction, and we do not want to create single files. We want to implement an aggregation strategy on our data streaming pipeline. This enables us to define time windows to when to publish the data, 1 minute or 4 hours. It really depends on what fits the business requirements. The important thing here is to understand the technical capabilities and the strategy to the solution.
+Therefore, we want to follow the same pipeline process and utilize what already exists. To account for the fact that the data comes in as a single transaction, and we do not want to create single files, we want to implement an aggregation strategy on our data streaming pipeline. This enables us to define time windows for when to publish the data, whether it's 1 minute or 4 hours. It really depends on what fits the business requirements. The important thing here is to understand the technical capabilities and the strategy for the solution.
 
 ## Data Streaming Data Flow Process
 
-In order to deliver a data streaming solution, we often use a technical design like this:
+To deliver a data streaming solution, we typically employ a technical design illustrated as follows:
 
-![Data Engineering Process Fundamentals - Data Streaming Kafka Topics](../../assets/2023/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
+![Data Engineering Process Fundamentals - Data Streaming Kafka Topics](images/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
 
-- Kafka  
+- **Kafka**
   - Producer
   - Topics
   - Consumer
-- Spark
+
+- **Spark**
   - Kafka Consumer
-  - Message parsing and aggregations
-  - Write to data lake or other storage
+  - Message Parsing and Aggregations
+  - Write to Data Lake or Other Storage
 
 ### Kafka:
 
@@ -66,11 +67,11 @@ In order to deliver a data streaming solution, we often use a technical design l
 
 ![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-streaming.png){height=7cm}
 
-For our example, we will take on a code-centric approach and use Python to implement our producer and consumer components. In addition, we need to run an instance of Apache Kafka and Apache Spark. For scalability purposes, we need to run all these components on different VMs, so we need to create tree new VMs instances using our Terraform scripts. All these components will run on Docker containers.
+For our example, we will adopt a code-centric approach and utilize Python to implement both our producer and consumer components. Additionally, we'll require instances of Apache Kafka and Apache Spark to be running. To ensure scalability, we'll deploy these components on separate virtual machines (VMs). Our Terraform scripts will be instrumental in creating new VM instances for this purpose. It's important to note that all these components will be encapsulated within Docker containers.
 
-> 👉 For development purposes on this lab, we run this on one VM or local workstations, so we do not have to deal with the complexity of network configuration
+> 👉 For the ease of development in this lab, we can run everything on a single VM or local workstations. This allows us to bypass the complexities associated with network configuration. For real deployments, we should use separate VMs.
 
-When using a full cloud service instead of deploying VM's, we could look at this options.
+When using a full cloud service provider instead of deploying VM's, we could look at this options.
 
 - **Kafka**
   - **Confluent Cloud** is a fully managed Kafka service provided by Confluent, the company founded by the creators of Apache Kafka. This service run on several cloud providers.
@@ -80,9 +81,9 @@ When using a full cloud service instead of deploying VM's, we could look at this
   - **Azure Databricks** is a collaborative Apache Spark-based analytics platform that supports both batch and stream processing.
   - **Google Cloud Dataproc** supports Apache Spark for both batch and stream processing.
 
-> 👉 When using cloud services, the processes that runs the publisher and consumer require cloud credentials to access those services
+> 👉 When using cloud services, the processes that runs the publisher and consumer require cloud credentials to access those services.
 
-These services are fully managed, so there is no need to create VMs. We just need to create the cloud instance and configure the service support level and cluster configuration.
+These services are fully managed, eliminating the need to create virtual machines (VMs). Instead, we only need to set up the cloud instance and configure the service support level and cluster configuration.
 
 ### Requirements
 
@@ -99,13 +100,13 @@ These services are fully managed, so there is no need to create VMs. We just nee
 
 ### Docker 
 
-To run this locally or on VMs, the best approach is to use Docker Container. For this exercise, we are going to use a lightweight configuration of Kafka and Spark using Bitnami images. This configuration assumes a minimal setup with a Spark Master, a Spark Worker, and a Kafka broker. 
- 
-Docker provides a platform for packaging, distributing, and running applications within containers. This ensures consistency across different environments and simplifies the deployment process. We can download and install Docker from the official website (https://www.docker.com/get-started). Once Docker is installed, the Docker command-line interface (docker) becomes available, allowing us to manage and interact with containers efficiently.
+For running this locally or on virtual machines (VMs), the optimal approach is to leverage Docker Containers. In this exercise, we'll utilize a lightweight configuration of Kafka and Spark using Bitnami images. This configuration assumes a minimal setup with a Spark Master, a Spark Worker, and a Kafka broker.
+
+Docker provides a platform for packaging, distributing, and running applications within containers. This ensures consistency across different environments and simplifies the deployment process. To get started, you can download and install Docker from the official website (https://www.docker.com/get-started). Once Docker is installed, the Docker command-line interface (docker) becomes available, enabling us to efficiently manage and interact with containers.
 
 #### Docker Compose file
 
-Use the **docker-bitnami.compose.yaml** file to configure a single environment where those two services should be running. In case we need to run these services in different VMs, we would each Docker image in a separate VM.
+Utilize the **docker-bitnami.compose.yaml** file to configure a unified environment where both of these services should run. In the event that we need to run these services on distinct virtual machines (VMs), we would deploy each Docker image on a separate VM.
 
 ```yaml
 version: "3.6"
@@ -150,12 +151,11 @@ services:
       - spark-master
 
 ```
-> 👉 We can also experiment with a full setup and download all the services by using the docker-compose-full.yml file. This however requires larger downloads.
+> 👉 We can also experiment with a full setup and download all the services by using the `docker-compose-full.yml` file. This however requires larger downloads.
 
 #### Download the Docker Images
 
-Before we can run the Docker images, we need to download them in the target environment. To download the Bitnami images, we can run this script from a bash command line:
-
+Before we proceed to run the Docker images, it's essential to download them in the target environment. To download the Bitnami images, you can execute the following script from a Bash command line:
 
 ```bash
 $ bash download_images.sh
@@ -181,11 +181,11 @@ docker images bitnami/spark:latest bitnami/kafka:latest --format "{{.Repository}
 
 ```
 
-The **download_images.sh** script basically pulls two images from DockerHub. This is the way, we can automate the download of those images when we are creating new environments.
+The **download_images.sh** script essentially retrieves two images from DockerHub. This script provides an automated way to download these images when creating new environments.
 
-#### Run the Services
+#### Start the Services
 
-After downloading the Docker images, we can start the services by running this script:
+Once the Docker images are downloaded, initiate the services by executing the following script:
 
 ```bash
 bash start_services.sh
@@ -225,13 +225,13 @@ fi
 echo "Services started successfully!"
 ```
 
-The **start_services.sh** script does the following:
+The **start_services.sh** script performs the following tasks:
 
-- Starts Spark Master and Spark Worker services in detached mode (-d).
-- Starts Kafka service in detached mode.
-- Uses docker-compose exec to run the Kafka topic creation command inside the Kafka container.
+- Initiates Spark Master and Spark Worker services in detached mode (-d).
+- Launches Kafka service in detached mode.
+- Utilizes `docker-compose exec` to execute the Kafka topic creation command inside the Kafka container.
 
-At this point, both services should be running and listening for client requests, so let's take a look at implementing our applications.
+At this juncture, both services should be operational and ready to respond to client requests. Now, let's delve into implementing our applications.
 
 ### Data Specifications
 
@@ -255,9 +255,10 @@ turnstiles_schema = StructType([
     StructField("TIMESTAMP", StringType())
 ])
 ```
-This data format is similar to what the source system provides for the batch integration. But for this case, we also have unique ID and a TIMESTAMP.
 
-As we process these messages, our goal is to create files with data aggregation based on these fields: 
+The data format closely resembles what the source system provides for batch integration. However, in this scenario, we also have a unique ID and a TIMESTAMP.
+
+As we process these messages, our objective is to generate files with data aggregation based on these fields:
 
 ```python
 "AC", "UNIT","SCP","STATION","LINENAME","DIVISION", "DATE", "DESC"
@@ -267,26 +268,25 @@ And these measures:
 ```python
 "ENTRIES", "EXITS"
 ```
-
-An example of a message would be like this:
+An example of a message would look like this:
 
 ```python
 "A001,R001,02-00-00,Test-Station,456NQR,BMT,09-23-23,REGULAR,16:54:00,140,153"
 ```
 
-We should notice that the amount of commuters is massive, so these messages already have a level of aggregation. But they are not aggregated every four hours as the batch process does. 
+It's important to note that the number of commuters is substantial, indicating a certain level of aggregation in these messages. However, they aren't aggregated every four hours, as the batch process does.
 
-After the files messages are aggregated, the files should then push to the data lake where our data warehouse process can pick them up and process the information.
+Once these message files are aggregated, they are then pushed to the data lake. Subsequently, our data warehouse process can pick them up and proceed with the necessary information processing.
 
 ## Review the Code
 
-For us to make this work, we need to write a Kafka producer and a Spark Kafka consumer. We write these components using Python. Let's first look at the core features of the producer:
+To enable this functionality, we need to develop a Kafka producer and a Spark Kafka consumer, both implemented in Python. Let's begin by examining the fundamental features of the producer:
 
-> 👉 Clone this repo or copy the files from this folder [Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
+> 👉 Clone this repository or copy the files from this folder [Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
 
 ### Kafka Producer
 
-The Kafka producer is a Python application that generates messages every 10 seconds. The `produce_messages` function, uses the messages from the provider, and sends the serialized data to a Kafka topic
+The Kafka producer is a Python application designed to generate messages every 10 seconds. The `produce_messages` function utilizes messages from the provider and sends the serialized data to a Kafka topic.
 
 ```python
 
@@ -341,7 +341,7 @@ class KafkaProducer:
 
 ```
 
-This class leverages the Confluent Kafka library for interacting with Kafka. It encapsulates the logic for producing messages to a Kafka topic. It relies on external configurations, message providers, and serialization functions. The produce_messages method is designed to run continuously until interrupted. The delivery_report method is a callback function to report the success or failure of message delivery. 
+This class utilizes the Confluent Kafka library for seamless interaction with Kafka. It encapsulates the logic for producing messages to a Kafka topic, relying on external configurations, message providers, and serialization functions. The `produce_messages` method is crafted to run continuously until interrupted, while the `delivery_report` method serves as a callback function, reporting the success or failure of message delivery.
 
 ```python
 @flow (name="MTA Data Stream flow", description="Data Streaming Flow")
@@ -376,23 +376,23 @@ if __name__ == "__main__":
 
 ```
 
-The `main` block serves as the entry point, where an argument parser is defined to capture the topic and Kafka configuration path from the command line. The script then invokes the `main_flow` function with the provided arguments.
+The `main` block acts as the entry point, featuring an argument parser that captures the topic and Kafka configuration path from the command line. The script then invokes the `main_flow` function with the provided arguments.
 
-The `main_flow` function is annotated with `@flow` and serves as the main entry point for the flow. This flow configuration is enable us to track the flow with our Prefect cloud monitor system. It takes parameters (`topic` and `config_path`) and initializes a Kafka producer using the provided configuration path and topic. 
+The `main_flow` function is annotated with `@flow` and functions as the primary entry point for the flow. This flow configuration enables us to monitor the flow using our Prefect Cloud monitoring system. It takes parameters (`topic` and `config_path`) and initializes a Kafka producer using the provided configuration path and topic.
 
 
-> 👉 The data generated from this producer uses dummy data. The MTA system does not have a real-time feed for the turnstile data. 
+> 👉 The data generated by this producer uses dummy data. It's important to note that the MTA system lacks a real-time feed for the turnstile data.
 
 ### Spark - Kafka Consumer
 
-The Spark PySpark application listens to a Kafka topic to get the messages. It parses the messages and uses a schema to define the fields and their types.  Since these messages come in every ten seconds, we would like to aggregate the messages in a time-span duration of five minutes. This amount of minutes that need to be defined based on the solution requirements. For our purposes, it aligns well with our current data pipeline flow because these aggregated messages can then be serialized into compress CSV file and loaded into the data lake, so the data warehouse incremental process can merge the information into our data warehouse.
+The Spark PySpark application listens to a Kafka topic to retrieve messages. It parses these messages using a predefined schema to define the fields and their types. Since these messages arrive every ten seconds, our goal is to aggregate them within a time-span duration of five minutes. The specific duration can be defined based on solution requirements, and for our purposes, it aligns seamlessly with our current data pipeline flow. The aggregated messages are then serialized into compressed CSV files and loaded into the data lake. Subsequently, the data warehouse incremental process can merge this information into our data warehouse.
 
-Our Spark application consists of the following components:
+Our Spark application comprises the following components:
 
 - Spark Setting class
-- Spark consumer class
-- Main application entry
-  - Prefect libraries for flow monitor
+- Spark Consumer class
+- Main Application Entry
+  - Prefect libraries for flow monitoring
   - Prefect component for accessing the data lake
   - Access to the data lake
 
@@ -460,7 +460,7 @@ class SparkSettings:
 
 ```
 
-The Spark setting class handles the loading of the Kafka settings. This enables Spark to connect to a Kafka topic and receive the messages.
+The Spark Setting class manages the configuration for connecting to a Kafka topic and receiving messages within Spark.
 
 #### Spark Consumer Class  
 
@@ -538,13 +538,13 @@ class SparkConsumer:
         return df_windowed   
 ```
 
-The Spark consumer class initializes the consumer by loading the Kafka settings, reading from the data stream, parsing the message and finally aggregating the information using the various categorical fields from the data. 
+The Spark consumer class initiates the consumer by loading the Kafka settings, reading from the data stream, parsing the messages, and ultimately aggregating the information using various categorical fields from the data.
 
-Thw `agg_messages` function is designed to perform windowed aggregations on a DataFrame containing message data. It takes three parameters: df, the input DataFrame with message information; window_duration, specifying the duration of each aggregation window in minutes; and window_slide, indicating the sliding interval for the window. The function ensures that the 'TIMESTAMP' column is in the correct timestamp format, and then applies windowed aggregations based on AC, UNIT, STATION, DATE, and DESC columns. The resulting DataFrame includes aggregated entries and exits for each window and group, providing insights into the patterns of activity over specified time intervals. The function also prints the schema of the resulting DataFrame, making it convenient for users to understand the structure of the aggregated data.
+The `agg_messages` function is crafted to perform windowed aggregations on a DataFrame containing message data. It requires three parameters: `df` (the input DataFrame with message information), `window_duration` (specifying the duration of each aggregation window in minutes), and `window_slide` (indicating the sliding interval for the window). The function ensures the 'TIMESTAMP' column is in the correct timestamp format and applies windowed aggregations based on 'AC', 'UNIT', 'STATION', 'DATE', and 'DESC' columns. The resulting DataFrame includes aggregated entries and exits for each window and group, providing insights into activity patterns over specified time intervals. The function also prints the schema of the resulting DataFrame, making it convenient for users to understand the structure of the aggregated data.
 
-> 👉 The `agg_messages` function ensures that the timestamp from the data has the correct Spark timestamp format. If this format is incorrect, Spark will not be able to aggregate the messages, and the results will be empty data files.
+> 👉 The `agg_messages` function verifies that the timestamp from the data is in the correct Spark timestamp format. An incorrect format will prevent Spark from aggregating the messages, resulting in empty data files.
 
-#### Main application entry
+#### Main application entry point
 
 ```python
 # @task(name="Stream write GCS", description='Write stream file to GCS', log_prints=False)
@@ -707,7 +707,7 @@ if __name__ == "__main__":
     print('end')
 
 ```
-This is a summary of the functions:
+This is a summary of the main application to start the consumer application:
 
 - **`stream_write_gcs`**
    - **Purpose:** Uploads a local Parquet file to Google Cloud Storage (GCS).
@@ -734,17 +734,17 @@ This is a summary of the functions:
    - **Prefect Cloud Monitoring:** Marked as a Prefect flow (`@flow`) for orchestration and monitoring.
 
 - **Main Entry Point:**
-   - **Purpose:** Parses command-line arguments and invokes the `main_flow` function to execute the streaming data processing.   
+   - **Purpose:** Parses command-line arguments and invokes the `main_flow` function to execute the streaming data processing.
 
-> 👉 These decorators (`@flow` and `@task`) are used for Prefect Cloud Monitoring, orchestration, and task management.
+> 👉 These decorators (`@flow` and `@task`) are employed for Prefect Cloud Monitoring, orchestration, and task management.
 
 ## How to runt it!
 
-We all the requirements completed, and the code review done, ee are ready to run our solution. Let's follow these steps, so that our apps can run properly.
+With all the requirements completed and the code review done, we are ready to run our solution. Let's follow these steps to ensure our apps run properly.
 
-### Start the container services
+### Start the Container Services
 
-The container services can be started from the command line by running these scripts:
+Initiate the container services from the command line by executing the following script:
 
 ```bash
 $ bash start_services.sh
@@ -752,11 +752,11 @@ $ bash start_services.sh
 
 ### Install dependencies and run the apps
 
-> 👉 These applications depend on the Kafka and Spark services to be running. Make sure to start those services first.
+> 👉 These applications depend on the Kafka and Spark services to be running. Ensure to start those services first.
 
 #### Kafka Producer 
 
-The producer can be executed with this command line:
+Execute the producer with the following command line:
 
 ```bash
 $ bash start_producer.sh
@@ -788,13 +788,11 @@ python3 program.py --topic mta-turnstile --config ~/.kafka/docker-kafka.properti
 # Display a message indicating completion
 echo "Kafka producer started within the virtual environment."
 ```
-
-This script checks for the existence of a virtual environment (.venv). If not present, it creates a new virtual environment using Python's venv module. The script installs the required Python dependencies listed in requirements.txt. Finally, it executes the Kafka producer script `program.py` with specific parameters such as the Kafka topic `mta-turnstile` and configuration file `~/.kafka/docker-kafka.properties`.
-
+This script checks for the existence of a virtual environment (.venv). If not present, it creates a new virtual environment using Python's venv module. The script installs the required Python dependencies listed in requirements.txt. Finally, it executes the Kafka producer script `program.py` with specific parameters, such as the Kafka topic `mta-turnstile` and the configuration file `~/.kafka/docker-kafka.properties`.
 
 #### Spark - Kafka Consumer
 
-The Spark consumer can be executed from the command line:
+Execute the Spark consumer from the command line:
 
 ```bash
 $ bash start_consumer.sh
@@ -830,7 +828,8 @@ echo "Spark program submitted to Spark cluster within the virtual environment."
 # deactivate
 
 ```
-This script also uses the Pythons's venv module to create venv and install the dependencies from the requirements.txt file. The scripts call `submit-program.sh` to submit the job to SparkMaster. `program.py` is then executed under the Spark context.
+
+This script also utilizes Python's venv module to create a virtual environment and install dependencies from the requirements.txt file. The script calls `submit-program.sh` to submit the job to SparkMaster, and `program.py` is then executed under the Spark context.
 
 - **submit-program.sh script**
 
@@ -859,43 +858,44 @@ spark-submit --num-executors 2 \
 
 ```
 
-The `submit-program.sh` script uses spark-submit to submit the PySpark job ($PYTHON_JOB) to a Spark cluster for execution. The Key configuration parameters for Spark submission are set, such as the number of executors, executor memory, executor cores, and required Spark packages (dependencies). This job runs under a Spark session, so it can consume the Kafka Data stream.
+The `submit-program.sh` script utilizes `spark-submit` to submit the PySpark job (`$PYTHON_JOB`) to a Spark cluster for execution. Key configuration parameters for Spark submission, such as the number of executors, executor memory, executor cores, and required Spark packages (dependencies), are set. This job operates under a Spark session, allowing it to consume the Kafka data stream.
 
 ### Execution Results
 
-Once the producer and consumer are running, we should see the following results:
+After the producer and consumer are running, the following results should be observed:
 
 ### Kafka Producer Log
 
-![Data Engineering Process Fundamentals - Data Streaming Kafka Producer Log](../../assets/2024/ozkary-data-engineering-process-stream-kafka-log.png "Data Engineering Process Fundamentals - Data Streaming Kafka Producer Log")
+![Data Engineering Process Fundamentals - Data Streaming Kafka Producer Log](images/ozkary-data-engineering-process-stream-kafka-log.png "Data Engineering Process Fundamentals - Data Streaming Kafka Producer Log")
 
-As messages are sent by the producer, we should see the activity from the console or log file. 
+As messages are sent by the producer, we should observe the activity in the console or log file.
+
 
 ### Spark Consumer Log
 
-![Data Engineering Process Fundamentals - Data Streaming Spark Consumer Log](../../assets/2024/ozkary-data-engineering-process-stream-spark-log.png "Data Engineering Process Fundamentals - Data Streaming Spark Consumer Log")
+![Data Engineering Process Fundamentals - Data Streaming Spark Consumer Log](images/ozkary-data-engineering-process-stream-spark-log.png "Data Engineering Process Fundamentals - Data Streaming Spark Consumer Log")
 
-Sparks parses the messages in real-time by showing the message schemas for both the single message from Kafka and the aggregated message. Once the time window is complete, it serializes the message from memory into a compress CSV file.
+Spark parses the messages in real-time, displaying the message schemas for both the individual message from Kafka and the aggregated message. Once the time window is complete, it serializes the message from memory into a compressed CSV file.
 
 ### Cloud Monitor
 
-![Data Engineering Process Fundamentals -  Data Streaming Cloud Monitor](../../assets/2024/ozkary-data-engineering-process-stream-prefect-monitor.png "Data Engineering Process Fundamentals - Cloud Monitor")
+![Data Engineering Process Fundamentals -  Data Streaming Cloud Monitor](images/ozkary-data-engineering-process-stream-prefect-monitor.png "Data Engineering Process Fundamentals - Cloud Monitor")
 
-As the application run, the flows and tasks are tracked on our cloud console. This is used to monitor failures.
+As the application runs, the flows and tasks are tracked on our cloud console. This tracking is utilized to monitor for any failures.
 
 ### Data Lake Integration
 
-![Data Engineering Process Fundamentals -  Data Streaming Data Lake](../../assets/2024/ozkary-data-engineering-process-stream-data-lake.png "Data Engineering Process Fundamentals - Data Lake")
+![Data Engineering Process Fundamentals -  Data Streaming Data Lake](images/ozkary-data-engineering-process-stream-data-lake.png "Data Engineering Process Fundamentals - Data Lake")
 
-As the data aggregation is serialized, a compressed CSV file is uploaded to the data lake with the purpose to make it visible to our data warehouse integration process.
+Upon serializing the data aggregation, a compressed CSV file is uploaded to the data lake with the purpose of making it visible to our data warehouse integration process.
 
 ### Data Warehouse Integration
 
-![Data Engineering Process Fundamentals -  Data Streaming Data Warehouse](../../assets/2024/ozkary-data-engineering-process-stream-data-warehouse.png "Data Engineering Process Fundamentals - Data Warehouse")
+![Data Engineering Process Fundamentals -  Data Streaming Data Warehouse](images/ozkary-data-engineering-process-stream-data-warehouse.png "Data Engineering Process Fundamentals - Data Warehouse")
 
-Once the data has made to the data lake, we can now run the integration from the data warehouse. A quick way to check is to query the external table by using the test station name.
+Once the data has been transferred to the data lake, we can initiate the integration from the data warehouse. A quick way to check is to query the external table using the test station name.
 
-> 👉 Our weekly batch process is scheduled once per week. Since in a data stream use case. the data comes in with more frequency, we need to update the schedule to hourly or a minute windows. 
+> 👉 Our weekly batch process is scheduled once per week. However, in a data stream use case, where the data arrives more frequently, we need to update the schedule to an hourly or minute window.
 
 ## Deployment
 
@@ -908,9 +908,9 @@ For our deployment process, we can follow these steps:
 
 ### Define the Docker files for each component
 
-For each deployment, we want to run our applications using a Docker container. In each application folder, we can find a Dockerfile. This file installs the application dependencies, copy the files and runs the specific command to load the application.
+To facilitate each deployment, we aim to run our applications within a Docker container. In each application folder, you'll find a Dockerfile. This file installs the application dependencies, copies the necessary files, and runs the specific command to load the application.
 
-> 👉 We should note that in these files, we are using the `VOLUME` command to enables us to map a VM hosting folder to an image folder. The goal here is to share a common configuration file for the containers.
+> 👉 Noteworthy is the use of the `VOLUME` command in these files, enabling us to map a VM hosting folder to an image folder. The objective is to share a common configuration file for the containers.
 
 - Kafka Producer Docker file
 
@@ -984,13 +984,12 @@ CMD ["/bin/bash", "submit-program.sh", "program.py", "/config/docker-kafka.prope
 
 ### Build and push the apps to DockerHub
 
-To build the apps in Docker containers, we can run the following script:
+To build the apps in Docker containers, execute the following script:
 
 ```bash
 $ bash build_push_apps.sh
 ```
-
-This script enables the access into DockerHub. It builds the Docker images using the Docker files in each folder, kafka/python, spark. After the the image is built, it is pushed to DockerHub, so we can later pull it during a deployment.
+This script provides access to DockerHub. It builds Docker images using the Docker files in each folder (kafka/python, spark). After the image is built, it is pushed to DockerHub, allowing us to later pull it during deployment.
 
 - **build_push_apps.sh script**
 
@@ -1029,7 +1028,7 @@ docker logout
 
 ### Deploy the Kafka and Spark services
 
-For Kafka and Spark services, we are using the predefined bitnami images from DockerHub. We can deploy those images by running this script on the target environment:
+For Kafka and Spark services, we are utilizing predefined Bitnami images from DockerHub. Deploy these images by running the following script on the target environment:
 
 ```bash
 $ bash deploy_kafka_spark.sh
@@ -1053,19 +1052,20 @@ docker-compose -f docker/docker-compose-bitnami.yml up -d
 echo "System dependencies deployed and containers are running!"
 
 ```
-This script uses a docker compose file to pull the bitnami images and then run them. 
+
+This script utilizes a Docker Compose file to pull the Bitnami images and subsequently run them.
 
 > 👉 Docker Compose is a tool for defining and running multi-container Docker applications. It can define the services, networks, and volumes needed for the application in a single docker-compose.yml file.
 
 ### Deploy the Kafka producer and Spark consumer apps
 
-Once the app images are available from DockerHub, we can run our deployment against a new environment by running this script:
+Once the app images are available from DockerHub, initiate the deployment against a new environment by executing this script:
 
 ```bash
 $ bash deploy_publisher_consumer_apps.sh
 ```
 
-This script pulls the app images from DockerHub and runs them independently. We use the `V` parameter to share with the Docker container the VM's Kafka configuration. These enables both images to map a volume `/config` in the image with a folder location outside the image.
+This script pulls the app images from DockerHub and runs them independently. The `-v` parameter is used to share the Kafka configuration from the VM with the Docker container. This allows both images to map a volume `/config` in the image to a folder location outside the image.
 
 - **deploy_publisher_consumer_apps.sh script**
 
@@ -1093,13 +1093,13 @@ echo "Deployment and container setup complete!"
 
 ## Github Actions - Branch to Environment
 
-We previously talked about all the bash scripts that we can manually run to build and deploy our application. This approach may not be acceptable and our process, and we may want to create a more mature approach. For that, we can leverage GitHub actions.
+We previously discussed the bash scripts that can be manually run to build and deploy our application. However, this approach may not be acceptable for our process, and we might want to create a more mature approach. To achieve this, we can leverage GitHub Actions.
 
-> 👉  GitHub Actions is a CI/CD (Continuous Integration/Continuous Deployment) service provided by GitHub. It allows us to automate workflows, helping us build, test, and deploy our code directly from a repo.
+> 👉 GitHub Actions is a CI/CD (Continuous Integration/Continuous Deployment) service provided by GitHub. It allows us to automate workflows, helping build, test, and deploy our code directly from a repository.
 
-To trigger our GitHub workflow, we can associate a branch with a particular environment or deployment target as a common practice. This approach allows us to organize workflows based on different branches pull requests, each corresponding to a specific environment, deployment, or set of actions.
+To trigger our GitHub workflow, we can associate a branch with a particular environment or deployment target, as is common practice. This approach allows us to organize workflows based on different branch pull requests, each corresponding to a specific environment, deployment, or set of actions.
 
-Workflows to deploy the Bitnami Kafka and Spark images as well as the App images could implemented like this:
+Workflows to deploy the Bitnami Kafka and Spark images, as well as the app images, could be implemented like this:
 
 1. **Workflow for Deploying Bitnami Images:**
    - Create a branch (e.g., `deploy-bitnami`).
@@ -1161,16 +1161,22 @@ Workflows to deploy the Bitnami Kafka and Spark images as well as the App images
              ./$PROJECT_FOLDER/deploy_publisher_consumer_apps.sh
    ```
 
-This script builds the apps images by calling our `build_push_apps.sh` script. It then runs the `deploy_publisher_consumer_apps.sh` script. When we need to deploy the Bitnami images, push changes to the `deploy-bitnami` branch. Similarly, for deploying app images, push changes to the `deploy-apps` branch. This should trigger the action and run the deployments.
+This script builds the app images by invoking our `build_push_apps.sh` script and then runs the `deploy_publisher_consumer_apps.sh` script. When deploying the Bitnami images, push changes to the `deploy-bitnami` branch. Similarly, for deploying app images, push changes to the `deploy-apps` branch. This should trigger the action and execute the deployments.
+
+## Deployment Strategy
+
+In this guide, we've explored a two-fold approach to deploying our Kafka and Spark-based data streaming solution. Initially, we used the manual deployment process, demonstrating how to execute bash scripts for building and deploying our application. This hands-on method provides a detailed understanding of the steps involved, giving users complete control over the deployment process.
+
+Moving forward, we showcased a more streamlined and automated approach by integrating GitHub Actions into our workflow. By leveraging GitHub Actions, we can trigger builds and deployments with a simple push to dedicated branches (`deploy-bitnami` and `deploy-apps`). This automation not only simplifies the deployment process but also enhances efficiency, ensuring consistency across environments.
+
+### Cloud Deployment Considerations
+
+It's important to note that while we've covered a local deployment setup and a GitHub Action, deploying on a cloud provider environment involves additional considerations. Cloud platforms offer scalable infrastructure, managed services, and other cloud-native features that can further optimize our solution's performance, resilience, and ease of management. Future iterations may explore adapting this solution to cloud environments for enhanced flexibility and scalability.
+
+By combining both manual and automated deployment approaches, we've equipped you with the knowledge to choose the deployment strategy that best aligns with your project requirements and preferences.
 
 ## Summary
 
-The integration of Kafka and Spark in a data streaming architecture involves producers publishing data to Kafka topics, consumers subscribing to these topics, Spark consuming data from Kafka, parsing and aggregating messages, and finally, writing the processed data to a data lake or other storage for further processing. 
+The integration of Kafka and Spark in a data streaming architecture involves producers publishing data to Kafka topics, consumers subscribing to these topics, Spark consuming data from Kafka, parsing and aggregating messages, and finally, writing the processed data to a data lake or other storage for further processing.
 
-After the data is made available on the data lake, the data warehouse process can now pick up the new files and continue its incremental update process, thus reflecting ultimately on the analysis and visualization layer. This architecture enables real-time data processing and analytics in a scalable and fault-tolerant manner.
-
-Thanks for reading.
-
-Send question or comment at Twitter @ozkary
-
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+Once the data is available in the data lake, the data warehouse process can pick up the new files and continue its incremental update process, ultimately reflecting on the analysis and visualization layer. This architecture enables real-time data processing and analytics in a scalable and fault-tolerant manner.
