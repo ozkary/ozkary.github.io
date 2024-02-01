@@ -869,7 +869,7 @@ RUN chmod +x submit-program.sh
 CMD ["/bin/bash", "submit-program.sh", "program.py", "/config/docker-kafka.properties"]
 
 # push the ~/.kafka/docker-kafka.properties to the target machine
-# run as to map the volumne to the target machine:
+# run as to map the volume to the target machine:
 # docker run -v ~/.kafka:/config your-image-name
 
 ```

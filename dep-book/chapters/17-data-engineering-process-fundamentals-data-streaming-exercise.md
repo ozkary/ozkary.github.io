@@ -977,7 +977,7 @@ RUN chmod +x submit-program.sh
 CMD ["/bin/bash", "submit-program.sh", "program.py", "/config/docker-kafka.properties"]
 
 # push the ~/.kafka/docker-kafka.properties to the target machine
-# run as to map the volumne to the target machine:
+# run as to map the volume to the target machine:
 # docker run -v ~/.kafka:/config your-image-name
 
 ```
@@ -1162,6 +1162,8 @@ Workflows to deploy the Bitnami Kafka and Spark images, as well as the app image
    ```
 
 This script builds the app images by invoking our `build_push_apps.sh` script and then runs the `deploy_publisher_consumer_apps.sh` script. When deploying the Bitnami images, push changes to the `deploy-bitnami` branch. Similarly, for deploying app images, push changes to the `deploy-apps` branch. This should trigger the action and execute the deployments.
+
+> 👉 It's important to note that while we've covered a local and a GitHub Action deployment, deploying on a cloud provider environment involves additional considerations.
 
 ## Deployment Strategy
 
