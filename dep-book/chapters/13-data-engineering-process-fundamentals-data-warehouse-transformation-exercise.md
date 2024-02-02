@@ -18,6 +18,8 @@ toc: true
 ---
 # Data Warehouse and Modeling - Exercise
 
+---
+
 In this hands-on lab, we build upon our data engineering process where we previously focused on defining a data pipeline orchestration process. Now, we should focus on storing and making the data accessible for visualization and analysis. So far, our data is stored in a Data Lake, while Data Lakes excel at handling vast volumes of data, they are not optimized for query performance, so our step is to enable the bulk data processing and analytics by working on our Data Warehouse (DW).
 
 During this exercise, we delve into the data warehouse design and implementation step, crafting robust data models, and designing transformation tasks. We explore how to efficiently load, cleanse, and merge data, ultimately creating dimension and fact tables. Additionally, we discuss areas like query performance, testability, and source control of our code, ensuring a reliable and scalable data solution. By leveraging incremental models, we continuously update our data warehouse with only the deltas (new updates), optimizing query performance and enhancing the overall data pipeline. By the end, we have a complete data pipeline, taking data from CSV to our data warehouse, equipped for seamless visualization and analysis.
@@ -30,7 +32,7 @@ A data warehouse is an OLAP system, which serves as the central data repository 
 
 Before building the concrete tables, our initial focus is on creating precise data models based on thorough analysis and specific requirements. To achieve this, we leverage SQL (Structured Query Language) and tools that facilitate model development in an automated, testable, and repeatable manner. By incorporating such tools into our project, we build the data services area in which we manage the data modeling and transformation to expand our architecture into the following:
 
-![Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture-data-warehouse-architecture](images/ozkary-data-engineering-process-data-warehouse-architecture.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture](images/ozkary-data-engineering-process-data-warehouse-architecture.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Architecture")
 
 > 👉 For our use case, we are using [Google BigQuery](https://cloud.google.com/bigquery/) as our data warehouse system. Make sure to review the Data Engineering Process - Design and Planning section and run the Terraform script to provision this resource.
 
@@ -147,7 +149,7 @@ Before looking at the code, we need to setup our environment with all the necess
 
 > 👉 Clone this repo or copy the files from this folders: dbt and sql.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step4-Data-Warehouse")
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-warehouse.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-warehouse.png){height=6cm}
 
 - Must have CSV files in the data lake
 - Create a [dbt](https://www.getdbt.com/) cloud account  
@@ -729,7 +731,7 @@ All test should pass.
 $ dbt test
 ```
 
-![Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests](images/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests](images/ozkary-data-engineering-process-data-warehouse-tests.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Tests"){height=80%}
 
 ### Build the models 
 

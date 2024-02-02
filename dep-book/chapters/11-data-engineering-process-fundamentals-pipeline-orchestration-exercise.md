@@ -14,11 +14,13 @@ toc: true
 ---
 # Data Pipeline and Orchestration - Exercise
 
-Once we have gained an understanding of data pipelines and their orchestration, along with the various programming options and technical tools at our disposal, we can proceed with the implementation and configuration of our own data pipeline. We have the flexibility to adopt either a code-centric approach, leveraging languages like Python, or a low-code approach, utilizing tools such as Azure Data Factory. This allows us to evaluate and compare the effectiveness of each approach based on our team's expertise and the operational responsibilities involved. Before diving into the implementation, let's first review our pipeline process to ensure a clear road map for our journey ahead.
+---
+
+Now that we have gained an understanding of data pipelines and their orchestration, along with the various programming options and technical tools at our disposal, we can proceed with the implementation and configuration of our own data pipeline. We have the flexibility to adopt either a code-centric approach, leveraging languages like Python, or a low-code approach, utilizing tools such as Azure Data Factory. This allows us to evaluate and compare the effectiveness of each approach based on our team's expertise and the operational responsibilities involved. Before diving into the implementation, let's first review our pipeline process to ensure a clear road map for our journey ahead.
 
 ## Data Flow Process
 
-![Data Engineering Process Fundamentals - Pipeline and Orchestration Flow](images/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow")
+![Data Engineering Process Fundamentals - Pipeline and Orchestration Flow](images/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "Data Engineering Process Fundamentals - Pipeline and Orchestration Flow"){height=80%}
 
 Our basic data flow can be defined as the following:
 
@@ -83,9 +85,10 @@ Before we get started, we need to setup our environment with all the necessary d
 
 > 👉 Clone this repo or copy the files from this folder [Pipeline](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step3-Orchestration/)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-pipeline.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-pipeline.png){height=6cm}
 
 ### Prefect Configuration
+
 - Install the Python libraries using the requirements file from the repo
   
 ```bash
@@ -637,7 +640,7 @@ $ prefect deployments ls
 ```
 > 👍 Scheduled jobs can also be managed from the cloud dashboards
 
-![Data Engineering Process Fundamentals- Pipeline Jobs](images/ozkary-data-engineering-pipeline-job.png "Data Engineering Process Fundamentals- Pipeline Jobs")
+![Data Engineering Process Fundamentals- Pipeline Jobs](images/ozkary-data-engineering-pipeline-job.png "Data Engineering Process Fundamentals- Pipeline Jobs"){height=80%}
 
 ### Start the Prefect agent
 The agent should be running, so the scheduled deployments can be executed. If the image Docker image is not downloaded yet, it is downloaded, so the code can be executed.

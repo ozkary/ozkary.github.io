@@ -19,15 +19,18 @@ toc: true
 ---
 # Data Analysis and Visualization - Exercise
 
+---
+
 Data analysis and visualization are fundamental to a data-driven decision-making process. To grasp the best strategy for our scenario, we delve into the data analysis and visualization phase of the process, making data models, analyzes and diagrams that allow us to tell stories from the data.
 
 With the understanding of best practices for data analysis and visualization, we start by creating a code-based dashboard using Python, Pandas and Plotly. We then follow up by using a high-quality enterprise tool, such as Looker, to construct a low-code cloud-hosted dashboard, providing us with insights into the type of effort each method takes.
 
 > 👍 This is a dashboard created with Looker. Similar dashboards can be created with PowerBI and Tableau
 
+
 ![Data Engineering Process Fundamentals - Analysis and Visualization Dashboard](images/ozkary-data-engineering-process-data-analysis-visualization-dashboard.png "Data Engineering Process Fundamentals - Analysis and Visualization Dashboard")
 
-Once we have designed our dashboard, we can align it with our initial requirements and proceed to formulate the data analysis conclusions, thereby facilitating informed business decisions for stakeholders. However, before delving into coding, let's commence by reviewing the data analysis specifications, which provide the blueprint for our implementation effort.
+After we have designed our dashboard, we can align it with our initial requirements and proceed to formulate the data analysis conclusions, thereby facilitating informed business decisions for stakeholders. However, before delving into coding, let's commence by reviewing the data analysis specifications, which provide the blueprint for our implementation effort.
 
 ## Specifications
 
@@ -337,7 +340,7 @@ These are the requirements to be able to run the Python dashboard.
 
 > 👉 Clone this repo or copy the files from this folder. We could also create a GitHub CodeSpace and run this online. [Analysis](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=6cm}
 
 - Use the analysis_data.csv file for test data
   - Use the local file for this implementation
@@ -459,9 +462,9 @@ After following all the specification, we should be able to preview the dashboar
 
 > 👉 [View the mobile dashboard online](https://lookerstudio.google.com/s/qv_IQAC-gKU)
 
-This is a an image of the mobile dashboard.
+- This is a an image of the mobile dashboard
 
-![Data Engineering Process Fundamentals - Analysis and Visualization Mobile Dashboard](images/ozkary-data-engineering-process-analysis-visualization-looker-mobile.png "Data Engineering Process Fundamentals - Analysis and Visualization Mobile Dashboard")
+![Data Engineering Process Fundamentals - Analysis and Visualization Mobile Dashboard](images/ozkary-data-engineering-process-analysis-visualization-looker-mobile.png "Data Engineering Process Fundamentals - Analysis and Visualization Mobile Dashboard"){height=80%}
 
 
 ## Data Analysis Conclusions

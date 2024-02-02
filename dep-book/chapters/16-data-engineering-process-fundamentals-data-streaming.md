@@ -317,3 +317,5 @@ Kafka and Spark, work together seamlessly to enable real-time data processing an
 ## Exercise - Data Streaming with Apache Kafka
 
 Armed with the mechanics of the technologies and data streaming strategies that power real-time solutions, let's break new ground with a hands-on coding exercise! We'll embark on an immersive journey to forge an Apache Kafka producer and Apache Spark consumer integration, showcasing how seamless data flows between these technologies and into our data lake.
+
+---

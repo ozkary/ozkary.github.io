@@ -15,7 +15,9 @@ toc: true
 
 # Discovery Process - Exercise
 
-In this discovery exercise lab, we review a problem statement and do the analysis to define the scope of work and requirements. Preliminary data analysis must be done by downloading some sample files with Python and running some queries using Jupyter Notebook. 
+---
+
+In this discovery exercise lab, we examine a problem statement, conduct a thorough analysis to define the scope of work and requirements. Initial data analysis is performed by downloading sample files using Python and conducting data analysis through Jupyter Notebook.
 
 ## Problem Statement
 
@@ -122,11 +124,11 @@ These observations can be used to define technical requirements that can enable 
 
 ## Review the Code
 
-In order to do our data analysis, we need to first download some sample data by writing a Python script. We can the analyze this data by writing some code snippets and use the power of the Python Pandas library. We can also use Jupyter Notebooks to quickly manipulate the data and create some charts that can help us as baseline requirements for the final visualization dashboard.
+To facilitate our data analysis, the initial step involves downloading sample data through a Python script. Subsequently, we analyze this data using code snippets, harnessing the capabilities of the Python Pandas library. Additionally, Jupyter Notebooks are employed for efficient data manipulation and the creation of charts, serving as baseline requirements for the final visualization dashboard.
 
 >👉 Clone this repo or copy the files from this folder  [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){height=6cm}
 
 ### Download a CSV File from the MTA Site
 
@@ -251,14 +253,17 @@ if __name__ == '__main__':
 ```
 ### Analyze the Data
 
-With some sample data, we can now take a look at the data and make some observations. There are a few ways to approach the analysis. We could create another Python script and play with the data, but this will require to run the script from the console after every code change. A more productive way is to use Jupyter Notebooks. This tools enables us to edit and run code snippets in cells without having to run the entire script. This is a friendlier analysis tool that can help us focus on the data analysis instead of coding and running the script. In addition, once we are good with our changes, the notebook can be exported into a Python file. Let's look at that file discovery.ipynb:
+With our sample data in hand, let's delve into the analysis. There are various approaches to this task. While we could create another Python script to manipulate the data, this would require running the script from the console after each code change. A more efficient method is to utilize Jupyter Notebooks. This tool allows us to edit and run code snippets in cells without executing the entire script. Serving as a user-friendly analysis tool, Jupyter Notebooks enable us to focus on data analysis without the need for constant coding and script execution. Furthermore, once satisfied with our changes, the notebook can be exported into a Python file. Let's explore the contents of the 'discovery.ipynb' file:
 
 ```python
+# Standard library imports
 import os
 import argparse
 from time import time
 from pathlib import Path
-import pandas as pd 
+
+# Load other libraries
+import pandas as pd     
 
 # read the file and display the top 10 rows
 df = pd.read_csv('../data/230318.csv.gz', iterator=False,compression="gzip")
@@ -267,7 +272,37 @@ df.head(10)
 # Create a new DateTime column and merge the DATE and TIME columns
 df['CREATED'] =  pd.to_datetime(df['DATE'] + ' ' + df['TIME'], format='%m/%d/%Y %H:%M:%S')
 df = df.drop('DATE', axis=1).drop('TIME',axis=1)
-df.head(10)
+df.info(10)
+
+# Define the set of special characters you want to check for
+
+def has_special_characters(col, special_characters):
+    # Check if any character in the column name is not alphanumeric or in the specified set
+    return any(char in special_characters for char in col)
+
+def rename_columns(df, special_characters_set):
+    # Create a mapping of old column names to new column names
+    mapping = {col: ''.join(char for char in col if char.isalnum() or char not in special_characters_set) for col in df.columns}
+
+    print(mapping)
+    # Rename columns using the mapping
+    df_renamed = df.rename(columns=mapping)
+    
+    return df_renamed
+
+# Define the set of special characters you want to check for
+special_characters_set = set('@#$%/')
+
+# Identify columns with special characters
+columns_with_special_characters = [col for col in df.columns if has_special_characters(col, special_characters_set)]
+
+# Print the result
+print("Columns with special characters:", columns_with_special_characters)
+
+# Identify columns with special characters and rename them
+df = rename_columns(df, special_characters_set)
+
+print(df.info())
 
 # Aggregate the information by station and datetime
 df["ENTRIES"] = df["ENTRIES"].astype(int)
@@ -306,49 +341,72 @@ With an understanding of the code and tools, let's run the process.
 
 ### Requirements
 
-> 👉 [Install **Python, Pandas, and Jupyter notebook**](https://github.com/ozkary/data-engineering-mta-turnstiles/wiki/Configure-Python-Dependencies "_target=_python")
+Follow these links to install these tools:
 
-> 👉 [Install Visual Studio Code](https://code.visualstudio.com/download "_target=_vscode")
+- [Install **Python, Pandas, and Jupyter notebook**](https://github.com/ozkary/data-engineering-mta-turnstiles/wiki/Configure-Python-Dependencies "_target=_python")
 
-> 👉 [Clone this repo or copy the files from this folder](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery "_target=_github")
+- [Install Visual Studio Code](https://code.visualstudio.com/download "_target=_vscode")
+  - Install the Python extension for VSCode. This extension provides rich support for Python, including Jupyter Notebooks. You can install it from the Extensions view 
+  
+- [Clone this repo or copy the files from this folder](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery "_target=_github")
 
 ### Follow these steps to run the analysis
 
-- Download a file to look at the data
+- Download a file to look at the data by running the code from the command line
   - This should create a gz file under the ../data folder
+  
+```bash
+$ python3 mta_discovery.py --url http://web.mta.info/developers/data/nyct/turnstile/turnstile_230603.txt
+```
+  - Or use Jupyter notebook and use `wget` to download a file
 
 ```bash
-$ python3 mta_discovery.py --url http://web.mta.info/developers/data/nyct/turnstile/turnstile_230318.txt
+!wget http://web.mta.info/developers/data/nyct/turnstile/turnstile_230603.txt
 ```
-Run the Jupyter notebook (dicovery.ipynb) to do some analysis on the data. 
 
-- Load the Jupyter notebook to do analysis
-  - First start the Jupyter server from the terminal by typing
+#### Continue to run the Jupyter notebook (dicovery.ipynb) to do the data analysis
+
+- With VSCode open the Jupyter notebook to do analysis
+  - This should load the Python kernel (see top-right)
+
+![VSCode Python Kernel](images/ozkary-data-engineering-vscode-python.png "VSCode Python Kernel")
   
+  - If you are having problems with VSCode and you have installed Jupyter separately, start the Jupyter server from the terminal by typing  and then open the file
+
 ```bash
 $ jupyter notebook
 ```
-  - See the URL on the terminal and click it to load it on the browser
-    - Click the discovery.ipynb file link
-  - Or open the file with VSCode and enter the URL when prompted from a kernel url
   - Run every cell from the top down as this is required to load the dependencies
 
-The following images show Jupyter notebook loaded on the browser or directly from VSCode.
+### The following images show Jupyter notebook loaded on the browser or directly from VSCode.
 
 #### Jupyter Notebook loaded on the browser
 
+- List of files in the current directory
+  
 ![Data Engineering Process Fundamentals - Discovery](images/ozkary-data-engineering-jupyter-mta.png "Data Engineering Process - Discovery")
 
+- Loading a compressed file and showing the first ten records
 
-![MTA jupyter notebook loaded](images/ozkary-data-engineering-jupyter-notepbook.png "MTA jupyter notebook loaded")
+![MTA Jupyter Notebook](images/ozkary-data-engineering-jupyter-notepbook.png "MTA jupyter notebook")
 
 #### Using VSCode to load the data and create charts
 
-![MTA jupyter vscode](images/ozkary-data-engineering-jupyter-vscode.png "MTA jupyter vscode")
+- Loading a compressed CSV file and showing the data frame information
 
-#### Show the total entries by station using a subset of data using VSCode
+![MTA Data Frame Information](images/ozkary-data-engineering-jupyter-vscode-data-info.png "MTA Data Frame Information")
 
-![MTA jupyter donut chart](images/ozkary-data-engineering-jupyter-pie-chart.png "MTA jupyter donut chart")
+- Showing the first ten records
+  
+![MTA Jupyter VSCode Showing Data](images/ozkary-data-engineering-jupyter-vscode.png "MTA Few Records")
+
+- Distribution by station
+
+![MTA Jupyter Donut Chart](images/ozkary-data-engineering-jupyter-pie-chart.png "MTA jupyter donut chart")
+
+## Conclusion
+
+We've just wrapped up our discovery analysis by using a dataset from MTA. We leveraged Visual Studio Code (VSCode) and Jupyter Notebook to help us write code for the data discovery. Our mission was to delve into the data's details, make our observations, perform distribution analysis, and create some insightful charts using Plotly and Pandas. The aim? Running our discovery process, paving the way to pinpoint requirements for the next phase in the process, and building a solid understanding of the data. 
 
 ## Next Step
 

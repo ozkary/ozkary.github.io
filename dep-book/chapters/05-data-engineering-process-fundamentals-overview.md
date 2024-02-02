@@ -28,7 +28,7 @@ The end-goal of this book is to take us thru a process in which we deliver an ar
 
 We follow this process flow to gain a thorough understanding of each phase, focusing on building a strong foundation for the subsequent phases.
 
-![Data Engineering Process Fundamentals - Overview](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview")
+![Data Engineering Process Fundamentals - Overview](images/ozkary-data-engineering-process.png "Data Engineering Process - Overview"){height=80%}
 
 #### Solutions Architecture
 
@@ -40,7 +40,7 @@ We focus on design, planning, and architecture to establish a robust solutions a
 
 We implement a Python code-centric data pipeline, instrumenting the code for monitoring and orchestration. Additionally, we conduct a comparison between low-code solution data pipelines.
 
-![Data Engineering Process Fundamentals - Data Pipeline and Orschestration](images/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "ozkary-data-engineering-process-data-pipeline-orchestration")  
+![Data Engineering Process Fundamentals - Data Pipeline and Orchestration](images/ozkary-data-engineering-process-pipeline-orchestration-architecture.png "ozkary-data-engineering-process-data-pipeline-orchestration"){height=80%}  
 
  
 #### Data Warehouse Architecture
@@ -53,13 +53,13 @@ We advance by focusing on data and implementing a cloud-based data warehouse sys
 
 We harness the capabilities of our data warehouse for thorough data analysis and visualization using a cloud-based tool like Looker Studio. Throughout this process, we analyze the data using Python and Jupyter Notebook. Subsequently, we compare this approach with using Looker directly for a low-code alternative.
 
-![Data Engineering Process Fundamentals - Dashboard](images/ozkary-data-engineering-process-dashboard.png "ozkary-data-engineering-process-dashboard")
+![Data Engineering Process Fundamentals - Dashboard](images/ozkary-data-engineering-process-data-analysis-visualization-dashboard.png "ozkary-data-engineering-process-dashboard")
 
 #### Data Stream Flow
 
 We contrast our batch data pipeline approach with a real-time data streaming use case involving Apache Kafka and Apache Spark. By utilizing the data stream channel, we aggregate the data into our data lake. This enables the data warehouse data processing to ingest the information, leveraging the data pipeline we've previously constructed.
 
-![Data Engineering Process Fundamentals - Data Stream Flow](images/ozkary-data-engineering-process-dashboard.png "ozkary-data-engineering-process-data-stream-flow")
+![Data Engineering Process Fundamentals - Data Stream Flow](images/ozkary-data-engineering-process-data-streaming-design.png "ozkary-data-engineering-process-data-stream-flow")
 
 ## Process Phases
 
@@ -138,3 +138,5 @@ Streaming Data is a data source that sends messages with small content but with 
 ## Next Step
 
 Now that we're familiar with the high-level process, let's delve into the details of the discovery phase. This crucial step in our data engineering process empowers us to define the problem statement, establish requirements, and make insightful observations about the data.
+
+---

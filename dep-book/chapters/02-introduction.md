@@ -92,7 +92,7 @@ The title of this book, "Data Engineering Process Fundamentals," reflects our fo
 
 The scope of this book embraces the following areas, each accompanied by a corresponding GitHub project showcasing the relevant code.
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-home.png "Data Engineering Process Fundamentals GitHub Project"){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-home.png "Data Engineering Process Fundamentals GitHub Project"){height=6cm}
 
 - [Project Home Page](https://github.com/ozkary/data-engineering-mta-turnstile)
 - [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)

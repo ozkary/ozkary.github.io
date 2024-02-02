@@ -55,7 +55,7 @@ In summary, OLAP and OLTP serve different purposes in the database world. OLAP d
 
 A Data Warehouse is an OLAP system, which serves as the central data repository for historical and aggregated data. A data warehouse is designed to support complex analytical queries, reporting, and data analysis for Big Data use cases. It typically adopts a denormalized entity structure, such as a star schema or snowflake schema, to facilitate efficient querying and aggregations. Data from various OLTP sources is extracted, loaded and transformed (ELT) into the data warehouse to enable analytics and business intelligence. The data warehouse acts as a single source of truth for business users to obtain insights from historical data.
 
-![Data Engineering Process Fundamentals - Data Warehouse and Transformation Design](images/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Design")
+![Data Engineering Process Fundamentals - Data Warehouse and Transformation Design](images/ozkary-data-engineering-process-data-warehouse-design.png "Data Engineering Process Fundamentals - Data Warehouse and Transformation Design"){height=80%}
 
 ### ELT vs ETL
 
@@ -284,3 +284,5 @@ Moving on to the implementation phase, we focus on converting conceptual data mo
 ## Exercise - Data Warehouse Model and Transformation
 
 Equipped with the knowledge of data warehouse design and implementation, let's put theory into practice with a hands-on exercise. We'll build a cloud data warehouse system, harnessing our newfound skills to create a powerful and efficient analytical platform.
+
+---

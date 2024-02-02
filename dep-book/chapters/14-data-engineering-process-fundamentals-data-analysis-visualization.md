@@ -52,7 +52,7 @@ As an example of data profiling, we can inspect the average of arrivals and depa
 
 > 👉 Clone this repo or copy the files from this folder. Use the Jupyter Notebook file.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis")
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=6cm}
 
 ```python
 
@@ -342,3 +342,5 @@ In conclusion, the synergy between data analysis and visualization is pivotal fo
 ## Exercise - Data Analysis and Visualization
 
 With a better understanding of the data analysis and visualization process, let's take the next step and put these concepts into action through a hands-on exercise. In this lab, we'll seamlessly continue our data engineering journey by crafting a dashboard that flawlessly fulfills the requirements defined in the discovery phase.
+
+---

@@ -17,6 +17,8 @@ toc: true
 
 # Data Streaming - Exercise
 
+---
+
 Now that we've covered the concepts of data streaming, let's move forward with an actual coding exercise. During this exercise, we'll delve into building a Kafka message broker and a Spark consumer with the objective of having the Kafka message broker work as a data producer for our subway system information. The Spark consumer acts as a message aggregator and writes the results to our data lake. This allows the data modeling process to pick up the information and insert it into the data warehouse, providing seamless integration and reusing our already operational data pipeline.
 
 ## Batch Process vs Data Stream 
@@ -35,7 +37,7 @@ Therefore, we want to follow the same pipeline process and utilize what already 
 
 To deliver a data streaming solution, we typically employ a technical design illustrated as follows:
 
-![Data Engineering Process Fundamentals - Data Streaming Kafka Topics](images/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics")
+![Data Engineering Process Fundamentals - Data Streaming Kafka Topics](images/ozkary-data-engineering-process-data-streaming-messages.png "Data Engineering Process Fundamentals - Data Streaming Kafka Topics"){height=80%}
 
 - **Kafka**
   - Producer
@@ -65,7 +67,7 @@ To deliver a data streaming solution, we typically employ a technical design ill
 
 > 👉 Clone this repo or copy the files from this folder [Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-streaming.png){height=7cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-streaming.png){height=6cm}
 
 For our example, we will adopt a code-centric approach and utilize Python to implement both our producer and consumer components. Additionally, we'll require instances of Apache Kafka and Apache Spark to be running. To ensure scalability, we'll deploy these components on separate virtual machines (VMs). Our Terraform scripts will be instrumental in creating new VM instances for this purpose. It's important to note that all these components will be encapsulated within Docker containers.
 
@@ -864,34 +866,37 @@ The `submit-program.sh` script utilizes `spark-submit` to submit the PySpark job
 
 After the producer and consumer are running, the following results should be observed:
 
-### Kafka Producer Log
+#### Kafka Producer Log
 
 ![Data Engineering Process Fundamentals - Data Streaming Kafka Producer Log](images/ozkary-data-engineering-process-stream-kafka-log.png "Data Engineering Process Fundamentals - Data Streaming Kafka Producer Log")
 
 As messages are sent by the producer, we should observe the activity in the console or log file.
 
+#### Spark Consumer Log
 
-### Spark Consumer Log
 
 ![Data Engineering Process Fundamentals - Data Streaming Spark Consumer Log](images/ozkary-data-engineering-process-stream-spark-log.png "Data Engineering Process Fundamentals - Data Streaming Spark Consumer Log")
 
 Spark parses the messages in real-time, displaying the message schemas for both the individual message from Kafka and the aggregated message. Once the time window is complete, it serializes the message from memory into a compressed CSV file.
 
-### Cloud Monitor
+#### Cloud Monitor
+
 
 ![Data Engineering Process Fundamentals -  Data Streaming Cloud Monitor](images/ozkary-data-engineering-process-stream-prefect-monitor.png "Data Engineering Process Fundamentals - Cloud Monitor")
 
 As the application runs, the flows and tasks are tracked on our cloud console. This tracking is utilized to monitor for any failures.
 
-### Data Lake Integration
+#### Data Lake Integration
+
 
 ![Data Engineering Process Fundamentals -  Data Streaming Data Lake](images/ozkary-data-engineering-process-stream-data-lake.png "Data Engineering Process Fundamentals - Data Lake")
 
 Upon serializing the data aggregation, a compressed CSV file is uploaded to the data lake with the purpose of making it visible to our data warehouse integration process.
 
-### Data Warehouse Integration
+#### Data Warehouse Integration
 
-![Data Engineering Process Fundamentals -  Data Streaming Data Warehouse](images/ozkary-data-engineering-process-stream-data-warehouse.png "Data Engineering Process Fundamentals - Data Warehouse")
+
+![Data Engineering Process Fundamentals -  Data Streaming Data Warehouse](images/ozkary-data-engineering-process-stream-data-warehouse.png "Data Engineering Process Fundamentals - Data Warehouse"){height=80%}
 
 Once the data has been transferred to the data lake, we can initiate the integration from the data warehouse. A quick way to check is to query the external table using the test station name.
 
