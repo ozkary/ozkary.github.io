@@ -50,9 +50,9 @@ Data profiling is the process to identify the data types, dimensions, measures, 
 
 As an example of data profiling, we can inspect the average of arrivals and departures at certain time slots. This can help us identify patterns at different times.
 
-> 👉 Clone this repo or copy the files from this folder. Use the Jupyter Notebook file.[Data Warehouse](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis")
+> 👉 Clone this repo or copy the files from this folder. Use the Jupyter Notebook file. [Data Analysis](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis")
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=6cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=5cm}
 
 ```python
 

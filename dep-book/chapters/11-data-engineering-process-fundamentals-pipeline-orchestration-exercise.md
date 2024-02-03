@@ -85,7 +85,7 @@ Before we get started, we need to setup our environment with all the necessary d
 
 > 👉 Clone this repo or copy the files from this folder [Pipeline](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step3-Orchestration/)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-pipeline.png){height=6cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-pipeline.png){height=5cm}
 
 ### Prefect Configuration
 

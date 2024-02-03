@@ -6,7 +6,7 @@
 
 BUILD = build
 MAKEFILE = Makefile
-TEMPLATE_NAME = final
+TEMPLATE_NAME = final_margins
 OUTPUT_FILENAME = book_$(TEMPLATE_NAME)
 METADATA = metadata.yml
 CHAPTERS = chapters/*.md

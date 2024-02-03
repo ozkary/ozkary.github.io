@@ -42,7 +42,7 @@ Exits indicates that commuters are arriving to those locations. Entries indicate
 
 ### Data Analysis Criteria
 
-The data can be grouped into stations, date and time of the day. This data is audited in blocks of fours hours apart. This means that there are intervals of 8am to 12pm as an example. We analyze the data into those time block intervals to help us identify the best times both in the morning and afternoon for each station location. This should allow businesses to target a particular geo-fence that is close to their business.
+The data can be grouped into stations, date and time of the day. This data is audited in blocks of four hours apart. This means that there are intervals of 8am to 12pm as an example. We analyze the data into those time block intervals to help us identify the best times both in the morning and afternoon for each station location. This should allow businesses to target a particular geo-fence that is close to their business.
 
  In the discovery process, we take a look at the data that is available for our analysis. We are using the MTA turnstiles information which is available at this location:
 
@@ -53,33 +53,34 @@ We can download a single file to take a look at the data structure and make the 
 ### Observations
 
 - It is available in weekly batches every Sunday
-- The information is audited in blocks of fours hours apart
+- The information is audited in blocks of four hours apart
 - The date and time field are on different columns
 - The cumulative entries are on the ENTRIES field
 - The cumulative exits are on the EXITS field
-- This data is audited in blocks of fours hours apart
+- This data is audited in blocks of four hours apart
 
 ![Data Engineering Process Fundamentals - Discovery](images/ozkary-data-engineering-mta-discovery.png "Data Engineering Process - Discovery")
 
-### Field Description
+### Fields Description
+
 
 | Name | Description |
 | --- | --- |
 C/A      | Control Area (A002) (Booth)
 UNIT     | Remote Unit for a station (R051)
-SCP      | Subunit Channel Position represents an specific address for a device (02-00-00)
+SCP      | Subunit Channel Position represents a specific address for a device (02-00-00)
 STATION  | Represents the station name the device is located at
-LINENAME | Represents all train lines that can be boarded at this station. Normally lines are represented by one character.  LINENAME 456NQR repersents train server for 4, 5, 6, N, Q, and R trains.
+LINENAME | Represents all train lines that can be boarded at this station. Normally lines are represented by one character.  LINENAME 456NQR represents train server for 4, 5, 6, N, Q, and R trains.
 DIVISION | Represents the Line originally the station belonged to BMT, IRT, or IND   
 DATE     | Represents the date (MM-DD-YY)
 TIME     | Represents the time (hh:mm:ss) for a scheduled audit event
-DESC     | Represent the "REGULAR" scheduled audit event (Normally occurs every 4 hours). Audits may occur more that 4 hours due to planning, or troubleshooting activities. Additionally, there may be a "RECOVR AUD" entry: This refers to missed audit that was recovered. 
+DESC     | Represent the "REGULAR" scheduled audit event (Normally occurs every 4 hours). Audits may occur more than 4 hours due to planning, or troubleshooting activities. Additionally, there may be a "RECOVR AUD" entry: This refers to missed audit that was recovered. 
 ENTRIES  | The cumulative entry register value for a device
 EXIST    | The cumulative exit register value for a device
 
 ### Data Example
 
-The data below shows the entry/exit register values for one turnstile at control area (A002) from 09/27/14 at 00:00 hours to 09/29/14 at 00:00 hours
+The data below shows the entry/exit register values for one turnstile at control area (A002) from 09/27/14 00:00 to 09/29/14 at 08:00.
 
 
 |C/A|UNIT|SCP|STATION|LINENAME|DIVISION|DATE|TIME|DESC|ENTRIES|EXITS|
@@ -128,7 +129,7 @@ To facilitate our data analysis, the initial step involves downloading sample da
 
 >👉 Clone this repo or copy the files from this folder  [Discovery Process](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step1-Discovery/)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){height=6cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-discovery.png "Data Engineering Process Fundamentals Discovery Process"){height=5cm}
 
 ### Download a CSV File from the MTA Site
 
@@ -369,7 +370,7 @@ $ python3 mta_discovery.py --url http://web.mta.info/developers/data/nyct/turnst
 - With VSCode open the Jupyter notebook to do analysis
   - This should load the Python kernel (see top-right)
 
-![VSCode Python Kernel](images/ozkary-data-engineering-vscode-python.png "VSCode Python Kernel")
+![VSCode Python Kernel](images/ozkary-data-engineering-process-vscode-python.png "VSCode Python Kernel")
   
   - If you are having problems with VSCode and you have installed Jupyter separately, start the Jupyter server from the terminal by typing  and then open the file
 
@@ -394,7 +395,7 @@ $ jupyter notebook
 
 - Loading a compressed CSV file and showing the data frame information
 
-![MTA Data Frame Information](images/ozkary-data-engineering-jupyter-vscode-data-info.png "MTA Data Frame Information")
+![MTA Data Frame Information](images/ozkary-data-engineering-process-vscode-data-info.png "MTA Data Frame Information")
 
 - Showing the first ten records
   

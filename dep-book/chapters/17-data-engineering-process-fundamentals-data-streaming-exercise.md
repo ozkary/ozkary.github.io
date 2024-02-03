@@ -65,9 +65,9 @@ To deliver a data streaming solution, we typically employ a technical design ill
 
 ## Implementation Requirements
 
-> 👉 Clone this repo or copy the files from this folder [Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
+> 👉 Clone this repo or copy the files from this folder [Data Streaming](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step6-Data-Streaming/)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-streaming.png){height=6cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-streaming.png){height=5cm}
 
 For our example, we will adopt a code-centric approach and utilize Python to implement both our producer and consumer components. Additionally, we'll require instances of Apache Kafka and Apache Spark to be running. To ensure scalability, we'll deploy these components on separate virtual machines (VMs). Our Terraform scripts will be instrumental in creating new VM instances for this purpose. It's important to note that all these components will be encapsulated within Docker containers.
 
@@ -918,6 +918,7 @@ To facilitate each deployment, we aim to run our applications within a Docker co
 > 👉 Noteworthy is the use of the `VOLUME` command in these files, enabling us to map a VM hosting folder to an image folder. The objective is to share a common configuration file for the containers.
 
 - Kafka Producer Docker file
+  
 
 ```bash
 # Use a base image with Prefect and Python
@@ -997,6 +998,7 @@ $ bash build_push_apps.sh
 This script provides access to DockerHub. It builds Docker images using the Docker files in each folder (kafka/python, spark). After the image is built, it is pushed to DockerHub, allowing us to later pull it during deployment.
 
 - **build_push_apps.sh script**
+  
 
 ```bash
 #!/bin/bash
@@ -1040,6 +1042,7 @@ $ bash deploy_kafka_spark.sh
 ```
 
 - **deploy_kafka_spark.sh script**
+  
 
 ```bash
 #!/bin/bash

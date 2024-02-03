@@ -338,9 +338,9 @@ Once the implementation of this Python dashboard is complete, we can run it and 
 
 These are the requirements to be able to run the Python dashboard.
 
-> 👉 Clone this repo or copy the files from this folder. We could also create a GitHub CodeSpace and run this online. [Analysis](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis)
+> 👉 Clone this repo or copy the files from this folder. We could also create a GitHub CodeSpace and run this online. [Data Analysis](https://github.com/ozkary/data-engineering-mta-turnstile/tree/main/Step5-Analysis)
 
-![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=6cm}
+![Scan the QR Code to load the GitHub project](images/qr-ozkary-data-engineering-process-fundamentals-data-analysis.png){height=5cm}
 
 - Use the analysis_data.csv file for test data
   - Use the local file for this implementation

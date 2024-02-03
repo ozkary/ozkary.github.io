@@ -26,3 +26,5 @@ The Google Developer Groups (GDG) community, powered by Google, connects technol
 - **The Technical Community**
 
 Finally, my deepest gratitude goes to the incredible international technical community. Whether you delve into my blog articles [ozkary.com](https://www.ozkary.com), explore my YouTube channel [Ozkary YouTube Channel](http://www.youtube.com/@ozkary), contribute to my GitHub projects [ozkary GitHub](https://github.com/ozkary), or engage with me on Twitter (@ozkary), you are the fuel that keeps me going. Your enthusiasm motivates me to push the boundaries of my work, and your engagement creates a rich environment for mutual learning and growth. Thank you for being the foundation of my journey!
+
+---
