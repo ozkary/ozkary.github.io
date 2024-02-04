@@ -8,9 +8,9 @@ short_title: Acknowledgements
 
 - **Mark J. Caplin** author of Adventures of Full Stack Software Development
 
-I met Mark back in 2000 while we were both at a health technology company. Their software was truly ahead of its time, even hampered by the limitations of wireless networks and mobile devices capabilities back then. Just like me, Mark's a passionate technologist who thrives on engaging projects. He's a prolific writer, contributing technical articles and even publishing a full-stack development book. My own book project had been simmering for a while, and seeing Mark's success was the spark I needed to finally finish it. **Thanks, Mark!** Our occasional meet-ups are always a highlight, filled with swapping stories about our tech journeys. Looking forward to the next one!
+I met Mark back in 2000 while we were both at a health technology company. Their software was truly ahead of its time, even hampered by the limitations of wireless networks and mobile devices capabilities back then. Just like me, Mark's a passionate technologist who thrives on engaging projects. He's a prolific writer, contributing technical articles and even publishing a full-stack development book. My own book project had been simmering for a while, and seeing Mark's success was the spark I needed to finally finish it. **Thanks, Mark!** Our occasional meetups are always a highlight, filled with swapping stories about our tech journeys. Looking forward to the next one!
 
-- **Alexey Grigorev** author of Machine Learning Bookcamp and creator of DataTalksClub community
+- **Alexey Grigorev** author of Machine Learning Zoomcamp and creator of DataTalksClub community
 
 A YouTube video first introduced me to Alexey, and I was quickly impressed by his creation of a thriving global technical community. His annual data engineering and machine learning cohorts seemed particularly inspiring. Though I'd been writing technical content since 2010, Alexey's approach to sharing knowledge and organizing content offered a valuable new perspective. It provided the key to structuring my own material in a way that felt organized, shareable, and ultimately paved the path to writing my first book. Thanks, Alexey, for inspiring me to organize my thoughts and content in such a way that my own book became a reality!
 
@@ -21,7 +21,7 @@ The Microsoft MVP community pulsates with technical expertise from professionals
 
 - **Google Developer Groups (GDG) Community**
 
-The Google Developer Groups (GDG) community, powered by Google, connects technology enthusiasts through regional chapters worldwide. Sharing technical knowledge is at the heart of this movement, and I'm honored to lead the Broward County Florida chapter since 2019. Through in-person and virtual meetings, we host technical presentations, fostering a vibrant exchange of ideas and expertise. This role has allowed me to reach a wider audience and connect with fellow organizers from across the globe. A big thank you to all the GDG organizers for entrusting me with this platform and for the continuous opportunity to share my experience and learn from others.
+The Google Developer Groups (GDG) community, powered by Google, connects technology enthusiasts through regional chapters worldwide. Sharing technical knowledge is at the heart of this movement, and I'm honored to lead the Broward County Florida chapter since 2023. Through in-person and virtual meetings, we host technical presentations, fostering a vibrant exchange of ideas and expertise. This role has allowed me to reach a wider audience and connect with fellow organizers from across the globe. A big thank you to all the GDG organizers for entrusting me with this platform and for the continuous opportunity to share my experience and learn from others.
 
 - **The Technical Community**
 
