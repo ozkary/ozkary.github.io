@@ -3,7 +3,7 @@ title: "Data Engineering Process Fundamentals - Data Streaming Exercise"
 excerpt: " "
 last_modified_at: 2023-09-09T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-data-streaming-design.png"
+  teaser: "../assets/2023/ozkary-data-engineering-process-data-streaming-messages.png"
   teaserAlt: "Ozkary Data Engineering Process Data Streaming Exercise"
 tags:   
   - cloud-engineering

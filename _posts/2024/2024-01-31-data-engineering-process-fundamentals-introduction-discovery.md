@@ -3,7 +3,7 @@ title: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Pro
 excerpt: " Data Lakes and Data Warehouses. We will explore their roles, differences, and how they collectively empower organizations to harness the true potential of their data. "
 last_modified_at: 2023-10-25T13:00:00
 header:
-  teaser: "../assets/2023/ozkary-data-engineering-process-discovery.png"
+  teaser: "../assets/2024/ozkary-data-engineering-process-decoding-data-with-discovery.png"
   teaserAlt: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Process Fundamentals"
 tags: 
   - code  
