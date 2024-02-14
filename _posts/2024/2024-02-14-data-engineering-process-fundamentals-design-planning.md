@@ -1,7 +1,7 @@
 ---
 title: "Unlock the Blueprint: Design and Planning Phase - Data Engineering Process Fundamentals"
 excerpt: " The design and planning phase of a data engineering project is crucial for laying out the foundation of a successful and scalable solution. This phase ensures that the architecture is strategically aligned with business objectives, optimizes resource utilization, and mitigates potential risks."
-last_modified_at: 2023-10-25T13:00:00
+last_modified_at: 2024-02-14T13:00:00
 header:
   teaser: "../assets/2024/ozkary-data-engineering-process-design-planning.png"
   teaserAlt: "Unlock the Blueprint: Design and Planning Phase - Data Engineering Process Fundamentals"
@@ -26,11 +26,11 @@ Phase.
 
 - Follow this GitHub repo during the presentation: (Give it a star)
 
->👉 https://github.com/ozkary/data-engineering-mta-turnstile
+> 👉 https://github.com/ozkary/data-engineering-mta-turnstile
 
 - Read more information on my blog at:  
 
->👉 https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html
+> 👉 https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html
 
 ## YouTube Video
 
