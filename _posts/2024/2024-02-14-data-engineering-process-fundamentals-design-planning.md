@@ -26,11 +26,11 @@ Phase.
 
 - Follow this GitHub repo during the presentation: (Give it a star)
 
-**https://github.com/ozkary/data-engineering-mta-turnstile**
+>👉 https://github.com/ozkary/data-engineering-mta-turnstile
 
 - Read more information on my blog at:  
 
-**https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html**
+>👉 https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html
 
 ## YouTube Video
 
