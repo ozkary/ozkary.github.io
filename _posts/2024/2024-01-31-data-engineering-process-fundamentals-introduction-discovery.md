@@ -1,6 +1,6 @@
 ---
 title: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Process Fundamentals"
-excerpt: " Data Lakes and Data Warehouses. We will explore their roles, differences, and how they collectively empower organizations to harness the true potential of their data. "
+excerpt: " we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python."
 last_modified_at: 2023-10-25T13:00:00
 header:
   teaser: "../assets/2024/ozkary-data-engineering-process-decoding-data-with-discovery.png"
@@ -14,8 +14,9 @@ tags:
 toc: true
 ---
 
-In this technical presentation, we will delve into the fundamental concepts of Data Engineering, focusing on two pivotal components of modern data architecture - Data Lakes and Data Warehouses. We will explore their roles, differences, and how they collectively empower organizations to harness the true potential of their data.
+The discovery process involves identifying the problem, analyzing data sources, defining project requirements, establishing the project scope, and designing an effective architecture to address the identified challenges.
 
+In this session, we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python, VSCode, Jupyter Notebooks, and GitHub, you'll gain a solid understanding of the fundamental aspects that drive effective data engineering projects.
 
 - Follow this GitHub repo during the presentation: (Give it a star)
 
@@ -37,10 +38,6 @@ In this technical presentation, we will delve into the fundamental concepts of D
 ### YouTube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F2WHH5MrmE4?si=QbU8uhwwcBKtwLeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-Overview:
-
-In this session, we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python, VSCode, Jupyter Notebooks, and GitHub, you'll gain a solid understanding of the fundamental aspects that drive effective data engineering projects.
 
 **Agenda:**
 
