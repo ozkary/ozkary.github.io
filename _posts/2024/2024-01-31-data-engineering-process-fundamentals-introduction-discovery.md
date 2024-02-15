@@ -194,4 +194,4 @@ The data engineering discovery process involves defining the problem statement, 
 Thanks for reading.
 
 Send question or comment at Twitter @ozkary
-Originally published by [ozkary.com](https://www.ozkary.com)
+👍 Originally published by [ozkary.com](https://www.ozkary.com)
