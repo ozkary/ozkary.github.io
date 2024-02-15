@@ -187,6 +187,9 @@ Using a tool like GitHub is essential for effective version control and collabor
 
 ![Data Engineering Process Fundamentals - Discovery Problem Statement](../../assets/2024/ozkary-data-engineering-process-problem-statement.png "Data Engineering Process Fundamentals - Discovery Problem Statement")
 
+## Summary
+
+The data engineering discovery process involves defining the problem statement, gathering requirements, and determining the scope of work. It also includes a data analysis exercise utilizing Python and Jupyter Notebooks or other tools to extract valuable insights from the data. These steps collectively lay the foundation for successful data engineering endeavors.
 
 Thanks for reading.
 
