@@ -1,7 +1,7 @@
 ---
 title: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Process Fundamentals"
 excerpt: " we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python."
-last_modified_at: 2023-10-25T13:00:00
+last_modified_at: 2024-01-31T13:00:00
 header:
   teaser: "../assets/2024/ozkary-data-engineering-process-decoding-data-with-discovery.png"
   teaserAlt: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Process Fundamentals"
@@ -34,7 +34,7 @@ In this session, we will delve into the essential building blocks of data engine
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F2WHH5MrmE4?si=QbU8uhwwcBKtwLeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Video Agenda:
+### Video Agenda
 
 1. Introduction:
 
@@ -90,8 +90,6 @@ In this session, we will delve into the essential building blocks of data engine
 - Visual Studio Code
 
 ## Presentation
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRRj1SbHVnfg0ILoMC2qFhAzyAgyj_TaXMAF32I_f31tQcUvKeWj45Fgpkpt1J0EyCicRvVuPArD-qZ/embed?start=true&loop=false&delayms=5000" frameborder="0" width="560" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 ### Data Engineering Overview
 

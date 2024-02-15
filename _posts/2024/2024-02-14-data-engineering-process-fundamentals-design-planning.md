@@ -1,6 +1,6 @@
 ---
 title: "Unlock the Blueprint: Design and Planning Phase - Data Engineering Process Fundamentals"
-excerpt: " The design and planning phase of a data engineering project is crucial for laying out the foundation of a successful and scalable solution. This phase ensures that the architecture is strategically aligned with business objectives, optimizes resource utilization, and mitigates potential risks."
+excerpt: " The design and planning phase of a data engineering project is crucial for laying out the foundation of a successful and scalable solution. This phase ensures that the architecture is strategically aligned with business objectives, optimizes resource utilization, and mitigates potential risks. "
 last_modified_at: 2024-02-14T13:00:00
 header:
   teaser: "../assets/2024/ozkary-data-engineering-process-design-planning.png"
@@ -36,7 +36,7 @@ Phase.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O6gqhreqGDo?si=8vnZxaRj1K7oJCJp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Video Agenda:
+### Video Agenda
 
 System Design and Architecture:
 
@@ -62,7 +62,7 @@ System Design and Architecture:
 
 - Exploring technologies for building out cloud infrastructure using Infrastructure as Code (IaC), ensuring efficiency and consistency.
 
-Why Watch?:
+**Key Takeaways:**
 
 - Gain insights into designing scalable and efficient data systems.
 
