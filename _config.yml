@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 locale                   : "en-US"
 title                    : "Ozkary Technologies"
 title_separator          : "-"
-subtitle                 : "Technology Topics" # site tagline that appears below site title in masthead
+subtitle                 : "Software Development and Technology Topics" # site tagline that appears below site title in masthead
 name                     : "Oscar D. Garcia"
 description              : "A site with technology topics"
 url                      : "https://www.ozkary.dev" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -113,7 +113,7 @@ author:
       # url: "mailto:your.name@email.com"
     - label: "Ozkary Dev"
       icon: "fas fa-fw fa-link"
-      url: "https://ozkary.dev"
+      url: "https://www.ozkary.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/ozkary"

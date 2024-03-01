@@ -41,9 +41,6 @@ Key objectives of this study include:
    - Precision, 
    - F1 
    - Recall 
-5. Providing an API, so tools can integrate and make a risk analysis.
-   - Build a local app 
-   - Build an Azure function for cloud deployment
 
 The successful implementation of this research will lead to a transformative impact on public health by enabling timely preventive measures and tailored interventions for individuals at risk of heart disease.
 
