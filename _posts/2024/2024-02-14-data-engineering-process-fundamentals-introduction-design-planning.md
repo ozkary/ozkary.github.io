@@ -34,7 +34,7 @@ Phase.
 
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/O6gqhreqGDo?si=8vnZxaRj1K7oJCJp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O6gqhreqGDo?si=8vnZxaRj1K7oJCJp" title="Data Engineering Process Fundamentals - Design and Planning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Video Agenda
 
@@ -79,7 +79,7 @@ System Design and Architecture:
 - Cloud Infrastructure
 - Data Pipelines
 - GitHub and Actions
-- VC Code
+- VSCode
 - Docker and Docker Hub
 - Terraform
   
