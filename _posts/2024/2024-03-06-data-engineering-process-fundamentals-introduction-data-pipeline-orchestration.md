@@ -3,7 +3,7 @@ title: "Coupling Data Flows: Data Pipelines and Orchestration - Data Engineering
 excerpt: "A data pipeline refers to a series of connected tasks that handles the extract, transform and load (ETL) as well as the extract, load and transform (ELT) operations and integration from a source to a target storage like a data lake or data warehouse."
 last_modified_at: 2024-03-06T13:00:00
 header:
-  teaser: "../assets/2024/ozkary-data-engineering-process-data-pipeline-orchestration"
+  teaser: "../assets/2024/ozkary-data-engineering-process-data-pipeline-orchestration.png"
   teaserAlt: "Coupling Data Flows: Data Pipelines and Orchestration - Data Engineering Process Fundamentals"
 tags: 
   - code  
