@@ -1,6 +1,6 @@
 ---
 title: "Streamlining Data Flow: Building Cloud-Based Data Pipelines - Data Engineering Process Fundamentals"
-excerpt: "A Data Warehouse is an OLAP system, which serves as the central data repository for historical and aggregated data. A data warehouse is designed to support complex analytical queries, reporting, and data analysis for Big Data use cases. It typically adopts a denormalized entity structure, such as a star schema or snowflake schema, to facilitate efficient querying and aggregations."
+excerpt: "Delve into the world of cloud-based data pipelines, the backbone of efficient data movement within your organization. As a continuation of our Data Engineering Process Fundamentals series, this session equips you with the knowledge to build robust and scalable data pipelines leveraging the power of the cloud. Throughout this presentation, we&#39;ll explore the benefits of cloud-based solutions, delve into key design considerations, and unpack the process of building and optimizing your very own data pipeline in the cloud."
 last_modified_at: 2024-03-06T13:00:00
 header:
   teaser: "../assets/2024/ozkary-architecting-insights-data-engineering-process-fundamentals.png"
