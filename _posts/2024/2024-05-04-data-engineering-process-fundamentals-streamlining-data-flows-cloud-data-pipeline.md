@@ -3,7 +3,7 @@ title: "Streamlining Data Flow: Building Cloud-Based Data Pipelines - Data Engin
 excerpt: "Delve into the world of cloud-based data pipelines, the backbone of efficient data movement within your organization. As a continuation of our Data Engineering Process Fundamentals series, this session equips you with the knowledge to build robust and scalable data pipelines leveraging the power of the cloud. Throughout this presentation, we&#39;ll explore the benefits of cloud-based solutions, delve into key design considerations, and unpack the process of building and optimizing your very own data pipeline in the cloud."
 last_modified_at: 2024-03-06T13:00:00
 header:
-  teaser: "../assets/2024/ozkary-architecting-insights-data-engineering-process-fundamentals.png"
+  teaser: "../assets/2024/ozkary-streamlining-data-flows-data-engineering-process-fundamentals.png"
   teaserAlt: "Streamlining Data Flow: Building Cloud-Based Data Pipelines - Data Engineering Process Fundamentals
 "
 tags: 
@@ -66,13 +66,14 @@ This session equips you with the knowledge and practical skills to build a data 
 
 **Video Chapters:**
 
-0:00:00 Welcome to Data Engineering Process Fundamentals
-0:02:19 Phase 1: Discovery
-0:19:30 Phase 2: Design and Planning
-0:33:30 Phase 3: Data Pipeline and Orchestration
-0:49:00 Phase 4: Data Modeling and Data Warehouse 
-0:59:00 Phase 5: Data Analysis and Visualization
-1:01:00 Final Thoughts
+- 0:00:00 Welcome to Data Engineering Process Fundamentals
+- 0:02:19 Phase 1: Discovery
+- :19:30 Phase 2: Design and Planning
+- 0:33:30 Phase 3: Data Pipeline and Orchestration
+- 0:49:00 Phase 4: Data Modeling and Data Warehouse 
+- 0:59:00 Phase 5: Data Analysis and Visualization
+- 1:01:00 Final Thoughts
+
 
 ## Presentation
 
