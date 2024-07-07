@@ -321,9 +321,7 @@ Kafka and Spark, work together seamlessly to enable real-time data processing an
 
 Now that we have defined the data streaming strategy, we can continue our journey and build a containerized Kafka producer that can consume real-time data sources. Let's take a look at that next.
 
-Coming soon!
-
-> 👉 Data Engineering Process Fundamentals - Data Streaming With Apache Kafka Exercise
+> 👉 [Data Engineering Process Fundamentals - Data Streaming With Apache Kafka and Spark Exercise](https://www.ozkary.dev/data-engineering-process-fundamentals-data-streaming-exercise/)
 
 Thanks for reading.
 
