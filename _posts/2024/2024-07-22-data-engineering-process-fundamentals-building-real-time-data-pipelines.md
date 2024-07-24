@@ -32,7 +32,7 @@ In modern data engineering solutions, handling streaming data is very important.
 
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5AZVLeDLAAo?si=jX3P4M6k7SlVG21s" title="Data Engineering Process Fundamentals - Unlocking Insights: Data Analysis and Visualization " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RlNb_-R4Iho?si=pKuRkJqOA0cmryhh" title="Data Engineering Process Fundamentals - Building Real-Time Data Pipelines: A Practical Guide " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Video Agenda
 
