@@ -3,7 +3,7 @@ title: "Building Real-Time Data Pipelines: A Practical Guide - Data Engineering 
 excerpt: "In modern data engineering solutions, handling streaming data is very important. Businesses often need real-time insights to promptly monitor and respond to operational changes and performance trends. A data streaming pipeline facilitates the integration of real-time data into data warehouses and visualization dashboards."
 last_modified_at: 2024-07-24T13:00:00
 header:
-  teaser: "../assets/2024/ozkary-building-real-time-data-pipelines-data-engineering-process-fundamentals-sm.png"
+  teaser: "../assets/2024/ozkary-building-real-time-data-pipelines-data-engineering-process-fundamentals-sm.jpg"
   teaserAlt: "Building Real-Time Data Pipelines: A Practical Guide - Data Engineering Process Fundamentals"
 tags: 
   - python  
