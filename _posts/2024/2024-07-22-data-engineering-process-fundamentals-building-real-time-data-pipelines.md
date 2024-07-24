@@ -39,43 +39,43 @@ In modern data engineering solutions, handling streaming data is very important.
 
 1. What is Data Streaming?
 
-- Understanding the concept of continuous data flow.
+   - Understanding the concept of continuous data flow.
 
-- Real-time vs. batch processing.
+   - Real-time vs. batch processing.
 
-- Benefits and use cases of data streaming.
+   - Benefits and use cases of data streaming.
 
 2. Data Streaming Channels
 
-- APIs (Application Programming Interfaces)
+   - APIs (Application Programming Interfaces)
 
-- Events (system-generated signals)
+   - Events (system-generated signals)
 
-- Webhooks (HTTP callbacks triggered by events)
+   - Webhooks (HTTP callbacks triggered by events)
 
 3. Data Streaming Components
 
-- Message Broker (Apache Kafka)
+   - Message Broker (Apache Kafka)
 
-- Producers and consumers
+   - Producers and consumers
 
-- Topics for data categorization
+   - Topics for data categorization
 
-- Stream Processing Engine (Apache Spark Structured Streaming)
+   - Stream Processing Engine (Apache Spark Structured Streaming)
 
 4. Solution Design and Architecture
 
-- Real-time data source integration
+   - Real-time data source integration
 
-- Leveraging Kafka for reliable message delivery
+   - Leveraging Kafka for reliable message delivery
 
-- Spark Structured Streaming for real-time processing
+   - Spark Structured Streaming for real-time processing
 
-- Writing processed data to the data lake
+   - Writing processed data to the data lake
 
-6. Q&A Session
+5. Q&A Session
 
-- Get your questions answered by the presenters.
+   - Get your questions answered by the presenters.
 
 **Why Join This Session?**
 
