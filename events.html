@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozkary Events</title>    
+
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.events-section {
+    margin-bottom: 40px;
+}
+
+.events-section h2 {    
+    margin: 1.414em 0 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 1em;
+    color: #393e46;
+    border-bottom: 1px solid #cecfd1;
+}
+
+.event-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 225px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-content {
+    padding: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-content h3 {
+    font-size: .85em;
+    padding-top: 10px;
+
+}
+
+.event-content p {
+    font-size: .75em;
+    margin: 10px 0;
+}
+
+.event-content .page_meta {
+    display: block;
+    font-size: 0.60em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.event-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3d4144;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+    font-size: .60em;
+    border: 1px solid #cecfd1;
+    margin-bottom: 10px;
+}
+
+.event-btn:hover, .event-btn:active {
+    opacity: .80;    
+}
+
+.thumbnail-container {
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.thumbnail-container img {
+    float: left;
+    margin: 0px 10px 5px 0px;
+    padding: 4px;
+    border: 0px solid #eee;
+    background: none;
+    width: 250px;
+    height: auto;
+    margin-left:-50px;
+    border-radius: 15px;
+}
+
+.page_meta {
+    color: #222831;
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="events-section">
+            <h2>Upcoming Events</h2>
+            <div class="event-card">
+                <div class="thumbnail-container">
+                    <img src="https://www.ozkary.dev/assets/2024/ozkary-data-engineering-process-medallion-architecture-sm.jpg" alt="Event Image" class="event-image">
+                </div>                
+                <div class="event-content">
+                    <h3 itemprop="headline">Medallion Architecture: A Blueprint for Data Insights and Governance - Data Engineering Process</h3>
+                    <p itemprop="description" class="event-details">Gain understanding of Medallion Architecture and its application in modern data engineering. Learn how to optimize data pipelines, improve data quality, and unlock valuable insights. Discover practical steps to implement Medallion principles in your organization and drive data-driven decision-making.</p>
+                    <p itemprop="date" class="page_meta"> <i class="fa fa-calendar-alt" aria-hidden="true"></i> Aug 21, 2024 12PM EST</p>                    
+                    <a href="https://gdg.community.dev/e/mrsqsj/" title="Register" class="event-btn" target="_new">RSVP</a>
+                </div>
+            </div>
+            <!-- Add more upcoming events here -->
+        </section>
+
+        <section class="events-section">
+            <h2>Past Events</h2>
+            <div class="event-card">
+                <div class="thumbnail-container">
+                    <img src="https://www.ozkary.dev/assets/2024/ozkary-building-real-time-data-pipelines-data-engineering-process-fundamentals-sm.jpg" alt="Event Image" class="event-image">
+                </div>                
+                <div class="event-content">
+                    <h3 itemprop="headline">Building Real-Time Data Pipelines: A Practical Guide - Data Engineering Process Fundamentals</h3>
+                    <p itemprop="description" class="event-details">In modern data engineering solutions, handling streaming data is very important. Businesses often need real-time insights to promptly monitor and respond to operational changes and performance trends. A data streaming pipeline facilitates the integration of real-time data into data warehouses and visualization dashboards.</p>
+                    <p itemprop="date" class="page_meta"> <i class="fa fa-calendar-alt" aria-hidden="true"></i> Jul 22, 2024</p>                    
+                    <a href="https://www.ozkary.com/2024/07/data-engineering-process-fundamentals-building-real-time-data-pipelines.html" title="Watch Presentation and Video" class="event-btn" target="_new">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="thumbnail-container">
+                    <img src="https://www.ozkary.dev/assets/2024/ozkary-may-the-tech-force-be-with-you-sm.jpg" alt="Event Image" class="event-image">
+                </div>                
+                <div class="event-content">
+                    <h3 itemprop="headline">May the Tech Force Be With You: Unlock Your Journey in Technology</h3>
+                    <p itemprop="description" class="event-details">Curious about the possibilities and where your passion fits in the ever-evolving world of technology?  Join us as we decode your unique technical journey! This presentation is designed to equip you with the knowledge and confidence to navigate you...</p>
+                    <p itemprop="date" class="page_meta"> <i class="fa fa-calendar-alt" aria-hidden="true"></i> Jun 5, 2024</p>                    
+                    <a href="https://www.ozkary.com/2024/06/may-tech-force-be-with-you-unlock-your-career-journey.html" title="Watch Presentation and Video" class="event-btn" target="_new">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="thumbnail-container">
+                    <img src="https://www.ozkary.dev/assets/2024/ozkary-unlocking-insights-data-engineering-process-fundamentals-sm.jpg" alt="Event Image" class="event-image">
+                </div>                
+                <div class="event-content">
+                    <h3 itemprop="headline">Unlocking Insights: Data Analysis and Visualization - Data Engineering Process Fundamentals</h3>
+                    <p itemprop="description" class="event-details">Delve into unlocking the insights from our data with data analysis and visualization. In this continuation of our data engineering process series, we focus on visualizing insights. We learn about best practices for data analysis and visualization,...</p>
+                    <p itemprop="date" class="page_meta"> <i class="fa fa-calendar-alt" aria-hidden="true"></i> May 8, 2024</p>                    
+                    <a href="https://www.ozkary.com/2024/05/unlocking-insights-data-analysis-visualization-data-engineering-process-fundamentals.html" title="Watch Presentation and Video" class="event-btn" target="_new">Watch Now</a>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="thumbnail-container">
+                    <img src="https://www.ozkary.dev/assets/2024/ozkary-streamlining-data-flows-data-engineering-process-fundamentals-sm.jpg" alt="Event Image" class="event-image">
+                </div>                
+                <div class="event-content">
+                    <h3 itemprop="headline">Streamlining Data Flow: Building Cloud-Based Data Pipelines - Data Engineering Process Fundamentals</h3>
+                    <p itemprop="description" class="event-details">Delve into the world of cloud-based data pipelines, the backbone of efficient data movement within your organization. As a continuation of our Data Engineering Process Fundamentals series, this session equips you with the knowledge to build robust...</p>
+                    <p itemprop="date" class="page_meta"> <i class="fa fa-calendar-alt" aria-hidden="true"></i> May 4, 2024</p>                    
+                    <a href="https://www.ozkary.com/2024/05/streamlining-data-flow-building-cloud-based-data-pipelines-data-engineering-process-fundamentals.html" title="Watch Presentation and Video" class="event-btn" target="_new">Watch Now</a>
+                </div>
+            </div>
+           
+        </section>      
+    </div>
+</body>
+</html>
