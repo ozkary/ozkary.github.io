@@ -31,10 +31,11 @@ body, html {
 }
 
 .event-card {
-    display: flex;
+    display: flex;    
+    flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
-    height: 225px;
+    height: auto;
     background-color: #f4f4f4;
     border-radius: 10px;
     overflow: hidden;
@@ -104,13 +105,25 @@ body, html {
     border: 0px solid #eee;
     background: none;
     width: 250px;
-    height: auto;
-    margin-left:-50px;
+    height: auto;    
     border-radius: 15px;
 }
 
 .page_meta {
     color: #222831;
+}
+
+@media (max-width: 800px) {
+  .event-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .event-content {
+    padding: 10px;
+    width: 90%;
+    display: flex;    
+}
 }
 
         
