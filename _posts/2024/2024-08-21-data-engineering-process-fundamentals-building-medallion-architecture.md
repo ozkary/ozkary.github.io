@@ -83,7 +83,7 @@ Medallion architecture is a data management approach that organizes data into di
 - **Scalability:** The layered approach can accommodate growing data volumes and complexity.
 - **Cost Efficiency:** Optimized data storage and processing can reduce costs.
 
-![Data Engineering Process Fundamentals - Medallion Architecture Design Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-design.png "Data Engineering Process Fundamentals - Medallion Architecture Design Diagram")
+![Data Engineering Process Fundamentals - Medallion Architecture Design Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-high-level-design.png "Data Engineering Process Fundamentals - Medallion Architecture Design Diagram")
 
 ### The Raw Zone: Foundation of Your Data Lake
 
@@ -135,6 +135,8 @@ The Bronze Zone is where raw data undergoes initial cleaning, structuring, and t
   * Provides a foundation for further analysis
   * Enables data exploration and discovery
 
+![Data Engineering Process Fundamentals - Medallion Architecture Bronze Zone Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-bronze-zone.png "Data Engineering Process Fundamentals - Medallion Architecture Bronze Zone Diagram")
+
 ### The Silver Zone: A Foundation for Insights
 
 The Silver Zone houses data that has been further refined, aggregated, and optimized for specific use cases. It serves as a bridge between the raw data and the final curated datasets.
@@ -149,6 +151,8 @@ The Silver Zone houses data that has been further refined, aggregated, and optim
   * Supports self-service analytics
   * Enables advanced analytics and machine learning
   * Reduces query costs
+
+![Data Engineering Process Fundamentals - Medallion Architecture Silver Zone Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-silver-zone.png "Data Engineering Process Fundamentals - Medallion Architecture Silver Zone Diagram")
 
 
 ### The Gold Zone: Your Data's Final Destination
@@ -165,6 +169,7 @@ The Silver Zone houses data that has been further refined, aggregated, and optim
   * Provides a foundation for advanced analytics and machine learning
   * Reduces query latency
 
+![Data Engineering Process Fundamentals - Medallion Architecture Gold Zone Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-gold-zone.png "Data Engineering Process Fundamentals - Medallion Architecture Gold Zone Diagram")
 
 ### The Gold Zone: Empowering Insights and Actions
 
@@ -181,6 +186,8 @@ The Gold Zone is the final destination for data, providing a foundation for insi
   * Machine learning platforms (TensorFlow, PyTorch)
   * Advanced analytics tools
 
+![Data Engineering Process Fundamentals - Medallion Architecture Analysis Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-analysis.png "Data Engineering Process Fundamentals - Medallion Architecture Analysis Diagram")
+
 ### Data Governance: The Cornerstone of Data Management
 
 **Data governance** is the framework that defines how data is managed within an organization, while **data management** is the operational execution of those policies. Data Governance is essential for ensuring data quality, consistency, and security. 
@@ -195,6 +202,8 @@ The Gold Zone is the final destination for data, providing a foundation for insi
 
 By establishing clear roles, responsibilities, and data lineage, organizations can build trust in their data, improve decision-making, and mitigate risks. 
 
+![Data Engineering Process Fundamentals - Medallion Architecture Data Governance ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-data-governance.png "Data Engineering Process Fundamentals - Medallion Architecture Data Governance")
+
 ### Data Transformation and Incremental Strategy
 
 The data transformation phase is a critical stage in a data warehouse project. This phase involves several key steps, including data extraction, cleaning, loading, data type casting, use of naming conventions, and implementing incremental loads to continuously insert the new information since the last update via batch processes.
@@ -207,6 +216,8 @@ Data Lineage: Tracks the flow of data from its origin to its destination, includ
 
 Assigns the owner, steward and responsibilities of the data.
 
+![Data Engineering Process Fundamentals - Medallion Architecture Governance Metadata ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-metadata.png "Data Engineering Process Fundamentals - Medallion Architecture Governance metadata")
+
 ### Summary: Leverage Medallion Architecture for Success
 
 * **Key Benefits:** 
@@ -215,6 +226,8 @@ Assigns the owner, steward and responsibilities of the data.
   * Accelerated insights
   * Scalability
   * Cost Efficiency.
+
+![Data Engineering Process Fundamentals - Medallion Architecture Diagram ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-diagram.png "Data Engineering Process Fundamentals - Medallion Architecture Diagram")
 
 ### We've covered a lot today, but this is just the beginning! 
 
