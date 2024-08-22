@@ -202,7 +202,7 @@ The Gold Zone is the final destination for data, providing a foundation for insi
 
 By establishing clear roles, responsibilities, and data lineage, organizations can build trust in their data, improve decision-making, and mitigate risks. 
 
-![Data Engineering Process Fundamentals - Medallion Architecture Data Governance ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-data-governance.png "Data Engineering Process Fundamentals - Medallion Architecture Data Governance")
+![Data Engineering Process Fundamentals - Medallion Architecture Data Governance ](../../assets/2024/ozkary-data-engineering-process-fundamentals-medallion-architecture-governance.png "Data Engineering Process Fundamentals - Medallion Architecture Data Governance")
 
 ### Data Transformation and Incremental Strategy
 
