@@ -143,6 +143,9 @@ https://github.com/ozkary/Realtime-Apps-with-Nodejs-Angular-Socketio-Redis
 - Replication workloads/tasks
 - Data lakes and data warehouse
 
+![Live Dashboards: SQL Query](../../assets/2024/ozkary-live-dashboards-sql.png "Live Dashboards: SQL Query")
+
+
 ### Real-Time Integration
 
 **What is Socket.io, Web Sockets?**
