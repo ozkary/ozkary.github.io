@@ -24,19 +24,83 @@ In this session, we will delve into the essential building blocks of data engine
 
 - Follow this GitHub repo during the presentation: (Give it a star)
 
-> 👉 https://github.com/ozkary/data-engineering-mta-turnstile
+> 👉 (GitHub Repo)[https://github.com/ozkary/data-engineering-mta-turnstile]
 
 Jupyter Notebook
 
-> 👉 Jupyter Notebook https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.ipynb
+> 👉 (Jupyter Notebook)[https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.ipynb]
 
 - Data engineering Series:  
 
-> 👉 https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html
+> 👉 (Blog Series)[https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html]
 
 ## Jupyter Notebook Preview
 
-<script src="https://gist.github.com/ozkary/bc7b672bcdb066fa3e27363a552ef313.js" width="100%" height="480px" frameborder="0"></script>
+```python
+# Standard library imports
+from time import time
+from pathlib import Path
+import requests
+from io import StringIO
+# Load pandas support for data analysis tasks, dataframe (two-dimensional data structure with rows and columns) management
+import pandas as pd    
+import numpy as np 
+
+# URL of the file you want to download. Note: It should be a Saturday date
+url = 'http://web.mta.info/developers/data/nyct/turnstile/turnstile_241026.txt'
+
+# Download the file in memory
+response = requests.get(url)
+response.raise_for_status()  # Check if the request was successful
+
+# Create a DataFrame from the downloaded content
+data = StringIO(response.text)
+df = pd.read_csv(data)
+
+# Display the DataFrame first 10 rows
+df.head(10)
+
+# use info to get the column names, data type and null values
+df.info()
+
+# remove spaces and type case the columns
+df.columns = [column.strip() for column in df.columns]
+print(df.columns)
+df["ENTRIES"] = df["ENTRIES"].astype(int)
+df["EXITS"] = df["EXITS"].astype(int)
+
+# Define the set of special characters you want to check for
+special_characters_set = set('@#$%/')
+
+
+def has_special_characters(col, special_characters):
+    # Check if any character in the column name is not alphanumeric or in the specified set
+    return any(char in special_characters for char in col)
+
+def rename_columns(df, special_characters_set):
+    # Create a mapping of old column names to new column names
+    mapping = {col: ''.join(char for char in col if char.isalnum() or char not in special_characters_set) for col in df.columns}
+
+    print(mapping)
+    # Rename columns using the mapping
+    df_renamed = df.rename(columns=mapping)
+    
+    return df_renamed
+
+
+# Identify columns with special characters using list comprehension syntax
+columns_with_special_characters = [col for col in df.columns if has_special_characters(col, special_characters_set)]
+
+# Print the result
+print("Columns with special characters:", columns_with_special_characters)
+
+# Identify columns with special characters and rename them
+df = rename_columns(df, special_characters_set)
+
+# Display the data frame again. there should be no column name with special characters
+print(df.info())
+
+```
 
 ## YouTube Video
 
