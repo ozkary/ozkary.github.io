@@ -1,10 +1,10 @@
 ---
-title: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Process Fundamentals"
+title: "A Hands-On Exploration into the discovery phase - Data Engineering Process Fundamentals"
 excerpt: " we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python."
-last_modified_at: 2024-01-31T13:00:00
+last_modified_at: 2024-10-30T13:00:00
 header:
-  teaser: "../assets/2024/ozkary-data-engineering-process-decoding-data-with-discovery.png"
-  teaserAlt: "Decoding Data: A Journey into the Discovery Phase - Data Engineering Process Fundamentals"
+  teaser: "../assets/2024/ozkary-data-engineering-process-hands-on-exploration-discovery-phase.png"
+  teaserAlt: "A Hands-On Exploration into the discovery phase - Data Engineering Process Fundamentals"
 tags: 
   - code  
   - cloud
@@ -20,19 +20,28 @@ The discovery process involves identifying the problem, analyzing data sources, 
 In this session, we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python, VSCode, Jupyter Notebooks, and GitHub, you'll gain a solid understanding of the fundamental aspects that drive effective data engineering projects.
 
 
-![Data Engineering Process Fundamentals - Discovery Phase](../../assets/2024/ozkary-data-engineering-process-decoding-data-with-discovery.png "Data Engineering Process Fundamentals - Discovery Phase")
+![A Hands-On Exploration into the discovery phase - Data Engineering Process Fundamentals](../../assets/2024/ozkary-data-engineering-process-hands-on-exploration-discovery-phase.png "A Hands-On Exploration into the discovery phase - Data Engineering Process Fundamentals")
 
 - Follow this GitHub repo during the presentation: (Give it a star)
 
 > 👉 https://github.com/ozkary/data-engineering-mta-turnstile
 
-- Read more information on my blog at:  
+Jupyter Notebook
+
+> 👉 Jupyter Notebook https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.ipynb
+
+- Data engineering Series:  
 
 > 👉 https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html
 
+## Jupyter Notebook Preview
+
+<iframe src="https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.html" width="100%" height="480px"></iframe>
+
+
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F2WHH5MrmE4?si=QbU8uhwwcBKtwLeI" title="Data Engineering Process Fundamentals - Discovery Process" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4oUJQN2qoPo?si=96w_pKD5qQU27gNA" title="A Hands-On Exploration into the discovery phase - Data Engineering Process Fundamentals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Video Agenda
 
@@ -187,7 +196,17 @@ Using a tool like GitHub is essential for effective version control and collabor
 
 ![Data Engineering Process Fundamentals - Discovery Problem Statement](../../assets/2024/ozkary-data-engineering-process-problem-statement.png "Data Engineering Process Fundamentals - Discovery Problem Statement")
 
-## Summary
+## Summary: The Power of Discovery
+
+By mastering the discovery phase, you lay a strong foundation for successful data engineering projects. A thorough understanding of your data is essential for extracting meaningful insights.
+
+- **Understanding Your Data:** The discovery phase is crucial for understanding your data's characteristics, quality, and potential.
+- **Exploratory Data Analysis (EDA):** Use techniques to uncover patterns, trends, and anomalies.
+- **Data Profiling:** Assess data quality, identify missing values, and understand data distributions.
+- **Data Cleaning:** Address data inconsistencies and errors to ensure data accuracy.
+- **Domain Knowledge:** Leverage domain expertise to guide data exploration and interpretation.
+- **Setting the Stage:** Choose the right language and tools for efficient data exploration and analysis.
+
 
 The data engineering discovery process involves defining the problem statement, gathering requirements, and determining the scope of work. It also includes a data analysis exercise utilizing Python and Jupyter Notebooks or other tools to extract valuable insights from the data. These steps collectively lay the foundation for successful data engineering endeavors.
 
