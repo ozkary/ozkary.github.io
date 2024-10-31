@@ -36,7 +36,7 @@ Jupyter Notebook
 
 ## Jupyter Notebook Preview
 
-<iframe src="https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.html" width="100%" height="480px"></iframe>
+<iframe src="https://raw.githubusercontent.com/ozkary/data-engineering-mta-turnstile/refs/heads/main/Step1-Discovery/mta_discovery.html" width="100%" height="480px" frameborder="0"></iframe>
 
 
 ## YouTube Video
