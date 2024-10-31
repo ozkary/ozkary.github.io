@@ -24,15 +24,15 @@ In this session, we will delve into the essential building blocks of data engine
 
 - Follow this GitHub repo during the presentation: (Give it a star)
 
-> 👉 (GitHub Repo)[https://github.com/ozkary/data-engineering-mta-turnstile]
+> 👉 [GitHub Repo](https://github.com/ozkary/data-engineering-mta-turnstile)
 
 Jupyter Notebook
 
-> 👉 (Jupyter Notebook)[https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.ipynb]
+> 👉 [Jupyter Notebook](https://github.com/ozkary/data-engineering-mta-turnstile/blob/main/Step1-Discovery/mta_discovery.ipynb)
 
 - Data engineering Series:  
 
-> 👉 (Blog Series)[https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html]
+> 👉 [Blog Series](https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html)
 
 ## Jupyter Notebook Preview
 
