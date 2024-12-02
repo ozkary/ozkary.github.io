@@ -33,7 +33,7 @@ In this technical presentation, we will delve into the fundamental concepts of D
   
 ## YouTube Video
 
-[![Ozkary Introduction to Data lakes and Data warehouse - Youtube](../../assets/2023/ozkary-data-engineering-process-intro-data-lake-warehouse.png)](https://www.youtube.com/live/mm91z6vkWDY?si=MaWRBotWP26Ed4lP "Introduction to Data lakes and Data warehouse")
+<iframe width="560" height="315" src="https://www.youtube.com/live/mm91z6vkWDY?si=MaWRBotWP26Ed4lP" title="Introduction to Data lakes and Data warehouse - Data Engineering Process Fundamentals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Video Agenda
 
