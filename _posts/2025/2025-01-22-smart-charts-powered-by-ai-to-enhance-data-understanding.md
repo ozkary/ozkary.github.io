@@ -37,7 +37,6 @@ This presentation explores how Generative AI, particularly Large Language Models
 **Agenda:**
 
 1. Introduction to LLMs and their Role in Data Analysis and Training
-
 - What are LLMs, and how do they work?
 - LLMs in the context of data analysis and visualization.
 
@@ -138,7 +137,7 @@ Large language models work by dissecting text into a sequence of tokens. These t
 - Similar to how Lego bricks come in various shapes and sizes, tokens can vary depending on the model's design.
 - Measure cost.
 
-> Think of tokens as Lego blocks
+> 👉 Think of tokens as Lego blocks
 
 ### Prompt Engineering - What is it?
 
@@ -196,10 +195,9 @@ LLMs empower developers, data engineers/analysts, and scientists by enhancing da
 
 > 👉 By framing the prompt with contextual and guiding questions, you effectively "train" the model to analyze the chart in a more human-like and insightful manner.
 
+Thanks for reading! 😊 If you enjoyed this post and would like to stay updated with our latest content, don’t forget to follow us. Join our community and be the first to know about new articles, exclusive insights, and more!
 
-Thanks for reading.
-
-Send question or comment:
+Leave comments on this post or contact me at:
 
  - Twitter @ozkary
  - BlueSky https://bsky.app/profile/ozkary.bsky.social
