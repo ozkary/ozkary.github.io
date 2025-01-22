@@ -37,25 +37,25 @@ This presentation explores how Generative AI, particularly Large Language Models
 **Agenda:**
 
 1. Introduction to LLMs and their Role in Data Analysis and Training
-- What are LLMs, and how do they work?
-- LLMs in the context of data analysis and visualization.
+   - What are LLMs, and how do they work?
+   - LLMs in the context of data analysis and visualization.
 
 2. Prompt Engineering - Guiding the LLM
-- Crafting effective prompts for chart analysis.
-- Providing context within the prompt (chart type, data).
+   - Crafting effective prompts for chart analysis.
+   - Providing context within the prompt (chart type, data).
 
 3. Tokens - The Building Blocks
-- Understanding the concept of tokens in LLMs.
-- How token limits impact prompt design and model performance.
+   - Understanding the concept of tokens in LLMs.
+   - How token limits impact prompt design and model performance.
 
 4. Let AI Help with Data Insights - Real Use Case
-- Creating complex charts using Python libraries.
-- Write Prompts for Chart Analysis
-- Utilizing an LLM to analyze the generated charts.
-- Demonstrating how LLMs can identify trends, anomalies, and potential areas for improvement.
+   - Creating complex charts using Python libraries.
+   - Write Prompts for Chart Analysis
+   - Utilizing an LLM to analyze the generated charts.
+   - Demonstrating how LLMs can identify trends, anomalies, and potential areas for improvement.
 
-6. Live Demo - Create complex charts using python and ask AI to help you with the analysis
-- Live coding demonstration of creating a complex chart and using an LLM to analyze it.
+5. Live Demo - Create complex charts using python and ask AI to help you with the analysis
+   - Live coding demonstration of creating a complex chart and using an LLM to analyze it.
   
 Why Attend?
 
