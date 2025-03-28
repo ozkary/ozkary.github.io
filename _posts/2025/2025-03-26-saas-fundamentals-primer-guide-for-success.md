@@ -3,7 +3,7 @@ title: "SaaS Fundamentals: A Primer's Guide for Success"
 excerpt: " This presentation will show you the fundamental steps to take your idea from a simple thought to a successful online SaaS solution."
 last_modified_at: 2025-03-26T13:00:00
 header:
-  teaser: "../assets/2025/ozkary-discovering-machine-learning-primer-guide-sm.jpg"
+  teaser: "../assets/2025/ozkary-saas-fundamentals-sm.jpg"
   teaserAlt: "SaaS Fundamentals: A Primer's Guide for Success"
 tags:   
   - cloud
