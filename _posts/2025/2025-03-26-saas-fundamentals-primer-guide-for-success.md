@@ -6,14 +6,11 @@ header:
   teaser: "../assets/2025/ozkary-saas-fundamentals-sm.jpg"
   teaserAlt: "SaaS Fundamentals: A Primer's Guide for Success"
 tags:   
-  - cloud
-  - github
-  - vscode
-  - python
-  - AI
-  - MachineLanguage
-  - LLM
-  - BuildWithAI
+  - Cloud  
+  - SaaS
+  - Small Business
+  - Apps
+  - Entrepreneurs
 toc: true
 ---
 # Overview
