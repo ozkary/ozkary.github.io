@@ -10,6 +10,7 @@ tags:
   - Small Business
   - Apps
   - Entrepreneurs
+  - Software Ideas
 toc: true
 ---
 # Overview
@@ -23,7 +24,7 @@ Have you ever encountered a problem, big or small, and thought, 'Wouldn't it be 
 
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://youtube.com/live/OJvKkUbhX2E" title="SaaS Fundamentals  a Primer Guide fo Success May 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OJvKkUbhX2E?si=2dpKSKw5f7TlzH7B" title="SaaS Fundamentals  a Primer Guide fo Success May 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Video Agenda
 
