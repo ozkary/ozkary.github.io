@@ -1,6 +1,6 @@
 ---
 title: "Restore VS Code After Windows Updates Remove It"
-excerpt: ""
+excerpt: "VS Code files being moved** to a mysterious `_` folder inside its installation directory. If this happens to you, don’t worry you can restore VS Code easily with a simple script!"
 last_modified_at: 2023-01-14T13:00:00
 header:
   teaser: "../assets/2025/ozkary-restore-vscode-files-after-windows-update-sm.jpg"
@@ -15,7 +15,7 @@ toc: true
 
 # Restore VS Code After Windows Updates Remove It
 
-Windows updates are meant to improve system stability, but occasionally, they **restructure important folders**, leading to unexpected issues. One problem some users have encountered is **VS Code files being moved** to a mysterious `_` folder inside its installation directory. If this happens to you, don’t worry—**you can restore VS Code easily** with a simple script!
+Windows updates are meant to improve system stability, but occasionally, they **restructure important folders**, leading to unexpected issues. One problem some users have encountered is **VS Code files being moved** to a mysterious `_` folder inside its installation directory. If this happens to you, don’t worry **you can restore VS Code easily** with a simple script!
 
 ![Restore VSCode files after windows update remove it](../../assets/2025/ozkary-restore-vscode-files-after-windows-update.jpg)
 
@@ -99,9 +99,9 @@ By using this script, you’ll save time and frustration, ensuring VS Code remai
 
 Thanks for reading and follow me for more technical articles, videos and podcasts
 
- - GitHub https://github.com/ozkary
- - Twitter https://x.com/ozkary
- - YouTube https://www.youtube.com/@ozkary
- - BlueSky https://bsky.app/profile/ozkary.bsky.social
+- [GitHub](https://github.com/ozkary)
+- [Twitter](https://x.com/ozkary)
+- [YouTube](https://www.youtube.com/@ozkary)
+- [BlueSky](https://bsky.app/profile/ozkary.bsky.social)
 
 👍 Originally published by [ozkary.com](https://www.ozkary.com)
