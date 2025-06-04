@@ -13,7 +13,7 @@ toc: true
 # filename: 2025-06-01-restore-vscode-after-windows-update-remove-it.md
 ---
 
-# Restore VS Code After Windows Updates Remove It
+# Overview
 
 Windows updates are meant to improve system stability, but occasionally, they **restructure important folders**, leading to unexpected issues. One problem some users have encountered is **VS Code files being moved** to a mysterious `_` folder inside its installation directory. If this happens to you, don’t worry **you can restore VS Code easily** with a simple script!
 
