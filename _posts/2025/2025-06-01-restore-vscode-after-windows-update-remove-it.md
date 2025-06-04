@@ -1,7 +1,7 @@
 ---
 title: "Restore VS Code After Windows Updates Remove It"
-excerpt: "VS Code files being moved** to a mysterious `_` folder inside its installation directory. If this happens to you, don’t worry you can restore VS Code easily with a simple script!"
-last_modified_at: 2023-01-14T13:00:00
+excerpt: "After a Windows update, is VS Code removed from your computer? If this happens to you, don’t worry the files are not gone, you can restore VS Code easily with a simple script!"
+last_modified_at: 2025-06-01T13:00:00
 header:
   teaser: "../assets/2025/ozkary-restore-vscode-files-after-windows-update-sm.jpg"
   teaserAlt: "Restore VS Code After Windows Updates Remove It"
