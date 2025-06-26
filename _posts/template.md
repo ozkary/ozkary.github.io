@@ -29,9 +29,11 @@ blablablablablabla
 
 ### Summary
 
-blablabla
 
-Thanks for reading.
+Thanks for reading! 😊 If you enjoyed this post and would like to stay updated with our latest content, don’t forget to follow us. Join our community and be the first to know about new articles, exclusive insights, and more!
 
-Send question or comment at Twitter @ozkary
-Originally published by [ozkary.com](https://www.ozkary.com)
+- [Google Developer Group](https://gdg.community.dev/gdg-broward-county-fl/)
+- [GitHub](https://github.com/ozkary)
+- [Twitter](https://x.com/ozkary)
+- [YouTube](https://www.youtube.com/@ozkary)
+- [BlueSky](https://bsky.app/profile/ozkary.bsky.social)
