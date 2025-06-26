@@ -30,6 +30,10 @@ Whether you’re a developer, strategist, or simply curious, this session is you
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/taVukQ79poU?si=fjmGD_QDmR8vzmbi" title="Autonomous AI Agent: A Primer's Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+## GitHub Repo
+
+[![Autonomous AI Agent - GitHub](https://img.shields.io/badge/GitHub-ai--agents-blue?logo=github)](https://github.com/ozkary/ai-engineering/tree/main/ai-agents)
+
 ### Video Agenda:
 
 - What is an AI Agent?  
