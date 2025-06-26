@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous AI Agent: A Primer's Guide - Banner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .banner-container {            
+            background: linear-gradient(135deg, #4CAF50 0%, #333333 100%);
+            width: 100%;
+            max-width: 1200px; /* Max width for larger screens */
+            min-height: 300px; /* Minimum height for the banner on small screens */
+            height: 80vh; /* Set banner to take 80% of viewport height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically on small screens */
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            border-radius: 20px; /* Rounded corners for the banner */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            text-align: center;
+            overflow: hidden; /* Ensure nothing spills out */
+            position: relative; /* Needed for absolute positioning of QR code */
+        }
+
+        @media (min-width: 768px) {
+            .banner-container {
+                flex-direction: row; /* Align elements horizontally on larger screens */
+                justify-content: space-around;
+                text-align: left;
+            }
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally within this column */
+            flex-shrink: 0; /* Prevent from shrinking */
+            margin-bottom: 20px; /* Space below section on small screens */
+        }
+
+        @media (min-width: 768px) {
+            .profile-section {
+                margin-right: 40px; /* Space to the right of section on large screens */
+                margin-bottom: 0;
+            }
+        }
+
+        .profile-image-wrapper {
+            width: 48vh; /* Increased to 60% of banner height (80vh * 0.6) */
+            height: 48vh; /* Increased to 60% of banner height (80vh * 0.6) */
+            max-width: 350px; /* Cap image size to prevent it from getting too large on very big screens */
+            max-height: 350px; /* Cap image size */
+            border-radius: 50%; /* Make the image circular */
+            background-color: rgba(255, 255, 255, 0.9); /* White background for the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px; /* Border around the image */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Shadow for the image */
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover; /* Cover the area without distortion */
+            object-position: center top; /* Position the image to hide the bottom part */
+            border: 3px solid #fff; /* Inner white border */
+        }
+
+        .text-content {
+            color: white;
+            max-width: 600px;
+        }
+
+        .main-title {
+            font-size: 2.5rem; /* Reduced font size for main title */
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 5px; /* Reduced margin to bring subtitle closer */
+        }
+
+        .sub-title {
+            font-size: 1.8rem; /* Smaller font size for subtitle */
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 10px; /* Margin below the subtitle */
+        }
+
+        .overview-line {
+            font-size: 1.2rem; /* Font size for the new overview line */
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 15px; /* Added margin below overview line */
+        }
+
+        .author-name {
+            font-size: 1.3rem; /* Font size for the author's name */
+            font-weight: 600;
+            opacity: 0.95;
+            color: #FFFFFF; /* White color for the name */
+            margin-top: 15px; /* Space between image and name */
+        }
+
+        /* QR Code Styling */
+        .qr-code-wrapper {
+            position: absolute;
+            bottom: 75px; /* Distance from the bottom edge */
+            right: 50px; /* Distance from the right edge */
+            width: 140px; /* Fixed width for the QR code area */
+            height: 140px; /* Fixed height for the QR code area */
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly opaque white background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px; /* Inner padding around the QR code */
+            border-radius: 15px; /* Rounded corners for the QR code wrapper */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for the QR code */
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .qr-code-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensure the QR code fits without cropping */
+            border-radius: 8px; /* Slightly rounded corners for the image itself */
+        }
+
+        /* Responsive adjustments for QR code on smaller screens */
+        @media (max-width: 640px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            .sub-title {
+                font-size: 1rem;
+            }
+            .overview-line {
+                font-size: 0.9rem;
+            }
+            .author-name {
+                font-size: 1rem;
+            }
+            .qr-code-wrapper {
+                width: 80px; /* Smaller size on very small screens */
+                height: 80px;
+                bottom: 15px;
+                right: 15px;
+                padding: 5px;
+                border-radius: 10px;
+            }
+        }
+
+        /* Responsive font size for larger screens (already defined, just reiterating context) */
+        @media (min-width: 768px) {
+            .main-title {
+                font-size: 3.5rem;
+            }
+            .sub-title {
+                font-size: 2.2rem;
+            }
+            .overview-line {
+                font-size: 1.5rem;
+            }
+            .author-name {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Fallback for profile image in case the file name is not correct */
+        .profile-image[src=""] {
+            background-color: #ccc;
+            content: "Profile Image Not Found";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="profile-section">
+            <div class="profile-image-wrapper">
+                <!-- Ensure this image filename matches your uploaded file -->
+                <img src="../../assets/oscar-garcia-speaker.jpg" alt="Oscar Garcia Profile" class="profile-image" />
+            </div>
+            <p class="author-name">Óscar D. García</p>
+        </div>
+        <div class="text-content">
+            <h1 class="main-title">Autonomous AI Agent</h1>
+            <h3 class="sub-title">A Primer's Guide</h3>
+            <h5 class="overview-line">Your comprehensive guide for building AI Agents</h5>
+        </div>
+
+        <!-- QR Code Placeholder (now using an img tag) -->
+        <div class="qr-code-wrapper">
+            <img src="../../assets/oscar-garcia-ozkary-qr-code.jpg" alt="Oscar Garcia QR Code" class="qr-code-image" />
+        </div>
+    </div>
+</body>
+</html>
