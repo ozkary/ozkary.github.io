@@ -1,6 +1,6 @@
 ---
 title: "Autonomous AI Agent: A Primer's Guide July 2025"
-excerpt: "What’s the AI agent mystique? Are they just chatbots with automation? What makes them different—and why does it matter?"
+excerpt: "Explore what truly sets AI agents apart—how they perceive, reason, and act with autonomy across industries ranging from healthcare to retail to logistics."
 last_modified_at: 2025-07-23T13:00:00
 header:
   teaser: "../assets/2025/ozkary-autonomous-ai-agents-primer-guide-sm.jpg"
