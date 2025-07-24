@@ -25,6 +25,7 @@ Whether you’re a developer, strategist, or simply curious, this session is you
 ![Autonomous AI Agents a Primer's Guide](../../assets/2025/ozkary-autonomous-ai-agents-primer-guide.jpg)
 
 > #BuildWithAI Series
+> July 2025 Presentation
 
 ## YouTube Video
 
