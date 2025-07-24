@@ -1,7 +1,7 @@
 ---
-title: "Autonomous AI Agent: A Primer's Guide June 2025"
+title: "Autonomous AI Agent: A Primer's Guide July 2025"
 excerpt: "What’s the AI agent mystique? Are they just chatbots with automation? What makes them different—and why does it matter?"
-last_modified_at: 2025-06-25T13:00:00
+last_modified_at: 2025-07-23T13:00:00
 header:
   teaser: "../assets/2025/ozkary-autonomous-ai-agents-primer-guide-sm.jpg"
   teaserAlt: "ozkary autonomous ai agents primer guide"
@@ -25,11 +25,10 @@ Whether you’re a developer, strategist, or simply curious, this session is you
 ![Autonomous AI Agents a Primer's Guide](../../assets/2025/ozkary-autonomous-ai-agents-primer-guide.jpg)
 
 > #BuildWithAI Series
-> July 2025 Presentation
 
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/taVukQ79poU?si=fjmGD_QDmR8vzmbi" title="Autonomous AI Agent: A Primer's Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3tOK4nvEjOE?si=AW-73vcD6ids55mi" title="Autonomous AI Agent: A Primer's Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## GitHub Repo
 
