@@ -1,9 +1,9 @@
 ---
-title: "Autonomous AI Agent: A Primer's Guide July 2025"
+title: "Discover AI Agent: A Primer's Guide July 2025"
 excerpt: "Explore what truly sets AI agents apart—how they perceive, reason, and act with autonomy across industries ranging from healthcare to retail to logistics."
 last_modified_at: 2025-07-23T13:00:00
 header:
-  teaser: "../assets/2025/ozkary-autonomous-ai-agents-primer-guide-sm.jpg"
+  teaser: "../assets/2025/ozkary-autonomous-ai-agents-a-primer-guide-sm.jpg"
   teaserAlt: "ozkary autonomous ai agents primer guide"
 tags:     
   - AI
