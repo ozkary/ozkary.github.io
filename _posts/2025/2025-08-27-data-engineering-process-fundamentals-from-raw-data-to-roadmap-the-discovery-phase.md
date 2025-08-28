@@ -49,27 +49,28 @@ In this session, we will delve into the essential building blocks of data engine
 
 1. Introduction:
 
-- The "Why": We'll discuss why understanding your data upfront is crucial for success.
-- The Problem: We'll introduce a real-world problem that will guide our exploration.
+   - The "Why": We'll discuss why understanding your data upfront is crucial for success.
+   - The Problem: We'll introduce a real-world problem that will guide our exploration.
 
 2. Data Loading and Preparation:
 
-- Loading: We'll demonstrate how to efficiently load data from an online source directly into our workspace.
-- Structuring: We'll prepare the loaded data for analysis, making it easy to work with.
+   - Loading: We'll demonstrate how to efficiently load data from an online source directly into our workspace.
+   - Structuring: We'll prepare the loaded data for analysis, making it easy to work with.
 
 3. Exploratory Data Analysis (EDA):
 
-- First Look: We'll learn how to quickly generate and interpret summary statistics for our data.
-- The Story: We'll use these statistics to understand the data's characteristics and identify any red flags or anomalies.
+   - First Look: We'll learn how to quickly generate and interpret summary statistics for our data.
+   - The Story: We'll use these statistics to understand the data's characteristics and identify any red flags or anomalies.
 
 4. Data Cleaning and Modeling:
-- Cleaning: We'll identify and handle common data issues like missing values and inconsistencies.
-- Modeling: We'll organize our data into separate tables for dimensions (descriptive attributes) and facts (measurable values).
+    
+   - Cleaning: We'll identify and handle common data issues like missing values and inconsistencies.
+   - Modeling: We'll organize our data into separate tables for dimensions (descriptive attributes) and facts (measurable values).
 
 5. Visualization and Real-World Application:
 
-- Bringing it to Life: We'll create charts to visualize the data and find patterns.
-- Solving the Problem: We'll apply the insights gained to address our original problem and discuss practical solutions.
+     - Bringing it to Life: We'll create charts to visualize the data and find patterns.
+     - Solving the Problem: We'll apply the insights gained to address our original problem and discuss practical solutions.
 
 Key Takeaways:
 
