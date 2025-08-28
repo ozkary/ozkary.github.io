@@ -1,10 +1,10 @@
 ---
-title: "From Raw Data to Roadmap: The Discovery Phase in Data Engineering - Data Engineering Process Fundamentals"
+title: "From Raw Data to Roadmap: The Discovery Phase in Data Engineering Process Fundamentals"
 excerpt: " we will delve into the essential building blocks of data engineering, placing a spotlight on the discovery process. From framing the problem statement to navigating the intricacies of exploratory data analysis (EDA) using Python."
 last_modified_at: 2024-10-30T13:00:00
 header:
   teaser: "../assets/2025/ozkary-data-engineering-process-fundamentals-from-raw-data-to-roadmap-discovery-phase-sm.png"
-  teaserAlt: "From Raw Data to Roadmap: The Discovery Phase in Data Engineering - Data Engineering Process Fundamentals"
+  teaserAlt: "From Raw Data to Roadmap: The Discovery Phase in Data Engineering Process Fundamentals"
 tags: 
   - code  
   - cloud
