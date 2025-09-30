@@ -3,7 +3,7 @@ title: "From Blueprint to Build - The Design and Planning Phase in Data Engineer
 excerpt: " The design and planning phase of a data engineering project is crucial for laying out the foundation of a successful and scalable solution. This phase ensures that the architecture is strategically aligned with business objectives, optimizes resource utilization, and mitigates potential risks. "
 last_modified_at: 2025-09-29T13:00:00
 header:
-  teaser: "../assets/2025/ozkary-design-and-planning-phase-data-engineering-process-fundamentals-sm.png"
+  teaser: "../assets/2025/ozkary-design-and-planning-phase-data-engineering-process-fundamentals-sm.jpg"
   teaserAlt: "From Blueprint to Build - The Design and Planning Phase in Data Engineering"
 tags: 
   - code  
@@ -31,7 +31,7 @@ The design and planning phase of a data engineering project is crucial for layin
 
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/O6gqhreqGDo?si=8vnZxaRj1K7oJCJp" title="Data Engineering Process Fundamentals - Design and Planning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BS2tFYPTcCo?si=__rZnSMaRMZdPvd9" title="Data Engineering Process Fundamentals - Design and Planning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Video Agenda
 
