@@ -33,7 +33,7 @@ This presentation is part of the Data Engineering Process Fundamentals series, f
   
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mm91z6vkWDY?si=VMh7O-7ir2dRlfIx" title="Introduction to Data lakes and Data warehouse - Data Engineering Process Fundamentals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9DYtKz4qVbA?si=mk_s1myV6aB7bBgZ" title="From Raw Data to Analytics: The Modern Data Layer Architecture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Video Agenda
 
