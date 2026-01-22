@@ -25,11 +25,23 @@ We will explore how to move beyond brittle ETL pipelines using Zero-ETL architec
 
 ![The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment](../../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment")
 
-- Follow these popular GitHub projects: (Give it a star)
-  - > 👉 https://github.com/ozkary/data-engineering-mta-turnstile
-  - > 👉 https://github.com/ozkary/ai-engineering
-  - > 👉 https://github.com/ozkary/machine-learning-engineering
+## 🚀 Featured Open Source Projects
+Explore these curated resources to level up your engineering skills. If you find them helpful, a ⭐️ is much appreciated!
 
+### 🏗️ [Data Engineering](https://github.com/ozkary/data-engineering-mta-turnstile) 
+> **Focus:** Real-world ETL & MTA Turnstile Data  
+> ![Maintained](https://img.shields.io/badge/Maintained-Yes-green.svg) ![License](https://img.shields.io/github/license/ozkary/data-engineering-mta-turnstile)
+
+### 🤖 [Artificial Intelligence](https://github.com/ozkary/ai-engineering)
+> **Focus:** LLM Patterns and Agentic Workflows  
+> ![Status](https://img.shields.io/badge/Status-Active_Development-blue.svg) ![Topic](https://img.shields.io/badge/Focus-Generative_AI-orange)
+
+### 📉 [Machine Learning](https://github.com/ozkary/machine-learning-engineering)
+> **Focus:** MLOps and Productionizing Models  
+> ![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg) ![Stage](https://img.shields.io/badge/Stage-Production_Ready-blue)
+
+---
+💡 **Contribute:** Found a bug or have a suggestion? Open an issue! and be part of the open source project.
 
 ## YouTube Video
 
