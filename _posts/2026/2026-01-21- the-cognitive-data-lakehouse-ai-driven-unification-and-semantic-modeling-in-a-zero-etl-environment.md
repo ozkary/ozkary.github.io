@@ -333,13 +333,10 @@ If you're interested in learning more about building cloud data pipelines, I enc
 
  [![Data Engineering Process Fundamentals - Book by Oscar Garcia](../../assets/2024/ozkary-data-engineering-process-fundamentals-book-cover.jpg)](https://a.co/d/gyoRfbs)  [![Data Engineering Process Fundamentals - Book by Oscar Garcia](../../assets/2024/ozkary-data-engineering-process-fundamentals-book-back-cover.jpg)](https://a.co/d/gyoRfbs)
  
+---
 
-**Upcoming Talks:**
-
-Join us for subsequent sessions in our Data Engineering Process Fundamentals series, where we will delve deeper into specific facets of data engineering, exploring topics such as data modeling, pipelines, and best practices in data governance.
-
-This presentation is based on the book, [Data Engineering Process Fundamentals](https://www.amazon.com/Data-Engineering-Process-Fundamentals-Hands/dp/B0CV7TPSNB), which provides a more comprehensive guide to the topics we'll cover. You can find all the sample code and datasets used in this presentation on our popular GitHub repository [Introduction to Data Engineering Process Fundamentals](https://github.com/ozkary/data-engineering-mta-turnstile).
-
+### 📅 Upcoming Sessions
+Our upcoming series expands beyond data engineering to bridge the gap between **AI**, **Machine Learning**, and **modern cloud architecture**. Using our [Data](https://github.com/ozkary/data-engineering-mta-turnstile), [AI](https://github.com/ozkary/ai-engineering), and [ML](https://github.com/ozkary/machine-learning-engineering) GitHub blueprints, we provide the code-first patterns needed to build everything from Zero-ETL pipelines to scalable LLM-powered systems. Join us to explore how these integrated disciplines work together to turn raw data into production-ready intelligence.
 
 ---
 ### 🌟 Let's Connect & Build Together
