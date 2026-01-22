@@ -26,10 +26,9 @@ We will explore how to move beyond brittle ETL pipelines using Zero-ETL architec
 ![The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment](../../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment")
 
 - Follow these popular GitHub projects: (Give it a star)
-
-> 👉 https://github.com/ozkary/data-engineering-mta-turnstile
-> 👉 https://github.com/ozkary/ai-engineering
-> 👉 https://github.com/ozkary/machine-learning-engineering
+  - > 👉 https://github.com/ozkary/data-engineering-mta-turnstile
+  - > 👉 https://github.com/ozkary/ai-engineering
+  - > 👉 https://github.com/ozkary/machine-learning-engineering
 
 
 ## YouTube Video
