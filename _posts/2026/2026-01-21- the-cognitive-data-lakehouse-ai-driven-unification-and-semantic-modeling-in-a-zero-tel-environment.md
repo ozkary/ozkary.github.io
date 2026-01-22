@@ -25,17 +25,16 @@ We will explore how to move beyond brittle ETL pipelines using Zero-ETL architec
 
 ![The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment](../../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment")
 
-- Follow this GitHub repo during the presentation: (Give it a star)
+- Follow these popular GitHub projects: (Give it a star)
 
 > 👉 https://github.com/ozkary/data-engineering-mta-turnstile
+> 👉 https://github.com/ozkary/ai-engineering
+> 👉 https://github.com/ozkary/machine-learning-engineering
 
-- Read more information on my blog at:  
-
-> 👉 https://www.ozkary.com/2023/03/data-engineering-process-fundamentals.html
 
 ## YouTube Video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/E87qPNObF7g?si=f6ii8FOVH8sPI0Dv" title="The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nfJl-4BxqyY?si=mHyV5N547HqZ0rJx" title="The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Video Agenda
 
@@ -253,6 +252,36 @@ OPTIONS (
 
 **Human-in-the-Loop DevOps**
 - Use AI to update the unified view with the new data feed.  Review and apply the changes by the DevOps team, as changes to a production view require approval.
+
+#### Manufacturing SPC & Root Cause Analysis
+
+- This query calculates a rolling mean and standard deviation over the last 10 minutes of telemetry to detect anomalies, “Out of Control” conditions.
+
+```sql
+WITH TelemetryStats AS (
+  SELECT
+    machine_id,
+    timestamp,
+    sensor_reading,
+    -- Calculate rolling stats for the "Control Chart"
+    AVG(sensor_reading) OVER(PARTITION BY machine_id ORDER BY timestamp ROWS BETWEEN 20 PRECEDING AND CURRENT ROW) as rolling_avg,
+    STDDEV(sensor_reading) OVER(PARTITION BY machine_id ORDER BY timestamp ROWS BETWEEN 20 PRECEDING AND CURRENT ROW) as rolling_stddev
+  FROM `production_data.mx_telemetry_stream`
+  WHERE timestamp > TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 HOUR)
+),
+Anomalies AS (
+  SELECT *,
+    -- Define "Out of Control" (Reading > 3 Sigma from mean)
+    ABS(sensor_reading - rolling_avg) > (3 * rolling_stddev) AS is_out_of_control
+  FROM TelemetryStats
+)
+SELECT * FROM Anomalies WHERE is_out_of_control = TRUE;
+
+```
+
+#### Control Chart Visualization
+
+![The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment - Control Charts](../../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-control-charts.png)
 
 
 #### ADVANTAGE COMPARISON MATRIX
