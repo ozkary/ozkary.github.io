@@ -341,12 +341,14 @@ Join us for subsequent sessions in our Data Engineering Process Fundamentals ser
 This presentation is based on the book, [Data Engineering Process Fundamentals](https://www.amazon.com/Data-Engineering-Process-Fundamentals-Hands/dp/B0CV7TPSNB), which provides a more comprehensive guide to the topics we'll cover. You can find all the sample code and datasets used in this presentation on our popular GitHub repository [Introduction to Data Engineering Process Fundamentals](https://github.com/ozkary/data-engineering-mta-turnstile).
 
 
-Thanks for reading! 😊 If you enjoyed this post and would like to stay updated with our latest content, don’t forget to follow us. Join our community and be the first to know about new articles, exclusive insights, and more!
+---
+### 🌟 Let's Connect & Build Together
+If you enjoyed these resources, let's stay in touch! I share deep-dives into AI/ML patterns and host community events here:
 
-- [Google Developer Group](https://gdg.community.dev/gdg-broward-county-fl/)
-- [GitHub](https://github.com/ozkary)
-- [Twitter](https://x.com/ozkary)
-- [YouTube](https://www.youtube.com/@ozkary)
-- [BlueSky](https://bsky.app/profile/ozkary.bsky.social)
+* **[GDG Broward](https://gdg.community.dev/gdg-broward-county-fl/)**: Join our local dev community for meetups and workshops.
+* **[LinkedIn](https://www.linkedin.com/in/ozkary)**: Let's connect professionally! I share insights on engineering.
+* **[GitHub](https://github.com/ozkary)**: Follow my open-source journey and star the repos you find useful.
+* **[YouTube](https://www.youtube.com/@ozkary)**: Watch step-by-step tutorials on the projects listed above.
+* **[BlueSky](https://bsky.app/profile/ozkary.bsky.social)** / **[X / Twitter](https://x.com/ozkary)**: Daily tech updates and quick engineering tips.
 
-👍 Originally published by [ozkary.com](https://www.ozkary.com)
+👉 *Originally published at [ozkary.com](https://www.ozkary.com)*
