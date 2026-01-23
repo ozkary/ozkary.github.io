@@ -185,6 +185,7 @@ OPTIONS (
 #### AI-ABSTRACTION: THE VIEW LAYER
 **Generating the Interface**
 - AI creates a clean abstraction view for each external table, decoupling raw storage from the analytics model.
+  
 ```sql
 -- AI Instruction
 "Create a view named 
@@ -194,6 +195,7 @@ usa_telemetry table. Safe cast the created column as datetime."
 ```
 
 **Abstraction Layer DDL**
+
 ```sql
 -- Semantic Abstraction Layer
 CREATE OR REPLACE VIEW `smart_factory.vw_us_telemetry` AS
