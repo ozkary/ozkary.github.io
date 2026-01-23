@@ -3,7 +3,7 @@ title: "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modelin
 excerpt: "In the modern data landscape, the wall between where data lives and how we get insights is crumbling. This session focuses on the Cognitive Data Lakehouse. A paradigm shift that allows developers to treat a fragmented data lake as a unified, high-performance warehouse."
 last_modified_at: 2025-12-10T13:00:00
 header:
-  teaser: "../assets/2025/ozkary-from-raw-data-to-governance-medallion-architecture-sm.png"
+  teaser: "../assets/2025/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png"
   teaserAlt: "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment"
 tags: 
   - python  
@@ -23,7 +23,7 @@ In the modern data landscape, the wall between "where data lives" and "how we ge
 
 We will explore how to move beyond brittle ETL pipelines using Zero-ETL architecture in the cloud. The core of our discussion will center on using integrated AI capabilities and semantic modeling to solve the "Metadata Mess" inherent in global manufacturing feeds without moving a single byte of data. From raw telemetry in object storage to semantic intelligence via large language models, we’ll show you the real-world application of AI in modern data engineering.
 
-![The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment](../../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment")
+![The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment](../../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment.png "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment")
 
 ## 🚀 Featured Open Source Projects
 Explore these curated resources to level up your engineering skills. If you find them helpful, a ⭐️ is much appreciated!
