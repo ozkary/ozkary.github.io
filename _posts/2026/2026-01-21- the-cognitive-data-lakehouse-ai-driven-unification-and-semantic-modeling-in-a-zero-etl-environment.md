@@ -1,9 +1,9 @@
 ---
 title: "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment"
 excerpt: "In the modern data landscape, the wall between where data lives and how we get insights is crumbling. This session focuses on the Cognitive Data Lakehouse. A paradigm shift that allows developers to treat a fragmented data lake as a unified, high-performance warehouse."
-last_modified_at: 2025-12-10T13:00:00
+last_modified_at: 2026-01-26T13:00:00
 header:
-  teaser: "../assets/2025/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png"
+  teaser: "../assets/2026/ozkary-the-cognitive-data-lakehouse-ai-driven-unification-and-semantic-modeling-in-a-zero-etl-environment-sm.png"
   teaserAlt: "The Cognitive Data Lakehouse: AI-Driven Unification and Semantic Modeling in a Zero-ETL Environment"
 tags: 
   - python  
