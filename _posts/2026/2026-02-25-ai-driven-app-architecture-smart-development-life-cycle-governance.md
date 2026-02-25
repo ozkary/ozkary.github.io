@@ -49,6 +49,8 @@ Explore these curated resources to level up your engineering skills. If you find
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wvhb9B3DeMY?si=gRHAES40_s1HdMkX" title="AI Driven App Architecture - Smart Development Life Cycle Governance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+> 👍 Subscribe to the channel to get notify on new events!
+
 ### Video Agenda
 
 **The Problem: Architectural Drift**
