@@ -3,7 +3,7 @@ title: "Architecting an Agentic Data Pipeline - From Data Lake Discovery to Mana
 excerpt: ""
 last_modified_at: 2026-02-25T13:00:00
 header:
-  teaser: "../assets/2026/ozkary-architecting-agentic-data-pipeline"
+  teaser: "../assets/2026/ozkary-architecting-agentic-data-pipeline-sm.png"
   teaserAlt: "Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration"
 tags: 
   - code  
