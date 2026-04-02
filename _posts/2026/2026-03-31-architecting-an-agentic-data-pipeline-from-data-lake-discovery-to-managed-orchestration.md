@@ -21,7 +21,7 @@ toc: true
 
 This session explores the strategy of leveraging AI to move beyond manual implementation and into the next level of data engineering. We dive into a process that positions the AI not as a syntax generator, but as a cognitive partner in the engineering lifecycle. We will examine the architectural shift required to transform raw data lake assets into high-performance, orchestrated systems, focusing on the strategic collaboration between human intent and agentic design.
 
-![Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration](../../assets/2026/ozkary-architecting-agentic-data-pipeline "Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration")
+![Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration](../../assets/2026/ozkary-architecting-agentic-data-pipeline.png "Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration")
 
 ## 🚀 Featured Open Source Projects
 Explore these curated resources to level up your engineering skills. If you find them helpful, a ⭐️ is much appreciated!
