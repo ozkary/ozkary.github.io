@@ -3,7 +3,7 @@ title: "From Passive Dashboards to Active Agents: Real-Time Reasoning over Data 
 excerpt: "Dashboards are effective at showing us that something is breaking, but they usually rely on a human to watch the screen and decide what to do next. In this session, we will look at how to take a standard real-time telemetry dashboard and make it autonomous."
 last_modified_at: 2026-04-30T13:00:00
 header:
-  teaser: "../assets/2026/ozkary-passive-dashboard-to-active-agents-sm"
+  teaser: "../assets/2026/ozkary-passive-dashboard-to-active-agents-sm.png"
   teaserAlt: "From Passive Dashboards to Active Agents: Real-Time Reasoning over Data Streams"
 tags: 
   - code  
