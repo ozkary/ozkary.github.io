@@ -146,13 +146,6 @@ The industry is moving beyond simple "Chat" interfaces and into the realm of Age
 
 ---
 
-### Learn More & Connect
-* **Book:** *Data Engineering Process Fundamentals*
-* **GitHub:** [Realtime-Apps-with-Nodejs-Angular-Socketio-Redis](https://github.com/ozkary/Realtime-Apps-with-Nodejs-Angular-Socketio-Redis)
-* **Registration:** [GDG Community Event Link](https://gdg.community.dev/events/details/google-gdg-broward-county-fl-presents-from-passive-dashboards-to-active-agents-real-time-reasoning-over-data-streams/)
-
-**Follow us on OZKARY.COM**
-
 ## 🌟 Let's Connect & Build Together
 Thanks for reading! 😊 If you enjoyed these resources, let's stay in touch! I share deep-dives into AI/ML patterns and host community events here:
 

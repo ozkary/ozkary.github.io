@@ -36,7 +36,7 @@ Explore these curated resources to level up your engineering skills. If you find
 > ![Status](https://img.shields.io/badge/Status-Active_Development-blue.svg) ![Topic](https://img.shields.io/badge/Focus-Generative_AI-orange)
 
 ### 📉 [Machine Learning](https://github.com/ozkary/machine-learning-engineering)
-> **Focus:** MLOps and Productionizing Models  
+> **Focus:** Introduction to machine learning  
 > ![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg) ![Stage](https://img.shields.io/badge/Stage-Production_Ready-blue)
 
 ---
