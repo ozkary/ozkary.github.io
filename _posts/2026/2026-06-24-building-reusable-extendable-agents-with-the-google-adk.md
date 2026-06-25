@@ -1,6 +1,6 @@
 ---
 title: "Building Reusable & Extendable Agents with the Google ADK"
-excerpt: ""
+excerpt: "Discover how to transition from building monolithic, single-prompt chatbots to designing highly modular, scalable, and extendable enterprise agents using the Google Agent Development Kit (ADK). This presentation provides a hands-on architectural deep dive into building process-oriented workflows, implementing the Model Context Protocol (MCP) for cloud data platform integrations, and utilizing automated DevOps tooling to eliminate technical debt in your AI engineering pipelines."
 last_modified_at: 2026-06-24T13:00:00
 header:
   teaser: "../assets/2026/ozkary-build-reusable-extendable-agents-with-google-adk-sm.jpg"
