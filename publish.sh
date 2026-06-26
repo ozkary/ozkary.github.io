@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# copy the new file into blog.md without the file header. Start from overview
+# REMOVE --- as that break the conversion
+
 # Check if a filename was provided
 if [ -z "$1" ]; then
-    echo "Usage: ./publish.sh filename.md"
+    echo "Usage: ./publish.sh blog.md"
     exit 1
 fi
 
