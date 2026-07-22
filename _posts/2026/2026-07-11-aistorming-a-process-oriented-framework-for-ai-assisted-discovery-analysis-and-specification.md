@@ -18,11 +18,16 @@ toc: true
 
 ---
 
-# Overview
 
-In the current software development landscape, the rise of generative AI tools has accelerated code synthesis, leading to trends like **vibe coding** and rapid AI prototyping. However, engineering teams face a critical bottleneck: **the discovery and analysis gap**. While AI coding assistants excel at emitting syntactically correct code, they consistently struggle when provided with vague, ungrounded, or fragmented domain specifications.
+# Abstract
 
-**AIStorming** is a process-oriented framework designed to bridge the gap between initial domain exploration and deterministic engineering execution. It formalizes the process of using AI coding tools (such as GitHub Copilot and Google Antigravity) to conduct real-time domain discovery, exploratory data analysis, and system boundary mapping directly within the Integrated Development Environment (IDE).
+As the software development lifecycle shifts toward autonomous **vibe coding**, rapid AI prototyping, and **Software Design Description (SDD)** driven workflows, engineering teams face a critical structural bottleneck: **the discovery and analysis gap**. Generative AI tools excel at emitting syntactically valid code, yet they consistently fail when handed vague, ungrounded, or fragmented domain specifications. 
+
+To bridge the gap between initial domain exploration and deterministic engineering execution, I introduce **AIStorming**—a process-oriented framework born out of my engineering practice and foundational work in enterprise data pipelines and cloud-native application architectures.
+
+Throughout my career designing high-scale cloud-native solutions, event-driven microservices, and modern data platforms, domain research, requirement validation, and exploratory design depended heavily on manual web searches, static documentation reviews, and disconnected whiteboarding sessions. Over years of hands-on practice, my workflow naturally evolved from manual research into AI-driven, interactive, and code-centric discovery. By leveraging AI coding assistants directly inside the development workspace to profile sample datasets, stress-test business rules, probe API interfaces, and validate system constraints in real time, I transformed traditional brainstorming into an active, deterministic engineering phase: **AIStorming**.
+
+AIStorming formalizes the process of using AI coding tools (e.g., GitHub Copilot, Google Antigravity) to conduct real-time domain discovery, exploratory analysis, and system boundary mapping across both cloud-native software and data engineering domains. Rather than relying on abstract, non-executable IT discovery frameworks, AIStorming anchors domain analysis directly in executable code, version control, and data validation. This yields structured problem statements, refined use cases, quantifiable technical requirements, and machine-readable specifications optimized for vibe coding, cloud-native design, and automated SDD execution.
 
 ![AIStorming: A Process-Oriented Framework for AI-Assisted Discovery, Analysis, and Specification](../../assets/2026/ozkary-aistorming-process-oriented-framework.png "AIStorming: A Process-Oriented Framework for AI-Assisted Discovery, Analysis, and Specification")
 
@@ -50,7 +55,7 @@ Explore these curated resources to level up your engineering skills. If you find
 
 ## 1. The Core Engineering Challenge: The Discovery-to-Implementation Gap
 
-In traditional enterprise software engineering, product discovery is often disconnected from the actual system implementation. Product managers, business analysts, and architects spend weeks producing static requirements documents, wireframes, or text-heavy stories. When these artifacts are passed down to software engineers—or fed as prompt context into AI coding tools—the implementation breaks down due to implicit assumptions, unverified data schemas, unexpected edge cases, and missing operational constraints.
+In traditional enterprise software engineering, product discovery is often disconnected from actual system implementation. Product managers, business analysts, and architects spend weeks producing static requirements documents, wireframes, or text-heavy stories. When these artifacts are passed down to software engineers—or fed as prompt context into AI coding tools—the implementation breaks down due to implicit assumptions, unverified data schemas, unexpected edge cases, and missing operational constraints.
 
 In an era dominated by AI-assisted synthesis, **garbage context in results in garbage execution out**. 
 
@@ -90,7 +95,7 @@ The objective of AIStorming is not to generate production application code or de
 
 ## 3. Foundational Principles of AIStorming
 
-Derived from the universal tenets of the *Data Engineering Process Fundamentals (DEP)* and expanded across cloud-native software architecture, AIStorming adapts proven discovery mechanics to AI-driven developer tooling.
+Derived from the universal tenets of my *Data Engineering Process Fundamentals (DEP)* and expanded across cloud-native software architecture, AIStorming adapts proven discovery mechanics to AI-driven developer tooling.
 
 ### I. The Code-Centric Paradigm
 Traditional discovery relies on prose descriptions that fail upon first contact with compiler logic, schema validation, or streaming engines. AIStorming dictates that **discovery must be code-centric from day one**. 
@@ -202,7 +207,6 @@ By adopting **AIStorming** as a formal phase prior to vibe coding and SDD execut
 * Garcia, Oscar D. (Ozkary). *"From Raw Data to Roadmap: The Discovery Phase in Data Engineering Process Fundamentals."* [Ozkary Technologies](https://www.ozkary.dev/data-engineering-process-fundamentals-discovery/)
 * Garcia, Oscar D. (Ozkary). *"Data Engineering Process Fundamentals - Design and Planning."*
 * Garcia, Oscar D. (Ozkary). *"Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration."*
-
 ---
 
 ## 🌟 Let's Connect & Build Together
