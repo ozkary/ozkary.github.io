@@ -1,0 +1,275 @@
+<h1>Overview</h1>
+
+<p>In the current software development landscape, the rise of generative AI tools has accelerated code synthesis, leading to trends like <strong>vibe coding</strong> and rapid AI prototyping. However, engineering teams face a critical bottleneck: <strong>the discovery and analysis gap</strong>. While AI coding assistants excel at emitting syntactically correct code, they consistently struggle when provided with vague, ungrounded, or fragmented domain specifications.</p>
+
+<p><strong>AIStorming</strong> is a process-oriented framework designed to bridge the gap between initial domain exploration and deterministic engineering execution. It formalizes the process of using AI coding tools (such as GitHub Copilot and Google Antigravity) to conduct real-time domain discovery, exploratory data analysis, and system boundary mapping directly within the Integrated Development Environment (IDE).</p>
+
+<p><img src="https://www.ozkary.dev/assets/2026/ozkary-aistorming-process-oriented-framework.png" alt="AIStorming: A Process-Oriented Framework for AI-Assisted Discovery, Analysis, and Specification" title="AIStorming: A Process-Oriented Framework for AI-Assisted Discovery, Analysis, and Specification" /></p>
+
+<hr />
+
+<h2>🚀 Featured Open Source Projects</h2>
+<p>Explore these curated resources to level up your engineering skills. If you find them helpful, a ⭐️ is much appreciated!</p>
+
+<h3>🏗️ <a href="https://github.com/ozkary/data-engineering-mta-turnstile">Data Engineering</a></h3>
+<blockquote>
+  <p><strong>Focus:</strong> Real-world ETL &amp; MTA Turnstile Data<br />
+  <img src="https://img.shields.io/badge/Maintained-Yes-green.svg" alt="Maintained" /> <img src="https://img.shields.io/github/license/ozkary/data-engineering-mta-turnstile" alt="License" /></p>
+</blockquote>
+
+<h3>🤖 <a href="https://github.com/ozkary/ai-engineering">Artificial Intelligence</a></h3>
+<blockquote>
+  <p><strong>Focus:</strong> LLM Patterns and Agentic Workflows<br />
+  <img src="https://img.shields.io/badge/Status-Active_Development-blue.svg" alt="Status" /> <img src="https://img.shields.io/badge/Focus-Generative_AI-orange" alt="Topic" /></p>
+</blockquote>
+
+<h3>📉 <a href="https://github.com/ozkary/machine-learning-engineering">Machine Learning</a></h3>
+<blockquote>
+  <p><strong>Focus:</strong> Introduction to machine learning<br />
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen.svg" alt="Build" /> <img src="https://img.shields.io/badge/Stage-Production_Ready-blue" alt="Stage" /></p>
+</blockquote>
+
+<hr />
+<p>💡 <strong>Contribute:</strong> Found a bug or have a suggestion? Open an issue! and be part of the open source project.</p>
+
+<hr />
+
+<h2>1. The Core Engineering Challenge: The Discovery-to-Implementation Gap</h2>
+
+<p>In traditional enterprise software engineering, product discovery is often disconnected from the actual system implementation. Product managers, business analysts, and architects spend weeks producing static requirements documents, wireframes, or text-heavy stories. When these artifacts are passed down to software engineers—or fed as prompt context into AI coding tools—the implementation breaks down due to implicit assumptions, unverified data schemas, unexpected edge cases, and missing operational constraints.</p>
+
+<p>In an era dominated by AI-assisted synthesis, <strong>garbage context in results in garbage execution out</strong>.</p>
+
+<pre><code>+-----------------------------------------------------------------------------------+
+|                            TRADITIONAL DISCOVERY GAP                              |
+|                                                                                   |
+|  [ Domain &amp; Business ] ---&gt; ( Static Docs / Whiteboards ) ---&gt; [ AI Assistant ]   |
+|  Ideation &amp; Concepts          Unverified Context                 Hallucinated     |
+|                                                                  Implementation   |
++-----------------------------------------------------------------------------------+
+                                        VS.
++-----------------------------------------------------------------------------------+
+|                             AISTORMING FRAMEWORK                                  |
+|                                                                                   |
+|  [ Domain Input ]  ---&gt; { AIStorming: Code-Centric Analysis } ---&gt; [ SDD &amp; Vibe ] |
+|  Raw Data / Rules /     Exploratory Scripts, Profiling,         Deterministic     |
+|  API Contracts          &amp; Requirement Synthesis in IDE             Builds         |
++-----------------------------------------------------------------------------------+</code></pre>
+
+<p>To leverage AI coding assistants safely and at enterprise quality, the <strong>Discovery Phase</strong> must be reinvented. It can no longer be a passive ideation exercise; it must become an active, <strong>code-centric discovery engine</strong> that validates domain facts, data structures, and service behaviors <em>before</em> full-scale software architecture and implementation begin.</p>
+
+<hr />
+
+<h2>2. What is AIStorming?</h2>
+
+<p><strong>AIStorming</strong> is the process-oriented methodology of conducting domain discovery, exploratory data/logic analysis, and system boundary definition by pairing human engineering expertise with AI coding tools inside an Integrated Development Environment (IDE).</p>
+
+<p>The objective of AIStorming is not to generate production application code or deploy live systems immediately. Instead, its primary output is a structured set of verified, code-grounded engineering artifacts:</p>
+<ol>
+  <li><strong>Grounded Problem Statements:</strong> Unambiguous scope boundaries, operational objectives, and domain invariants.</li>
+  <li><strong>Exploratory Data &amp; Logic Findings:</strong> Code-verified insights into payload structures, edge cases, integration contracts, API behaviors, and processing constraints.</li>
+  <li><strong>Formal Functional &amp; Technical Requirements:</strong> Explicit inputs, state behaviors, domain events, security boundaries, and non-functional targets (throughput, latency, reliability).</li>
+  <li><strong>Machine-Readable Specifications (SDD):</strong> Domain models, schemas, contract interfaces, and prompt-context files tailored for downstream vibe coding, agentic orchestration, and automated pipeline execution.</li>
+</ol>
+
+<hr />
+
+<h2>3. Foundational Principles of AIStorming</h2>
+
+<p>Derived from the universal tenets of the <em>Data Engineering Process Fundamentals (DEP)</em> and expanded across cloud-native software architecture, AIStorming adapts proven discovery mechanics to AI-driven developer tooling.</p>
+
+<h3>I. The Code-Centric Paradigm</h3>
+<p>Traditional discovery relies on prose descriptions that fail upon first contact with compiler logic, schema validation, or streaming engines. AIStorming dictates that <strong>discovery must be code-centric from day one</strong>.</p>
+<ul>
+  <li>Exploratory data analysis (EDA), API probing, schema validation, and domain logic simulations are written as executable scripts (Python, TypeScript, SQL, Go, Jupyter Notebooks) inside the IDE workspace.</li>
+  <li>AI tools are forced to interact with concrete execution outputs, stack traces, and SDK responses rather than abstract concepts.</li>
+</ul>
+
+<h3>II. Dataset &amp; Domain Grounding</h3>
+<p>AI models hallucinate when operating in an isolated context vacuum. AIStorming requires immediate grounding against real-world sample datasets, schema definitions, domain models, and API interfaces.</p>
+<ul>
+  <li>Evaluates data quality, structural variance, integration frequencies (batch vs. streaming event-driven), and service boundaries.</li>
+  <li>Uses AI assistants to parse, profile, and transform sample payloads and domain entities live during the discovery window.</li>
+</ul>
+
+<h3>III. Source Control and Auditable Iteration</h3>
+<p>Prompt histories floating in web interfaces are disposable, non-reproducible, and unmaintainable. AIStorming enforces that every discovery artifact—exploratory notebooks, schema models, interface definitions, and context files—is checked directly into a <strong>Git repository (e.g., GitHub)</strong>.</p>
+<ul>
+  <li>Enables collaboration between software engineers, data architects, and AI agents.</li>
+  <li>Maintains a versioned, auditable history of how business domain rules evolved into formal technical specifications.</li>
+</ul>
+
+<h3>IV. Bridge to Vibe Coding and SDD</h3>
+<p>AIStorming serves as the explicit precursor to <strong>Vibe Coding</strong> (rapid, intent-driven application development using AI models) and <strong>Software Design Description (SDD)</strong> generation. By translating loose ideas into code-verified constraints during AIStorming, downstream AI models receive high-fidelity, hallucination-free prompts during full-scale development.</p>
+
+<hr />
+
+<h2>4. The 4 Universal Steps of the AIStorming Process</h2>
+
+<p>Whether applied to cloud-native microservices, event-driven streaming applications, serverless architectures, or modern enterprise data platforms, the AIStorming framework executes across four process-oriented phases.</p>
+
+<pre><code>+-------------------+      +-------------------+      +-------------------+      +-------------------+
+|  STEP 1:          | ---&gt; |  STEP 2:          | ---&gt; |  STEP 3:          | ---&gt; |  STEP 4:          |
+|  Problem          |      |  Exploratory      |      |  Use Case &        |      |  SDD &amp; Vibe       |
+|  Framing &amp;        |      |  Data &amp; Domain    |      |  Requirement      |      |  Specification    |
+|  Context Prime    |      |  Analysis         |      |  Synthesis        |      |  Output           |
++-------------------+      +-------------------+      +-------------------+      +-------------------+</code></pre>
+
+<h3>Step 1: Problem Framing &amp; Context Priming</h3>
+<ul>
+  <li><strong>Objective:</strong> Establish domain boundaries and prime the AI workspace with domain context.</li>
+  <li><strong>Process:</strong>
+    <ol>
+      <li>Initialize a dedicated discovery branch in the code repository.</li>
+      <li>Create a core workspace context file (<code>CONTEXT.md</code> or system prompt boundaries) containing raw business objectives, domain rules, SLA requirements, and target application guidelines.</li>
+      <li>Engage the AI coding assistant to challenge the problem scope, identifying missing assumptions, unstated edge cases, or domain contradictions.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3>Step 2: Exploratory Data &amp; Domain Logic Analysis</h3>
+<ul>
+  <li><strong>Objective:</strong> Verify domain facts and data behaviors using runnable code inside the IDE.</li>
+  <li><strong>Process:</strong>
+    <ol>
+      <li>Load representative data samples, schema models, domain event payloads, or third-party API contracts into VS Code or Jupyter Notebooks.</li>
+      <li>Pair with the AI assistant to write exploratory scripts using standard manipulation libraries, data frames, or contract interfaces (Pandas, Pydantic, Zod, Spark/PySpark, SQL).</li>
+      <li>Perform data profiling, test payload transformations, inspect edge cases, validate event structures, and evaluate performance/throughput assumptions.</li>
+      <li>Commit all exploratory scripts, test executions, and output traces to Git.</li>
+    </ol>
+  </li>
+</ul>
+
+<h3>Step 3: Use Case &amp; Requirement Synthesis</h3>
+<ul>
+  <li><strong>Objective:</strong> Extract structured engineering requirements from discovery findings.</li>
+  <li><strong>Process:</strong>
+    <ol>
+      <li>Prompt the AI assistant to analyze the commit history, exploratory scripts, and execution outputs generated in Step 2.</li>
+      <li>Synthesize findings into formalized <strong>Use Cases</strong> (actor/system interactions, event triggers, preconditions, happy path flows, failover behaviors).</li>
+      <li>Categorize non-negotiable <strong>Technical Requirements</strong>:
+        <ul>
+          <li>Data Integration &amp; Schema Transformation rules</li>
+          <li>Cloud-Native Application Patterns (Event-driven, REST/GraphQL APIs, Pub/Sub boundaries)</li>
+          <li>Performance, Scalability &amp; Latency SLA targets</li>
+          <li>Security, Identity, Governance, and Compliance boundaries</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h3>Step 4: SDD &amp; Vibe Coding Specification Output</h3>
+<ul>
+  <li><strong>Objective:</strong> Produce machine-readable software specifications for autonomous AI execution.</li>
+  <li><strong>Process:</strong>
+    <ol>
+      <li>Compile discovery outputs into a standardized <strong>Software Design Description (<code>SPEC.md</code> / <code>ARCHITECTURE.md</code>)</strong>.</li>
+      <li>Generate baseline interface contracts, schemas, and domain types (TypeScript interfaces, OpenAPI specs, Pydantic data models, Avro/Protobuf schemas, ERD models).</li>
+      <li>Define precise context prompts and agent instructions to drive subsequent implementation phases (Vibe Coding, Automated Test Generation, and CI/CD development).</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<h2>5. Architectural Deliverables Matrix</h2>
+
+<p>To maintain enterprise quality, an AIStorming session must terminate in a concrete set of repository artifacts:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Deliverable Phase</th>
+      <th>File Artifact</th>
+      <th>Content &amp; Purpose</th>
+      <th>Target Consumer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Problem Definition</strong></td>
+      <td><code>PROBLEM.md</code></td>
+      <td>Domain boundaries, business goals, explicit out-of-scope declarations</td>
+      <td>Lead Engineers &amp; Architects</td>
+    </tr>
+    <tr>
+      <td><strong>Exploratory Analysis</strong></td>
+      <td><code>analysis/*.ipynb</code>, <code>scripts/*</code></td>
+      <td>Executable data profiling, edge-case tests, API contract probes</td>
+      <td>Engineering Team &amp; AI Agents</td>
+    </tr>
+    <tr>
+      <td><strong>Use Cases</strong></td>
+      <td><code>USE_CASES.md</code></td>
+      <td>System interactions, domain event triggers, failure modes, retry logic</td>
+      <td>Product Owners &amp; Testing Engines</td>
+    </tr>
+    <tr>
+      <td><strong>Technical Specs</strong></td>
+      <td><code>REQUIREMENTS.md</code>, <code>SPEC.md</code></td>
+      <td>Data models, storage schemas, security boundaries, SLA performance targets</td>
+      <td>Vibe Coding AI Tools (Cursor, Copilot, Claude)</td>
+    </tr>
+    <tr>
+      <td><strong>Architecture Contract</strong></td>
+      <td><code>ARCHITECTURE.md</code>, <code>schemas/*</code></td>
+      <td>System topology, ERD models, OpenAPI/AsyncAPI specs, CI/CD pipeline rules</td>
+      <td>SDD Generators &amp; Developers</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2>6. Practical Application: Enterprise Cloud-Native &amp; Data Platform Build</h2>
+
+<p>To demonstrate the versatility of AIStorming across cloud-native microservices and high-scale data platforms, consider the execution path of a modern enterprise solution:</p>
+
+<ol>
+  <li><strong>The Human Intent:</strong> An architect needs to design a high-throughput, event-driven data ingestion platform that processes live streaming payloads into an analytical data lake.</li>
+  <li><strong>The AIStorming Phase:</strong>
+    <ul>
+      <li>Instead of asking an AI tool to "write a real-time data ingestion application," the team opens the IDE and loads representative stream logs and target schemas.</li>
+      <li>The architect uses AIStorming to draft and run exploratory Python/PySpark scripts inside the IDE, testing deserialization speed, schema drift, and payload validation rules.</li>
+      <li>The AI assistant identifies that 6% of incoming event payloads contain missing nested timestamp attributes and schema variations that would break downstream parquet writes.</li>
+    </ul>
+  </li>
+  <li><strong>Requirement Synthesis:</strong> The team updates <code>REQUIREMENTS.md</code> via AIStorming to explicitly mandate upstream payload sanitization, dead-letter routing (DLQ), and a strict contract enforcement layer.</li>
+  <li><strong>SDD &amp; Vibe Implementation:</strong> The resulting <code>SPEC.md</code>, Pydantic models, and OpenAPI/AsyncAPI specs are fed into coding agents. The agents write production-grade microservices and pipeline code on the first pass because the domain edge cases were caught during AIStorming.</li>
+</ol>
+
+<hr />
+
+<h2>7. Conclusion: AIStorming as an Enterprise Engineering Standard</h2>
+
+<p>As artificial intelligence shifts software and data engineering from manual syntax writing to high-level system orchestration, the role of the engineer evolves from code writer to <strong>system architect and discovery strategist</strong>.</p>
+
+<p>AIStorming bridges the foundational gap between raw domain ideas and deterministic execution. By marrying the process-oriented discipline of <em>Data Engineering Process Fundamentals</em> with cloud-native software architecture patterns and modern AI coding tools, AIStorming transforms discovery from a passive, unverified discussion into a repeatable, code-centric, and auditable engineering standard.</p>
+
+<p>By adopting <strong>AIStorming</strong> as a formal phase prior to vibe coding and SDD execution, engineering organizations can eliminate AI hallucination risks, enforce enterprise domain integrity, and accelerate software delivery with complete architectural control.</p>
+
+<hr />
+
+<h3>References &amp; Foundational Frameworks</h3>
+<ul>
+  <li>Garcia, Oscar D. (Ozkary). <em>"From Raw Data to Roadmap: The Discovery Phase in Data Engineering Process Fundamentals."</em> <a href="https://www.ozkary.dev/data-engineering-process-fundamentals-discovery/">Ozkary Technologies</a></li>
+  <li>Garcia, Oscar D. (Ozkary). <em>"Data Engineering Process Fundamentals - Design and Planning."</em></li>
+  <li>Garcia, Oscar D. (Ozkary). <em>"Architecting an Agentic Data Pipeline - From Data Lake Discovery to Managed Orchestration."</em></li>
+</ul>
+
+<hr />
+
+<h2>🌟 Let's Connect &amp; Build Together</h2>
+<p>Thanks for reading! 😊 If you enjoyed these resources, let's stay in touch! I share deep-dives into AI/ML patterns and host community events here:</p>
+
+<ul>
+  <li><strong><a href="https://gdg.community.dev/gdg-broward-county-fl/">GDG Broward</a></strong>: Join our local dev community for meetups and workshops.</li>
+  <li><strong><a href="https://globalai.community/chapters/jacksonville/">Global AI Events</a></strong>: Join Global AI Events.</li>
+  <li><strong><a href="https://www.linkedin.com/in/oscardgarcia">LinkedIn</a></strong>: Let's connect professionally! I share insights on engineering.</li>
+  <li><strong><a href="https://github.com/ozkary">GitHub</a></strong>: Follow my open-source journey and star the repos you find useful.</li>
+  <li><strong><a href="https://www.youtube.com/@ozkary">YouTube</a></strong>: Watch step-by-step tutorials on the projects listed above.</li>
+  <li><strong><a href="https://bsky.app/profile/ozkary.bsky.social">BlueSky</a></strong> / <strong><a href="https://x.com/ozkary">X / Twitter</a></strong>: Daily tech updates and quick engineering tips.</li>
+</ul>
+
+<p>👉 <em>Originally published at <a href="https://www.ozkary.com">ozkary.com</a></em></p>
