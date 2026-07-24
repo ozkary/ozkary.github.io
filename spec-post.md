@@ -24,6 +24,13 @@ graph TD
    - **Post Excerpt:** A concise summary (150–250 words) focusing on the core problem and solution.
    - **Target Date:** The designated publication date (in `YYYY-MM-DD` format).
    - **Target Tags:** Relevant technical keywords (e.g., `code`, `cloud`, `ai`, `data`).
+3. **Use the transcript section** to build a post the describes the main points of the presentation
+   - This section provides information from the video reference.
+   - It is segmented to follow the video agenda
+   - Create sections for each agenda content
+
+4. Always use the presentation/draft title for the post file name and title.
+
 
 ---
 
