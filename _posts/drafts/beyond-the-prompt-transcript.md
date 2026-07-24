@@ -2,6 +2,7 @@
 
 **Date:**  7/22/2026 1:00pm EST
 **Video reference:** https://www.youtube.com/live/Bk9y4nS4RL8?si=jmExYD_PsmxBw_sL
+**Github Repo:** https://github.com/ozkary/ai-engineering/tree/main/vibe-coding
 
 
 ## Presentation details

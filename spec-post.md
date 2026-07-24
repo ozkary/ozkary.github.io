@@ -93,3 +93,13 @@ Export a clean HTML version of the article for syndication or static delivery:
    ```
    export/<title-slug>.html
    ```
+
+## Phase 5: Email Communication
+
+We share the new post with the community using an email template and the content of this presentation.
+- Use the email/template.md file for the format
+  - Replace the tags {EXAMPLE} with the post content like title, brief overview, post summary. video information, github repo
+- For the link use the www.ozkary.com/YYYY/MM/{POST-HTML}.html with the extension
+  -  Use the year and month of the post
+- Use the youtube vide link
+- For the source code use the 
