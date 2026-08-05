@@ -1,0 +1,26 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site.title | xml_escape }} - Upcoming Events</title>
+    <link>{{ site.url }}</link>
+    <description>Upcoming technical sessions and workshops</description>
+    
+    {% assign current_time = site.time | date: '%s' %}
+    {% for event in site.events %}
+      {% assign event_time = event.event_date | date: '%s' %}
+      {% if event_time >= current_time %}
+        <item>
+          <title>{{ event.title | xml_escape }}</title>
+          <link>{{ event.rsvp_url }}</link>
+          <pubDate>{{ event.event_date | date_to_rfc822 }}</pubDate>
+          <description>{{ event.content | xml_escape }}</description>
+          <enclosure url="{{ event.image }}" type="image/jpeg" />
+          <custom_location>{{ event.location | xml_escape }}</custom_location>
+        </item>
+      {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

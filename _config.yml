@@ -282,3 +282,9 @@ defaults:
       related: true
       show_date: true
 theme: jekyll-theme-architect
+
+# events collection
+collections:
+  events:
+    output: true
+    permalink: /events/:name/

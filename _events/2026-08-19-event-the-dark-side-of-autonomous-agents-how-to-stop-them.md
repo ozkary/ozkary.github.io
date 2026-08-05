@@ -1,3 +1,12 @@
+---
+layout: null
+title: "The Dark Side of Autonomous Agents: How to Stop Them"
+event_date: 2026-08-19 12:00:00 -0400
+location: "Online / Live Stream"
+rsvp_url: "https://www.ozkary.com/p/event-dark-side-of-autonomous-agents.html"
+image: "https://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-autonomous-agents.png"
+---
+
 # The Dark Side of Autonomous Agents: How to Stop Them
 
 Recent headlines have exposed a critical vulnerability in modern AI: autonomous agents are becoming a prime target for remote execution exploits and data supply-chain attacks. When we define an agent's runtime behavior using external, unprotected Markdown files, while leaving static credentials exposed in plain text, we inadvertently create a powerful insider threat. The leap from a helpful AI assistant to a rogue execution vector that can corrupt a data warehouse or leak security keys is alarmingly short.
