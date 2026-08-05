@@ -4,7 +4,7 @@ title: "The Dark Side of Autonomous Agents: How to Stop Them"
 event_date: 2026-08-19 12:00:00 -0400
 location: "Online / Live Stream"
 rsvp_url: "https://www.ozkary.com/p/event-dark-side-of-autonomous-agents.html"
-image: "https://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-autonomous-agents.png"
+image: "https://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-ai-agents-sm.png"
 excerpt: ""
 ---
 

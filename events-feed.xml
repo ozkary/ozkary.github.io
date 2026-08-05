@@ -5,7 +5,8 @@ layout: null
 <rss version="2.0">
   <channel>
     <title>{{ site.title | xml_escape }} - Upcoming Events</title>
-    <link>{{ site.url }}</link>
+    <link>{{ site.url }}</link>    
+    <id>https://www.ozkary.dev/event-feed.xml</id>
     <description>Upcoming technical sessions and workshops</description>
     
     {% assign current_time = site.time | date: '%s' %}
