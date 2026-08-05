@@ -1,0 +1,75 @@
+<h1 id="the-dark-side-of-autonomous-agents-how-to-stop-them">The Dark Side of Autonomous Agents: How to Stop Them</h1>
+
+<div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #ffffff; border-radius: 12px; padding: 24px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;">
+    
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <div style="background-color: #38bdf8; color: #0f172a; padding: 12px 16px; border-radius: 8px; text-align: center; font-weight: bold; min-width: 65px;">
+        <span style="display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">AUG</span>
+        <span style="display: block; font-size: 24px; line-height: 1;">19</span>
+      </div>
+      <div>
+        <div style="font-size: 18px; font-weight: 700; color: #f8fafc;">Wed, Aug 19, 2026</div>
+        <div style="font-size: 14px; color: #94a3b8; margin-top: 4px;">
+          🕒 12:00 PM - 12:45 PM EST / EDT <i>(Live YouTube Stream)</i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p>Recent headlines have exposed a critical vulnerability in modern AI: autonomous agents are becoming a prime target for remote execution exploits and data supply-chain attacks. When we define an agent’s runtime behavior using external, unprotected Markdown files, while leaving static credentials exposed in plain text, we inadvertently create a powerful insider threat. The leap from a helpful AI assistant to a rogue execution vector that can corrupt a data warehouse or leak security keys is alarmingly short.</p>
+<p>Join us to learn how these exploits happen and how to build zero-trust security boundaries to stop them cold. We will walk through an incremental demonstration starting with a data analyst agent managing datasets across a data lake, watching an adversarial process hijack it in real time, and deploying the cryptographic design patterns required to protect enterprise data infrastructure.</p>
+<h2 id="dark-vs.-secured-agent-flow">Dark vs. Secured Agent Flow</h2>
+<figure>
+<img src="htps://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-autonomous-agents.png" title="The Dark Side of Autonomous Agents: How to Stop Them" alt="The Dark Side of Autonomous Agents: How to Stop Them" /><figcaption>The Dark Side of Autonomous Agents: How to Stop Them</figcaption>
+</figure>
+<h2 id="agenda">Agenda</h2>
+<ul>
+<li>Step 1: What Happened? (The Real-World Threat Model)</li>
+</ul>
+<p>We kick off with recent real-world agent breaches. You will learn how untrusted input in Specification-Driven Development (SDD) files can trigger active malicious code execution when processed by over-privileged agent runtimes.</p>
+<ul>
+<li>Step 2: The Data Analyst Agent (The Baseline Vulnerability)</li>
+</ul>
+<p>We look at a standard data analyst agent that relies on external Markdown specifications and .env files to govern how it interacts with a data lake and data warehouse. You will see how traditional file handling leaves the system open to unexpected behavioral shifts.</p>
+<ul>
+<li>Step 3: Enter the Dark Agent (The Live Exploit)</li>
+</ul>
+<p>Watch the exploit happen live. A rogue dark agent simulates a breach by poisoning the external SDD file. The analyst agent blindly parses the injection, attempts to exfiltrate database keys, and crafts destructive queries targeting the data warehouse.</p>
+<ul>
+<li>Step 4: The Secured Agent (The Zero-Trust Solution)</li>
+</ul>
+<p>We pivot to the architectural remedy. You will learn how to implement zero-trust design patterns to harden the agent.</p>
+<ul>
+<li><p>Companion File Signatures (.signed.md): Catching unauthorized prompt mutations at the file level before execution using build-time cryptographic verification.</p></li>
+<li><p>Vault Secret Isolation: Migrating keys out of local environment files so secrets are resolved out-of-scope and never hit active process memory.</p></li>
+</ul>
+<h2 id="who-should-attend">Who Should Attend?</h2>
+<p>This session bridges high-level strategy with practical engineering patterns, making it highly valuable for:</p>
+<ul>
+<li>Leadership &amp; Enterprise Groups looking to safely govern AI adoption and evaluate organizational risk.</li>
+<li>Data Engineers &amp; Cloud Architects building pipelines across modern data lakes and warehouses.</li>
+<li>Students &amp; Aspiring Developers eager to learn industry-standard security patterns early in their AI engineering journey.</li>
+</ul>
+
+<h2>Live YouTube Event</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; margin-bottom: 25px; background: #000;">
+<iframe 
+src="https://www.youtube.com/embed/JUbGHkzbkHw?si=rkJ8EA1ZFqKnizBe" 
+title="Live YouTube event" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+allowfullscreen>
+</iframe>
+</div>
+
+<h2>Stay Updated on Future Events</h2>
+
+<div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 15px;">
+    <script async data-uid="151cd819b7" src="https://ozkary.kit.com/151cd819b7/index.js"></script>      
+</div>
+
+
+
+

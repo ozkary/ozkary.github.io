@@ -5,14 +5,21 @@
 
 # Check if a filename was provided
 if [ -z "$1" ]; then
-    echo "Usage: ./publish.sh blog.md"
+    echo "Usage: ./publish.sh blog.md folder-name"
     exit 1
 fi
 
+if [ -z "$2" ]; then
+    echo "Usage: ./publish.sh blog.md folder-name"
+    exit 1
+fi
+
+
 # Extract the filename without the .md extension
 INPUT_FILE=$1
+OUTPUT_FOLDER=$2
 BASENAME=$(basename "$INPUT_FILE" .md)
-OUTPUT_FILE="${BASENAME}.html"
+OUTPUT_FILE="${OUTPUT_FOLDER}/${BASENAME}.html"
 
 echo "Converting $INPUT_FILE to $OUTPUT_FILE..."
 
