@@ -19,6 +19,7 @@ layout: null
           <description>{{ event.content | xml_escape }}</description>
           <enclosure url="{{ event.image }}" type="image/jpeg" />
           <custom_location>{{ event.location | xml_escape }}</custom_location>
+          <summary>{{ event.excerpt | xml_escape}}</summary>
         </item>
       {% endif %}
     {% endfor %}
