@@ -479,9 +479,6 @@ iframe[src*="mailmunch"] {
                 <div class='blog-posts hfeed'>
                   <b:loop values='data:posts' var='post'>
                     <b:include data='post' name='post'/>
-                    <b:if cond='data:blog.pageType == &quot;item&quot;'>
-                      <b:include data='post' name='comment_picker'/>
-                    </b:if>
                   </b:loop>
                 </div>
                 <b:include name='nextprev'/>
@@ -540,10 +537,10 @@ iframe[src*="mailmunch"] {
               </b:includable>
                 <b:includable id='customPostLabels' var='post'>
                   <b:if cond='data:post.labels'>
-                    <div class='post-labels' style='margin-top: 12px; margin-bottom: 12px; font-size: 0.85rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif;'>
-                      <i aria-hidden='true' class='fa fa-tags' style='color: #94a3b8; margin-right: 6px;'/>
+                    <div class='post-labels' style='margin-top: 15px; margin-bottom: 15px; font-size: 0.8rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;'>
+                      <i aria-hidden='true' class='fa fa-tags' style='color: #64748b; margin-right: 2px;'/>
                       <b:loop values='data:post.labels' var='label'>
-                        <a expr:href='data:label.url' rel='tag' style='color: #38bdf8; text-decoration: none; margin-right: 10px; display: inline-block; font-weight: 500;'>
+                        <a expr:href='data:label.url' rel='tag' style='color: #fff !important; background-color: #3d4144; text-decoration: none; padding: 3px 8px; border-radius: 4px; display: inline-block; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; transition: all 0.2s ease;'>
                           <data:label.name/>
                         </a>
                       </b:loop>
@@ -700,49 +697,7 @@ iframe[src*="mailmunch"] {
             <div style='clear: both;'/> <!-- clear for photos floats -->
           </div>
 
-          <div class='post-footer'>
-            <div class='post-footer-line post-footer-line-1'>
-              <span class='post-author vcard'>
-                <b:if cond='data:top.showAuthor'>
-                  <b:if cond='data:post.authorProfileUrl'>
-                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
-                      <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
-                      <a expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
-                        <span itemprop='name'><data:post.author/></span>
-                      </a>
-                    </span>
-                  <b:else/>
-                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
-                      <span itemprop='name'><data:post.author/></span>
-                    </span>
-                  </b:if>
-                </b:if>
-              </span>
-                            
-              <span class='post-timestamp'>
-                <b:if cond='data:top.showTimestamp'>
-                  <data:top.timestampLabel/>
-                  <b:if cond='data:post.url'>
-                    <meta expr:content='data:post.url.canonical' itemprop='url'/>
-                    <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
-                  </b:if>
-                </b:if>
-              </span>
-
-              <span class='post-comment-link'>
-                <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
-              </span>
-            </div>
-                      
-            <div class='post-footer-line post-footer-line-2'>
-              <b:if cond='data:top.showMobileShare'>
-                <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
-                  <a href='javascript:void(0);'><data:shareMsg/></a>
-                </div>
-              </b:if>
-            </div>
-
-          </div>
+          <b:include data='post' name='postFooter'/>
         </div>
 
         <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
@@ -760,6 +715,77 @@ iframe[src*="mailmunch"] {
                   </b:if>
                 </div>
               </b:includable>
+                <b:includable id='postFooter' var='post'>
+                  <div class='post-footer' style='border-top: 1px solid #e2e8f0; padding-top: 15px; margin-top: 20px;'>
+                    <div class='post-footer-line post-footer-line-1'>
+                      <span class='post-author vcard'>
+                        <b:if cond='data:top.showAuthor'>
+                          <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                            <meta content='https://www.ozkary.com/oscar-garcia-ozkary' itemprop='url'/>
+                            <a href='https://www.ozkary.com/oscar-garcia-ozkary' rel='author' title='author profile'>
+                              <span itemprop='name'><data:post.author/></span>
+                            </a>
+                          </span>
+                        </b:if>
+                      </span>
+                                    
+                      <span class='post-timestamp'>
+                        <b:if cond='data:top.showTimestamp'>
+                          <data:top.timestampLabel/>
+                          <b:if cond='data:post.url'>
+                            <meta expr:content='data:post.url.canonical' itemprop='url'/>
+                            <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+                          </b:if>
+                        </b:if>
+                      </span>
+
+                      <span class='post-comment-link'>
+                        <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;} and data:post.allowComments' data='post' name='comment_count_picker'/>
+                      </span>
+                    </div>
+                              
+                    <div class='post-footer-line post-footer-line-2'>
+                      <b:if cond='data:top.showMobileShare'>
+                        <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
+                          <a href='javascript:void(0);'><data:shareMsg/></a>
+                        </div>
+                      </b:if>
+                    </div>
+
+                    <div class='post-footer-line post-footer-line-3' style='margin-top: 15px; display: flex; align-items: center; gap: 12px;'>
+                      <span style='font-size: 0.72rem; font-weight: 700; color: #3d4144; text-transform: uppercase; letter-spacing: 0.05em;'>Share:</span>
+                      
+                      <!-- LinkedIn -->
+                      <a expr:href='&quot;https://www.linkedin.com/sharing/share-offsite/?url=&quot; + data:post.url' target='_blank' title='Share on LinkedIn' style='color: #3d4144; font-size: 1.15rem; transition: color 0.2s ease, transform 0.2s ease; display: inline-block;' onmouseover='this.style.color=&quot;#0077b5&quot;; this.style.transform=&quot;scale(1.15)&quot;' onmouseout='this.style.color=&quot;#3d4144&quot;; this.style.transform=&quot;scale(1)&quot;'>
+                        <i class='fa fa-linkedin-square'/>
+                      </a>
+                      
+                      <!-- X (Twitter) -->
+                      <a expr:href='&quot;https://twitter.com/intent/tweet?text=&quot; + data:post.title + &quot;&amp;url=&quot; + data:post.url' target='_blank' title='Share on X' style='color: #3d4144; font-size: 1.15rem; transition: color 0.2s ease, transform 0.2s ease; display: inline-block;' onmouseover='this.style.color=&quot;#0f1419&quot;; this.style.transform=&quot;scale(1.15)&quot;' onmouseout='this.style.color=&quot;#3d4144&quot;; this.style.transform=&quot;scale(1)&quot;'>
+                        <i class='fa fa-twitter'/>
+                      </a>
+
+                      <!-- BlueSky -->
+                      <a expr:href='&quot;https://bsky.app/intent/compose?text=&quot; + data:post.title + &quot; &quot; + data:post.url' target='_blank' title='Share on BlueSky' style='color: #3d4144; font-size: 1.15rem; transition: color 0.2s ease, transform 0.2s ease; display: inline-block;' onmouseover='this.style.color=&quot;#0284c7&quot;; this.style.transform=&quot;scale(1.15)&quot;' onmouseout='this.style.color=&quot;#3d4144&quot;; this.style.transform=&quot;scale(1)&quot;'>
+                        <svg viewBox='0 0 512 512' style='width: 1.05rem; height: 1.05rem; fill: currentColor; display: inline-block; vertical-align: middle; margin-top: -3px;'>
+                          <path d='M111.8 62.2C170.2 105.9 226.7 186 256 240.2c29.3-54.2 85.8-134.3 144.2-178C452 24.8 512 16.5 512 80.7c0 15.6-8.8 99.4-13.9 116.1-17.7 58-82.5 75.3-138.8 65.6 156.4 55.4 117 197.6 19.3 197.6-47.5 0-96.1-50.6-114-76.9-3.7-5.5-8.6-8.3-8.6-8.3s-4.9 2.8-8.6 8.3c-17.9 26.3-66.5 76.9-114 76.9-97.7 0-137.1-142.2 19.3-197.6-56.3 9.7-121.1-7.6-138.8-65.6C8.8 180.1 0 96.3 0 80.7c0-64.2 60-55.9 103.8-18.5z'/>
+                        </svg>
+                      </a>
+                      
+                      <!-- Facebook -->
+                      <a expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' target='_blank' title='Share on Facebook' style='color: #3d4144; font-size: 1.15rem; transition: color 0.2s ease, transform 0.2s ease; display: inline-block;' onmouseover='this.style.color=&quot;#1877f2&quot;; this.style.transform=&quot;scale(1.15)&quot;' onmouseout='this.style.color=&quot;#3d4144&quot;; this.style.transform=&quot;scale(1)&quot;'>
+                        <i class='fa fa-facebook-square'/>
+                      </a>
+                      
+                      <!-- Email -->
+                      <a expr:href='&quot;mailto:?subject=&quot; + data:post.title + &quot;&amp;body=Check out this article: &quot; + data:post.url' title='Share via Email' style='color: #3d4144; font-size: 1.15rem; transition: color 0.2s ease, transform 0.2s ease; display: inline-block;' onmouseover='this.style.color=&quot;#ea4335&quot;; this.style.transform=&quot;scale(1.15)&quot;' onmouseout='this.style.color=&quot;#3d4144&quot;; this.style.transform=&quot;scale(1)&quot;'>
+                        <i class='fa fa-envelope'/>
+                      </a>
+                    </div>
+
+                    <b:include data='post' name='customPostLabels'/>
+                  </div>
+                </b:includable>
                 <b:includable id='post' var='post'>
                 <article class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
                   <header class='entry-header'>
@@ -798,6 +824,134 @@ iframe[src*="mailmunch"] {
                     </b:if>
                     <div class='clear'/>
                   </div>
+                  <b:include data='post' name='postFooter'/>
+
+                  <!-- Comments Section above suggested posts -->
+                  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                    <b:include data='post' name='comment_picker'/>
+                  </b:if>
+
+                  <!-- Related posts section ("YOU MAY ALSO ENJOY") -->
+                  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+                    <div id='related-posts-container' style='margin-top: 40px; margin-bottom: 30px;'/>
+                    <script type='text/javascript'>
+                      //<![CDATA[
+                      (function() {
+                        var labels = [];
+                        var tagLinks = document.querySelectorAll('.post-labels a[rel="tag"]');
+                        for (var idx = 0; idx < tagLinks.length; idx++) {
+                          labels.push(tagLinks[idx].textContent.trim());
+                        }
+                        var currentPostUrl = window.location.href;
+                        
+                        window.renderRelatedPosts = function(json) {
+                          var entries = json.feed.entry || [];
+                          var container = document.getElementById('related-posts-container');
+                          if (!container) return;
+                          
+                          var filtered = entries.filter(function(entry) {
+                            var link = entry.link.find(function(l) { return l.rel === 'alternate'; });
+                            var postUrl = link ? link.href : '';
+                            return postUrl.replace(/^https?:\/\/[^\/]+/, '') !== currentPostUrl.replace(/^https?:\/\/[^\/]+/, '');
+                          });
+                          
+                          if (filtered.length === 0) return;
+                          
+                          var html = '<h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #3d4144; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">You May Also Enjoy</h3>';
+                          html += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">';
+                          
+                          var maxDisplay = Math.min(filtered.length, 4);
+                          for (var i = 0; i < maxDisplay; i++) {
+                            var entry = filtered[i];
+                            var title = entry.title.$t;
+                            
+                            var postUrl = '';
+                            for (var j = 0; j < entry.link.length; j++) {
+                              if (entry.link[j].rel === 'alternate') {
+                                postUrl = entry.link[j].href;
+                                break;
+                              }
+                            }
+                            
+                            var rawDate = entry.published.$t;
+                            var dateObj = new Date(rawDate);
+                            var formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                            
+                            var thumbnail = '';
+                            if (entry.content && entry.content.$t) {
+                              var match = entry.content.$t.match(/<img[^>]+src="([^">]+)"/);
+                              if (match) {
+                                thumbnail = match[1];
+                              }
+                            }
+                            if (!thumbnail && entry.media$thumbnail) {
+                              thumbnail = entry.media$thumbnail.url.replace(/\/s[0-9]+(\-[a-zA-Z0-9\-]+)?\//, '/w640-h360-p-k-no-nu/');
+                            }
+                            if (thumbnail) {
+                              var assetsIdx = thumbnail.indexOf('assets/');
+                              if (assetsIdx !== -1) {
+                                thumbnail = 'https://www.ozkary.dev/' + thumbnail.substring(assetsIdx);
+                              }
+                              // Append '-sm' suffix before the file extension if not already present
+                              if (thumbnail.indexOf('-sm.') === -1) {
+                                var lastDot = thumbnail.lastIndexOf('.');
+                                if (lastDot !== -1) {
+                                  thumbnail = thumbnail.substring(0, lastDot) + '-sm' + thumbnail.substring(lastDot);
+                                }
+                              }
+                            } else {
+                              thumbnail = 'https://www.ozkary.dev/assets/default-event.jpg';
+                            }
+                            
+                            var snippet = '';
+                            if (entry.summary && entry.summary.$t) {
+                              snippet = entry.summary.$t;
+                            } else if (entry.content && entry.content.$t) {
+                              var temp = document.createElement('div');
+                              temp.innerHTML = entry.content.$t;
+                              snippet = temp.textContent || temp.innerText || '';
+                            }
+                            snippet = snippet.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+                            if (snippet.length > 130) {
+                              snippet = snippet.substring(0, 130) + '...';
+                            }
+                            
+                            // Reading time calculation (200 wpm)
+                            var textContent = '';
+                            if (entry.content && entry.content.$t) {
+                              textContent = entry.content.$t.replace(/<[^>]*>/g, '');
+                            }
+                            var wordCount = textContent.trim().split(/\s+/).length;
+                            var minRead = Math.max(1, Math.ceil(wordCount / 200));
+                            
+                            html += '<div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform=\'translateY(-4px)\'; this.style.boxShadow=\'0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)\'" onmouseout="this.style.transform=\'none\'; this.style.boxShadow=\'0 1px 3px rgba(0,0,0,0.05)\'">';
+                            html += '  <a href="' + postUrl + '" style="display: block; aspect-ratio: 16/9; overflow: hidden;">';
+                            html += '    <img src="' + thumbnail + '" alt="' + title + '" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy"/>';
+                            html += '  </a>';
+                            html += '  <div style="padding: 15px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">';
+                            html += '    <div>';
+                            html += '      <h4 style="font-size: 0.95rem; font-weight: 700; margin: 0 0 6px 0; line-height: 1.4;"><a href="' + postUrl + '" style="color: #0f172a; text-decoration: none;">' + title + '</a></h4>';
+                            html += '      <div style="font-size: 0.72rem; color: #64748b; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; font-weight: 500;">';
+                            html += '        <span>🗓️ ' + formattedDate + '</span>';
+                            html += '        <span>⏱️ ' + minRead + ' min read</span>';
+                            html += '      </div>';
+                            html += '      <p style="font-size: 0.8rem; color: #475569; margin: 0; line-height: 1.5;">' + snippet + '</p>';
+                            html += '    </div>';
+                            html += '  </div>';
+                            html += '</div>';
+                          }
+                          html += '</div>';
+                          container.innerHTML = html;
+                        };
+                        
+                        var labelQuery = labels.length > 0 ? '/-/' + encodeURIComponent(labels[0]) : '';
+                        var script = document.createElement('script');
+                        script.src = '/feeds/posts/default' + labelQuery + '?alt=json-in-script&max-results=5&callback=renderRelatedPosts';
+                        document.body.appendChild(script);
+                      })();
+                      //]]>
+                    </script>
+                  </b:if>
                 </article>
               </b:includable>
                 <b:includable id='postQuickEdit' var='post'>
@@ -1282,9 +1436,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       </div>
 
-      <footer class='site-footerpbt' id='colophonpbt' role='contentinfo' style='text-align: center; padding: 20px 0; font-size: 0.9rem; color: #6a737d;'>
+      <footer class='site-footerpbt' id='colophonpbt' role='contentinfo' style='clear: both; text-align: center; padding: 20px 0; font-size: 0.9rem; color: #6a737d;'>
         <div class='site-infopbt'>
-          Copyright &amp;copy; 2009 - <span id='current-year'/> <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> | 
+          Copyright &amp;copy; 2009 - <span id='current-year'></span> <a expr:href='data:blog.homepageUrl'><data:blog.title/></a> | 
           <a href='//www.ozkary.com/p/privacy.html'>Privacy</a>
           <br/>Use the content of this blog as a reference only.
         </div>
