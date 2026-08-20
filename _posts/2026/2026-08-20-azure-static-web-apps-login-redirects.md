@@ -98,6 +98,7 @@ Use this base configuration to validate that the login process works properly. Y
     }
   }
 }
+```
 
 ---
 
