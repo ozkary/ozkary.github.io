@@ -1,6 +1,6 @@
 ---
 title: "Azure Static Web Apps Login Redirects: How to Stop It"
-excerpt: ""
+excerpt: "Fix the Azure Static Web Apps Entra ID infinite redirect loop and null clientPrincipal issue. Learn how to properly configure routes, and OpenID settings on the SWA Standard tier."
 last_modified_at: 2026-08-20T20:00:00
 header:
   teaser: "../assets/2026/ozkary-azure-static-web-apps-login-redirects-sm.png"
