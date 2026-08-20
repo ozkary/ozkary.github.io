@@ -1,10 +1,27 @@
+---
+title: "{POST-TITLE}"
+excerpt: ""
+last_modified_at: {TODAY}T13:00:00
+header:
+  teaser: "../assets/2026/ozkary-{POST-TITLE}-sm.png"
+  teaserAlt: "{POST-TITLE}"
+tags: 
+  - web
+  - azure
+  - Static Web Apps
+  - cloud
+  - github
+  - vscode  
+toc: true
+
+---
 # Overview
 
 Integrating custom Microsoft Entra ID (Azure AD) authentication with an Azure Static Web App (SWA) on the Standard tier should be straightforward, but subtle misconfigurations can lead to a frustrating infinite redirect loop. 
 
 Typically, you log in, complete MFA, and watch the browser bounce repeatedly between Entra ID and your application until Microsoft halts the flow with **Error 50074** (*"We couldn't sign you in"*). When you check `/.auth/me`, you find that `clientPrincipal` is `null`.
 
-![Azure Static Web Apps Login Redirects: How to Stop It](../../assets/2026/ozkary-azure-static-web-apps-login-redirects.png "Azure Static Web Apps Login Redirects: How to Stop It")
+![POST-TITLE](../../assets/2026/ozkary-{POST-TITLE}.png "POST-TITLE")
 
 Here is a breakdown of why this happens and the exact checklist to fix it.
 

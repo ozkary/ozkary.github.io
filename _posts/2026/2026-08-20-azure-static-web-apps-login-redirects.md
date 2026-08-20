@@ -1,3 +1,20 @@
+---
+title: "Azure Static Web Apps Login Redirects: How to Stop It"
+excerpt: ""
+last_modified_at: 2026-08-20T20:00:00
+header:
+  teaser: "../assets/2026/ozkary-azure-static-web-apps-login-redirects-sm.png"
+  teaserAlt: "Azure Static Web Apps Login Redirects: How to Stop It"
+tags: 
+  - web
+  - azure
+  - Static Web Apps
+  - cloud
+  - github
+  - vscode  
+toc: true
+
+---
 # Overview
 
 Integrating custom Microsoft Entra ID (Azure AD) authentication with an Azure Static Web App (SWA) on the Standard tier should be straightforward, but subtle misconfigurations can lead to a frustrating infinite redirect loop. 

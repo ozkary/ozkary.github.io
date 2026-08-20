@@ -799,11 +799,13 @@ iframe[src*="mailmunch"] {
                     <div class='entry-metapbt'>
                       <i class='fa fa-user'/>&amp;nbsp;<span itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><a href='https://www.ozkary.com/oscar-garcia-ozkary' itemprop='url'><span itemprop='name'><data:post.author/></span></a></span>&amp;nbsp;&amp;nbsp;
                       <i class='fa fa-calendar'/> <data:post.timestamp/>
+                      &amp;nbsp;&amp;nbsp;<i class='fa fa-clock-o'/> <span class='post-read-time' expr:data-post-id='data:post.id'>Loading read time...</span>
                     </div>
                   </header>
                   
                   <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
                     <b:if cond='data:blog.pageType != &quot;item&quot; and data:blog.pageType != &quot;static_page&quot;'>
+                      <div expr:id='&quot;post-body-full-&quot; + data:post.id' style='display: none;'><data:post.body/></div>
                       <div class='post-teaser' style='display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;'>
                         <b:if cond='data:post.firstImageUrl'>
                           <div class='teaser-thumbnail' style='max-width: 200px; flex: 1 1 150px;'>
@@ -824,7 +826,9 @@ iframe[src*="mailmunch"] {
                     </b:if>
                     <div class='clear'/>
                   </div>
-                  <b:include data='post' name='postFooter'/>
+                  <b:if cond='data:blog.pageType == &quot;item&quot; or data:blog.pageType == &quot;static_page&quot;'>
+                    <b:include data='post' name='postFooter'/>
+                  </b:if>
 
                   <!-- Comments Section above suggested posts -->
                   <b:if cond='data:blog.pageType == &quot;item&quot;'>
@@ -1477,6 +1481,20 @@ document.addEventListener('DOMContentLoaded', () => {
           
           codeBlock.style.position = 'relative';
           codeBlock.appendChild(copyBtn);
+        });
+
+        // Calculate reading time for post headers
+        document.querySelectorAll('.post-read-time').forEach(function(el) {
+          var postId = el.getAttribute('data-post-id');
+          var postBody = document.getElementById('post-body-full-' + postId) || document.getElementById('post-body-' + postId);
+          if (postBody) {
+            var text = postBody.textContent || postBody.innerText || '';
+            var words = text.trim().split(/\s+/).length;
+            var minRead = Math.max(1, Math.ceil(words / 200));
+            el.textContent = minRead + ' min read';
+          } else {
+            el.style.display = 'none';
+          }
         });
       });
       //]]>
