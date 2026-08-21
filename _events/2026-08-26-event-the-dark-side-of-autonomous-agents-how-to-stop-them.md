@@ -1,7 +1,7 @@
 ---
 layout: null
 title: "The Dark Side of Autonomous Agents: How to Stop Them"
-event_date: 2026-08-19 12:00:00 -0400
+event_date: 2026-08-26 12:00:00 -0400
 location: "Online / Live Stream"
 rsvp_url: "https://www.ozkary.com/p/event-dark-side-of-autonomous-agents.html"
 image: "https://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-ai-agents-sm.png"
@@ -39,6 +39,8 @@ We pivot to the architectural remedy. You will learn how to implement zero-trust
 - Companion File Signatures (.signed.md): Catching unauthorized prompt mutations at the file level before execution using build-time cryptographic verification.
 
 - Vault Secret Isolation: Migrating keys out of local environment files so secrets are resolved out-of-scope and never hit active process memory.
+
+- Policy Enforcement Points (PEP):  Where to WARN, ALLOW, DENY.
 
 ## Who Should Attend?
 
