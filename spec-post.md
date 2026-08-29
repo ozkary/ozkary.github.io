@@ -67,6 +67,9 @@ Every blog post requires two visual assets stored in `assets/YYYY/`:
      - cloud
      - ai
    toc: true
+   canonical_url: "https://ozkary.com/<title>"
+   video_id: ""
+   repo_url: ""
    ---
    ```
 3. **Overview Image Integration:** Under the `# Overview` heading, embed the standard 16:9 banner:
