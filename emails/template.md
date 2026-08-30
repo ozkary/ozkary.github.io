@@ -5,8 +5,6 @@ No worries! If you couldn't attend our recent presentation on {TITLE} we've got 
 💻 Presentation and Resources
 {BRIEF-OVERVIEW}
 
-🚀 We are extending our format. We decided to move back to detail blog post to cover the main points of each presentation
-
 Read the full post here: Presentation & Detailed Summary
 {BRIEF-POST-SUMMARY}
 

@@ -97,6 +97,11 @@ Export a clean HTML version of the article for syndication or static delivery:
    export/<title-slug>.html
    ```
 
+## Validate common errors on the HTML
+
+- This markdown `- **ALLOW:**` should be a `<li> <strong>ALLOW:</strong>`
+- The .jfif files are images. Use the `<img>` tag 
+
 ## Phase 5: Email Communication
 
 We share the new post with the community using an email template and the content of this presentation.
