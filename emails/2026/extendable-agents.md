@@ -23,4 +23,38 @@ ___
 
 linkedin newsletter
 
-Missed our live session on building modular, extendable AI agents with Google ADK? Watch the full recording, explore the architecture breakdown, and grab the source code on ozkary.com.
+> Short Post
+
+Missed our live session on building modular, extendable AI agents? Watch the full recording, explore the architecture breakdown, and grab the source code on ozkary.com. 
+
+#AIAgents #SoftwareArchitecture #DataEngineering #GenerativeAI
+
+
+1. For the GDG Group (Post at ~1:30 PM today)
+
+🚀 From one of our recent technical presentations: Building Reusable & Extendable AI Agents
+
+You can now access the full session recording, presentation summary, and open-source implementation on the hub.
+
+In this session, we explore how to transition from single-prompt chatbots to modular, enterprise-ready agent libraries using the Google Agent Development Kit (ADK) and custom Model Context Protocol (MCP) tools for GCP.
+
+👉 Watch the recording, read the architecture summary, and explore the code:
+
+https://www.ozkary.com/2026/06/building-reusable-extendable-agents-with-the-google-adk.html
+
+#GDG #AIAgents #SoftwareArchitecture #DataEngineering #GenerativeAI #Governance
+
+2. For the Global AI Group (Post tomorrow morning, ~9:30 AM)
+🤖 Moving Beyond Monolithic Prompts: Building Reusable AI Agents
+
+Scaling enterprise AI requires moving past hardcoded, single-prompt scripts that create unmaintainable technical debt.
+
+In this architectural walkthrough, we apply core software design patterns to the Google Agent Development Kit (ADK)—demonstrating how to structure modular, extendable base agents with custom MCP tools for BigQuery and cloud storage integrations.
+
+How is your team approaching modular agent design across production workloads?
+
+👉 Read the full technical deep dive, watch the replay, and access the repository:
+
+https://www.ozkary.com/2026/06/building-reusable-extendable-agents-with-the-google-adk.html
+
+#AIAgents #SoftwareArchitecture #GenerativeAI #DataEngineering #GlobalAI
