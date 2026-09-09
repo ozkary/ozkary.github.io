@@ -3,7 +3,7 @@ title: Upcoming & Past Events
 layout: collection
 permalink: /events/
 collection: events
-entries_layout: grid
+entries_layout: list
 classes: wide
 author_profile: true
 ---
