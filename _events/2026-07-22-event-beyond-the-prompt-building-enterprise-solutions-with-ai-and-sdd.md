@@ -1,9 +1,12 @@
 ---
-layout: null
 title: "Beyond the Prompt: Building Enterprise Solutions with AI & Specification-Driven Design"
 event_date: 2026-07-22 12:00:00 -0400
+last_modified_at: 2026-07-22 12:00:00 -0400
 location: "Online / Live Stream"
 rsvp_url: "https://www.ozkary.com/p/beyond-the-prompt-building-enterprise-solutions-with-ai-and-sdd.html"
+header:
+  teaser: "../assets/2026/ozkary-beyond-the-prompt-building-enterprise-solutions-with-ai-specification-driven-design-sm.png"
+  teaserAlt: "Beyond the Prompt: Building Enterprise Solutions with AI & Specification-Driven Design"  
 image: "https://www.ozkary.dev/assets/2026/ozkary-beyond-the-prompt-building-enterprise-solutions-with-ai-specification-driven-design-sm.png"
 excerpt: "Relying on raw prompt engineering or conversational text interfaces alone will not deliver a production-ready, enterprise-grade AI solution. To build resilient, secure, and compliant software in the age of AI assistants, developers must move past chaotic vibe coding and adopt a structured, process-oriented architectural workflow."
 ---
