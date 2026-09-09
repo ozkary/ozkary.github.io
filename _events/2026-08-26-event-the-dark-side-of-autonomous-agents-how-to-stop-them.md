@@ -5,7 +5,7 @@ event_date: 2026-08-26 12:00:00 -0400
 location: "Online / Live Stream"
 rsvp_url: "https://www.ozkary.com/p/event-dark-side-of-autonomous-agents.html"
 image: "https://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-ai-agents-sm.png"
-excerpt: ""
+excerpt: "Recent headlines have exposed a critical vulnerability in modern AI: autonomous agents are becoming a prime target for remote execution exploits and data supply-chain attacks. When we define an agent's runtime behavior using external, unprotected Markdown files, while leaving static credentials exposed in plain text, we inadvertently create a powerful insider threat."
 ---
 
 # The Dark Side of Autonomous Agents: How to Stop Them
