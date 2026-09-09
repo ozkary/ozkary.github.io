@@ -281,10 +281,21 @@ defaults:
       share: true
       related: true
       show_date: true
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: true 
+      share: true
+      related: true
+      show_date: true
 theme: jekyll-theme-architect
 
 # events collection
 collections:
   events:
     output: true
-    permalink: /events/:name/
+    permalink: /:collection/:path/
