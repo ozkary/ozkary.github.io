@@ -11,7 +11,7 @@ image: "https://www.ozkary.dev/assets/2026/ozkary-the-dark-side-of-ai-agents-sm.
 excerpt: "Recent headlines have exposed a critical vulnerability in modern AI: autonomous agents are becoming a prime target for remote execution exploits and data supply-chain attacks. When we define an agent's runtime behavior using external, unprotected Markdown files, while leaving static credentials exposed in plain text, we inadvertently create a powerful insider threat."
 ---
 
-# The Dark Side of Autonomous Agents: How to Stop Them
+# Overview
 
 Recent headlines have exposed a critical vulnerability in modern AI: autonomous agents are becoming a prime target for remote execution exploits and data supply-chain attacks. When we define an agent's runtime behavior using external, unprotected Markdown files, while leaving static credentials exposed in plain text, we inadvertently create a powerful insider threat. The leap from a helpful AI assistant to a rogue execution vector that can corrupt a data warehouse or leak security keys is alarmingly short.
 
