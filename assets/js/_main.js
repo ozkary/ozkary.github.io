@@ -133,4 +133,24 @@ $(document).ready(function() {
       $(this).append(anchor);
     }
   });
+
+  // Copy code block button
+  $('div.highlighter-rouge, figure.highlight').each(function() {
+    var $codeBlock = $(this);
+    var $btn = $('<button class="code-copy-btn" type="button" aria-label="Copy code"><i class="far fa-copy"></i> Copy</button>');
+    $codeBlock.prepend($btn);
+
+    $btn.on('click', function() {
+      var $code = $codeBlock.find('td.code pre, td.rouge-code pre, pre.highlight, pre').last();
+      var codeText = $code.text();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(codeText).then(function() {
+          $btn.html('<i class="fas fa-check"></i> Copied!');
+          setTimeout(function() {
+            $btn.html('<i class="far fa-copy"></i> Copy');
+          }, 2000);
+        });
+      }
+    });
+  });
 });

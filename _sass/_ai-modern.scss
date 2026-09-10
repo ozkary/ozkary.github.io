@@ -1,0 +1,378 @@
+/* ==========================================================================
+   AI-Modern Theme Enhancements
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 1. Masthead & Navigation */
+.masthead {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 15, 25, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  z-index: 100;
+
+  .site-title {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 40%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .site-subtitle {
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .visible-links a {
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #38bdf8 !important;
+    }
+  }
+}
+
+/* 2. Post & Archive Cards */
+.list__item {
+  margin-bottom: 1.5em;
+
+  .archive__item {
+    background: rgba(18, 24, 38, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5em;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    &:hover {
+      background: rgba(22, 31, 50, 0.85);
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(56, 189, 248, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .archive__item-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-top: 0;
+      margin-bottom: 0.5em;
+
+      a {
+        color: #f1f5f9;
+        text-decoration: none;
+
+        &:hover {
+          color: #38bdf8;
+        }
+      }
+    }
+
+    .archive__item-excerpt {
+      color: #94a3b8;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+/* 3. Modern Thumbnails */
+.thumbnail-container {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 15px;
+
+  img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+/* 4. Code Blocks & Terminal Style */
+div.highlighter-rouge,
+figure.highlight {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  background: #0d121c !important;
+
+  pre {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    padding: 1.2em;
+  }
+}
+
+tt, code, kbd, samp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.86em;
+  background: rgba(56, 189, 248, 0.08);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+}
+
+/* 5. Modern Pill Badges & Meta */
+.page__taxonomy-item,
+.page__meta {
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.page__taxonomy-item {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 3px 12px;
+  background: rgba(56, 189, 248, 0.08);
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 9999px;
+  text-decoration: none !important;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  }
+}
+
+/* 6. Author Profile Card */
+.sidebar {
+  .author__avatar {
+    img {
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+      border-radius: 50%;
+    }
+  }
+
+  .author__content {
+    .author__name {
+      color: #f8fafc;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .author__bio {
+      color: #94a3b8;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+  }
+
+  .author__urls {
+    li a {
+      color: #94a3b8;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: #38bdf8;
+      }
+    }
+  }
+}
+
+/* 7. Table of Contents (TOC) */
+.toc {
+  background: rgba(18, 24, 38, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+
+  .nav__title {
+    background: rgba(56, 189, 248, 0.1) !important;
+    color: #38bdf8 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .toc__menu a {
+    color: #94a3b8;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: #38bdf8;
+    }
+  }
+}
+
+/* 8. Modern Buttons */
+.btn,
+.btn--primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%) !important;
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+    transform: translateY(-1px);
+  }
+}
+
+/* 9. Clean Modern Footer */
+.page__footer {
+  background: #070a10 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #64748b !important;
+
+  a {
+    color: #94a3b8;
+
+    &:hover {
+      color: #38bdf8;
+    }
+  }
+}
+
+/* 10. Copy Code Block Button */
+.code-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 5;
+
+  &:hover {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+}
+
+div.highlighter-rouge:hover .code-copy-btn,
+figure.highlight:hover .code-copy-btn {
+  opacity: 1;
+}
+
+/* 11. Modern Pagination */
+.pagination {
+  ul {
+    li {
+      a {
+        color: #94a3b8 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(18, 24, 38, 0.6) !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: #38bdf8 !important;
+          border-color: #38bdf8 !important;
+          background: rgba(56, 189, 248, 0.1) !important;
+        }
+
+        &.current {
+          color: #ffffff !important;
+          background: #0284c7 !important;
+          border-color: #0284c7 !important;
+        }
+      }
+    }
+  }
+}
+
+/* 12. Modern Tables */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(18, 24, 38, 0.5);
+
+  th {
+    background: rgba(56, 189, 248, 0.08);
+    color: #f1f5f9;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 14px;
+  }
+
+  td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 14px;
+    color: #94a3b8;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* 13. High-Contrast Notices */
+.notice,
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--success,
+.notice--danger {
+  background: rgba(18, 24, 38, 0.7) !important;
+  border-left: 4px solid #38bdf8 !important;
+  border-radius: 8px !important;
+  color: #e2e8f0 !important;
+
+  a {
+    color: #38bdf8 !important;
+  }
+}
+
+.notice--warning {
+  border-left-color: #fb923c !important;
+}
+
+.notice--danger {
+  border-left-color: #f87171 !important;
+}
+
+.notice--success {
+  border-left-color: #4ade80 !important;
+}
+
