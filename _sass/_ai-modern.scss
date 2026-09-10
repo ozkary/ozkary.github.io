@@ -261,15 +261,24 @@ tt, code, kbd, samp {
       }
     }
 
-    /* Active scrollspy item - fix low contrast light-blue */
+    /* Remove scroll background completely; TOC remains static with hover styles as is */
+    li.active,
     li.active > a,
     .active > a,
-    .active a {
-      background-color: rgba(56, 189, 248, 0.15) !important;
-      color: #38bdf8 !important;
-      font-weight: 600 !important;
-      border-left: 3px solid #38bdf8 !important;
-      padding-left: calc(0.75rem - 3px) !important;
+    .active a,
+    a.active {
+      background: transparent !important;
+      background-color: transparent !important;
+      border-left: none !important;
+      color: #94a3b8 !important;
+      font-weight: normal !important;
+      box-shadow: none !important;
+      padding-left: 0.75rem !important;
+
+      &:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+      }
     }
   }
 }
@@ -421,4 +430,18 @@ table {
 .notice--success {
   border-left-color: #4ade80 !important;
 }
+
+/* 14. Wide Post & Archive Lists (Aligns thumbnail and text like events collection) */
+.layout--home .archive,
+.layout--archive .archive,
+.layout--posts .archive,
+.wide .archive {
+  @include breakpoint($large) {
+    padding-right: 0 !important;
+  }
+  @include breakpoint($x-large) {
+    padding-right: 0 !important;
+  }
+}
+
 
