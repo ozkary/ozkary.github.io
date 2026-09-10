@@ -4,7 +4,7 @@
   {% assign entries = entries | sort: include.sort_by %}
 {% endif %}
 
-{% if include.sort_order == 'reverse' %}
+{% if include.sort_order == 'reverse' or include.sort_order == 'desc' %}
   {% assign entries = entries | reverse %}
 {% endif %}
 

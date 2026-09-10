@@ -58,6 +58,7 @@ body {
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    overflow: hidden;
 
     &:hover {
       background: rgba(22, 31, 50, 0.85);
@@ -93,18 +94,44 @@ body {
 
 /* 3. Modern Thumbnails */
 .thumbnail-container {
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 15px;
+  border: none !important;
+  background: none !important;
+  display: inline-block;
+  float: left;
+  max-width: 250px;
+  margin: 0 18px 12px 0;
+  overflow: visible;
 
   img {
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 10px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   &:hover img {
+    border-color: rgba(56, 189, 248, 0.5) !important;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
     transform: scale(1.02);
+  }
+}
+
+@media (max-width: 640px) {
+  .thumbnail-container {
+    float: none;
+    max-width: 100%;
+    margin: 0 0 14px 0;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
   }
 }
 
@@ -203,27 +230,46 @@ tt, code, kbd, samp {
 
 /* 7. Table of Contents (TOC) */
 .toc {
-  background: rgba(18, 24, 38, 0.6) !important;
+  background: rgba(18, 24, 38, 0.8) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 12px;
   backdrop-filter: blur(8px);
 
   .nav__title {
-    background: rgba(56, 189, 248, 0.1) !important;
+    background: rgba(56, 189, 248, 0.12) !important;
     color: #38bdf8 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     font-size: 0.75rem;
   }
 
-  .toc__menu a {
-    color: #94a3b8;
-    transition: color 0.15s ease;
+  .toc__menu {
+    li {
+      border: none;
+    }
 
-    &:hover {
-      color: #38bdf8;
+    a {
+      color: #94a3b8 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+      transition: all 0.15s ease;
+
+      &:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+      }
+    }
+
+    /* Active scrollspy item - fix low contrast light-blue */
+    li.active > a,
+    .active > a,
+    .active a {
+      background-color: rgba(56, 189, 248, 0.15) !important;
+      color: #38bdf8 !important;
+      font-weight: 600 !important;
+      border-left: 3px solid #38bdf8 !important;
+      padding-left: calc(0.75rem - 3px) !important;
     }
   }
 }
