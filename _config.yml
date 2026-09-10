@@ -292,7 +292,7 @@ defaults:
       share: true
       related: true
       show_date: true
-theme: jekyll-theme-architect
+# theme: jekyll-theme-architect
 
 # events collection
 collections:
