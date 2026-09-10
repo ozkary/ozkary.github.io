@@ -298,4 +298,5 @@ theme: jekyll-theme-architect
 collections:
   events:
     output: true
+    sort_by: date
     permalink: /:collection/:path/
