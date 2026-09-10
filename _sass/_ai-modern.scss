@@ -30,6 +30,23 @@ body {
     -webkit-text-fill-color: transparent;
   }
 
+  .site-logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      background: #ffffff;
+      padding: 2px 6px;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: opacity 0.2s ease;
+    }
+
+    &:hover img {
+      opacity: 0.9;
+    }
+  }
+
   .site-subtitle {
     color: #64748b;
     font-weight: 500;
