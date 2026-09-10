@@ -1,5 +1,6 @@
 ---
 title: "The Dark Side of Autonomous Agents: How to Stop Them"
+date: 2026-08-26 12:00:00 -0400
 event_date: 2026-08-26 12:00:00 -0400
 last_modified_at: 2026-08-26 12:00:00 -0400
 location: "Online / Live Stream"

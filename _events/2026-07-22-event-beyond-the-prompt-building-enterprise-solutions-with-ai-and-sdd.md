@@ -1,5 +1,6 @@
 ---
 title: "Beyond the Prompt: Building Enterprise Solutions with AI & Specification-Driven Design"
+date: 2026-07-22 12:00:00 -0400
 event_date: 2026-07-22 12:00:00 -0400
 last_modified_at: 2026-07-22 12:00:00 -0400
 location: "Online / Live Stream"

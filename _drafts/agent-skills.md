@@ -3,11 +3,9 @@
 
 Your agent's persona was never meant to carry your entire domain knowledge. As agents take on more responsibility, a single instructions file grows into a tangled mix of identity, procedure, and policy — hard to reuse, hard to reason about, and hard to trust.
 
-The fix is simpler than it sounds: skills teach an agent what it knows, commands give it something it can just do. That's the whole idea. Everything else — how they're structured, when each one applies — follows from that one distinction.
+The fix is simpler than it sounds: skills teach an agent what it knows, commands give it something it can just do. That's the whole idea. Everything else follows from that one distinction — including the fact that a command doesn't have to skip judgment entirely, it just decides when judgment is actually needed and calls on a skill only for that part.
 
-We'll take a working agent persona built as a monolith and refactor it into a modular structure: declarative SKILL.md manifests for domain knowledge, explicit commands for one-off actions, and hooks that gate anything sensitive — enforcing human-in-the-loop approval no matter which skill or command triggered the request. The agent that comes out the other side knows more, does more, and stays extendable at enterprise grade — new domain knowledge and new actions slot in without ever touching the core execution engine.
-
-Final agenda
+We'll take a working agent persona built as a monolith and refactor it into a modular structure: a command that orchestrates the workflow end to end, a skill it calls on only when a file doesn't match anything the agent has seen before, and hooks that gate the sensitive step no matter how the request got there — enforcing human-in-the-loop approval, then remembering the outcome so the next matching file skips straight through. The agent that comes out the other side knows more, does more, and stays extendable at enterprise grade — new domain knowledge and new capability slot in without ever touching the core execution engine.
 
 1. The monolith agent — the problem
 A working agent, one instructions file doing everything — identity, schema handling, policy. Real, not a strawman.
@@ -19,26 +17,22 @@ Context bloat, tight coupling, no clear ownership — the three failure modes th
 A skill teaches — judgment the model applies only when a task calls for it. Anatomy of a real one.
 
 4. What is an agent command
-A command executes — a deterministic action for a decision that's already been made. How it differs from a skill, and why that difference is the whole point.
+A command executes — a deterministic workflow that knows its own steps, and calls on a skill only for the one step that needs judgment.
 
 5. Judgment vs. execution: skills and commands together
-Same file, two outcomes: a known schema goes straight to a command, an unfamiliar one needs a skill's judgment first. A skill's output is always a decision, never code.
+A known file skips judgment entirely. An unfamiliar one triggers the skill for exactly one step — drafting the decision — nothing more.
 
 6. Hooks and human-in-the-loop
-The one gate that runs the same way regardless of path. What happens when a file matches nothing at all — and why that itself is a signal worth escalating.
+The gate that runs the same way regardless of path — and still checks the actual payload even after a human has approved it, because approval and verification are two different guarantees.
 
 7. Live refactor: monolith to modular skill agent (demo)
-Rebuilding the agent live: skills in, commands in, hooks gating both. A known file runs the fast command path with no LLM call. An unknown file triggers the skill, which proposes a decision — and the hook stops it there for approval.
+A known file runs the fast path, no LLM call. An unfamiliar file triggers the skill, drafts a schema, halts for approval — and once approved, the agent remembers, so the next matching file never pauses again.
 
 8. From approved decision to deployed capability (slides only)
-What happens after a human approves that decision — how it becomes a real, tested, permanent command. Narrated, not demoed — the full delivery pipeline is its own talk.
+What happens after a human approves — how a one-time decision becomes permanent, reviewed, deployed capability. Narrated, not demoed.
 
 9. What this buys you
-Knows more, does more, and extends without ever touching the core execution engine — plus a look ahead at what "deployed" means once we take this agent into production.
-
-Why the split at section 7/8 works
-
-Ending the live portion right after the hook fires on the unknown file is actually a stronger demo beat than pushing further — the audience sees the exact moment where the system correctly refuses to guess, which is the entire thesis of pairing skills with hooks. Section 8 then closes the loop narratively without asking you to fake a GitHub integration live, and section 9's teaser of the deployment talk lands naturally because the audience just watched the system produce something that clearly needs to go somewhere — you're answering a question they'll already be asking.
+Knows more, does more, and extends without touching the core execution engine — plus a look ahead at what "deployed" means once we take this agent into production.
 
 ```text
 adk/
