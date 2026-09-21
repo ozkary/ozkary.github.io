@@ -13,11 +13,10 @@ excerpt: "Use skills and commands to bring AI Agents into real data engineering 
 toc: true
 ---
 
-### 🗓️ Event Details
-
-> **Date:** Wednesday, September 30, 2026
-> **Time:** 🕒 12:00 PM - 12:45 PM EST / EDT
-> **Location:** 💻 *Live YouTube Stream*
+> [!TIP]  Event Details
+> - 🗓️ **Date:** Wednesday, September 30, 2026
+> - 🕒 **Time:**  12:00 PM - 12:45 PM EST / EDT
+> - 💻 **Location:** *Live YouTube Stream*
 
 # Overview
 
@@ -59,6 +58,9 @@ If you are an engineer or a developer who knows data pipelines but is struggling
 You’ll walk away from this practical session not just with an understanding of a new architecture, but with a clear pattern you can start using next week to build reliable, auditable, and production-ready data agents.  
 
 ## Live YouTube Event
+
+> [!TIP]
+> **Don't Forget to Register!**
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; margin-bottom: 25px; background: #000;">
 <iframe 
