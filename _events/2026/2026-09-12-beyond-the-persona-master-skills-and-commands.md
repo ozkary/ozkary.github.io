@@ -13,7 +13,7 @@ excerpt: "Use skills and commands to bring AI Agents into real data engineering 
 toc: true
 ---
 
-> [!TIP]  Event Details
+> **Event Details**
 > - 🗓️ **Date:** Wednesday, September 30, 2026
 > - 🕒 **Time:**  12:00 PM - 12:45 PM EST / EDT
 > - 💻 **Location:** *Live YouTube Stream*
@@ -24,7 +24,7 @@ Your agent's persona was never meant to carry your entire domain knowledge. As t
 
 The fix is simpler than it sounds: **skills teach an agent what it knows, commands give it something it can do.** Everything else follows from that distinction. A deterministic data pipeline command executes predictable steps automatically, invoking an AI skill only when genuine judgment is required—like when an unfamiliar data payload arrives with an unmapped schema that threatens established tables.
 
-![Beyond the Persona: Mastering Agent Skills and Commands](../../assets/2026/ozkary-beyond-the-persona-master-skills-and-commands.jpg "Beyond the Persona: Mastering Agent Skills and Commands")
+![Beyond the Persona: Mastering Agent Skills and Commands](https://www.ozkary.dev/assets/2026/ozkary-beyond-the-persona-master-skills-and-commands.jpg "Beyond the Persona: Mastering Agent Skills and Commands")
 
 
 In this practical, pattern-driven session, we will take a monolithic data agent and refactor it into an enterprise-grade modular system:
@@ -69,6 +69,9 @@ title="Live YouTube event" frameborder="0" allow="accelerometer; autoplay; clipb
 allowfullscreen>
 </iframe>
 </div>
+<p>
+<a href="https://www.youtube.com/live/o_En8fzuUvo?si=iYAfS_lXhAsDNMKJ" target="_new" title="Click to watch on YouTube">Watch on YouTube or set a reminder</a>
+</p>
 
 ## Stay Updated on Future Events
 
