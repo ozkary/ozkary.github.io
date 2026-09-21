@@ -21,7 +21,7 @@ Join us to learn how these exploits happen and how to build zero-trust security 
 
 ## Dark vs. Secured Agent Flow
 
-![The Dark Side of Autonomous Agents: How to Stop Them](../assets/2026/ozkary-the-dark-side-of-autonomous-agents.png "The Dark Side of Autonomous Agents: How to Stop Them")
+![The Dark Side of Autonomous Agents: How to Stop Them](../../assets/2026/ozkary-the-dark-side-of-autonomous-agents.png "The Dark Side of Autonomous Agents: How to Stop Them")
 
 ## Agenda
 

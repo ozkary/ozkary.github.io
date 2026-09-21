@@ -15,11 +15,11 @@ In this whitepaper, I break down the core phases of the framework and how to app
 ___
 GDG
 
-🛠️ From our architecture research: Structuring AI-Assisted Requirements with AIStorming
+🛠️ From our architecture research: Structuring AI-Assisted Requirements with AI-Storming
 
 Most developers use LLMs for quick autocomplete, but unstructured prompting often produces vague specs and hallucinated edge cases before coding even starts.
 
-I created AIStorming to provide developers and leads with a phased, practical process for AI-driven system discovery, boundary modeling, and technical specification:
+AI-Storming provides developers and leads with a phased, practical process for AI-driven system discovery, boundary modeling, and technical specification:
 
 • Phase 1: Context scoping & constraint discovery
 

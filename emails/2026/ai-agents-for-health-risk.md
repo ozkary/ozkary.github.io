@@ -13,6 +13,9 @@ Explore how process-oriented discovery, domain modeling, and SDD turn rapid AI g
 
 Thank you for your continued support. We look forward to seeing you at our upcoming sessions!
 
+Best regards,
+Óscar
+
 Publish Summary (For LinkedIn Pop-Up):
 
 Discover how to make vibe coding effective for high-stakes enterprise systems. By combining deep domain knowledge, our AIStorming discovery framework, and Specification-Driven Design (SDD), we built a deterministic health risk assessment engine. Read the full capstone writeup on Kaggle.
