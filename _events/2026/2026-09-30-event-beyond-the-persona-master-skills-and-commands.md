@@ -6,10 +6,10 @@ last_modified_at: 2026-09-30 12:00:00 -0400
 location: "Online / Live Stream"
 rsvp_url: "https://www.ozkary.com/p/event-beyond-the-persona-master-skills-and-commands.html"
 header:
-  teaser: "../assets/2026/ozkary-the-dark-side-of-ai-agents-sm.png"
+  teaser: "../assets/2026/ozkary-beyond-the-persona-master-skills-and-commands-sm.jfif"
   teaserAlt: "Beyond the Persona: Mastering Agent Skills and Commands"
 image: "https://www.ozkary.dev/assets/2026/ozkary-beyond-the-persona-master-skills-and-commands-sm.jfif"
-excerpt: ""
+excerpt: "Use skills and commands to bring AI into real data engineering workflows—handling shifting ingestion feeds, inferring schemas, and standardizing lakehouse partitions."
 toc: true
 ---
 
