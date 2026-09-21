@@ -4,7 +4,7 @@ date: 2026-09-30 12:00:00 -0400
 event_date: 2026-09-30 12:00:00 -0400
 last_modified_at: 2026-09-30 12:00:00 -0400
 location: "Online / Live Stream"
-rsvp_url: "https://www.ozkary.com/p/event-beyond-the-persona-master-skills-and-commands.html"
+rsvp_url: "https://www.ozkary.dev/events/2026/beyond-the-persona-master-skills-and-commands.html"
 header:
   teaser: "../assets/2026/ozkary-beyond-the-persona-master-skills-and-commands-sm.jfif"
   teaserAlt: "Beyond the Persona: Mastering Agent Skills and Commands"
