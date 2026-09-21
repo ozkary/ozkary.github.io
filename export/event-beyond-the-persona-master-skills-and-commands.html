@@ -1,0 +1,62 @@
+<h1 id="beyond-the-persona-master-skills-and-commands">Overview</h1>
+
+<div style="background: linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(15, 23, 42) 100%); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px; color: white; margin-bottom: 30px; padding: 24px;">
+  <div style="align-items: center; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+    
+    <div style="align-items: center; display: flex; gap: 16px;">
+      <div style="background-color: #38bdf8; border-radius: 8px; color: #0f172a; font-weight: bold; min-width: 65px; padding: 12px 16px; text-align: center;">
+        <span style="display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">SEPT</span>
+        <span style="display: block; font-size: 24px; line-height: 1;">30</span>
+      </div>
+      <div>
+        <div style="color: #f8fafc; font-size: 18px; font-weight: 700;">Wed, Sept 30, 2026</div>
+        <div style="color: #94a3b8; font-size: 14px; margin-top: 4px;">
+          🕒 12:00 PM - 12:45 PM EST / EDT <i>(Live YouTube Stream)</i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p>Your agent's persona was never meant to carry your entire domain knowledge. As teams bring AI into real data engineering workflows—handling shifting ingestion feeds, inferring schemas, and standardizing lakehouse partitions—a single system instructions file quickly becomes a tangled mess of identity, procedure, and governance. It becomes hard to reuse, hard to reason about, and impossible to trust in production data pipelines.</p>
+<p>The fix is simpler than it sounds: <strong>skills teach an agent what it knows, commands give it something it can do.</strong> Everything else follows from that distinction. A deterministic data pipeline command executes predictable steps automatically, invoking an AI skill only when genuine judgment is required—like when an unfamiliar data payload arrives with an unmapped schema that threatens established tables.</p>
+<p><img src="https://www.ozkary.dev/assets/2026/ozkary-beyond-the-persona-master-skills-and-commands.jpg" title="Beyond the Persona: Mastering Agent Skills and Commands" alt="Beyond the Persona: Mastering Agent Skills and Commands" /></p>
+<p>In this practical, pattern-driven session, we will take a monolithic data agent and refactor it into an enterprise-grade modular system:</p>
+<ul>
+<li><strong>Commands</strong> orchestrate predictable ingestion steps end-to-end without wasting LLM tokens.</li>
+<li><strong>Skills</strong> step in dynamically to infer unknown schemas, evaluate breaking drift, and draft structured contracts.</li>
+<li><strong>Hooks &amp; Guardrails</strong> gate sensitive mutations—enforcing human sign-off before raw data reaches staging buckets or analytical tables, and remembering the approved schema so future batches run at wire speed.</li>
+</ul>
+<p>Whether you are an aspiring engineer curious about production AI or a seasoned developer scaling data infrastructure, you'll walk away with an architectural blueprint to build agents that are maintainable, auditable, and production-ready.</p>
+<h2 id="agenda">Agenda</h2>
+<ul>
+<li>The Monolith Agent — The Real-World Ingestion Problem</li>
+<li>Demystifying Agent Skills — Teaching Domain Judgment (What It Knows)</li>
+<li>Demystifying Agent Commands — Deterministic Execution (What It Does)</li>
+<li>Managing Schema Drift — When Skills and Commands Collaborate</li>
+<li>Live Demonstration — From Schema Drift to Data Warehouse Provisioning (GitHub Repo)</li>
+<li>Key Takeaways &amp; The Road Ahead</li>
+</ul>
+<h2 id="why-attend">Why Attend?</h2>
+<p>If you are an engineer or a developer who knows data pipelines but is struggling with how to use AI in production without breaking things, this session is for you. How do you handle a change in data format without crashing the job? How do you know the AI isn't hallucinating columns that don't exist?</p>
+<ul>
+<li><p>The Real Fix for Brittle Agents: Most AI data agents are fragile prototypes. We will show you how to move to a system that handles schema drift and strange data payloads automatically.</p></li>
+<li><p>Save Token Cost for Judgment: Known data should process instantly for free. We will show you the pattern that reserves the expensive LLM token burn only for reasoning when an actual drift occurs.</p></li>
+<li><p>Secure Human Sign-Off: Never allow an AI to change your BigQuery or Snowflake tables automatically. Learn how to create explicit guardrails that display an AI-proposed schema change and force a human to click "Approve" before any code runs.</p></li>
+</ul>
+<p>You’ll walk away from this practical session not just with an understanding of a new architecture, but with a clear pattern you can start using next week to build reliable, auditable, and production-ready data agents.</p>
+<h2 id="live-youtube-event">Live YouTube Event</h2>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; margin-bottom: 25px; background: #000;">
+<iframe 
+src="https://www.youtube.com/embed/o_En8fzuUvo" 
+title="Live YouTube event" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+allowfullscreen>
+</iframe>
+</div>
+
+<h2 id="stay-updated-on-future-events">Stay Updated on Future Events</h2>
+<div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-bottom: 15px;">
+    <script async data-uid="151cd819b7" src="https://ozkary.kit.com/151cd819b7/index.js"></script>      
+</div>
+

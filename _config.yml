@@ -299,4 +299,4 @@ collections:
   events:
     output: true
     sort_by: date
-    permalink: /:collection/:path/
+    permalink: /:collection/:year/:title/
