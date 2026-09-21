@@ -13,27 +13,15 @@ excerpt: "Use skills and commands to bring AI Agents into real data engineering 
 toc: true
 ---
 
+### 🗓️ Event Details
+
+> **Date:** Wednesday, September 30, 2026
+> **Time:** 🕒 12:00 PM - 12:45 PM EST / EDT
+> **Location:** 💻 *Live YouTube Stream*
+
 # Overview
 
 Your agent's persona was never meant to carry your entire domain knowledge. As teams bring AI into real data engineering workflows—handling shifting ingestion feeds, inferring schemas, and standardizing lakehouse partitions—a single system instructions file quickly becomes a tangled mess of identity, procedure, and governance. It becomes hard to reuse, hard to reason about, and impossible to trust in production data pipelines.
-
-<div style="background: linear-gradient(135deg, rgb(30, 41, 59) 0%, rgb(15, 23, 42) 100%); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px; color: white; margin-bottom: 30px; padding: 24px;">
-  <div style="align-items: center; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
-    <div style="align-items: center; display: flex; gap: 16px;">
-      <div style="background-color: #38bdf8; border-radius: 8px; color: #0f172a; font-weight: bold; min-width: 65px; padding: 12px 16px; text-align: center;">
-        <span style="display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;">SEPT</span>
-        <span style="display: block; font-size: 24px; line-height: 1;">30</span>
-      </div>
-      <div>
-        <div style="color: #f8fafc; font-size: 18px; font-weight: 700;">Wed, Sept 26, 2026</div>
-        <div style="color: #94a3b8; font-size: 14px; margin-top: 4px;">
-          🕒 12:00 PM - 12:45 PM EST / EDT <i>(Live YouTube Stream)</i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 The fix is simpler than it sounds: **skills teach an agent what it knows, commands give it something it can do.** Everything else follows from that distinction. A deterministic data pipeline command executes predictable steps automatically, invoking an AI skill only when genuine judgment is required—like when an unfamiliar data payload arrives with an unmapped schema that threatens established tables.
 
