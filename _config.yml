@@ -123,6 +123,9 @@ author:
     - label: "Youtube"
       icon: "fab fa-fw fa-youtube"
       url: "https://www.youtube.com/@ozkary"
+    - label: "Books"
+      icon: "fab fa-fw fa-book"
+      url: "https://www.amazon.com/Data-Engineering-Process-Fundamentals-Hands/dp/B0CV7TPSNB"
 
 # Site Footer
 footer:

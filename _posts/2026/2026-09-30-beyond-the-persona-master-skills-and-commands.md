@@ -13,6 +13,7 @@ tags:
   - architecture
   - python
 toc: true
+mermaid: true
 canonical_url: "https://ozkary.com/beyond-the-persona-master-skills-and-commands"
 video_id: "o_En8fzuUvo"
 repo_url: "https://github.com/ozkary/ai-engineering/tree/main/adk"
@@ -105,14 +106,15 @@ A **Skill** represents domain expertise and semantic judgment. It answers the qu
 In practice, a skill is a structured specification (typically a modular Markdown manifest) that defines the rules, schema specifications, and analytical judgment required for a specific business domain.
 
 ```mermaid
-graph LR
+graph TD
     subgraph Skills Architecture
-        A[Agent Kernel] -->|Injected via DI| B[MTA Transit Skill]
+        A[Agent Kernel]
+        A -->|Injected via DI| B[MTA Transit Skill]
         A -->|Injected via DI| C[Factory Telemetry Skill]
         A -->|Injected via DI| D[BigQuery Governance Skill]
+        B & C & D --> E[Domain Judgment & DDL Generation]
+        E -.->|No Direct Execution| F[Structured Metadata Artifact]
     end
-    B & C & D --> E[Domain Judgment & DDL Generation]
-    E -.->|No Direct Execution| F[Structured Metadata Artifact]
 ```
 
 ### Core Characteristics of an Agent Skill
@@ -190,33 +192,23 @@ When a new file format arrives (Version 2) containing altered column names, rest
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Cloud as Cloud Storage Trigger (Eventarc / PubSub)
-    participant Agent as SkillAgent Kernel
-    participant Cmd as Deterministic Sample Command
-    participant Skill as MTA Domain Skill
-    participant Gate as Pre-Hook Approval Gate (SecureToolAgent)
-    actor Human as Human Operator (HITL)
-    participant BQCmd as BigQuery Ingest Command
-    participant BQ as BigQuery Warehouse (MCP)
+    actor Lake as Data Lake (Storage Trigger)
+    participant Agent as SkillAgent Core (Skills & Commands)
+    participant Gate as Security Gate (Pre-Hook & HITL)
+    participant BQ as Data Warehouse (BigQuery via MCP)
 
-    Cloud->>Agent: Storage Trigger: Object Created (turnstile_v2.csv)
-    Agent->>Cmd: Execute GetFileSampleCommand()
-    Cmd-->>Agent: Returns Bounded Sample Records
-    Agent->>Skill: Inspect Sample & Normalize Schema
-    Skill-->>Agent: Drift Detected: Generates Normalized V2 DDL
-    Agent->>BQCmd: Dispatch Table Creation
-    BQCmd->>Gate: Intercept Tool Call (Pre-Use Hook)
-    Note over Agent,Gate: Agent Execution Suspended (On Hold)
-    Gate->>Human: Security Alert: Proposed DDL Mutation. Approve? (Y/N)
-    alt Human Approves (Y)
-        Human-->>Gate: Approve (Y)
-        Gate->>BQCmd: Resume Execution
-        BQCmd->>BQ: Execute DDL via MCP Server
-        BQ-->>Agent: Table Provisioned (V2 Live & Queryable)
-    else Human Rejects (N)
-        Human-->>Gate: Reject (N)
-        Gate-->>Agent: Mutation Aborted (Process Terminates Safely)
-        Note over BQ: Table is Never Created
+    Lake->>Agent: Event: New File Dropped (turnstile_v2.csv)
+    Note over Agent: 1. GetFileSampleCommand fetches 5-row sample<br/>2. MTA Skill detects schema drift<br/>3. Skill synthesizes normalized V2 DDL
+    Agent->>Gate: Dispatch CreateExternalTableCommand(DDL)
+    Note over Gate: Pre-Use Hook intercepts tool call<br/>Agent placed on hold (Suspended)
+    Gate->>Gate: Security Prompt: Approve DDL Mutation?
+    alt Human Approves (yes)
+        Gate->>BQ: Execute DDL via BigQuery MCP Tool
+        BQ-->>Agent: External Table Created (ext_mta_turnstile_v2 live)
+        Note over Agent,BQ: Lakehouse reads V2 immediately at wire speed
+    else Human Rejects (no)
+        Gate-->>Agent: Mutation Aborted (Workflow Ends Safely)
+        Note over BQ: Fail-Closed: Table is Never Created
     end
 ```
 

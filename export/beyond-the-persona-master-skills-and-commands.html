@@ -67,6 +67,17 @@
 
 <p>While this works for simple prototypes, in an enterprise data pipeline it becomes a severe anti-pattern known as the <strong>Monolithic Agent</strong>.</p>
 
+<pre><code class="language-mermaid">graph TD
+    subgraph Monolithic Agent Anti-Pattern
+        A[Single System Prompt] --> B[Domain Knowledge: MTA / Telemetry]
+        A --> C[Dialect Rules: BigQuery / Snowflake]
+        A --> D[Execution Logic: Table DDL / Storage]
+        A --> E[Governance &amp; Security Constraints]
+    end
+    B &amp; C &amp; D &amp; E --> F[Context Bloat &amp; Token Burn]
+    F --> G[Hallucinations &amp; Pipeline Crashes]
+</code></pre>
+
 <h3>The Pitfalls of the Monolith</h3>
 <ul>
   <li><strong>Context Bloat &amp; Token Burn:</strong> Every single interaction transmits the entire instruction set. If your agent is processing hundreds of file events, resending thousands of prompt tokens per run incurs massive latency and unnecessary cost.</li>
@@ -84,6 +95,17 @@
 <p>A <strong>Skill</strong> represents domain expertise and semantic judgment. It answers the question: <em>What does the agent know?</em></p>
 
 <p>In practice, a skill is a structured specification (typically a modular Markdown manifest) that defines the rules, schema specifications, and analytical judgment required for a specific business domain.</p>
+
+<pre><code class="language-mermaid">graph TD
+    subgraph Skills Architecture
+        A[Agent Kernel]
+        A -->|Injected via DI| B[MTA Transit Skill]
+        A -->|Injected via DI| C[Factory Telemetry Skill]
+        A -->|Injected via DI| D[BigQuery Governance Skill]
+        B &amp; C &amp; D --> E[Domain Judgment &amp; DDL Generation]
+        E -.->|No Direct Execution| F[Structured Metadata Artifact]
+    end
+</code></pre>
 
 <h3>Core Characteristics of an Agent Skill</h3>
 <ul>
@@ -117,6 +139,18 @@ agent = SkillAgent(
 
 <p>Commands provide absolute predictability by wrapping operations in testable, deterministic code that implements the <strong>Strategy Pattern</strong>.</p>
 
+<pre><code class="language-mermaid">graph TD
+    subgraph Commands Architecture
+        CMD[Agent Command] --> STRAT[WarehouseTableStrategy]
+        STRAT --> BQ[BigQuery Strategy]
+        STRAT --> SF[Snowflake Strategy]
+        STRAT --> SQL[SQL Server Strategy]
+        BQ --> MCP[Model Context Protocol MCP]
+        SF --> MCP
+        SQL --> MCP
+    end
+</code></pre>
+
 <h3>Why Commands Matter</h3>
 <ol>
   <li><strong>Guaranteed Determinism:</strong> The command implements fixed logic (e.g., <code>GetFileSampleCommand</code>, <code>CreateExternalTableCommand</code>). The LLM does not improvise the execution path.</li>
@@ -146,6 +180,28 @@ domains:
 <p>In a modern Zero-ETL lakehouse, raw transit feeds land in cloud storage buckets as CSV or Parquet files. BigQuery queries these files directly via <strong>external tables</strong>, avoiding heavy ETL ingestion jobs.</p>
 
 <p>When a new file format arrives (Version 2) containing altered column names, restructured timestamps, or additional device counters, traditional automated pipelines fail catastrophically. Unmapped columns crash downstream queries, while naive auto-ingestion can pollute warehouse tables with broken types.</p>
+
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    actor Lake as Data Lake (Storage Trigger)
+    participant Agent as SkillAgent Core (Skills &amp; Commands)
+    participant Gate as Security Gate (Pre-Hook &amp; HITL)
+    participant BQ as Data Warehouse (BigQuery via MCP)
+
+    Lake->>Agent: Event: New File Dropped (turnstile_v2.csv)
+    Note over Agent: 1. GetFileSampleCommand fetches 5-row sample&lt;br/&gt;2. MTA Skill detects schema drift&lt;br/&gt;3. Skill synthesizes normalized V2 DDL
+    Agent->>Gate: Dispatch CreateExternalTableCommand(DDL)
+    Note over Gate: Pre-Use Hook intercepts tool call&lt;br/&gt;Agent placed on hold (Suspended)
+    Gate->>Gate: Security Prompt: Approve DDL Mutation?
+    alt Human Approves (yes)
+        Gate->>BQ: Execute DDL via BigQuery MCP Tool
+        BQ-->>Agent: External Table Created (ext_mta_turnstile_v2 live)
+        Note over Agent,BQ: Lakehouse reads V2 immediately at wire speed
+    else Human Rejects (no)
+        Gate-->>Agent: Mutation Aborted (Workflow Ends Safely)
+        Note over BQ: Fail-Closed: Table is Never Created
+    end
+</code></pre>
 
 <h3>Deterministic Inspection &amp; Schema Normalization</h3>
 <p>A critical design requirement of this architecture is <strong>deterministic inspection</strong>:</p>
