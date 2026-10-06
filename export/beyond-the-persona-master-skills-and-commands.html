@@ -1,0 +1,364 @@
+<h1>Overview</h1>
+
+<p>Your agent's persona was never meant to carry your entire domain knowledge. As teams bring AI into real data engineering workflows—handling shifting ingestion feeds, inferring schemas, and standardizing lakehouse partitions—a single system instructions file quickly becomes a tangled mess of identity, procedure, and governance. It becomes difficult to maintain, costly to run, and impossible to trust in production pipelines.</p>
+
+<p>The solution lies in classic software architecture principles: <strong>skills teach an agent what it knows, while commands give it something it can do.</strong> By decoupling domain judgment from deterministic execution, we build modular, testable, and cost-effective AI systems. A deterministic data pipeline command executes predictable steps automatically, invoking an AI skill only when genuine reasoning is required—such as when an unfamiliar payload arrives with an unmapped schema that threatens downstream tables.</p>
+
+<p><img src="https://www.ozkary.dev/assets/2026/ozkary-beyond-the-persona-master-skills-and-commands.jpg" alt="Beyond the Persona: Mastering Agent Skills and Commands" title="Beyond the Persona: Mastering Agent Skills and Commands" /></p>
+
+<p>In this post, we explore the architectural patterns behind modular agents, moving from an overburdened monolithic persona to a decoupled system that integrates human-in-the-loop security gates, Model Context Protocol (MCP) tools, and automated schema drift resolution.</p>
+
+<h2>🚀 Featured Open Source Projects</h2>
+<p>Explore these curated resources to level up your engineering skills. If you find them helpful, a ⭐️ is much appreciated!</p>
+
+<h3>🤖 <a href="https://github.com/ozkary/ai-engineering/tree/main/adk">AI Agents (ADK)</a></h3>
+<blockquote>
+  <strong>Focus:</strong> LLM Patterns, Skills &amp; Commands, and Agentic Workflows<br />
+  <img src="https://img.shields.io/badge/Status-Active_Development-blue.svg" alt="Status" /> <img src="https://img.shields.io/badge/Focus-Generative_AI-orange" alt="Topic" />
+</blockquote>
+
+<h3>🏗️ <a href="https://github.com/ozkary/data-engineering-mta-turnstile">Data Engineering</a></h3>
+<blockquote>
+  <strong>Focus:</strong> Real-world ETL &amp; MTA Turnstile Data<br />
+  <img src="https://img.shields.io/badge/Maintained-Yes-green.svg" alt="Maintained" /> <img src="https://img.shields.io/github/license/ozkary/data-engineering-mta-turnstile" alt="License" />
+</blockquote>
+
+<h3>📖 <a href="https://www.amazon.com/Data-Engineering-Process-Fundamentals-Hands/dp/B0CV7TPSNB">Data Engineering Process Fundamentals</a></h3>
+<blockquote>
+  <strong>Focus:</strong> Architectural patterns, hands-on data pipelines, and MTA turnstile case studies<br />
+  <img src="https://img.shields.io/badge/Available_on-Amazon-orange.svg" alt="Format" />
+</blockquote>
+
+<hr />
+<p>💡 <strong>Contribute:</strong> Found a bug or have a suggestion? Open an issue and be part of the open source project.</p>
+
+<h2>🔗 Related Repository: AI Engineering</h2>
+<p>Explore the full implementation of the skills, commands, and agent definitions used in this workflow:<br />
+<strong><a href="https://github.com/ozkary/ai-engineering/tree/main/adk">https://github.com/ozkary/ai-engineering/tree/main/adk</a></strong></p>
+
+<h2>YouTube Video</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o_En8fzuUvo" title="Beyond the Persona: Mastering Agent Skills and Commands" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<blockquote>👍 Subscribe to the channel to get notified on new events!</blockquote>
+
+<h2>📅 Agenda</h2>
+
+<ul>
+  <li><strong>The Monolith Agent — The Real-World Ingestion Problem:</strong> Why cramming prompts, credentials, and business logic into a single persona leads to context bloat, token burn, and fragility.</li>
+  <li><strong>Demystifying Agent Skills — Teaching Domain Judgment (What It Knows):</strong> Encapsulating bounded domain knowledge into modular markdown specifications and injecting them dynamically.</li>
+  <li><strong>Demystifying Agent Commands — Deterministic Execution (What It Does):</strong> Eliminating hallucinations by replacing open-ended LLM generations with reusable, strategy-backed executable commands.</li>
+  <li><strong>Managing Schema Drift — When Skills and Commands Collaborate:</strong> Orchestrating an event-driven Zero-ETL data lakehouse pipeline that catches schema deviations and enforces human-in-the-loop guardrails.</li>
+  <li><strong>Live Demonstration — From Schema Drift to Data Warehouse Provisioning:</strong> A hands-on walkthrough using Google Antigravity, ADK CLI, and BigQuery to detect drift, draft DDL, and provision tables safely.</li>
+  <li><strong>Key Takeaways &amp; The Road Ahead:</strong> Core principles for architecting enterprise-grade agents and scaling them across distributed data platforms.</li>
+</ul>
+
+<hr />
+
+<h2>The Monolith Agent: The Anti-Pattern of Context Bloat</h2>
+
+<p>When engineers first build AI agents, the standard approach is straightforward: open a prompt file or system message configuration and draft a comprehensive persona. This single file frequently includes:</p>
+<ol>
+  <li><strong>Agent Identity:</strong> Persona definition, voice, and conversational directives.</li>
+  <li><strong>Domain Business Logic:</strong> Field definitions, schema contracts, validation rules, and business nuances.</li>
+  <li><strong>Target System Rules:</strong> Naming conventions, SQL dialect specifics, partitioning strategies, and target warehouse instructions.</li>
+  <li><strong>Tool Definitions &amp; Credentials:</strong> Instructions on which APIs to invoke and how to format payloads.</li>
+</ol>
+
+<p>While this works for simple prototypes, in an enterprise data pipeline it becomes a severe anti-pattern known as the <strong>Monolithic Agent</strong>.</p>
+
+<h3>The Pitfalls of the Monolith</h3>
+<ul>
+  <li><strong>Context Bloat &amp; Token Burn:</strong> Every single interaction transmits the entire instruction set. If your agent is processing hundreds of file events, resending thousands of prompt tokens per run incurs massive latency and unnecessary cost.</li>
+  <li><strong>Tight Vendor Coupling:</strong> Hardcoding BigQuery, Snowflake, and SQL Server conventions into the same instructions creates cross-system contamination and makes switching platforms difficult.</li>
+  <li><strong>Uncontrolled Hallucinations:</strong> When an agent is asked to write and execute code end-to-end within an expansive prompt, field names drift, data types mutate unpredictably, and schema consistency collapses.</li>
+  <li><strong>Violation of Established Software Principles:</strong> Software engineering long ago adopted Single Responsibility (SRP), Separation of Concerns (SoC), and Domain-Driven Design (DDD). Building AI agents requires the exact same discipline.</li>
+</ul>
+
+<p>To solve this, we decouple the agent into <strong>Skills</strong> (declarative knowledge) and <strong>Commands</strong> (deterministic actions).</p>
+
+<hr />
+
+<h2>Demystifying Agent Skills: Teaching Domain Judgment (What It Knows)</h2>
+
+<p>A <strong>Skill</strong> represents domain expertise and semantic judgment. It answers the question: <em>What does the agent know?</em></p>
+
+<p>In practice, a skill is a structured specification (typically a modular Markdown manifest) that defines the rules, schema specifications, and analytical judgment required for a specific business domain.</p>
+
+<h3>Core Characteristics of an Agent Skill</h3>
+<ul>
+  <li><strong>Single-Responsibility Boundaries:</strong> A skill encapsulates one specific domain model (e.g., MTA subway transit feeds) or platform governance standard (e.g., BigQuery naming and partitioning standards).</li>
+  <li><strong>Declarative Knowledge, Not Execution:</strong> A skill never executes code, connects to databases, or alters infrastructure directly. It produces structured artifacts—such as an inferred schema, validation summary, or proposed Data Definition Language (DDL) statement.</li>
+  <li><strong>Agnostic Dynamic Loading:</strong> Rather than loading every skill simultaneously, the agent kernel remains lightweight. Using <strong>Dependency Injection (DI)</strong>, the runtime injects only the skills relevant to the active workflow.</li>
+</ul>
+
+<pre><code class="language-python"># Example: Injecting targeted skills into a lightweight SkillAgent
+agent = SkillAgent(
+    skills=[
+        MtaTransitSkill(),        # Domain-specific schema &amp; validation rules
+        BigQueryGovernanceSkill() # Target warehouse conventions &amp; partitioning rules
+    ]
+)
+</code></pre>
+
+<blockquote>
+  <strong>Domain Skills vs. Platform Governance Skills:</strong> A domain skill (like <code>MtaTransitSkill</code>) defines business entities, field requirements, and expected schema contracts. A platform governance skill (like <code>BigQueryGovernanceSkill</code>) defines engine-specific formatting standards—such as snake_case column conventions, timestamp parsing constraints, and lakehouse partitioning rules. Neither skill executes database queries; they purely supply the declarative rules the agent needs to synthesize compliant DDL.
+</blockquote>
+
+<p>By isolating domain and platform rules into distinct skills, teams can refine schema requirements and governance guidelines without modifying the underlying agent execution engine.</p>
+
+<hr />
+
+<h2>Demystifying Agent Commands: Deterministic Execution (What It Does)</h2>
+
+<p>A <strong>Command</strong> represents deterministic execution. It answers the question: <em>What can the agent do?</em></p>
+
+<p>In production data engineering, data warehouse modifications, bucket operations, and network transactions must never be left to stochastic LLM text generation. If you ask an LLM to generate and run an <code>ALTER TABLE</code> statement directly five times, you risk getting five subtly different variations—or worse, a hallucinated column that breaks downstream dashboards.</p>
+
+<p>Commands provide absolute predictability by wrapping operations in testable, deterministic code that implements the <strong>Strategy Pattern</strong>.</p>
+
+<h3>Why Commands Matter</h3>
+<ol>
+  <li><strong>Guaranteed Determinism:</strong> The command implements fixed logic (e.g., <code>GetFileSampleCommand</code>, <code>CreateExternalTableCommand</code>). The LLM does not improvise the execution path.</li>
+  <li><strong>Strategy Pattern for Portability:</strong> The agent interacts with an abstract <code>WarehouseTableStrategy</code>. Whether the target is BigQuery, Snowflake, or Databricks, the agent invokes the same interface while the underlying strategy handles engine-specific semantics.</li>
+  <li><strong>Integration with Model Context Protocol (MCP):</strong> Commands communicate with target resources through standardized MCP servers, ensuring authentication, audit logging, and connection pooling are maintained centrally.</li>
+  <li><strong>Deterministic Routing via Configuration:</strong> Decisions about which data warehouse receives which feed are governed by deterministic configuration files (e.g., <code>routing.yaml</code>), rather than probabilistic prompt suggestions:</li>
+</ol>
+
+<pre><code class="language-yaml"># routing.yaml: Deterministic ingestion targets
+domains:
+  mta_transit:
+    target_warehouse: "bigquery"
+    dataset: "transit_staging"
+    strategy: "external_table_v2"
+  factory_telemetry:
+    target_warehouse: "snowflake"
+    database: "iot_telemetry"
+</code></pre>
+
+<hr />
+
+<h2>Managing Schema Drift: When Skills and Commands Collaborate</h2>
+
+<p>To understand how skills and commands interact in production, consider a real-world scenario from the Metropolitan Transportation Authority (MTA) New York City transit turnstile data—the canonical dataset explored throughout my book, <a href="https://www.amazon.com/Data-Engineering-Process-Fundamentals-Hands/dp/B0CV7TPSNB"><em>Data Engineering Process Fundamentals</em></a>.</p>
+
+<h3>The Problem: Incoming Schema Drift</h3>
+<p>In a modern Zero-ETL lakehouse, raw transit feeds land in cloud storage buckets as CSV or Parquet files. BigQuery queries these files directly via <strong>external tables</strong>, avoiding heavy ETL ingestion jobs.</p>
+
+<p>When a new file format arrives (Version 2) containing altered column names, restructured timestamps, or additional device counters, traditional automated pipelines fail catastrophically. Unmapped columns crash downstream queries, while naive auto-ingestion can pollute warehouse tables with broken types.</p>
+
+<h3>Deterministic Inspection &amp; Schema Normalization</h3>
+<p>A critical design requirement of this architecture is <strong>deterministic inspection</strong>:</p>
+<ul>
+  <li><strong>Bounded Sampling, Not Full Payloads:</strong> Passing massive multi-gigabyte raw files directly into an LLM prompt burns enormous tokens, risks context truncation, and introduces latency. Instead, the agent invokes a deterministic command (<code>GetFileSampleCommand</code>) to extract a bounded slice of records (the header plus the first several rows).</li>
+  <li><strong>Domain-Driven Schema Normalization:</strong> The raw sample is evaluated by the domain skill (<code>MtaTransitSkill</code>). The skill contains canonical schema rules, column mappings, and enterprise formatting conventions. When schema drift is detected, the skill does not simply panic or halt the pipeline. Instead, it <strong>normalizes the new external table schema</strong>—mapping renamed raw columns (<code>control_area</code>, <code>remote_unit</code>, <code>sub_device_id</code>) to standard types and generating a compliant DDL statement for BigQuery.</li>
+  <li><strong>Continuous Ingestion Without Pipeline Interruption:</strong> Because the skill normalizes the new format into a clean, parallel external table (<code>ext_mta_turnstile_v2</code>), the data lakehouse can consume the new feed immediately without breaking existing V1 analytics or crashing scheduled batch jobs.</li>
+</ul>
+
+<h3>The Human-in-the-Loop (HITL) Gate</h3>
+<p>While the skill has the domain intelligence to normalize schemas, <strong>autonomous AI must never possess unchecked authority to modify production database structures.</strong></p>
+
+<p>To enforce security:</p>
+<ol>
+  <li><strong>Pre-Use Hooks Intercept Mutations:</strong> When the agent attempts to run <code>CreateExternalTableCommand</code>, the command dispatches an MCP tool call. The <code>SecureToolAgent</code> layer evaluates this call against registered <strong>Pre-Use Hooks</strong>. Read-only queries pass freely, but state-mutating operations (DDL/DML) are intercepted before they ever reach the database server.</li>
+  <li><strong>Agent Put On Hold:</strong> The pre-use hook suspends the agent's execution. The agent is placed on hold in a waiting state while a structured alert is surfaced to the human operator with the proposed DDL and target metadata.</li>
+  <li><strong>Approval (<code>yes</code>):</strong> If the human verifies the DDL and approves, the hook unblocks execution. The command forwards the query through the BigQuery MCP tool, provisioning the new table seamlessly.</li>
+  <li><strong>Rejection (<code>no</code>):</strong> If the human rejects the change or detects an anomaly, <strong>the process halts immediately and the table is never created.</strong> This fail-closed model guarantees that hallucinations, schema corruption, or unauthorized alterations cannot reach the analytical warehouse.</li>
+</ol>
+
+<hr />
+
+<h2>Live Demonstration: From Schema Drift to Warehouse Provisioning</h2>
+
+<p>During the live session, we walked through this pattern using Google Antigravity and the Agent Development Kit (ADK) CLI, operating on the open-source repository.</p>
+
+<h3>1. The SkillAgent Implementation</h3>
+<p>The agent class inherits from <code>SecureToolAgent</code>, which equips it with standard MCP tool connectivity and security controls. We then inject domain skills and executable commands:</p>
+
+<pre><code class="language-python">class SkillAgent(SecureToolAgent):
+    """
+    Modular Agent demonstrating dynamic skill injection
+    and deterministic command execution.
+    """
+    def __init__(self, skills=None, commands=None, routing_config="routing.yaml"):
+        super().__init__()
+        self.skills = skills or []
+        self.commands = commands or []
+        self.routing_config = load_routing(routing_config)
+
+    def register_skill(self, skill):
+        self.skills.append(skill)
+        # Mounts domain specifications into agent knowledge boundary
+        self.mount_knowledge(skill.get_manifest())
+
+    def register_command(self, command):
+        self.commands.append(command)
+        # Binds executable tool signatures to the agent runtime
+        self.bind_tool(command.get_tool_signature())
+</code></pre>
+
+<h3>2. Simulating Schema Ingestion &amp; The ADK CLI</h3>
+<p>To trigger the agent workflow, we invoke the <strong>Agent Development Kit (ADK) CLI</strong>:</p>
+
+<pre><code class="language-bash">adk agent run skill-agent \
+  --event "storage.object.created" \
+  --bucket "mta-turnstile-lake" \
+  --path "feeds/v2/turnstile_2026_09.csv"
+</code></pre>
+
+<h4>Understanding the ADK CLI Parameters</h4>
+<ul>
+  <li><strong><code>skill-agent</code>:</strong> The target agent profile to instantiate. The runtime configures the agent kernel and injects its specified skills (<code>MtaTransitSkill</code>, <code>BigQueryGovernanceSkill</code>) and commands (<code>GetFileSampleCommand</code>, <code>CreateExternalTableCommand</code>).</li>
+  <li><strong><code>--event "storage.object.created"</code>:</strong> Specifies the incoming event type. This matches standard cloud lifecycle event definitions (e.g., Google Cloud Storage Object Finalize, AWS S3 <code>s3:ObjectCreated</code>, or Azure Event Grid).</li>
+  <li><strong><code>--bucket "mta-turnstile-lake"</code>:</strong> The target storage bucket in the data lake where the raw payload arrived.</li>
+  <li><strong><code>--path "feeds/v2/turnstile_2026_09.csv"</code>:</strong> The relative URI key of the newly dropped file.</li>
+</ul>
+
+<blockquote>
+  <strong>Production vs. Local Emulation:</strong> In a live enterprise deployment, developers do not manually trigger terminal commands. Instead, automated cloud infrastructure listens for file drops: a Cloud Storage bucket event publishes to Google Cloud Pub/Sub or Eventarc, which invokes a serverless container (such as Google Cloud Run or a Cloud Function) running the ADK agent runtime. The CLI command faithfully replicates this exact production event-driven behavior for local testing, CI/CD verification, and interactive playbook orchestration with Google Antigravity.
+</blockquote>
+
+<h4>Deterministic Inspection in Action</h4>
+<p>Upon receiving the event, the agent executes <code>GetFileSampleCommand</code>. Rather than streaming entire megabytes into the prompt, it fetches a bounded 5-row sample. The MTA domain skill evaluates the sample against known schemas, identifies the drift, and synthesizes a normalized DDL statement:</p>
+
+<pre><code>[INFO] Executing: GetFileSampleCommand(uri="gs://mta-turnstile-lake/feeds/v2/turnstile_2026_09.csv")
+[INFO] Sample loaded: 5 rows retrieved.
+[WARN] Schema Drift Detected!
+       Missing Baseline Columns: [C/A, UNIT, SCP]
+       Detected V2 Columns:      [control_area, remote_unit, sub_device_id, net_entries, net_exits]
+[INFO] Domain Skill generated BigQuery External Table DDL:
+       CREATE OR REPLACE EXTERNAL TABLE `transit_staging.ext_mta_turnstile_v2`
+       (
+           control_area STRING,
+           remote_unit STRING,
+           sub_device_id STRING,
+           event_timestamp TIMESTAMP,
+           net_entries INT64,
+           net_exits INT64
+       )
+       OPTIONS (
+           format = 'CSV',
+           uris = ['gs://mta-turnstile-lake/feeds/v2/*.csv'],
+           skip_leading_rows = 1
+       );
+</code></pre>
+
+<p>By normalizing the new external table schema to match lakehouse partitioning and naming conventions, the skill guarantees that the pipeline can consume the new file format without failing or interrupting existing workloads.</p>
+
+<h3>3. Human Approval (HITL) and Execution</h3>
+<p>Before mutating the data warehouse, the agent initiates table provisioning via <code>CreateExternalTableCommand</code>. However, because the agent inherits from <code>SecureToolAgent</code>, the tool call is intercepted by a <strong>Pre-Use Hook</strong>.</p>
+
+<h4>The Agent is Placed on Hold</h4>
+<p>The hook determines that creating or replacing an external table constitutes an infrastructure mutation requiring human authorization. The agent's execution is immediately <strong>suspended (put on hold)</strong>, and an interactive prompt is rendered:</p>
+
+<pre><code>[SECURITY GATE] Action requires administrative authorization:
+Mutation: Create BigQuery External Table 'ext_mta_turnstile_v2'
+Do you approve the execution of this DDL? (yes/no): yes
+</code></pre>
+
+<h4>Two Distinct Security Outcomes:</h4>
+<ul>
+  <li><strong>Approval Path (<code>yes</code>):</strong> The operator reviews the proposed DDL and grants approval. The agent resumes execution, and the pre-use hook releases the intercepted command. The command invokes the BigQuery MCP tool, executes the DDL, and provisions <code>ext_mta_turnstile_v2</code>. A quick refresh of the BigQuery console confirms that the V2 table is live and queryable at wire speed.</li>
+  <li><strong>Rejection Path (<code>no</code>):</strong> If the operator detects an irregularity or rejects the change, the pre-use hook terminates the workflow immediately. The process ends, and <strong>the table is never created.</strong> This fail-closed architecture ensures that no unauthorized or broken schemas can ever compromise analytical pipelines.</li>
+</ul>
+
+<h3>4. Beyond the Demo: Multi-Version Coexistence &amp; Skill Evolution</h3>
+<p>While the live demonstration successfully created the V2 external table, provisioning a new schema is not the end of the architectural story—it represents the beginning of an ongoing, production-grade data lifecycle:</p>
+
+<h4>Multi-Version Coexistence in Production</h4>
+<p>With <code>ext_mta_turnstile_v2</code> successfully deployed, the data warehouse operates in a live <strong>multi-version coexistence</strong> state. Downstream analytics, scheduled dashboards, and legacy ETL pipelines reading the original V1 table continue running without downtime. New applications and modernized reports can simultaneously begin querying the V2 schema. Over time, as data producers migrate and incoming V1 storage events cease, the legacy V1 external table can be gracefully deprecated and retired without risking breaking changes.</p>
+
+<h4>Continuous Evolution: The Inevitable Arrival of V3</h4>
+<p>Data feeds continuously evolve. Over time, an upstream vendor or sensor system might drop an unannounced Version 3 (<code>v3</code>) payload into the lakehouse. This arrival triggers the exact same event-driven loop:</p>
+<ol>
+  <li>The storage trigger detects <code>turnstile_2026_v3.csv</code>.</li>
+  <li>The agent executes <code>GetFileSampleCommand</code> to inspect the sample deterministically.</li>
+  <li>The domain skill attempts to normalize the schema and synthesize an external table DDL.</li>
+</ol>
+
+<h4>When Complex Drift Causes the Agent to Fail</h4>
+<p>Not all schema changes are simple column additions. In real-world enterprise environments, a V3 payload might introduce complex edge cases—such as deeply nested JSON structures, conflicting timestamp formats, or ambiguous domain concepts that defy existing heuristic rules.</p>
+
+<p>In these scenarios, the LLM-driven skill may <strong>fail to produce an acceptable or compliant schema proposal</strong>. It might hallucinate a data type, mishandle a nested field, or violate lakehouse partitioning rules.</p>
+
+<h4>The HITL Gate as a Circuit Breaker for Skill Updates</h4>
+<p>This failure mode is precisely why the <strong>Human-in-the-Loop (HITL) gate is indispensable</strong>:</p>
+<ul>
+  <li><strong>Execution Halted:</strong> When the human operator inspects the proposed V3 DDL in the security prompt and recognizes that the schema proposal is flawed or unacceptable, they enter <code>no</code>.</li>
+  <li><strong>Zero Impact on Production:</strong> The pre-use hook aborts the operation immediately. The flawed table is never created, and the data warehouse remains protected.</li>
+  <li><strong>Skill Evolution:</strong> Rather than modifying the agent's core source code or hacking together manual database scripts, the engineering team updates the <strong>domain skill manifest (<code>MtaTransitSkill</code>)</strong>. By adding explicit domain heuristics, specifying parsing patterns for the new nested fields, or clarifying type conversion rules in the skill's Markdown specification, they close the knowledge gap.</li>
+  <li><strong>Re-running with Enhanced Intelligence:</strong> Once the skill is updated, re-running the agent enables it to correctly normalize the V3 schema, generate flawless DDL, pass the human inspection gate, and provision the new table cleanly.</li>
+</ul>
+
+<blockquote>
+  <strong>Skills and Commands as First-Class SDLC Artifacts:</strong> Creating new skills or updating existing skills and commands is not a sign of pipeline failure—it is the natural, expected lifecycle of an agentic data system. Treating skills as version-controlled specifications ensures that as data domains evolve, agent intelligence grows incrementally alongside the business.
+</blockquote>
+
+<hr />
+
+<h2>Key Takeaways &amp; The Road Ahead</h2>
+
+<p>Refactoring from a monolithic agent to modular skills and commands bridges the gap between fragile AI experiments and reliable production data systems.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Concept</th>
+      <th>Monolithic Agent</th>
+      <th>Decoupled Skills &amp; Commands</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Domain Knowledge</strong></td>
+      <td>Crammed into one prompt</td>
+      <td>Modular Markdown manifests (Skills)</td>
+    </tr>
+    <tr>
+      <td><strong>Execution</strong></td>
+      <td>Stochastic LLM query generation</td>
+      <td>Reusable, strategy-backed classes (Commands)</td>
+    </tr>
+    <tr>
+      <td><strong>Token Cost</strong></td>
+      <td>High (full prompt on every call)</td>
+      <td>Low (load only active domain and tools)</td>
+    </tr>
+    <tr>
+      <td><strong>Portability</strong></td>
+      <td>Hardcoded to one database</td>
+      <td>Abstracted across engines (BigQuery, Snowflake)</td>
+    </tr>
+    <tr>
+      <td><strong>Safety &amp; Governance</strong></td>
+      <td>Uncontrolled side-effects</td>
+      <td>Pre-Tool Hooks &amp; Human-in-the-Loop gates</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Guiding Principles for Your Next Agent</h3>
+<ol>
+  <li><strong>Skills Define What the Agent Knows:</strong> Keep them declarative. Use skills to codify domain heuristics, validation rules, and schema contracts.</li>
+  <li><strong>Commands Define What the Agent Does:</strong> Keep them deterministic. Use proven design patterns (Strategy, Factory) and route execution through Model Context Protocol (MCP) tools.</li>
+  <li><strong>Keep the Kernel Agnostic:</strong> Build a lightweight core engine and inject capabilities dynamically using Dependency Injection.</li>
+  <li><strong>Guard Critical Operations:</strong> Never allow an autonomous agent to execute destructive DDL or DML without human review. Use pre-tool hooks to enforce governance.</li>
+</ol>
+
+<p>By establishing these boundaries, data teams can confidently harness generative AI to handle real-world data entropy while keeping pipelines robust, secure, and predictable.</p>
+
+<hr />
+
+<h2>🌟 Let's Connect &amp; Build Together</h2>
+<p>Thanks for reading! 😊 If you found these architectural patterns helpful, let's connect and continue the conversation:</p>
+
+<ul>
+  <li><a href="https://gdg.community.dev/gdg-broward-county-fl/"><strong>GDG Broward</strong></a>: Join our local dev community for workshops and live tech sessions.</li>
+  <li><a href="https://globalai.community/chapters/jacksonville/"><strong>Global AI Events</strong></a>: Connect with the community across global AI events.</li>
+  <li><a href="https://www.linkedin.com/in/oscardgarcia"><strong>LinkedIn</strong></a>: Follow along for regular deep dives into software architecture and AI engineering.</li>
+  <li><a href="https://github.com/ozkary"><strong>GitHub</strong></a>: Explore open-source projects, agents, and samples.</li>
+  <li><a href="https://www.youtube.com/@ozkary"><strong>YouTube</strong></a>: Watch recordings and step-by-step video tutorials.</li>
+  <li><a href="https://bsky.app/profile/ozkary.bsky.social"><strong>BlueSky</strong></a> / <a href="https://x.com/ozkary"><strong>X / Twitter</strong></a>: Daily tech updates and architectural tips.</li>
+</ul>
+
+<p>👉 <em>Originally published at <a href="https://www.ozkary.com">ozkary.com</a></em></p>

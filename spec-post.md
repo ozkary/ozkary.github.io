@@ -16,21 +16,28 @@ graph TD
 
 ---
 
-## Phase 1: Draft Selection & Preparation
+## Phase 1: Source Materials & Preparation Pattern
 
-1. **Locate Draft:** Locate the target draft file in the `_posts/drafts/` directory.
-2. **Analyze Content:** Read the abstract, title, and key technical sections to synthesize the following metadata:
-   - **Post Title:** Capitalized, search-optimized title.
-   - **Post Excerpt:** A concise summary (150–250 words) focusing on the core problem and solution.
-   - **Target Date:** The designated publication date (in `YYYY-MM-DD` format).
-   - **Target Tags:** Relevant technical keywords (e.g., `code`, `cloud`, `ai`, `data`).
-3. **Use the transcript section** to build a post the describes the main points of the presentation
-   - This section provides information from the video reference.
-   - It is segmented to follow the video agenda
-   - Create sections for each agenda content
+When generating a published blog post from an event or presentation, we follow the established pattern combining three primary sources:
 
-4. Always use the presentation/draft title for the post file name and title.
+1. **Event Announcement / Agenda (`_events/YYYY/YYYY-MM-DD-<slug>.md`):**
+   - Provides the foundational metadata: title, excerpt, date, featured tags, and YouTube embed/link.
+   - Defines the structured **Agenda** that guides the top-level section headings of the post.
 
+2. **Video Transcript (`_drafts/transcripts/<slug>.md`):**
+   - Captures the actual spoken narrative, explanations, architectural decisions, and live demonstration dialogue.
+   - Use the transcript to extract deep technical context, specific design patterns discussed, and the step-by-step flow of the demo.
+
+3. **Presentation Slides (e.g., Google Slides):**
+   - Establishes the visual and logical progression of topics and diagrams.
+   - Aligns the post flow with the slide narrative so the written article closely mirrors what was presented live.
+
+4. **Synthesize Metadata & Post Scope:**
+   - **Target Date:** The designated post date (in `YYYY-MM-DD` format) **must match the `event_date`** defined in the front matter of the event post (e.g., if `event_date: 2026-09-30 ...`, the post date is `2026-09-30`).
+   - **Post Title & File Name:** Always align the post title and file name with the presentation/event title (`YYYY-MM-DD-<title-slug>.md`), where `YYYY-MM-DD` uses the `event_date`.
+   - **Post Excerpt:** A concise summary (150–250 words) focusing on the core engineering challenge and solution.
+   - **Target Tags:** Relevant technical keywords (e.g., `code`, `cloud`, `ai`, `data`, `python`, `architecture`).
+   - **Section Alignment:** Follow the event agenda, transcript narrative, and slide flow to build dedicated sections for each agenda topic.
 
 ---
 
@@ -53,6 +60,7 @@ Every blog post requires two visual assets stored in `assets/YYYY/`:
    ```
    _posts/YYYY/YYYY-MM-DD-<title-slug>.md
    ```
+   The `YYYY-MM-DD` prefix must match the `event_date` from the event post.
 2. **Front Matter Structure:** Populate the Jekyll front matter exactly as shown below:
    ```yaml
    ---
@@ -109,5 +117,5 @@ We share the new post with the community using an email template and the content
   - Replace the tags {EXAMPLE} with the post content like title, brief overview, post summary. video information, github repo
 - For the link use the www.ozkary.com/YYYY/MM/{POST-HTML}.html with the extension
   -  Use the year and month of the post
-- Use the youtube vide link
-- For the source code use the 
+- Use the youtube video link
+- For the source code, use the relevant GitHub repository URL (e.g. `https://github.com/ozkary/<repo-name>`).
