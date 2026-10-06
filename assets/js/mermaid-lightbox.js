@@ -70,6 +70,34 @@
         max-width: 100% !important;
         height: auto !important;
       }
+      /* Subgraph / Domain Boundary: Transparent fill with dotted/dashed separator line */
+      .mermaid svg .cluster rect,
+      .mermaid svg .cluster polygon,
+      .mermaid svg [id*="subGraph"] rect,
+      .mermaid svg [id*="cluster"] rect,
+      .mermaid-modal-content svg .cluster rect,
+      .mermaid-modal-content svg .cluster polygon,
+      .mermaid-modal-content svg [id*="subGraph"] rect,
+      .mermaid-modal-content svg [id*="cluster"] rect {
+        fill: transparent !important;
+        fill-opacity: 0 !important;
+        stroke: #475569 !important;
+        stroke-width: 1.5px !important;
+        stroke-dasharray: 4 4 !important; /* Dotted/dashed domain boundary */
+        rx: 8px !important;
+        ry: 8px !important;
+      }
+      .mermaid svg .cluster text,
+      .mermaid svg .cluster .label,
+      .mermaid svg .cluster span,
+      .mermaid-modal-content svg .cluster text,
+      .mermaid-modal-content svg .cluster .label,
+      .mermaid-modal-content svg .cluster span {
+        fill: #94a3b8 !important;
+        color: #94a3b8 !important;
+        font-weight: 600 !important;
+        font-size: 13px !important;
+      }
       .mermaid-modal-overlay {
         display: none;
         position: fixed;
@@ -298,7 +326,9 @@
           primaryBorderColor: '#38bdf8',
           lineColor: '#94a3b8',
           secondaryColor: '#1e293b',
-          tertiaryColor: '#0b0f19'
+          tertiaryColor: '#0b0f19',
+          clusterBkg: 'transparent',
+          clusterBorder: '#475569'
         },
         securityLevel: 'loose',
         flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
