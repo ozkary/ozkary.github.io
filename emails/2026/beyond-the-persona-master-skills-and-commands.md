@@ -17,10 +17,10 @@ Explore the complete implementation of the skill definitions, command strategies
 Explore the code: [GitHub Repository](https://github.com/ozkary/ai-engineering/tree/main/adk)
 
 📖 Author's Book
-Dive deeper into architectural patterns, data pipelines, and real-world MTA transit case studies:
+Dive deeper into architectural patterns, data pipelines, and data lakes and warehouses:
 Get the book: [Data Engineering Process Fundamentals on Amazon](https://www.amazon.com/Data-Engineering-Process-Fundamentals-Hands/dp/B0CV7TPSNB)
 
-Thank you for your continued support of GDG Broward County, FL. 
+Thank you for your continued support. 
 We look forward to seeing you at our next event!
 
 ___

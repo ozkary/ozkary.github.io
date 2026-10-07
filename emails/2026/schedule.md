@@ -21,3 +21,8 @@
     - [] manual post gdg 
     - [] manual post global
     - [x] Kit email
+
+- [ ] date? The Dark Side of Autonomous Agents
+    - [] manual post gdg 
+    - [] manual post global
+    - [x] Kit email
