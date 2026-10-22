@@ -29,7 +29,7 @@ Smart Orchestration resolves both traps by pairing focused, single-purpose Worke
 
 > 👉 Join us and learn how to implement worker agents and orchestration workflows with production-proven design patterns, and walk away with the fundamental concepts you need to build resilient, production-ready AI systems!
 
-![Smart Orchestration: Multi-Agent Systems and Workflows](https://ozkary.dev/assets/2026/ozkary-smart-orchestration-multi-agent-systems-workflows.jfif "Smart Orchestration: Multi-Agent Systems and Workflows")
+![Smart Orchestration: Multi-Agent Systems and Workflows](https://www.ozkary.dev/assets/2026/ozkary-smart-orchestration-multi-agent-systems-workflows.jfif "Smart Orchestration: Multi-Agent Systems and Workflows")
 
 
 📋 Presentation Agenda
