@@ -8,11 +8,11 @@
     - [x] Kit email
 
 - [x] 2026-09-14 AI Agents for Health Risk Assessment (Kaggle Capstone: SDD + Vibe Coding)
-    - [] manual post gdg 
-    - [] manual post global
+    - [x] manual post gdg 
+    - [x] manual post global
     - [] Kit email
 
-- [ ] 2026-09-21 Beyond the Prompt: Building Enterprise Solutions with AI Specification-Driven Design
+- [x] 2026-10-20 Beyond the Prompt: Building Enterprise Solutions with AI Specification-Driven Design
     - [] manual post gdg 
     - [] manual post global
     - [x] Kit email
@@ -25,4 +25,4 @@
 - [ ] date? The Dark Side of Autonomous Agents
     - [] manual post gdg 
     - [] manual post global
-    - [x] Kit email
+    - [] Kit email
