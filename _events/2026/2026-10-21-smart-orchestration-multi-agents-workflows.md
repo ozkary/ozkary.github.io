@@ -4,7 +4,7 @@ date: 2026-10-21 12:00:00 -0400
 event_date: 2026-11-04 12:00:00 
 last_modified_at: 2026-10-21 12:00:00
 location: "Online / Live Stream"
-rsvp_url: "https://www.ozkary.dev/events/2026/smart-orchestration-multi-agent-workflows/"
+rsvp_url: "https://www.ozkary.dev/events/2026/smart-orchestration-multi-agents-workflows/"
 header:
   teaser: "../assets/2026/ozkary-smart-orchestration-multi-agent-systems-workflows-sm.jpg"
   teaserAlt: "Smart Orchestration: Multi-Agent Systems and Workflows"
