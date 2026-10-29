@@ -110,6 +110,11 @@ Export a clean HTML version of the article for syndication or static delivery:
 
 - This markdown `- **ALLOW:**` should be a `<li> <strong>ALLOW:</strong>`
 - The .jfif files are images. Use the `<img>` tag 
+- Make sure that mermaid blocks use this format to avoid parsing errors. Note the class name and location
+
+```text
+<pre><code class="language-mermaid">CONTENT-HERE</code></pre>
+```
 
 ## Phase 5: Email & Social Media Communication
 

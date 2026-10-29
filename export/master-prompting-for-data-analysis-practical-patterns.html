@@ -66,9 +66,9 @@ Output: Provide a bulleted list classifying each field as a Key, Dimension, or M
 <hr />
 <h2 id="in-context-learning-shot-prompting-patterns">In-Context Learning: Shot Prompting Patterns</h2>
 <p>In-context learning refers to a foundation model's ability to learn how to perform a task simply by observing examples provided within the prompt itself, without requiring any retraining or fine-tuning. Depending on the complexity of the analytical task, we use <strong>Zero-Shot</strong>, <strong>One-Shot</strong>, or <strong>Few-Shot</strong> prompting.</p>
-<pre class="mermaid"><code>flowchart LR
-    A[&quot;Zero-Shot Prompting\n0 Examples\n(Relies on pre-trained knowledge)&quot;] --&gt; B[&quot;One-Shot Prompting\n1 Example\n(Establishes format &amp; structure)&quot;]
-    B --&gt; C[&quot;Few-Shot Prompting\nMultiple Examples\n(Teaches rules &amp; edge cases)&quot;]
+<pre><code class="language-mermaid">flowchart LR
+    A["Zero-Shot Prompting \n0 Examples\n(Relies on pre-trained knowledge)"] --> B["One-Shot Prompting\n1 Example\n(Establishes format and structure)"]
+    B --> C["Few-Shot Prompting\nMultiple Examples \n(Teaches rules and edge cases)"]
 </code></pre>
 <h3 id="zero-shot-prompting">Zero-Shot Prompting</h3>
 <p><strong>Zero-shot prompting</strong> is asking a foundation model to complete a task with <strong>no prior examples</strong>, relying entirely on its pre-existing knowledge of programming languages, SQL syntax, and analytical concepts.</p>
