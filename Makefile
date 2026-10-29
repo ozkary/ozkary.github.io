@@ -14,6 +14,7 @@ PYTHON        ?= python3
 EXPORT_SCRIPT := scripts/export.py
 BASE_URL      ?= https://www.ozkary.dev
 OUTPUT_DIR    ?= export
+LATEST_POST   ?= _posts/2026/2026-10-28-master-prompting-for-data-analysis-practical-patterns.md
 
 # Support variable in uppercase, lowercase, or fallback
 FILE ?= $(file)
@@ -31,9 +32,10 @@ export:
 		$(MAKE) help; \
 	fi
 
-# Aliases for export
+# Aliases for export (post defaults to LATEST_POST when FILE is not provided)
 event: export
-post: export
+post:
+	@$(PYTHON) $(EXPORT_SCRIPT) "$(or $(FILE),$(LATEST_POST))" --output-dir "$(OUTPUT_DIR)" --base-url "$(BASE_URL)"
 html: export
 
 # Pattern rule: Allows running `make _events/somepage.md` or `make path/to/file.md`
@@ -96,6 +98,8 @@ help:
 	@echo "    make help                   Show this help message"
 	@echo ""
 	@echo "  Examples:"
+	@echo "    make post"
+	@echo "    make _posts/2026/2026-10-28-master-prompting-for-data-analysis-practical-patterns.md"
 	@echo "    make export FILE=_events/somepage.md"
 	@echo "    make _events/2026/2026-09-30-event-beyond-the-persona-master-skills-and-commands.md"
 	@echo "    make /_events/somepage.md"

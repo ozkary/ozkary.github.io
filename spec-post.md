@@ -45,7 +45,8 @@ When generating a published blog post from an event or presentation, we follow t
 
 Every blog post requires two visual assets stored in `assets/YYYY/`:
 1. **Standard Banner:** Aspect ratio `16:9` (Medium/Landscape). Name: `ozkary-<title-slug>.png`.
-2. **Teaser Image:** Aspect ratio `1:1` (Small/Square). Name: `ozkary-<title-slug>-sm.png`.
+2. **Teaser Banner:** Aspect ratio `16:9` (small (780px height)/Landscape). Name: `ozkary-<title-slug>-sm.png`.
+3. **Card Image:** Aspect ratio `1:1` (Small/Square). Name: `ozkary-<title-slug>-card.png`.
 
 ### Asset Generation Guidelines
 - Use generative styling that matches a modern, dark-mode, premium engineering aesthetic.
@@ -110,12 +111,16 @@ Export a clean HTML version of the article for syndication or static delivery:
 - This markdown `- **ALLOW:**` should be a `<li> <strong>ALLOW:</strong>`
 - The .jfif files are images. Use the `<img>` tag 
 
-## Phase 5: Email Communication
+## Phase 5: Email & Social Media Communication
 
-We share the new post with the community using an email template and the content of this presentation.
-- Use the email/template.md file for the format
-  - Replace the tags {EXAMPLE} with the post content like title, brief overview, post summary. video information, github repo
-- For the link use the www.ozkary.com/YYYY/MM/{POST-HTML}.html with the extension
-  -  Use the year and month of the post
-- Use the youtube video link
-- For the source code, use the relevant GitHub repository URL (e.g. `https://github.com/ozkary/<repo-name>`).
+We share the new post with the community using an email template (`emails/YYYY/<title-slug>.md`) and social media copy based on the content of the post:
+- Use the `emails/template.md` file for the base format:
+  - Replace the tags `{EXAMPLE}` with the post content such as title, brief overview, post summary, video information, and GitHub repo.
+- For the post link, use `https://www.ozkary.com/YYYY/MM/{POST-HTML}.html` with the `.html` extension (using the year and month of the post).
+- Include the YouTube video link (when applicable).
+- For the source code, use the relevant GitHub repository URL (e.g., `https://github.com/ozkary/<repo-name>`).
+- Include social media sections at the bottom of the email document:
+  1. **LinkedIn Newsletter & Publish Summary** (with recommended hashtags).
+  2. **GDG Community Post** and **Global AI Group Post**.
+  3. **X / Twitter Post (Premium / Long-Form):** Detailed long-form post covering the core problem, key architectural bullet points, full post link, GitHub repository link, and hashtags (no 280-character restriction).
+  4. **Bluesky Post:** Short-form post strictly within Bluesky's shorter character limit (`<= 300` characters, including the full URL and hashtags).
