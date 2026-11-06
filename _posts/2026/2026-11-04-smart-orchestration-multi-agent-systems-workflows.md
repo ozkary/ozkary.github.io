@@ -170,6 +170,22 @@ Notice how clean this composition is:
 - Each `WorkerAgent` declares its `instruction`, its dedicated tool (`query_zone_commuters`), and its `output_key` (`"raw_telemetry"`), which the next agent in the chain uses to continue the process.
 - The `Workflow` object defines the `edges`—telling the orchestration engine to start at `START`, call `ingestion_agent`, then transition from `ingestion_agent` to `aggregation_agent`, and so on.
 
+### The Deterministic Gate Contract: `{status, message, data}`
+
+In multi-agent systems, unhandled errors and unstructured responses cause upstream failures to cascade into downstream agents, leading to hallucinations and conversational drift. To prevent brittle `if/else` ladders while guaranteeing safe execution, every tool and worker task in the architecture adheres to a uniform envelope:
+
+```python
+{
+    "status": True,             # Boolean flag: True on success, False on failure/error
+    "message": "Description",   # Human-readable status or diagnostic message
+    "data": { ... }             # Structured payload written to the agent's output_key
+}
+```
+
+This contract acts as an automated **circuit breaker**:
+- **On Success (`status: True`):** The orchestration engine writes the `data` payload to session state under the designated `output_key` and signals the next agent node to run.
+- **On Failure (`status: False`):** Downstream execution halts immediately, and the diagnostic `message` is logged for governance and debugging—preventing corrupt or missing data from triggering downstream hallucinations.
+
 Now that we understand how to create a workflow graph in code, what types of workflows exist, and what is the purpose of each one? Let's review the four core enterprise workflow patterns.
 
 ---
@@ -224,7 +240,7 @@ Now that we understand the four workflow patterns and how they work conceptually
 
 ---
 
-## Live Walkthrough: Agent Workflows in Action
+## Review Agent Workflows Code (Live Walkthrough)
 
 ### 1. Background & Use Case: Data Warehouse Analytics Beyond Static Dashboards
 
