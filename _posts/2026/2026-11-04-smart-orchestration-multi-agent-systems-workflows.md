@@ -223,7 +223,7 @@ flowchart TD
 ```
 
 ### 1. Sequential
-Just as the name implies, a **Sequential** workflow is a linear series of steps: $A \rightarrow B \rightarrow C \rightarrow D$. If $A$ runs and succeeds, $B$ runs; if $B$ succeeds, $C$ runs, and so on. Every node executes in strict linear order as long as each prior step completes cleanly.
+Just as the name implies, a **Sequential** workflow is a linear series of steps: [A] → [B] → [C] → [D]. If A runs and succeeds, B runs; if B succeeds, C runs, and so on. Every node executes in strict linear order as long as each prior step completes cleanly.
 
 ### 2. Parallel
 In a **Parallel** workflow, worker agents do not run in series—they run **independently and simultaneously** to execute tasks, and an aggregator puts their findings together for the final output. You use parallel execution when you need multiple agents to fetch or analyze data from different sources or regions at the same time (for example, querying an internal database, calling an API, or analyzing separate geographic zones concurrently) and then joining those results once all parallel branches finish.
