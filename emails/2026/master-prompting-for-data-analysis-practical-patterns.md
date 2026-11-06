@@ -101,7 +101,7 @@ https://www.ozkary.com/2026/10/master-prompting-for-data-analysis-practical-patt
 4. Bluesky Post (<= 300 chars limit)
 🚀 Master Prompting for Data Analysis: Practical Patterns
 
-Connect LLMs to SQL Data Warehouses with Shot Prompting, Schema Grounding, Templates, CoT & ReAct:
+Connect LLM Agents to SQL Data Warehouses with Shot Prompting, Schema Grounding, Templates, CoT & ReAct:
 
 👉 https://www.ozkary.com/2026/10/master-prompting-for-data-analysis-practical-patterns.html
 
