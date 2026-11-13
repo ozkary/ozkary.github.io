@@ -82,7 +82,7 @@ You’ll walk away from this practical session not just with an understanding of
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; margin-bottom: 25px; background: #000;">
 <iframe 
 src="https://www.youtube.com/embed/ArDL2vEXnuA" 
-title="Live YouTube event" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+title="Live YouTube event - Smart Orchestration: Multi-Agent Systems and Workflows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
 allowfullscreen>
 </iframe>
 </div>
