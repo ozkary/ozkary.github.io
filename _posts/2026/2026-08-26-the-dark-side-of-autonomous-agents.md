@@ -3,7 +3,7 @@ title: "The Dark Side of Autonomous Agents - How to Stop Them"
 excerpt: "Learn how autonomous agents can be hijacked via prompt injections in specification files and how to build zero-trust security boundaries using cryptographic signatures, vault secret isolation, and Policy Enforcement Points."
 last_modified_at: 2026-08-26T13:00:00
 header:
-  teaser: "../assets/2026/ozkary-the-dark-side-of-ai-agents-sm.png"
+  teaser: "../assets/2026/ozkary-the-dark-side-of-autonomous-agents-policy-enforcement-points-sm.jpg"
   teaserAlt: "The Dark Side of Autonomous Agents - How to Stop Them"
 tags: 
   - security  
@@ -18,7 +18,7 @@ repo_url: "https://github.com/ozkary/ai-engineering/tree/main/adk"
 ---
 # Overview
 
-![The Dark Side of Autonomous Agents - How to Stop Them](../../assets/2026/ozkary-the-dark-side-of-ai-agents.png "The Dark Side of Autonomous Agents - How to Stop Them")
+![The Dark Side of Autonomous Agents - How to Stop Them](../../assets/2026/ozkary-the-dark-side-of-autonomous-agents-policy-enforcement-points.jpg "The Dark Side of Autonomous Agents - How to Stop Them")
 
 Recent headlines have exposed a critical vulnerability in modern AI: autonomous agents are becoming a prime target for remote execution exploits and data supply-chain attacks. When we define an agent's runtime behavior using external, unprotected Markdown files, while leaving static credentials exposed in plain text, we inadvertently create a powerful insider threat. The leap from a helpful AI assistant to a rogue execution vector that can corrupt a data warehouse or leak security keys is alarmingly short.
 
