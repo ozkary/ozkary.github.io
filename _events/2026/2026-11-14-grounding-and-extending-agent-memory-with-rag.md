@@ -9,7 +9,7 @@ header:
   teaser: "../assets/2026/ozkary-grounding-and-extending-agent-memory-with-rag-sm.jpg"
   teaserAlt: "Grounding and Extending Agent Memory with RAG"
 image: "https://www.ozkary.dev/assets/2026/ozkary-grounding-and-extending-agent-memory-with-rag-sm.jpg"
-excerpt: ""
+excerpt: "Explore how you can ground an agent's memory and supercharge its domain expertise with RAG (Retrieval-Augmented Generation) tools. Learn how vector search bridges the gap between raw data streams and actionable historical knowledge, allowing agents to accurately diagnose drift, prevent costly hallucinations, and execute governed remediation safely."
 toc: true
 ---
 
