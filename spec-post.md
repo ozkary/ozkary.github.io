@@ -126,6 +126,14 @@ We share the new post with the community using an email template (`emails/YYYY/<
 - For the source code, use the relevant GitHub repository URL (e.g., `https://github.com/ozkary/<repo-name>`).
 - Include social media sections at the bottom of the email document:
   1. **LinkedIn Newsletter & Publish Summary** (with recommended hashtags).
-  2. **GDG Community Post** and **Global AI Group Post**.
-  3. **X / Twitter Post (Premium / Long-Form):** Detailed long-form post covering the core problem, key architectural bullet points, full post link, GitHub repository link, and hashtags (no 280-character restriction).
-  4. **Bluesky Post:** Short-form post strictly within Bluesky's shorter character limit (`<= 300` characters, including the full URL and hashtags).
+  2. **ozkary.com** Newsletter with a brief overview.
+  3. **GDG Community Post** and **Global AI Group Post**.
+  4. **X / Twitter Post (Premium / Long-Form):** Detailed long-form post covering the core problem, key architectural bullet points, full post link, GitHub repository link, and hashtags (no 280-character restriction).
+  5. **Bluesky Post:** Short-form post strictly within Bluesky's shorter character limit (`<= 300` characters, including the full URL and hashtags).
+  6. **DataTalks Community** post with the following format:
+```markdown
+What is it: A technical article about {short-blur-here}
+Who is it for: 
+Why is it relevant: 
+Link: 
+```

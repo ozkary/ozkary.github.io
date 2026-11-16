@@ -22,15 +22,14 @@
     - [x] x
     - [x] bluesky
 
-- [ ] 2026-09-28 The Dark Side of Autonomous Agents
+- [x] 2026-11-15 The Dark Side of Autonomous Agents
     - [] manual post gdg 
     - [] manual post global
     - [x] Kit email
     - [x] x
     - [x] bluesky
 
-
-- [ ] date? Beyond the Persona: Mastering Agent Skills and Commands
+- [ ] 2026-11-22 Beyond the Persona: Mastering Agent Skills and Commands
     - [] manual post gdg 
     - [] manual post global
     - [x] Kit email
@@ -50,10 +49,22 @@
 - [ ] 11/4/2026 Smart Orchestration: Multi-Agent Systems and Workflows
     - [] manual post gdg 
     - [] manual post global
-    - [] Kit email
+    - [x] Kit email
+    - [x] GDG Email
+    - [x] GAI Email
     - [] x
     - [] bluesky
     - [] slack DataTalks
+
+- [ ] Grounding and Extending Agent Memory with RAG
+    - [] manual post gdg 
+    - [] manual post global
+    - [] Kit email
+    - [] GDG Email
+    - [] GAI Email
+    - [] x
+    - [] bluesky
+    - [] Slack DataTalks
 
 
 - [ ] date? title?

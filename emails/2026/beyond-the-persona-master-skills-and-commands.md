@@ -30,16 +30,14 @@ Title: Beyond the Persona: Mastering Agent Skills and Commands
 
 In our recent presentation on "Beyond the Persona: Mastering Agent Skills and Commands," we explored how to move beyond fragile, monolithic AI agents by decoupling domain judgment from deterministic execution.
 
-Presentation, Video & Code Resources
-
-Discover how to structure domain knowledge as modular Markdown skills, wrap database and warehouse mutations into deterministic command strategies, and guard production pipelines using human-in-the-loop pre-hooks and the Model Context Protocol (MCP).
+Discover how to structure domain knowledge as modular Markdown skills, wrap database and warehouse mutations into deterministic command strategies, and guard production pipelines using human-in-the-loop (HITL) pre-hooks and the Model Context Protocol (MCP).
 
 Access the complete written deep dive, full video recording, code patterns, and open-source GitHub repository directly on the hub:
 
 👉 Read the Full Post, Watch the Video & Access the Code on ozkary.com:
 https://www.ozkary.com/2026/09/beyond-the-persona-master-skills-and-commands.html
 
-Thank you for your continued support of GDG Broward County, FL. We look forward to seeing you at our next event!
+Thank you for your continued support. We look forward to seeing you at our next event!
 
 > Publish Summary (For LinkedIn Pop-Up)
 In our recent presentation, we shared an architectural pattern for decoupling AI agents into domain skills and deterministic commands to eliminate context bloat, token burn, and hallucinations in production data engineering pipelines. Access the technical breakdown, replay, and GitHub repository on ozkary.com.

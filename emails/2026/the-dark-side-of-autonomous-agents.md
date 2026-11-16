@@ -66,8 +66,6 @@ Title: The Dark Side of Autonomous Agents
 
 As enterprise engineering teams deploy autonomous AI agents with access to real-time tools, APIs, and databases, new architectural vulnerabilities emerge. Unbounded execution loops, prompt injection, data exfiltration, and state drift turn autonomous systems from productivity drivers into severe operational risks.
 
-Architectural Analysis & Governance Resources
-
 Discover the hidden failure modes of autonomous agents and the systems-level guardrails required to control them—including zero-trust execution boundaries, deterministic semaphores, and structured human-in-the-loop validation.
 
 Access the complete architectural teardown, threat model breakdowns, and governance blueprints directly on the hub:
