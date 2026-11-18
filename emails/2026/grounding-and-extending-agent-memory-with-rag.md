@@ -23,18 +23,21 @@ Link:
 
 **Subject:** Live Session: Grounding and Extending Agent Memory with RAG
 
-Hi everyone,
+When AI agents lack your team's historical data and records, they guess—and make costly mistakes.
 
-Join this event to learn why grounding is important for stopping hallucinations and extending agent memory with domain information.
+Join this live session to see how to ground agents and extend their memory using RAG so they can retrieve domain knowledge, stop hallucinating, and automate workflows reliably.
 
-When AI agents lack your team's historical data and records, they often guess and make mistakes. We will show you how to give agents an external memory so they can find the right information, answer accurately, and help automate your workflows reliably.
+What we'll cover:
 
-🗓️ **Date:** Wednesday, Dec 2, 2026  
-🕒 **Time:** 12:00 PM – 12:45 PM EST  
-💻 **Location:** Live YouTube Stream  
+- Why prompt stuffing fails and how external vector memory solves it
+- How agents use semantic recall to diagnose real-time events and anomalies
+- Live architectural walkthrough and demo
+
+🗓️ Date: Wednesday, Dec 2, 2026
+🕒 Time: 12:00 PM – 12:45 PM EST
+📍 Location: Online Technical Event
 
 👉 **[RSVP and Event Details](https://www.ozkary.dev/events/2026/grounding-and-extending-agent-memory-with-rag/)**  
-📹 **[Watch directly on YouTube](https://www.youtube.com/live/ArDL2vEXnuA)**
 
 Hope to see you there!
 

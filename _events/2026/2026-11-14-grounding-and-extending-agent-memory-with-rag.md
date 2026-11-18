@@ -67,7 +67,7 @@ allowfullscreen>
 </iframe>
 </div>
 <p>
-<a href="https://www.youtube.com/live/ArDL2vEXnuA" target="_new" title="Click to watch on YouTube">Watch on YouTube or set a reminder</a>
+<a href="https://www.youtube.com/live/MGziwOr-qxk" target="_new" title="Click to watch on YouTube">Watch on YouTube or set a reminder</a>
 </p>
 
 ## Stay Updated on Future Events
