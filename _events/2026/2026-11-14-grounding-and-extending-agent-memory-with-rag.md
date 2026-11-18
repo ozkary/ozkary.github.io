@@ -28,7 +28,7 @@ In this session, we will explore how you can **ground** an agent's memory and su
 
 > 👉 Join us and learn how to implement worker agents with RAG with production-proven design patterns, and walk away with the fundamental concepts you need to build resilient, production-ready AI systems!
 
-![Grounding and Extending Agent Memory with RAG](../../assets/2026/ozkary-grounding-and-extending-agent-memory-with-rag-sm.jpg)
+![Grounding and Extending Agent Memory with RAG](https://www.ozkary.dev/assets/2026/ozkary-grounding-and-extending-agent-memory-with-rag.jpg)
 
 📋 Presentation Agenda
 
